@@ -1,0 +1,19 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+  <div class="mod-nieuws">
+    <div class="item">
+      <div class="content">
+        <div class="date"> 
+          {{ post.date("d M Y") }}
+        </div>
+        {% if post.thumbnail.src %}
+      		<a href="{{post.link}}"><img class="square" src="{{post.thumbnail.src}}" /></a>
+      	{% endif %}
+      	<h3><a href="{{post.link}}">{{post.title}}</a></h3>
+      	<p>{{post.content|truncate(25)}}</p>
+      	<a href="{{post.link}}">Lees meer</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

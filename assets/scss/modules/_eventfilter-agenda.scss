@@ -1,0 +1,48 @@
+.mod-eventfilter-agenda {
+  background: $green;
+  padding: 10px 0 0;
+  position: relative;
+  .row {
+    margin-left: -5px;
+    margin-right: -5px;
+    .col, .col-4, .col-8 {
+      padding: 0 5px;
+    }
+  }
+  .mod-filterbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  input[type=text], .form-control{
+    font-size: 18px;
+    font-weight: 600;
+    color: $darkblue;
+    background: transparent;
+    border: 0;
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+    padding-left: 26px;
+    padding-right: 0;
+    padding-top: 10px;
+    border-radius: 0;
+    border-bottom: 2px solid $darkblue;
+    background-size: 20px 20px;
+    background-position: 4px 12px;
+    background-repeat: no-repeat;
+    &.js-datepicker {
+      background-image: url(../images/calendar.png);
+    }
+    &.js-timepicker {
+      background-image: url(../images/time.png);
+    }
+    &.js-now {
+      background-image: url(../images/now.png);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .btn {
+    margin-bottom: 10px;
+  }
+}

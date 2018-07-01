@@ -1,0 +1,29 @@
+<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="meta">
+        <div class="caticon">{% include theme.url ~ '/templates/partials/svg/film.svg' %}</div>
+      </div>
+    </div>
+    <div class="col-md-15">
+      <div class="moviebox">
+        <div class="body">
+          <h2> Naar de film </h2>
+          <div class="row">
+            {% for post in evenementen %}
+              {% if (post.terms('categorie')|join('') == 'Film') and (the_hour == post.begintijd|date("H")) %}
+                <div class="col-md-10 col-xl-6">
+                  {% include ['tease-film.twig'] %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="buttons">
+          <a href="#" class="location condensed"> <i class="fa fa-map-marker-alt"></i> De filmhallen</a>
+          <a href="#" class="tickets"> Alle films <i class="fa fa-arrow-circle-right"></i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

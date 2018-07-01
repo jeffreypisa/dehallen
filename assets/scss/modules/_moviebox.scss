@@ -1,0 +1,69 @@
+.moviebox {
+  margin-left: -25px;
+  margin-right: -25px;
+  .body {
+    padding: 40px 30px;
+    background: $mediumgrey;
+    .film {
+      color: $darkblue;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      h3 {
+        color: $green;
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 20px;
+      }
+      a {
+        color: $darkblue;
+        &:hover {
+          text-decoration: none;
+          border-bottom: 2px solid $green;
+        }
+      }
+    }
+  }
+  .buttons {
+    height: 40px;
+    a {
+      display: block;
+      height: 50px;
+      width: 50%;
+      float: left;
+      color: #fff;
+      line-height: 50px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .location {
+      background: $darkblue;
+      text-transform: uppercase;
+      &:hover {
+        background: darken($darkblue, 20%);
+      }
+    }
+    .tickets {
+      background: $green;
+      &:hover {
+        background: darken($green, 20%);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .moviebox {
+    margin-right: 0;
+    .buttons {
+      .location {
+        width: calc(100% - 200px);
+      }
+      .tickets {
+        width: 200px;
+      }
+    }
+  }
+}

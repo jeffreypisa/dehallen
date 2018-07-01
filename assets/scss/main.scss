@@ -1,0 +1,42 @@
+/*!
+Theme Name: De Hallen
+Theme URI: https://www.dehallen.nl
+Author: Emonks
+Author URI: https://www.emonks.nl
+Description: Thema ontwikkeld door emonks.nl
+Version: 1.1
+Text Domain: myproject
+!*/
+
+@import 'common/variables';
+
+@import '../../bower_components/bootstrap/scss/bootstrap.scss';
+@import '../../bower_components/slick-carousel/slick/slick.css';
+@import '../../bower_components/lity/dist/lity.min.css';
+
+@import '../fonts/fonts.css';
+
+@import 'common/base';
+@import 'common/single';
+@import 'common/carousel';
+@import 'common/buttons';
+@import 'common/section';
+@import 'common/cards';
+
+@import 'plugins/lity';
+
+@import 'modules/agenda';
+@import 'modules/greenbar';
+@import 'modules/events';
+@import 'modules/eventfilter';
+@import 'modules/eventfilter-agenda';
+@import 'modules/footer';
+@import 'modules/header';
+@import 'modules/pageheader';
+@import 'modules/slider';
+@import 'modules/followus';
+@import 'modules/mobilemenu';
+@import 'modules/quote';
+@import 'modules/filterbar';
+@import 'modules/locaties';
+@import 'modules/moviebox';

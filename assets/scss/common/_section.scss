@@ -1,0 +1,37 @@
+section {
+  padding: 40px 0;
+  position: relative;
+  .bgbluebar {
+    color: #fff;
+    h2 {
+      color: #fff;
+    }
+  }
+  &.bgbluebar {
+    h2 {
+      color: #fff;
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      right: 0;
+      height: 280px;
+      z-index: -1;
+      background: $darkblue;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  section {
+    padding: 50px 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  section {
+
+  }
+}

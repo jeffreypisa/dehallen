@@ -1,0 +1,64 @@
+.mod-filterbar {
+  background: $green;
+  color: #fff;
+  text-align: center;
+  padding: 14px 0 8px;
+  label {
+    display: block;
+  }
+  label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+  }
+  label > input + svg{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+    .cls-2 {
+      fill: #fff;
+    }
+  }
+  label > input:checked + svg { /* (RADIO CHECKED) IMAGE STYLES */
+    .cls-2 {
+      fill: $darkblue;
+    }
+  }
+  label > input + svg:hover {
+    opacity: 0.8
+  }
+  .tag-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    .col {
+      text-align: center;
+    }
+  }
+  a {
+    position: relative;
+    span {
+      display: none;
+    }
+    &:hover {
+      div {
+        display: block;
+        position: absolute;
+        z-index: 9;
+        bottom: -38px;
+        text-align: center;
+        left: -40px;
+        right: -40px;
+        span {
+          display: inline-block;
+          text-transform: uppercase;
+          padding: 2px 8px;
+          height: 30px;
+          background: $lightgreen;
+          color: $darkblue;
+          font-size: 15px;
+          box-shadow: inset 0px 2px 3px rgba(0,0,0,.3);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,193 @@
+.meta {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 0;
+  bottom: 0;
+  width: 140px;
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    right: 38px;
+    top: 10px;
+    bottom: -60px;
+    width: 6px;
+    background: $green;
+  }
+}
+
+.mod-agenda {
+  position: relative;
+  .hourblock {
+    margin: 60px 0;
+    .meta:after {
+      top: -70px;
+      bottom: -70px;
+    }
+    &:first-child {
+      .meta:after {
+        top: 0;
+      }
+    }
+  }
+  .meta {
+    .hour {
+      font-size: 25px;
+      font-weight: bold;
+      position: relative;
+      margin-top: -8px;
+      span {
+        border: 6px solid $darkblue;
+        border-radius: 100px;
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        background: #fff;
+        top: -8px;
+        right: 24px;
+      }
+    }
+    .caticon {
+      position: absolute;
+      top: 50%;
+      margin-top: -26px;
+      left: 20px;
+      display: none;
+      svg {
+        width: auto;
+        height: 52px;
+      }
+      .cls-2 {
+        fill: $darkblue;
+      }
+    }
+  }
+  .tease {
+    margin-bottom: 30px;
+    position: relative;
+    &.special {
+      .card {
+        background: $green;
+        .bg {
+          display: block;
+        }
+        h3 a {
+          color: #fff;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .card {
+      font-size: 20px;
+      line-height: 24px;
+      border: 0;
+      .row {
+        margin: 0;
+      }
+      .col-md-10 {
+        padding: 0;
+      }
+      .bg {
+        min-height: 234px;
+        display: none;
+        .bgcover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+      .card-body {
+        min-height: 180px;
+        padding: 30px;
+      }
+      .btn.btn-primary {
+        color: #fff;
+        &.nolink:hover {
+          background: $darkblue;
+          cursor:default;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .hourblock {
+    .meta:after {
+      bottom: -70px;
+    }
+    &:first-child {
+      margin: 0;
+    }
+  }
+  .meta {
+    width: auto;
+    &:after {
+      top: 10px;
+    }
+  }
+  .mod-agenda {
+    .meta {
+      .caticon {
+        display: block;
+      }
+      .hour {
+        font-size: 32px;
+      }
+    }
+    .tease {
+      .card {
+        .col-md-10:first-child {
+          background: #dbdcdd;
+        }
+        .bg {
+          min-height: auto;
+          display: block;
+        }
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 90px;
+        right: 100px;
+        height: 1px;
+        background: $darkblue;
+        z-index: -1;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .mod-agenda {
+    .meta {
+      .hour {
+        font-size: 55px;
+      }
+      .caticon {
+        left: 50px;
+      }
+    }
+    .tease {
+      .card {
+        h3 {
+          font-size: 30px;
+          line-height: 35px;
+        }
+        .btn.btn-primary {
+          font-size: 20px;
+        }
+      }
+      &:after {
+        left: 120px;
+      }
+    }
+  }
+}

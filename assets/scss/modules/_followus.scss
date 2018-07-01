@@ -1,0 +1,19 @@
+.followus {
+  a {
+    height: 26px;
+    width: 26px;
+    text-align: center;
+    margin-bottom: 8px;
+    img {
+      height: 26px;
+      width: auto;
+      max-width: 24px;
+      display: inline-block;
+    }
+    &:hover {
+      img {
+        opacity: 0.7;
+      }
+    }
+  }
+}

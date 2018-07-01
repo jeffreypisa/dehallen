@@ -1,0 +1,52 @@
+{% if item.slider|length > 0 %}
+  <div id="slider" class="mod-slider carousel carousel-fade" data-ride="carousel">
+    {% if item.slider|length > 1 %}
+    <div class="indicators">
+      <div class="container">
+        <ol class="carousel-indicators">
+          {% for slide in item.slider %}
+            <li data-target="#slider" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %} active {% endif %}"></li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+    {% endif %}
+    <div class="carousel-inner">
+      {% for slide in item.slider %}
+        <a href="{{ slide.slide.link }}" class="carousel-item slide {% if loop.first %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
+          <div class="container">
+            <div class="content">
+              <div class="row">
+                <div class="col-md-18 offset-md-1">
+                  <h2>{{ slide.slide.title }}</h2>
+                  <div class="datetime">
+                    {{ slide.slide.datum|date("l d F") }}
+                  </div>
+                  <div class="datetime">
+                    {{ slide.slide.begintijd|date("H:s") }}
+                  </div>
+                </div>
+              </div>
+              <div class="locatie condensed">
+                <div class="container">
+                  <div class="location">
+                  {% set locatie = slide.slide.get_field('locatie') %}
+                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+      <img src="{{ theme.link ~ '/assets/images/chevron.svg' }}" alt="left">
+      <span class="sr-only">Vorige</span>
+    </a>
+    <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+      <img src="{{ theme.link ~ '/assets/images/chevron.svg' }}" alt="right">
+      <span class="sr-only">Volgende</span>
+    </a>
+  </div>
+{% endif %}

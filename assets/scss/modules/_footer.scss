@@ -1,0 +1,38 @@
+footer {
+  padding: 30px 0 15px;
+  background: $darkblue;
+  color: #fff;
+  font-size: 13px;
+  line-height: 16px;
+  h5 {
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  a {
+    color: #fff;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      a, a[href] {
+        color: #fff;
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+  }
+  .followus {
+    a {
+      display: block;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  footer {
+
+  }
+}

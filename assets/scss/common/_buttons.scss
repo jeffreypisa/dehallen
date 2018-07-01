@@ -1,0 +1,73 @@
+.btn-link, a[href] {
+  color: $green;
+  &:hover {
+    color: darken($green, 20%);
+    text-decoration: none;
+  }
+  &:focus, &:active, &:target {
+    color: darken($green, 20%);
+    opacity: 0.8;
+    text-decoration: none;
+  }
+}
+.btn {
+  color: #fff;
+  border-radius: 0;
+  font-size: 20px;
+  height: 54px;
+  line-height: 54px;
+  font-weight: bold;
+  border: 0;
+  padding: 0 25px;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px rgba(0,0,0,.3);
+  &:hover {
+    color: #fff;
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.3);
+    border: 0;
+  }
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    color: #fff;
+    opacity: 0.8;
+    border: 0;
+  }
+}
+.btn-outline-light {
+  border: 2px solid #fff;
+  height: 44px;
+  line-height: 44px;
+  &:hover {
+    color: $green;
+    border: 2px solid #fff;
+    background: #fff;
+  }
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    color: $green;
+    border: 2px solid #fff;
+    background: #fff;
+  }
+}
+.btn-primary {
+  background: $darkblue;
+  color: #fff;
+  &:hover {
+    color: #fff;
+    background: darken($darkblue, 20%);
+  }
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background: lighten($darkblue, 20%);
+  }
+}
+.btn-secondary[href] {
+  background: $green;
+  color: #fff;
+  &:hover {
+    background: darken($green, 20%);
+    color: #fff;
+  }
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    background: lighten($green, 20%);
+    color: #fff;
+  }
+}

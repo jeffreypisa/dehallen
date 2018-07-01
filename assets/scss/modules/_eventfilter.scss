@@ -1,0 +1,76 @@
+.mod-eventfilter {
+  margin-bottom: 30px;
+  h2 {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .box {
+    background: $green;
+    padding: 40px 30px;
+    position: relative;
+    .row {
+      margin-left: -5px;
+      margin-right: -5px;
+      .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8 {
+        padding: 0 5px;
+      }
+    }
+    input[type=text] {
+      
+    }
+    input[type=text], .js-now {
+      height: 64px;
+      font-size: 30px;
+      line-height: 44px;
+      padding: 10px 10px 6px 44px;
+      border: 2px solid #fff;
+      border-radius: 0;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: $darkblue;
+      position: relative;
+      background-color: #fff;
+      background-size: 30px 30px;
+      background-position: 8px 14px;
+      background-repeat: no-repeat;
+      &.js-datepicker {
+        background-image: url(../images/calendar.png);
+      }
+      &.js-timepicker {
+        background-image: url(../images/time.png);
+      }
+      &.js-now {
+        background-image: url(../images/now.png);
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .mod-filterbar {
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+    .buttonbar {
+      position: absolute;
+      bottom: 0;
+      right: 30px;
+      left: 30px;
+      .btn {
+        font-size: 30px;
+        padding: 0 20px;
+        line-height: 64px;
+        height: 64px;
+        margin-bottom: -32px;
+        border: 0;
+        color: #fff;
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .mod-eventfilter {
+    margin-bottom: -30px;
+  }
+}

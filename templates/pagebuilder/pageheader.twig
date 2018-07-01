@@ -1,0 +1,28 @@
+<section 
+  id="section{{sectionno}}" 
+  class="mod-pageheader d-flex align-items-center flex-column">
+  <div 
+    class="bg" 
+    style="{% if item.afbeelding %} background-image: url({{ item.afbeelding }}) {% endif %}">
+  </div>
+  {% if item.video %}
+    <a href="{{ item.video }}" data-lity class="playicon">
+      <img src="{{ theme.link }}/assets/images/play.svg">
+    </a>
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-xl-8 offset-md-1 offset-xl-2">
+		    <h1 class="slogan">
+  		    {% if item.slogan %}
+  		      {{ item.slogan }}
+  		    {% elseif post.title %} 
+  		      {{ post.title }}
+  		    {% elseif item.title%}
+  		      {{ item.title }}
+          {% endif %}
+		    </h1>
+      </div>
+	  </div>
+  </div>
+</section>

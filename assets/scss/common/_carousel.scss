@@ -1,0 +1,39 @@
+#carouselBeadManRedding {
+    background-color: #000;
+}
+.carousel.carousel-fade .carousel-item {
+    display: block;
+    opacity: 0;
+    transition: opacity ease-out 0.5s;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+.carousel.carousel-fade .carousel-item.active {
+    opacity: 1 !important;
+}
+.carousel.carousel-fade .carousel-item:first-child {
+    top: auto;
+    position: relative;
+    transition: opacity ease-out 0.5s;
+}
+.carousel.carousel-fade .carousel-item:second-child {
+    top: auto;
+    position: relative;
+    transition: opacity ease-out 0.5s;
+}
+.carousel-item .img-fluid {
+    margin: 0 auto;
+}
+.carousel img {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.carousel .carousel-control-prev img,
+.carousel .carousel-control-next img {
+  opacity: 1;
+  filter: alpha(opacity=100); 
+  width: 23px;
+  height: 71px;
+}

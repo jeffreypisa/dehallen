@@ -1,0 +1,48 @@
+<div class="mod-mobilemenu">
+  <div class="top">
+    <a class="js-menu closemenu">
+      <span> </span>
+      <span> </span>
+    </a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-6 col-xl-5">
+          {% include "menu.twig" with {'menu': menu.get_items} %}
+        </div>
+        <div class="col-lg-8 col-xl-8 d-none d-lg-block">
+          <img src="{{ options.kaartje }}">
+        </div>
+        <div class="col-md-10 col-lg-6 col-xl-6 offset-xl-1">
+          <div class="third">
+            <h3> OPENINGSTIJDEN </h3>
+            {{ options.openingstijden }}
+            <br>
+            <h3> ADRES </h3>
+            {{ options.adres }}
+            <br>
+            <h3> PLAN </h3>
+            {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-1 col-md-8 offset-md-1">
+          {% include "menuextra.twig" with {'menuextra': menuextra.get_items} %}
+        </div>
+        <div class="col-md-6 offset-md-5 col-md-6 offset-md-5">
+          <div class="followus">
+            <div class="">Volg ons</div>
+            <br>
+            <a href="{{options.facebook}}"><img src="{{theme.link}}/assets/images/facebook.svg"></a>
+            <a href="{{options.twitter}}"> <img src="{{theme.link}}/assets/images/twitter.svg"> </a>
+            <a href="{{options.instagram}}"> <img src="{{theme.link}}/assets/images/instagram.svg"> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

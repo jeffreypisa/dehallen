@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="mod-greenbar">
+  </div>
+  <section>
+    <div class="container">
+      <h1> {{ options.zaalhuur_titel }} </h1>
+      <div class="row">
+        <div class="offset-md-2 col-md-16 offset-xl-4 col-xl-12">
+          {{ options.zaalhuur_content }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bgbluebar">
+    <div class="container">
+      <h2 class="text-center">
+        {{ options.zaalhuur_meer_titel }}
+      </h2>
+      <div class="cards">
+        <div class="row justify-content-center">
+          {% for blok in posts %}  
+            <div class="col-md-10 col-lg-6 col-xl-5">
+              <div class="card-wrapper nopb">
+                <a href="{{ blok.link }}" class="card">
+                  {% if blok.afbeelding %}
+                    <div class="card-img-top">
+                      <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                      <img class="img-fluid" src="{{ TimberImage(blok.afbeelding) }}" alt="image">
+                    </div>
+                  {% endif %}
+                  <div class="card-body">
+                    <h3> {{ blok.title }} </h3>
+                    {{ blok.capaciteit }} personen
+                  </div>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% if options.info_aanvragen_link %}
+        <div class="text-center">
+          <br>
+          <a href="{{ options.info_aanvragen_link }}" class="btn btn-secondary"> {{ options.info_aanvragen_knop_titel }} <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

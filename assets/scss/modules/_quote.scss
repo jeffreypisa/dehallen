@@ -1,0 +1,23 @@
+.mod-quote {
+  padding-top: 0;
+  padding-bottom: 80px;
+  h2 {
+    font-family: "bree-serif", "Open Sans", sans-serif;
+    font-style:italic;
+    font-weight:600;
+    text-align: center;
+    margin: 20px 0 30px;
+  }
+  .line {
+    width: 170px;
+    height: 3px;
+    margin: 0 auto;
+    background: $yellow;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .mod-quote {
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,51 @@
+.mod-locaties {
+  margin-bottom: 30px;
+  position: relative;
+  &:last-child {
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: 2px;
+    .line .meta:after {
+      bottom: 10px;
+    }
+  }
+  .line {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    bottom: 0;
+    .row {
+      height: 100%;
+    }
+  }
+  .card {
+    padding: 0;
+    border: 0;
+    .card-body {
+      padding: 40px;
+      margin: 0;
+      border: 0;
+      a {
+        color: $darkblue;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 27px;
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+  }
+  &.winkels {
+    .card {
+      background: #ffecd6;
+    }
+  }
+  &.horeca {
+    .card {
+      background: #f3cfc1;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<article class="tease tease-{{post.post_type}} {% if post.special %} special {% endif %}" id="tease-{{post.ID}}">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="meta">
+        <div class="caticon">{% include theme.url ~ '/templates/partials/svg/' ~ post.terms('categorie') | join(' ') ~ '.svg' %}</div>
+      </div>
+    </div>
+    <div class="col-md-14">
+      <div class="card {{ post.terms('categorie') | join(' ') }}">
+        <div class="row">
+          <div class="col-md-10">
+            {% if post.afbeelding %} 
+              <div class="bg">
+                <a href="{{ post.link }}" class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding) }})"> </a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h3> <a href="{{ post.link }}"> {{ post.title }} </a> </h3>
+              {% if post.type_evenement %}
+                <p> {{ post.type_evenement }} </p>
+              {% endif %}
+              <div class="date"> 
+                {% if post.datum %}
+                  <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ post.datum|date("d F Y") }} <br>
+                {% endif %}
+                {% if post.begintijd or post.eindtijd %}
+                  <span class="icon"> <i class="fa fa-clock"></i> </span>
+                  {% if post.begintijd %} {{ post.begintijd|date("H:i") }} {% endif %} 
+                  {% if post.eindtijd %}  
+                    {% if post.begintijd %} — {% endif %}
+                    {{ post.eindtijd|date("H:i") }}
+                  {% endif %}
+                {% endif %}
+              </div> 
+              {% if post.locatie %}
+                <div class="location">
+                  {% set locatie = post.get_field('locatie') %}
+                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                </div>
+              {% endif %}
+            </div>
+            {% if post.gratis %}
+              <div class="btn btn-block btn-primary nolink"> Gratis entree </div>
+            {% elseif post.ticketlink %}
+              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> Tickets <i class="fas fa-arrow-circle-right"></i> </a>
+            {% else %}
+              <div class="btn btn-block btn-primary nolink"> Geen tickets </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

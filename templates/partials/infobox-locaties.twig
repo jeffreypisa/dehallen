@@ -1,0 +1,26 @@
+<div class="card infobox">
+  <div class="card-body">
+    <h5> {{ post.title }} </h5>
+    {% if post.adres %}
+      <p>{{ post.adres }}</p>
+    {% endif %}
+    {% if post.telefoon %}
+      <p>{{ post.telefoon }}</p>
+    {% endif %}
+    {% if post.email %}
+      <a href="mailto:{{ post.email }}">{{ post.email }}</a>
+    {% endif %}
+    {% if post.capaciteit %}
+      <div>capaciteit: {{ post.capaciteit }} personen </div>
+    {% endif %}
+    {% if post.grootte %}
+      <div>grootte: {{ post.grootte }} m2</div>
+    {% endif %}
+    {% if post.faciliteiten %}
+      <div>faciliteiten: {{ post.faciliteiten }}</div>
+    {% endif %}
+    {% if post.horeca %}
+      <div>horeca: {{ post.horeca }}</div>
+    {% endif %}
+  </div>
+</div>

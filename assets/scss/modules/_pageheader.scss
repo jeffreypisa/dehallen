@@ -1,0 +1,44 @@
+.mod-pageheader .bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index:-1;
+  background-size: cover;
+  background-position: center center;
+  transition: all 0.3s ease-in-out;
+  background-color: $lightgrey;
+}
+
+.mod-pageheader {
+  position: relative;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  text-align: center;
+  min-height: 300px;
+  .overlay {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    margin-left: -85px;
+    width: 170px;
+    height: auto;
+    z-index: 1;
+  }
+}
+@include media-breakpoint-up(sm) {
+  .mod-pageheader {
+    min-height: 400px;
+  }
+}
+@include media-breakpoint-up(md) {
+  .mod-pageheader {
+    
+  }
+}
+@include media-breakpoint-up(lg) {
+  .mod-pageheader {
+    min-height: 480px;
+  }
+}

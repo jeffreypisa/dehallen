@@ -1,0 +1,31 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-5 offset-lg-1">
+        <h5> Openingstijden </h5>
+        {{ options.openingstijden }}
+      </div>
+      <div class="col-md-10 col-lg-5">
+        <h5> Adres </h5>
+        {{ options.adres }}
+      </div>
+      <div class="col-md-10 col-lg-2">
+        <h5> Plan </h5>
+        {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+      </div>
+      <div class="col-md-8 col-lg-4">
+        <h5> Nieuwsbrief
+      </div>
+      <div class="col-md-2 col-lg-2">
+        <div class="followus">
+          <a href="{{options.facebook}}"><img src="{{theme.link}}/assets/images/facebook.svg"></a>
+          <a href="{{options.twitter}}"> <img src="{{theme.link}}/assets/images/twitter.svg"> </a>
+          <a href="{{options.instagram}}"> <img src="{{theme.link}}/assets/images/instagram.svg"> </a>
+        </div>
+      </div>
+    </div>
+    <div class="footermenu">
+      
+    </div>
+  </div>
+</footer>

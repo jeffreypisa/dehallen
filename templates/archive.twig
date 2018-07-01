@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="mod-greenbar">
+  </div>
+  <section class="">
+    <div class="container">
+      <div class="cards">
+        <div class="row justify-content-center">
+          {% for blok in posts %}  
+            <div class="col-md-10 col-lg-6 col-xl-5">
+              <div class="card-wrapper nopb">
+                <a href="{{ blok.link }}" class="card">
+                  {% if blok.afbeelding %}
+                    <div class="card-img-top">
+                      <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                      <img class="img-fluid" src="{{ TimberImage(blok.afbeelding) }}" alt="image">
+                    </div>
+                  {% endif %}
+                  <div class="card-body">
+                    <h3> {{ blok.title }} </h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,108 @@
+.mod-slider {
+  .indicators, .carousel-control-prev, .carousel-control-next {
+    display: none;
+  }
+  .carousel-inner {
+    background: #333;
+  }
+  .slide {
+    transition: 0.5s ease-in-out;
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    position: relative;
+    .content {
+      display: none;
+    }
+    &:hover {
+      color: #fff;
+    }
+    &:after {
+      content: '';
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      box-shadow: inset 0px 2px 3px rgba(0,0,0,.3);
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .mod-slider {
+    .indicators, .carousel-control-prev, .carousel-control-next {
+      display: flex;
+    }
+    .carousel-control-prev, .carousel-control-next {
+      width: 60px;
+    }
+    .carousel-control-next {
+      transform: rotate(180deg);
+    }
+    .indicators {
+      position: absolute;
+      right: 0px;
+      left:0;
+      bottom: 30px;
+      margin: 0;
+      .carousel-indicators {
+        position: relative;
+        float: right;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        li {
+          border: 6px solid #fff;
+          border-radius: 100px;
+          height: 26px;
+          width: 26px;
+          background: transparent;
+          transition: .2s ease-in-out;
+          &.active, &.active:hover {
+            border-color: $green;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+    .slide {
+      height: 400px;
+      padding: 30px;
+      .content {
+        display: block;
+        padding-top: 40px;
+        h2 {
+          font-size: 80px;
+          line-height: 80px;
+        }
+        .datetime {
+          font-size: 40px;
+          line-height: 40px;
+        }
+        .locatie {
+          text-transform: uppercase;
+          font-size: 25px;
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          right: 0;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .mod-slider {
+    .slide {
+      height: 600px;
+    }
+  }
+}

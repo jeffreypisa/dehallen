@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+    <div class="mod-greenbar">
+	    <div class="container">
+  	    <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
+  	    <a href="{{ categorielink }}" class="float-right">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
+  	    <div class="clearfix"></div>
+	    </div>
+	  </div>
+	  {% if post.afbeelding %}
+      <div class="mod-pageheader">
+        <div class="bg" style="background-image: url({{ post.get_field('afbeelding') }}"></div>
+        <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+      </div>
+    {% endif %}
+		<section class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<div class="container">
+			  <h1 class="text-center"> {{ post.title }} </h1>
+			  {% if posttype == 'post' %}
+          <div class="date small"> 
+            {% if post.date %}
+              <span class="published"> {{ post.date|date("d F Y") }}</span>
+            {% endif %}
+            {% if post.author %}
+              <span class="by"> door {{ post.author }} </span>
+            {% endif %}
+          </div> 
+        {% else %}
+  			  {% if post.date or post.begintijd or post.eindtijd %}
+            <div class="date"> 
+              {% if post.datum %}
+                {{ post.datum|date("d M Y") }} <br>
+              {% endif %}
+              {% if post.begintijd or post.eindtijd %}
+                {% if post.begintijd %} {{ post.begintijd|date("H:i") }} {% endif %} 
+                {% if post.eindtijd %}  
+                  {% if post.begintijd %} — {% endif %}
+                  {{ post.eindtijd|date("H:i") }}
+                {% endif %}
+              {% endif %}
+            </div> 
+          {% endif %}
+        {% endif %}
+        {% if post.blok %}
+          {% include 'partials/contenteditor.twig' %}
+        {% endif %}
+			  <div class="row">
+          <div class="offset-xl-2 col-md-12 col-xl-10">
+            {{ post.content }}
+          </div>
+          <div class="col-md-8 col-xl-6">
+            {% if posttype == 'locaties' %}
+              {% include 'partials/infobox-locaties.twig' %}
+            {% endif %}
+          </div>
+        </div>
+			</div>
+		</section>
+		{% if more|length > 0 %}
+  		<section class="mod-events bgbluebar">
+    		<div class="container">
+    		  <h2 class="float-left">Meer {{ categorie }}</h2>
+    		  <a href="{{ categorielink }}" class="btn btn-secondary float-right"> <i class="fas fa-arrow-circle-right"></i> Alle {{ categorie }}</a>
+    		  <div class="clearfix"></div>
+          <div class="cards js-slick-events">
+            {% for blok in more %}  
+              <div class="card-wrapper">
+                <a href="{{ blok.link }}" class="card">
+                  {% if blok.afbeelding %}
+                    <div class="card-img-top">
+                      <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                      <img class="img-fluid" src="{{ TimberImage(blok.afbeelding) }}" alt="image">
+                    </div>
+                  {% endif %}
+                  <div class="card-body">
+                    <h3> {{ blok.title }} </h3>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+    		</div>
+  		</section>
+		{% endif %}
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,63 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3599405, 2018-06-21T11:38:04-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: ITCAvantGardeStd-BkCn by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-condensed-book/
+ * Copyright: Copyright &#x00A9; 1993, 1994, 2001 Adobe Systems Incorporated.  All Rights Reserved.
+ * 
+ * Webfont: ITCAvantGardeStd-DemiCn by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-condensed-demibold/
+ * Copyright: Copyright &#x00A9; 1993, 1994, 2001 Adobe Systems Incorporated.  All Rights Reserved.
+ * 
+ * Webfont: AvantGardeGothicITCW01Bk by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-book/
+ * Copyright: Font software Copyright 1993, 1994, 2001 Adobe Systems Incorporated. Typeface designs Copyright 2005 International Typeface Corporation. All rights reserved.
+ * 
+ * Webfont: AvantGardeGothicITCW02BkObl by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-book-oblique/
+ * Copyright: Font software Copyright 1993, 1994, 2001 Adobe Systems Incorporated. Typeface designs Copyright 2005 International Typeface Corporation. All rights reserved.
+ * 
+ * Webfont: AvantGardeGothicITCW02Dm by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-demi-bold/
+ * Copyright: Font software Copyright 1993, 1994, 2001 Adobe Systems Incorporated. Typeface designs Copyright 2005 International Typeface Corporation. All rights reserved.
+ * 
+ * Webfont: AvantGardeGothicITCW02DmObl by ITC
+ * URL: https://www.myfonts.com/fonts/itc/avant-garde-gothic/std-demi-bold-oblique/
+ * Copyright: Font software Copyright 1993, 1994, 2001 Adobe Systems Incorporated. Typeface designs Copyright 2005 International Typeface Corporation. All rights reserved.
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3599405
+ * Licensed pageviews: 250,000
+ * 
+ * © 2018 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/36ec2d");
+
+  
+@font-face {font-family: 'ITCAvantGardeStd'; font-weight: 400; src: url('webfonts/36EC2D_0_0.eot');src: url('webfonts/36EC2D_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_0_0.woff2') format('woff2'),url('webfonts/36EC2D_0_0.woff') format('woff'),url('webfonts/36EC2D_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'ITCAvantGardeStd'; font-weight: 600; src: url('webfonts/36EC2D_1_0.eot');src: url('webfonts/36EC2D_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_1_0.woff2') format('woff2'),url('webfonts/36EC2D_1_0.woff') format('woff'),url('webfonts/36EC2D_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'AvantGardeGothicITC'; font-weight: 400; src: url('webfonts/36EC2D_2_0.eot');src: url('webfonts/36EC2D_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_2_0.woff2') format('woff2'),url('webfonts/36EC2D_2_0.woff') format('woff'),url('webfonts/36EC2D_2_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'AvantGardeGothicITC'; font-weight: 400; font-style: italic; src: url('webfonts/36EC2D_3_0.eot');src: url('webfonts/36EC2D_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_3_0.woff2') format('woff2'),url('webfonts/36EC2D_3_0.woff') format('woff'),url('webfonts/36EC2D_3_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'AvantGardeGothicITC'; font-weight: 600; src: url('webfonts/36EC2D_4_0.eot');src: url('webfonts/36EC2D_4_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_4_0.woff2') format('woff2'),url('webfonts/36EC2D_4_0.woff') format('woff'),url('webfonts/36EC2D_4_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'AvantGardeGothicITC'; font-weight: 400; font-style: italic; src: url('webfonts/36EC2D_5_0.eot');src: url('webfonts/36EC2D_5_0.eot?#iefix') format('embedded-opentype'),url('webfonts/36EC2D_5_0.woff2') format('woff2'),url('webfonts/36EC2D_5_0.woff') format('woff'),url('webfonts/36EC2D_5_0.ttf') format('truetype');}
+ 

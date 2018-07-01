@@ -1,0 +1,62 @@
+.home .mod-events {
+  display: none;
+}
+.mod-events {
+  position: relative;
+  font-size: 16px;
+  .slick-arrow {
+    display: none !important;
+  }
+  .slick-dots {
+    position: relative;
+    display: block;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 10px 4px 0;
+      button {
+        border: 6px solid $darkblue;
+        border-radius: 100px;
+        height: 26px;
+        width: 26px;
+        background: transparent;
+        transition: .2s ease-in-out;
+        color: #fff;
+        text-indent: -1000000px;
+        overflow: hidden;
+      }
+      &.slick-active, &.slick-active:hover {
+        button {
+          border-color: $green;
+        }
+      }
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  .card {
+    &:hover, &:focus, &:active {
+      border-color: $darkblue;
+      color: $darkblue;
+    }
+    .date {
+      line-height: 20px;
+    }
+    .location {
+      margin-top: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .home .mod-events {
+    display: block;
+  }
+}

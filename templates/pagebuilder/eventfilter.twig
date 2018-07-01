@@ -1,0 +1,49 @@
+<section class="mod-eventfilter bgbluebar">
+  <div class="container">
+    <h2 class="text-center"> {{ item.titel }} </h2>
+    <div class="row">
+      <div class="col-lg-14 offset-lg-3">
+        <div class="box">
+          <form method="get" id="searchform" action="{{ site.url }}">
+            <div class="timenow" style="display:none">{{ time_now }}</div>
+            <div class="datenow" style="display:none">{{ date_now }}</div>
+            <div class="row">
+              <div class="col-md-8 offset-md-1">
+                <input name="date" type="text" class="form-control js-datepicker" placeholder="datum" value="">
+              </div>
+              <div class="col-md-6">
+                <input name="time" type="text" class="form-control js-timepicker" placeholder="tijd" value="">
+              </div>
+              <div class="col-md-4">
+                <a class="form-control js-now"> nu </a>
+              </div>
+            </div>
+            <div class="mod-filterbar">
+              <div class="container">
+                <div class="row">
+                  {% for item in cat %}
+                    {% if item.get_posts|length > 0 %}
+                      <div class="col">
+                        <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
+                          <input type="checkbox" name="category" value="{{ item.slug }}" />
+                          {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg' %}
+                        </label>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="buttonbar">
+              <div class="row">
+                <div class="offset-md-15 col-md-4">
+                  <input type="submit" class="btn btn-primary" value="Plan">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
