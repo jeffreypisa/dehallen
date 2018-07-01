@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col-md-5">
       <div class="meta">
-        <div class="caticon">{% include theme.url ~ '/templates/partials/svg/' ~ post.terms('categorie') | join(' ') ~ '.svg' %}</div>
+        <div class="caticon">
+          {% include theme.url ~ '/templates/partials/svg/' ~ catje ~ '.svg.twig' %}</div>
       </div>
     </div>
     <div class="col-md-14">
-      <div class="card {{ post.terms('categorie') | join(' ') }}">
+      <div class="card {{ catje }}">
         <div class="row">
           <div class="col-md-10">
             {% if post.afbeelding %} 

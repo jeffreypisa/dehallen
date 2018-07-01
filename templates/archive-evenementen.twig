@@ -24,7 +24,7 @@
                     <div class="col">
                       <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
                         <input type="checkbox" name="category" value="{{ item.slug }}" />
-                        {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg' %}
+                        {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg.twig' %}
                       </label>
                     </div>
                   {% endif %}
@@ -45,6 +45,7 @@
       {% if evenementen|length > 0 %}
         <div class="mod-agenda">
           {% for post in evenementen %}
+            {% set catje = post.terms('categorie') | join(' ') | lower %}
             {% if the_hour != post.begintijd|date("H") %}
               {% set the_hour = post.begintijd|date("H") %}
               {% set showmoviebox = 'true' %}
@@ -58,10 +59,10 @@
                 </div>
               </div>
             {% endif %}
-            {% if (post.terms('categorie')|join('') == 'Film') and (showmoviebox == 'true') %}
+            {% if (catje == 'film') and (showmoviebox == 'true') %}
               {% include ['partials/moviebox.twig'] %}
               {% set showmoviebox = 'false' %}
-            {% elseif post.terms('categorie')|join('') != 'Film' %}
+            {% elseif catje != 'film' %}
               {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
             {% endif %}
           {% endfor %}

@@ -26,7 +26,7 @@
                       <div class="col">
                         <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
                           <input type="checkbox" name="category" value="{{ item.slug }}" />
-                          {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg' %}
+                          {% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %}
                         </label>
                       </div>
                     {% endif %}

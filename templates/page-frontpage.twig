@@ -11,7 +11,7 @@
                 {% if item.get_posts|length > 0 %}
                   <div class="col">
                     <div class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
-                      <a href="{{ item.link }}">{% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg' %} <div><span class="condensed"> {{ item.slug }} </span></div></a>
+                      <a href="{{ item.link }}">{% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %} <div><span class="condensed"> {{ item.slug }} </span></div></a>
                     </div>
                   </div>
                 {% endif %}

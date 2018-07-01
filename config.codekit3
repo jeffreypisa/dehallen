@@ -12166,65 +12166,47 @@
 		"oAP": "\/templates\/partials\/socialmedia.twig",
 		"oF": 0
 		},
-	"\/templates\/partials\/svg\/film.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/film.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/film.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/film.svg.twig",
+		"oF": 0
 		},
-	"\/templates\/partials\/svg\/horeca.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/horeca.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/horeca.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/horeca.svg.twig",
+		"oF": 0
 		},
-	"\/templates\/partials\/svg\/kids.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/kids.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/kids.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/kids.svg.twig",
+		"oF": 0
 		},
-	"\/templates\/partials\/svg\/kunst.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/kunst.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/kunst.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/kunst.svg.twig",
+		"oF": 0
 		},
-	"\/templates\/partials\/svg\/markt.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/markt.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/markt.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/markt.svg.twig",
+		"oF": 0
 		},
-	"\/templates\/partials\/svg\/muziek.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/muziek.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/muziek.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/muziek.svg.twig",
+		"oF": 0
 		},
 	"\/templates\/partials\/svg\/shops.svg": {
 		"ft": 2097152,
