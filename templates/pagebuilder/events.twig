@@ -1,7 +1,7 @@
 <section id="events" class="mod-events alt">
   <div class="container">
     <h2 class="float-left"> {{ item.titel }} </h2>
-    <a href="/agenda" class="btn btn-secondary float-right">  {{ item.morebtntitle }} <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="/agenda{% if item.titel == 'Morgen' %}?date=tomorrow{% endif %}" class="btn btn-secondary float-right">  {{ item.morebtntitle }} <i class="fas fa-arrow-circle-right"></i></a>
     <div class="clearfix"></div>
     <div class="row">
 	    <div class="col-md-18 offset-md-1">

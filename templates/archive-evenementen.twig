@@ -5,13 +5,13 @@
     <div class="timenow" style="display:none">{{ time_now }}</div>
     <div class="datenow" style="display:none">{{ date_now }}</div>
     <div class="container">
-      <form role="search" method="get" id="searchform" action="{{ site.url }}">
+      <form role="search" method="get" id="searchform" action="{{ site.url }}/agenda">
         <div class="row">
           <div class="col-8 col-lg-3">
-            <input name="date" type="text" class="form-control js-datepicker" placeholder="Datum">
+            <input name="date" type="text" class="form-control js-datepicker" placeholder="Datum" value="{{date_sanitized}}">
           </div>
           <div class="col-8 col-lg-2">
-            <input name="time" type="text" class="form-control js-timepicker" placeholder="Tijd">
+            <input name="time" type="text" class="form-control js-timepicker" placeholder="Tijd" value="{{time_sanitized}}">
           </div>
           <div class="col-4 col-lg-2">
             <a class="form-control js-now"> Nu </a>
@@ -22,8 +22,8 @@
                 {% for item in cat %}
                   {% if item.get_posts|length > 0 %}
                     <div class="col">
-                      <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
-                        <input type="checkbox" name="category" value="{{ item.slug }}" />
+                      <label class="{{ item.slug }} {% if category.slug == item.slug or item.slug in selected_cats|keys %} active {% endif %}">
+                        <input type="checkbox" name="category[]" value="{{ item.slug }}" {% if item.slug in selected_cats|keys %} checked="checked" {% endif %} />
                         {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg.twig' %}
                       </label>
                     </div>

@@ -46,32 +46,90 @@ $cat = get_category(get_query_var('categorie'));
 $cat_slug = $cat->slug;
 $context['currentcat'] = $cat_slug;
 
+
 /* Load Evenementen */
 if ($posttype == 'evenementen') { 
-  $today = date('Ymd');
-  $open = '00:00:00';
+    
+    $context['selected_cats'] = array();
+    $cats = $context[ 'cat' ];
+    $context['date_sanitized'] = '';
+    $context['time_sanitized'] = '';
+    
+    $cat_ids = array();
+    if( isset( $_GET['category'] ) && is_array( $_GET['category'] ) && count( $_GET['category'] ) > 0 ) {
+        foreach( $_GET['category'] as $request_cat ) {
+            foreach( $cats as $cat ) {
+                if( $cat->slug == $request_cat ) {
+                    $cat_ids[] = $cat->term_id;
+                    $context['selected_cats'][$cat->slug] = $cat->slug;
+                }
+            }
+        }
+    }
+        
+    $today = date('Ymd');
+    $date = $today;
+    if( isset( $_GET['date'] ) && $_GET['date'] ) {
+        if( $_GET['date'] == 'tomorrow' ) {
+            $_GET['date'] = date('d/m/Y', strtotime( 'tomorrow' ) );
+        }
+        
+        $tmp = explode( '/', $_GET['date'] );
+        if( count( $tmp ) == 3 && intval( $tmp[0] ) > 1 && intval( $tmp[1] ) > 0 && intval( $tmp[2] ) > 0 ) {
+            $date = str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT );          
+            $context['date_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT );
+            
+            $context[ 'date_filter_full' ] = date('l d F', strtotime( $date ) );
+        }
+    }
+    
+    $timeday = '00:00:00';
+    $timestart = $timeday;
+    if( isset( $_GET['time'] ) && $_GET['time'] ) {
+        $tmp = explode( ':', $_GET['time'] );
+        if( count( $tmp ) == 2 && (intval( $tmp[0] ) > 1 || $tmp[0] == '00') && (intval( $tmp[1] ) > 1 || $tmp[1] == '00') ) {
+            $timestart = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).':'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).':00';
+            
+            $context['time_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).':'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT );
+        }
+    }
+    
+    $args_evenementen = array(
+        'post_type' => 'evenementen',
+        'posts_per_page' => - 1,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'datum',
+                'compare' => '=',
+                'value' => $date
+            ),
+            array(
+                'key' => 'begintijd',
+                'compare' => '>=',
+                'value' => $timestart
+            )
+        ),
+        'meta_key' => 'begintijd',
+        'orderby' => 'meta_value',
+        'order' => 'ASC'
+    );
   
-  $args_evenementen = array(
-    'post_type'			  => 'evenementen',
-  	'posts_per_page'  => -1,
-    'meta_query'      => array(
-      'relation'      => 'AND',
-  	  array(
-          'key'		    => 'datum',
-          'compare'	  => '=',
-          'value'		  => $today,
-      ),
-      array(
-          'key'		    => 'begintijd',
-          'compare'	  => '>=',
-          'value'     => $open,
-      )
-    ),
-    'meta_key'        => 'begintijd',
-    'orderby'         => 'meta_value',
-  	'order'           => 'ASC'
-  );
-  $context['evenementen'] = Timber::get_posts($args_evenementen);
+    if( is_array( $cat_ids ) && count( $cat_ids ) > 0 ) {
+        $args_evenementen['tax_query'] = array(
+            'relation' => 'OR');
+        
+        foreach( $cat_ids as $cat_id ) {
+            $args_evenementen['tax_query'][] =
+                array(
+                    'taxonomy' => 'categorie',
+                    'field'    => 'term_id',
+                    'terms'    => $cat_ids,
+                );
+        }
+    }
+    
+    $context['evenementen'] = Timber::get_posts($args_evenementen);
 }
 
 /* Load Winkels */

@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-14 offset-lg-3">
         <div class="box">
-          <form method="get" id="searchform" action="{{ site.url }}">
+          <form method="get" id="searchform" action="{{ site.url }}/agenda">
             <div class="timenow" style="display:none">{{ time_now }}</div>
             <div class="datenow" style="display:none">{{ date_now }}</div>
             <div class="row">
@@ -25,7 +25,7 @@
                     {% if item.get_posts|length > 0 %}
                       <div class="col">
                         <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
-                          <input type="checkbox" name="category" value="{{ item.slug }}" />
+                          <input type="checkbox" name="category[]" value="{{ item.slug }}" />
                           {% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %}
                         </label>
                       </div>
