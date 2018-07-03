@@ -97,14 +97,4 @@ if ($posttype == 'evenementen' || $posttype == 'horeca') {
   $context['horeca'] = Timber::get_posts($args_horeca);
 }
 
-/* Load Blog */
-if ($posttype == 'posts') {
-  $args_blog = array(
-    'post_type'			  => 'posts',
-  	'posts_per_page'  => -1
-  ); 
-  
-  $context['posts'] = Timber::get_posts($args_blog);
-}
-
 Timber::render( $templates, $context );

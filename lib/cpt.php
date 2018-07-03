@@ -1,16 +1,32 @@
-<?php // Our custom post type function
-  
+<?php 
+add_filter( 'pre_post_link', 'dh_pre_post_link', 3, 3);
+function dh_pre_post_link( $permalink, $post, $leavename ) {
+    if( get_post_type( $post ) != 'post' ) {
+        return $permalink;
+    } 
+    return '/blog/%postname%/';
+}
+
+
+/**
+ * Rewrites blog/(*) to $1/
+ */
+function dh_parse_request( $wp ){
+    if ( strpos( $wp->request, 'blog/') === 0) { 
+            $tmp = explode( '/', $wp->request );
+            $last_bit = end( $tmp ) ;
+            
+            $wp->query_vars = array('page' => '', 'name' => $last_bit );
+            $wp->request = $last_bit;        
+    }
+}
+add_action( 'parse_request', 'dh_parse_request' );
+
+      
   function create_posttype() {
   
-    register_post_type( 'post',
-    // CPT Options
-      array(
-        'public'                  => true,
-        'has_archive'             => true,
-        'rewrite'                 => array('slug' => 'blog'),
-      )
-    );
-    
+      
+     
   	register_post_type( 'evenementen',
   	// CPT Options
   		array(
