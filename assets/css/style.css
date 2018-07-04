@@ -7125,7 +7125,7 @@ a.card[href]:hover {
 
 .mod-eventfilter-agenda {
   background: #46aa64;
-  padding: 10px 0 0;
+  padding: 13px 0 0;
   position: relative; }
   .mod-eventfilter-agenda .row {
     margin-left: -5px;
@@ -7585,6 +7585,9 @@ body.opensidemenu .mod-mobilemenu {
   .mod-quote {
     padding-top: 0; } }
 
+.home .mod-filterbar {
+  padding-bottom: 0; }
+
 .mod-filterbar {
   background: #46aa64;
   color: #fff;
@@ -7617,11 +7620,11 @@ body.opensidemenu .mod-mobilemenu {
     text-align: center; }
     .mod-filterbar .tag-list .col {
       text-align: center; }
-  .mod-filterbar a {
+  .mod-filterbar label {
     position: relative; }
-    .mod-filterbar a span {
+    .mod-filterbar label span {
       display: none; }
-    .mod-filterbar a:hover div {
+    .mod-filterbar label:hover div {
       display: block;
       position: absolute;
       z-index: 9;
@@ -7629,15 +7632,14 @@ body.opensidemenu .mod-mobilemenu {
       text-align: center;
       left: -40px;
       right: -40px; }
-      .mod-filterbar a:hover div span {
+      .mod-filterbar label:hover div span {
         display: inline-block;
         text-transform: uppercase;
         padding: 2px 8px;
         height: 30px;
         background: #c8e5d0;
         color: #0a334f;
-        font-size: 15px;
-        box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.3); }
+        font-size: 15px; }
 
 .mod-locaties {
   margin-bottom: 30px;

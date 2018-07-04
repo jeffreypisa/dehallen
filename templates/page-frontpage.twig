@@ -3,24 +3,28 @@
 {% block content %}
 	<div class="content-wrapper">
 	  <section class="mod-filterbar">
-      <div class="container d-none d-md-block">
-        <div class="row">
-          <div class="col-md-14 offset-md-3">
-            <div class="row">
-              {% for item in cat %}
-                {% if item.get_posts|length > 0 %}
-                  <div class="col">
-                    <div class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
-                      <a href="{{ item.link }}">{% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %} <div><span class="condensed"> {{ item.slug }} </span></div></a>
+	    <form method="get" id="searchform" action="{{ site.url }}/agenda">
+        <div class="container d-none d-md-block">
+          <div class="row">
+            <div class="col-md-14 offset-md-3">
+              <div class="row">
+                {% for item in cat %}
+                  {% if item.get_posts|length > 0 %}
+                    <div class="col">
+                      <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
+                        <input type="checkbox" name="category[]" value="{{ item.slug }}" onChange="this.form.submit()"/>
+                        {% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %}
+                        <div><span class="condensed"> {{ item.slug }} </span></div>
+                      </label>
                     </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </div>
             </div>
           </div>
+          <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
-      </div>
+	    </form>
     </section>
 		<div class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
       {% include 'pagebuilder.twig' %}
