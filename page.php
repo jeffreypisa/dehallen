@@ -54,6 +54,9 @@ $args_evenementen_morgen = array(
 
 $context['evenementen_morgen'] = Timber::get_posts($args_evenementen_morgen);
 
+
+$context[ 'category' ] = Timber::get_terms(['taxonomy'=>'categorie_locaties']);
+
 $context[ 'cat' ] = Timber::get_terms('categorie');
 
 if ( is_front_page() ) {	

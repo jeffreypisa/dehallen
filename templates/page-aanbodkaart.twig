@@ -1,0 +1,89 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+    <div class="mod-greenbar">
+      <div class="container">
+  	    <a href="/aanbod" class="float-left"><i class="fas fa-arrow-circle-left"></i> Toon als lijst</a>
+  	    <div class="clearfix"></div>
+      </div>
+    </div>
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<div class="article-body">
+			  <section>
+			    <div class="container">
+			      <h1> {{ post.title }} </h1>
+			      <div class="row">
+  			      <div class="offset-md-2 col-md-16">
+                <div class="mod-aanbodkaart">
+                  <div class="mod-filterblocks">
+                    <div class="row">
+                      {% for cat in category %}
+                        <div class="col">
+                          <a href="#" data-aanbodfilter="{{ cat.slug | lower }}" class="block condensed {{ cat.slug | lower }}">{{ cat.title }}</a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="space">
+                    <div class="startpoint"></div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="top">
+                          <div> Entree <br> Ten Katemarkt </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% for blok in post.get_field('ten_katemarkt') %}  
+                      {% include 'partials/aanbodkaart.twig' %}
+                    {% endfor %}
+                    <div class="row aanbod">
+                      <div class="col">
+                      </div>
+                      <div class="col center">
+                        <div class="bar rechts">
+                          <div class="circle"></div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        {% set links = post.get_field('locatie_met_buiteningang') %}
+                        {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
+                        <a href="{{links.link}}" class="block rechts condensed {{ catlinks }}">         
+                          {{ links.title }}
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col middle">
+                        <div class="">
+                          <span> Entree Tollenstraat </span>
+                        </div>
+                      </div>
+                      <div class="col middle center">
+                      </div>
+                      <div class="col middle">
+                      </div>
+                    </div>
+
+                    {% for blok in post.get_field('tollenstraat') %}  
+                      {% include 'partials/aanbodkaart.twig' %}
+                    {% endfor %}
+                    <div class="row">
+                      <div class="col">
+                        <div class="bottom">
+                          <span> Entree bilderdijkkade </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+			  </section>
+			</div>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

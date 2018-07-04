@@ -1,0 +1,274 @@
+.mod-aanbodkaart {
+  $color1: #fe9c9d;
+  $color2: #64ccf3;
+  $color3: #fed8b0;
+  $color4: #ac83b9;
+  .block.business {
+    color: $color1;
+    border: 2px solid $color1;
+    &.active {
+      background: $color1;
+      color: #fff;
+    }
+  }
+  .block.entertainment {
+    color: $color2;
+    border: 2px solid $color2;
+    &.active {
+      background: $color2;
+      color: #fff;
+    }
+  }
+  .block.horeca {
+    color: $color3;
+    border: 2px solid $color3;
+    &.active {
+      background: $color3;
+      color: #fff;
+    }
+  }
+  .block.shops {
+    color: $color4;
+    border: 2px solid $color4;
+    &.active {
+      background: $color4;
+      color: #fff;
+    }
+  }
+  .top {
+    position: relative;
+    height: 80px;
+    border-bottom: 2px solid $grey;
+    div {
+      display: block;
+      font-size: 16px;
+      color: $grey;
+      text-align: center;
+      line-height: 20px;
+      position: relative;
+      &:after {
+        content: '';
+        height: 6px;
+        width: 96px;
+        position: absolute;
+        background: $grey;
+        bottom: -10px;
+        left: 50%;
+        margin-left: -48px;
+      }
+    }
+    &:after {
+      content: '';
+      width: 6px;
+      background: $grey;
+      position: absolute;
+      top: 50px;
+      bottom: -36px;
+      left: 50%;
+      margin-left: -3px;
+    }
+  }
+  .middle {
+    border-top: 2px solid $grey;
+    border-bottom: 2px solid $grey;
+    span {
+      display: block;
+      font-size: 16px;
+      color: #d1d3d4;
+      text-align: right;
+      line-height: 20px;
+      padding: 30px 0;
+      position: relative;
+    }
+  }
+  .bottom {
+    height: 60px;
+    border-top: 2px solid $grey;
+    span {
+      display: block;
+      font-size: 16px;
+      color: #d1d3d4;
+      text-align: center;
+      line-height: 20px;
+      position: relative;
+      padding-top: 30px;
+    }
+  }
+  .space {
+    margin-bottom: 30px;
+    .row {
+      margin: 0;
+      .col {
+        padding: 0;
+      }
+    }
+    .row {
+      padding: 15px 0;
+      border-left: 2px solid $grey;
+      border-right: 2px solid $grey;
+      &.active {
+        &.business {
+          .center:after {
+            background: $color1;
+          }
+        }
+        &.entertainment {
+          .center:after {
+            background: $color2;
+          }
+        }
+        &.horeca {
+          .center:after {
+            background: $color3;
+          }
+        }
+        &.shops {
+          .center:after {
+            background: $color4;
+          }
+        }
+        &.links {
+          &.business {
+            .center {
+              .bar.links {
+                background: $color1;
+                .circle {
+                  border-color: $color1;
+                }
+              }
+            }
+          }
+          &.entertainment {
+            .center {
+              .bar.links {
+                background: $color2;
+                .circle {
+                  border-color: $color2;
+                }
+              }
+            }
+          }
+          &.horeca {
+            .center {
+              .bar.links {
+                background: $color3;
+                .circle {
+                  border-color: $color3;
+                }
+              }
+            }
+          }
+          &.shops {
+            .center {
+              .bar.links {
+                background: $color4;
+                .circle {
+                  border-color: $color4;
+                }
+              }
+            }
+          }
+        }
+        &.rechts {
+          &.business {
+            .center {
+              .bar.rechts {
+                background: $color1;
+                .circle {
+                  border-color: $color1;
+                }
+              }
+            }
+          }
+          &.entertainment {
+            .center {
+              .bar.rechts {
+                background: $color2;
+                .circle {
+                  border-color: $color2;
+                }
+              }
+            }
+          }
+          &.horeca {
+            .center {
+              .bar.rechts {
+                background: $color3;
+                .circle {
+                  border-color: $color3;
+                }
+              }
+            }
+          }
+          &.shops {
+            .center {
+              .bar.rechts {
+                background: $color4;
+                .circle {
+                  border-color: $color4;
+                }
+              }
+            }
+          }
+        }
+      }
+      .block {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        &.links {
+          margin-left: 30px;
+        }
+        &.rechts {
+          margin-right: 30px;
+        }
+      }
+      .center {
+        position: relative;
+        &:after {
+          content: '';
+          width: 6px;
+          background: $grey;
+          position: absolute;
+          top: 0;
+          bottom: -30px;
+          left: 50%;
+          margin-left: -3px;
+        }
+        .bar {
+          position: absolute;
+          top: 50%;
+          height: 6px;
+          background: $grey;
+          .circle {
+            border: 6px solid $grey;
+            border-radius: 100px;
+            height: 26px;
+            width: 26px;
+            position: absolute;
+            top: 50%;
+            margin-top: -13px;
+            background: #fff;
+          }
+          &.links {
+            left: 30px;
+            right: 50%;
+            .circle {
+              left: 0;
+            }
+          }
+          &.rechts {
+            left: 50%;
+            right: 30px;
+            .circle {
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

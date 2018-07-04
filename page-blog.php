@@ -2,6 +2,7 @@
 /**
  * Template Name: Blog archive
  */
+ 
 $templates = array( 'archive-post.twig', 'index.twig' );
 
 $posttype = $post->post_type;

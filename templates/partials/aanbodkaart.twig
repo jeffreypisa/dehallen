@@ -1,0 +1,32 @@
+{% set links = blok.locatie_links %}
+{% set rechts = blok.locatie_rechts %}
+{% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
+{% set catrechts = rechts.terms('categorie_locaties') | join(' ') | lower %}
+<div class="row aanbod">
+  <div class="col">
+    {% if links %}
+      <a href="{{ links.link }}" class="block condensed links {{ catlinks }}">
+        {{ links.title }}
+      </a>
+    {% endif %}
+  </div>
+  <div class="col center">
+    {% if links %}
+      <div class="bar links">
+        <div class="circle"></div>
+      </div>
+    {% endif %}
+    {% if rechts %}
+      <div class="bar rechts">
+        <div class="circle"></div>
+      </div>
+    {% endif %}
+  </div>
+  <div class="col">
+    {% if rechts %}
+      <a href="{{ links.link }}" class="block condensed rechts {{ catrechts }}">
+        {{ rechts.title }}
+      </a>
+    {% endif %}
+  </div>
+</div>

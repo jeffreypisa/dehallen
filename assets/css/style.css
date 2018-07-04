@@ -7064,6 +7064,195 @@ a.card[href]:hover {
   .home .mod-events {
     display: block; } }
 
+.mod-aanbodkaart .block.business {
+  color: #fe9c9d;
+  border: 2px solid #fe9c9d; }
+  .mod-aanbodkaart .block.business.active {
+    background: #fe9c9d;
+    color: #fff; }
+
+.mod-aanbodkaart .block.entertainment {
+  color: #64ccf3;
+  border: 2px solid #64ccf3; }
+  .mod-aanbodkaart .block.entertainment.active {
+    background: #64ccf3;
+    color: #fff; }
+
+.mod-aanbodkaart .block.horeca {
+  color: #fed8b0;
+  border: 2px solid #fed8b0; }
+  .mod-aanbodkaart .block.horeca.active {
+    background: #fed8b0;
+    color: #fff; }
+
+.mod-aanbodkaart .block.shops {
+  color: #ac83b9;
+  border: 2px solid #ac83b9; }
+  .mod-aanbodkaart .block.shops.active {
+    background: #ac83b9;
+    color: #fff; }
+
+.mod-aanbodkaart .top {
+  position: relative;
+  height: 80px;
+  border-bottom: 2px solid #d1d3d4; }
+  .mod-aanbodkaart .top div {
+    display: block;
+    font-size: 16px;
+    color: #d1d3d4;
+    text-align: center;
+    line-height: 20px;
+    position: relative; }
+    .mod-aanbodkaart .top div:after {
+      content: '';
+      height: 6px;
+      width: 96px;
+      position: absolute;
+      background: #d1d3d4;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -48px; }
+  .mod-aanbodkaart .top:after {
+    content: '';
+    width: 6px;
+    background: #d1d3d4;
+    position: absolute;
+    top: 50px;
+    bottom: -36px;
+    left: 50%;
+    margin-left: -3px; }
+
+.mod-aanbodkaart .middle {
+  border-top: 2px solid #d1d3d4;
+  border-bottom: 2px solid #d1d3d4; }
+  .mod-aanbodkaart .middle span {
+    display: block;
+    font-size: 16px;
+    color: #d1d3d4;
+    text-align: right;
+    line-height: 20px;
+    padding: 30px 0;
+    position: relative; }
+
+.mod-aanbodkaart .bottom {
+  height: 60px;
+  border-top: 2px solid #d1d3d4; }
+  .mod-aanbodkaart .bottom span {
+    display: block;
+    font-size: 16px;
+    color: #d1d3d4;
+    text-align: center;
+    line-height: 20px;
+    position: relative;
+    padding-top: 30px; }
+
+.mod-aanbodkaart .space {
+  margin-bottom: 30px; }
+  .mod-aanbodkaart .space .row {
+    margin: 0; }
+    .mod-aanbodkaart .space .row .col {
+      padding: 0; }
+  .mod-aanbodkaart .space .row {
+    padding: 15px 0;
+    border-left: 2px solid #d1d3d4;
+    border-right: 2px solid #d1d3d4; }
+    .mod-aanbodkaart .space .row.active.business .center:after {
+      background: #fe9c9d; }
+    .mod-aanbodkaart .space .row.active.entertainment .center:after {
+      background: #64ccf3; }
+    .mod-aanbodkaart .space .row.active.horeca .center:after {
+      background: #fed8b0; }
+    .mod-aanbodkaart .space .row.active.shops .center:after {
+      background: #ac83b9; }
+    .mod-aanbodkaart .space .row.active.links.business .center .bar.links {
+      background: #fe9c9d; }
+      .mod-aanbodkaart .space .row.active.links.business .center .bar.links .circle {
+        border-color: #fe9c9d; }
+    .mod-aanbodkaart .space .row.active.links.entertainment .center .bar.links {
+      background: #64ccf3; }
+      .mod-aanbodkaart .space .row.active.links.entertainment .center .bar.links .circle {
+        border-color: #64ccf3; }
+    .mod-aanbodkaart .space .row.active.links.horeca .center .bar.links {
+      background: #fed8b0; }
+      .mod-aanbodkaart .space .row.active.links.horeca .center .bar.links .circle {
+        border-color: #fed8b0; }
+    .mod-aanbodkaart .space .row.active.links.shops .center .bar.links {
+      background: #ac83b9; }
+      .mod-aanbodkaart .space .row.active.links.shops .center .bar.links .circle {
+        border-color: #ac83b9; }
+    .mod-aanbodkaart .space .row.active.rechts.business .center .bar.rechts {
+      background: #fe9c9d; }
+      .mod-aanbodkaart .space .row.active.rechts.business .center .bar.rechts .circle {
+        border-color: #fe9c9d; }
+    .mod-aanbodkaart .space .row.active.rechts.entertainment .center .bar.rechts {
+      background: #64ccf3; }
+      .mod-aanbodkaart .space .row.active.rechts.entertainment .center .bar.rechts .circle {
+        border-color: #64ccf3; }
+    .mod-aanbodkaart .space .row.active.rechts.horeca .center .bar.rechts {
+      background: #fed8b0; }
+      .mod-aanbodkaart .space .row.active.rechts.horeca .center .bar.rechts .circle {
+        border-color: #fed8b0; }
+    .mod-aanbodkaart .space .row.active.rechts.shops .center .bar.rechts {
+      background: #ac83b9; }
+      .mod-aanbodkaart .space .row.active.rechts.shops .center .bar.rechts .circle {
+        border-color: #ac83b9; }
+    .mod-aanbodkaart .space .row .block {
+      display: block;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 15px; }
+      .mod-aanbodkaart .space .row .block.links {
+        margin-left: 30px; }
+      .mod-aanbodkaart .space .row .block.rechts {
+        margin-right: 30px; }
+    .mod-aanbodkaart .space .row .center {
+      position: relative; }
+      .mod-aanbodkaart .space .row .center:after {
+        content: '';
+        width: 6px;
+        background: #d1d3d4;
+        position: absolute;
+        top: 0;
+        bottom: -30px;
+        left: 50%;
+        margin-left: -3px; }
+      .mod-aanbodkaart .space .row .center .bar {
+        position: absolute;
+        top: 50%;
+        height: 6px;
+        background: #d1d3d4; }
+        .mod-aanbodkaart .space .row .center .bar .circle {
+          border: 6px solid #d1d3d4;
+          border-radius: 100px;
+          height: 26px;
+          width: 26px;
+          position: absolute;
+          top: 50%;
+          margin-top: -13px;
+          background: #fff; }
+        .mod-aanbodkaart .space .row .center .bar.links {
+          left: 30px;
+          right: 50%; }
+          .mod-aanbodkaart .space .row .center .bar.links .circle {
+            left: 0; }
+        .mod-aanbodkaart .space .row .center .bar.rechts {
+          left: 50%;
+          right: 30px; }
+          .mod-aanbodkaart .space .row .center .bar.rechts .circle {
+            right: 0; }
+
+.mod-filterblocks {
+  margin-bottom: 30px; }
+  .mod-filterblocks .block {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 15px; }
+
 .mod-eventfilter {
   margin-bottom: 30px; }
   .mod-eventfilter h2 {

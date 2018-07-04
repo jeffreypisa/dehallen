@@ -391,6 +391,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/assets\/js\/scripts\/aanbodkaart.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/scripts\/aanbodkaart-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/scripts\/datepicker.js": {
 		"ft": 64,
 		"ma": 0,
@@ -588,6 +598,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/modules\/_aanbodkaart.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_aanbodkaart.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/modules\/_agenda.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -649,6 +672,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/scss\/modules\/_filterbar.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/modules\/_filterblocks.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_filterblocks.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -11893,6 +11929,13 @@
 		"oAP": "\/lib\/timber.php",
 		"oF": 0
 		},
+	"\/page-blog.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/page-blog.php",
+		"oF": 0
+		},
 	"\/page.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -12061,6 +12104,13 @@
 		"oAP": "\/templates\/mobilemenu.twig",
 		"oF": 0
 		},
+	"\/templates\/page-aanbodkaart.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/page-aanbodkaart.twig",
+		"oF": 0
+		},
 	"\/templates\/page-frontpage.twig": {
 		"cB": 0,
 		"ft": 8192,
@@ -12129,6 +12179,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/pagebuilder\/slider.twig",
+		"oF": 0
+		},
+	"\/templates\/partials\/aanbodkaart.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/aanbodkaart.twig",
 		"oF": 0
 		},
 	"\/templates\/partials\/button.twig": {
@@ -12208,15 +12265,12 @@
 		"oAP": "\/templates\/partials\/svg\/muziek.svg.twig",
 		"oF": 0
 		},
-	"\/templates\/partials\/svg\/shops.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/templates\/partials\/svg\/shops.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+	"\/templates\/partials\/svg\/shops.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/svg\/shops.svg.twig",
+		"oF": 0
 		},
 	"\/templates\/single-password.twig": {
 		"cB": 0,
@@ -12317,26 +12371,32 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/aanbodkaart.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
 			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
 			"position": 9,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"position": 10,
 			"type": 1
 			}
 		]
