@@ -7214,8 +7214,8 @@ a.card[href]:hover {
         width: 6px;
         background: #d1d3d4;
         position: absolute;
-        top: 0;
-        bottom: -30px;
+        top: -51px;
+        bottom: 11px;
         left: 50%;
         margin-left: -3px; }
       .mod-aanbodkaart .space .row .center .bar {
