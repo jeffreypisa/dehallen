@@ -1,0 +1,29 @@
+      {% if evenementen|length > 0 %}
+          {% for post in evenementen %}
+            {% set catje = post.terms('categorie') | join(' ') | lower %}
+            {% if the_hour != post.begintijd|date("H") %}
+              {% set the_hour = post.begintijd|date("H") %}
+              {% set showmoviebox = 'true' %}
+              <div class="hourblock">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="meta">
+                      <div class="hour">{{ the_hour }}:00 <span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if (catje == 'film') and (showmoviebox == 'true') %}
+              {% include ['partials/moviebox.twig'] %}
+              {% set showmoviebox = 'false' %}
+            {% elseif catje != 'film' %}
+              {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+            {% endif %}
+          {% endfor %}
+      {% else %}
+      		<div class="dh_no_hits">
+          <h3> Geen evenementen</h3>
+          <br>
+          	</div>
+      {% endif %}
