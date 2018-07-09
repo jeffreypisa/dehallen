@@ -20,6 +20,11 @@
       if (targetelement.hasClass('rechts')) {
         targetelement.closest('.row').addClass('rechts').addClass(aanbodfilter);
       }
+      if (targetelement.hasClass('detour')) {
+        $('.hbar').closest('.row').addClass('rechts');
+      }
+
     });
+
   });
 }(jQuery));

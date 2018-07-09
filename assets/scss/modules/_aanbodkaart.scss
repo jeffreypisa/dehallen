@@ -12,7 +12,31 @@
     }
   }
   .row {
-    min-height: 30px;
+    min-height: 20px;
+    .hbar {
+      height: 6px;
+      background: $grey;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: -40px;
+      margin-top: -3px;
+      transition: 0.3s ease-in-out;
+    }
+    .vbar {
+      width: 6px;
+      background: $grey;
+      position: absolute;
+      top: -46px;
+      right: -40px;
+      bottom: 50%;
+      transition: 0.3s ease-in-out;
+    }
+    .center {
+      .hbar {
+        left: 50%;
+      }
+    }
   }
   .block.entertainment {
     color: $color2;
@@ -58,30 +82,37 @@
         bottom: -10px;
         left: 50%;
         margin-left: -48px;
+        transition: 0.3s ease-in-out;
       }
     }
     &:after {
       content: '';
-      width: 6px;
+      width: 5px;
       background: $grey;
       position: absolute;
       top: 50px;
       bottom: -36px;
       left: 50%;
       margin-left: -3px;
+      transition: 0.3s ease-in-out;
     }
   }
   .middle {
+    min-height: 80px;
     border-top: 2px solid $grey;
     border-bottom: 2px solid $grey;
     span {
       display: block;
+      width: 180px;
       font-size: 16px;
       color: #d1d3d4;
       text-align: right;
       line-height: 20px;
-      padding: 30px 0;
-      position: relative;
+      position: absolute;
+      right: 50%;
+      margin-right: 20px;
+      top: 50%;
+      margin-top: -10px;
     }
   }
   .bottom {
@@ -96,6 +127,17 @@
       position: relative;
       padding-top: 30px;
     }
+    &:after {
+      content: '';
+      width: 6px;
+      background: $grey;
+      position: absolute;
+      top: -43px;
+      height: 70px;
+      left: 50%;
+      margin-left: -4px;
+      transition: 0.3s ease-in-out;
+    }
   }
   .space {
     margin-bottom: 30px;
@@ -108,32 +150,32 @@
     .row {
       &.active {
         &.business {
-          .center:after,
+          .col:after,
           .top div:after {
             background: $color1;
           }
         }
         &.entertainment {
-          .center:after,
+          .col:after,
           .top div:after {
             background: $color2;
           }
         }
         &.horeca {
-          .center:after,
+          .col:after,
           .top div:after {
             background: $color3;
           }
         }
         &.shops {
-          .center:after,
+          .col:after,
           .top div:after {
             background: $color4;
           }
         }
         &.links {
           &.business {
-            .center {
+            .col {
               .bar.links {
                 background: $color1;
                 .circle {
@@ -143,7 +185,7 @@
             }
           }
           &.entertainment {
-            .center {
+            .col {
               .bar.links {
                 background: $color2;
                 .circle {
@@ -153,7 +195,7 @@
             }
           }
           &.horeca {
-            .center {
+            .col {
               .bar.links {
                 background: $color3;
                 .circle {
@@ -163,7 +205,7 @@
             }
           }
           &.shops {
-            .center {
+            .col {
               .bar.links {
                 background: $color4;
                 .circle {
@@ -175,8 +217,8 @@
         }
         &.rechts {
           &.business {
-            .center {
-              .bar.rechts {
+            .col {
+              .bar.rechts, .hbar, .vbar {
                 background: $color1;
                 .circle {
                   border-color: $color1;
@@ -185,8 +227,8 @@
             }
           }
           &.entertainment {
-            .center {
-              .bar.rechts {
+            .col {
+              .bar.rechts, .hbar, .vbar {
                 background: $color2;
                 .circle {
                   border-color: $color2;
@@ -195,8 +237,8 @@
             }
           }
           &.horeca {
-            .center {
-              .bar.rechts {
+            .col {
+              .bar.rechts, .hbar, .vbar {
                 background: $color3;
                 .circle {
                   border-color: $color3;
@@ -205,8 +247,8 @@
             }
           }
           &.shops {
-            .center {
-              .bar.rechts {
+            .col {
+              .bar.rechts, .hbar, .vbar {
                 background: $color4;
                 .circle {
                   border-color: $color4;
@@ -224,11 +266,12 @@
         font-weight: 600;
         font-size: 15px;
         margin-bottom: 20px;
+        transition: 0.3s ease-in-out;
         &.links {
-          margin-left: 30px;
+          margin-left: 20px;
         }
         &.rechts {
-          margin-right: 30px;
+          margin-right: 20px;
         }
       }
       .col.left {
@@ -236,6 +279,12 @@
       }
       .col.right {
         border-right: 2px solid $grey;
+      }
+      .col.middle:nth-child(0) {
+        border-left: 2px solid transparent;
+      }
+      .col.middle:nth-child(2) {
+        border-right: 2px solid transparent;
       }
       .center {
         position: relative;
@@ -245,16 +294,26 @@
           background: $grey;
           position: absolute;
           top: -43px;
-          bottom: -2px;
+          bottom: 43px;
           left: 50%;
           margin-left: -3px;
+          transition: 0.3s ease-in-out;
         }
+        &.middle {
+          &:after {
+            top: -45px;
+            bottom: 41px;
+          }
+        }
+      }
+      .col {
         .bar {
           position: absolute;
           top: 50%;
           height: 6px;
           margin-top: -12px;
           background: $grey;
+          transition: 0.3s ease-in-out;
           .circle {
             border: 6px solid $grey;
             border-radius: 100px;
@@ -264,6 +323,7 @@
             top: 50%;
             margin-top: -13px;
             background: #fff;
+            transition: 0.3s ease-in-out;
           }
           &.links {
             left: 30px;
@@ -279,6 +339,13 @@
               right: 0;
             }
           }
+        }
+      }
+      .col.right {
+        .bar {
+          left: 100%;
+          margin-left: -12px;
+          right: -43px;
         }
       }
     }

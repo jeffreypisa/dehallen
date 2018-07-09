@@ -19,7 +19,7 @@
             </div>
 			      <div class="row">
   			      <div class="offset-md-2 col-md-16">
-                <div class="mod-aanbodkaart">
+                <div class="mod-aanbodkaart d-none d-sm-block">
                   <div class="mod-filterblocks">
                     <div class="row">
                       {% for cat in category %}
@@ -34,7 +34,7 @@
                     <div class="row">
                       <div class="col">
                         <div class="top">
-                          <div> Entree <br> Ten Katemarkt </div>
+                          <div> entree <br> Ten Katemarkt </div>
                         </div>
                       </div>
                     </div>
@@ -53,28 +53,28 @@
                       <div class="col left">
                       </div>
                       <div class="col center">
-                        <div class="bar rechts">
-                          <div class="circle"></div>
-                        </div>
                       </div>
                       <div class="col right">
                         {% set links = post.get_field('locatie_met_buiteningang') %}
                         {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
-                        <a href="{{links.link}}" class="block rechts condensed {{ catlinks }}">         
+                        <a href="{{links.link}}" class="block rechts condensed detour {{ catlinks }}">         
                           {{ links.title }}
                         </a>
+                        <div class="bar links">
+                          <div class="circle"></div>
+                        </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col">
-                        <div class="">
-                          <span> Entree Tollenstraat </span>
-                        </div>
+                      <div class="col middle">
                       </div>
-                      <div class="col center">
+                      <div class="col middle center">
+                        <div>
+                          <span> entree Tollenstraat </span>
+                        </div>
                         <div class="hbar"></div>
                       </div>
-                      <div class="col">
+                      <div class="col middle">
                         <div class="hbar"></div>
                         <div class="vbar"></div>
                       </div>
@@ -93,12 +93,11 @@
                     <div class="row">
                       <div class="col">
                         <div class="bottom">
-                          <span> Entree bilderdijkkade </span>
+                          <span> entree <br> Bilderdijkkade </span>
                         </div>
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
