@@ -1,26 +1,37 @@
 <div class="card infobox">
   <div class="card-body">
-    <h5> {{ post.title }} </h5>
-    {% if post.adres %}
-      <p>{{ post.adres }}</p>
+    <h5> {% if post.title %} {{ item.post_title }} {% else %} {{ item.title }} {% endif %}</h5>
+    {% if item.adres %}
+      <p>{{ item.adres }}</p>
     {% endif %}
-    {% if post.telefoon %}
-      <p>{{ post.telefoon }}</p>
+    {% if item.telefoon %}
+      <p>{{ item.telefoon }}</p>
     {% endif %}
-    {% if post.email %}
-      <a href="mailto:{{ post.email }}">{{ post.email }}</a>
+    {% if item.email %}
+      <a href="mailto:{{ item.email }}">{{ item.email }}</a>
     {% endif %}
-    {% if post.capaciteit %}
-      <div>capaciteit: {{ post.capaciteit }} personen </div>
+    {% if item.capaciteit or item.grootte or item.faciliteiten or item.horeca %}
+      <ul>
+        {% if item.capaciteit %}
+          <li><span class="condensend">Capaciteit </span> {{ item.capaciteit }} personen </li>
+        {% endif %}
+        {% if item.grootte %}
+          <li><span class="condensend">Grootte </span> {{ item.grootte }} m2</li>
+        {% endif %}
+        {% if item.faciliteiten %}
+          <li><span class="condensend">Faciliteiten </span> {{ item.faciliteiten }}</li>
+        {% endif %}
+        {% if item.horeca %}
+          <li><span class="condensend">Horeca </span> {{ item.horeca }}</li>
+        {% endif %}
+      </ul>
     {% endif %}
-    {% if post.grootte %}
-      <div>grootte: {{ post.grootte }} m2</div>
-    {% endif %}
-    {% if post.faciliteiten %}
-      <div>faciliteiten: {{ post.faciliteiten }}</div>
-    {% endif %}
-    {% if post.horeca %}
-      <div>horeca: {{ post.horeca }}</div>
+    {% if item.week %}
+      <ul>
+        {% for dag in item.get_field('week') %}
+          <li><span class="condensend">{{ dag.the_day }}</span> {{ dag.open }} — {{ dag.close }}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
   </div>
 </div>

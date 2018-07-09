@@ -16,7 +16,7 @@
   transition: 0.2s ease-in-out;
   overflow: hidden;
   text-align: center;
-  min-height: 300px;
+  min-height: 220px;
   .overlay {
     position: absolute;
     bottom: -1px;
@@ -27,16 +27,19 @@
     z-index: 1;
   }
 }
+
 @include media-breakpoint-up(sm) {
   .mod-pageheader {
     min-height: 400px;
   }
 }
+
 @include media-breakpoint-up(md) {
   .mod-pageheader {
-    
+
   }
 }
+
 @include media-breakpoint-up(lg) {
   .mod-pageheader {
     min-height: 480px;

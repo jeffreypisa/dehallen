@@ -1,5 +1,5 @@
 footer {
-  padding: 30px 0 15px;
+  padding: 30px 0 5px;
   background: $darkblue;
   color: #fff;
   font-size: 13px;
@@ -24,6 +24,9 @@ footer {
         }
       }
     }
+  }
+  .footerblock {
+    margin-bottom: 30px;
   }
   .mailchimp-form {
     position: relative;

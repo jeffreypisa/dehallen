@@ -60,7 +60,9 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
   
 } 
 
-
+if ($posttype == 'evenementen') {
+  $context['locatie'] = get_field('locatie');
+}
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

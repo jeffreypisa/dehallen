@@ -1,14 +1,13 @@
 .mod-mobilemenu {
   position: fixed;
-  top: 0;
-  bottom: 0;
+  top: -100%;
+  bottom: 100%;
   right: 0;
   left: 0;
   width: 100%;
-  z-index:-1;
+  z-index: 999;
   opacity: 0;
-  -webkit-transition: right 0.2s ease-in-out;
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.3s ease-in-out, top 0.9s ease-in-out, bottom 1s ease-in-out;
   background: $darkblue;
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
@@ -149,20 +148,21 @@
 }
 body.opensidemenu {
   .mod-mobilemenu {
-    z-index: 999;
     opacity: 1;
-    transition: all 0.3s ease-in-out;
+    top: 0;
+    bottom: 0;
+    transition: opacity 0.3s ease-in-out, top 0.6s ease-in-out, bottom 0s ease-in-out;
     .top {
       ul.menu, img, .third {
         transform: translateY(0);
-        transition: all 0.5s ease-in-out;
+        transition: all 0.6s ease-in-out;
         opacity: 1;
       }
       img {
-        transition-delay: 0.2s;
+        transition-delay: 0.3s;
       }
       .third {
-        transition-delay: 0.4s;
+        transition-delay: 0.5s;
       }
     }
     .bottom {
@@ -172,10 +172,10 @@ body.opensidemenu {
         opacity: 1;
       }
       .menuextra {
-        transition-delay: 0.6s;
+        transition-delay: 0.7s;
       }
       .followus {
-        transition-delay: 0.8s;
+        transition-delay: 0.9s;
       }
     }
   }

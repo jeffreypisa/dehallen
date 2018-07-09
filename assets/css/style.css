@@ -6672,7 +6672,7 @@ h2 {
     margin-bottom: 40px; } }
 
 .single .date {
-  margin-top: -30px;
+  margin-top: 0;
   font-size: 40px;
   text-align: center;
   color: #46aa64;
@@ -6701,7 +6701,28 @@ h2 {
   margin: 15px 0 30px;
   font-style: italic;
   color: #46aa64;
-  font-weight: 400; }
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 40px; }
+
+.single .btn-zaalhuur {
+  margin-top: -20px;
+  margin-bottom: 60px; }
+
+@media (min-width: 768px) {
+  .single .date {
+    margin-top: -30px; }
+  .single .btn-zaalhuur {
+    margin-top: 0;
+    margin-bottom: -28px; }
+  .single .uitgelicht_groot h2,
+  .single .uitgelicht_klein h2 {
+    font-size: 50px;
+    line-height: 60px; }
+  .single .uitgelicht_groot h3,
+  .single .uitgelicht_klein h3 {
+    font-size: 30px;
+    line-height: 38px; } }
 
 #carouselBeadManRedding {
   background-color: #000; }
@@ -6751,7 +6772,7 @@ h2 {
     opacity: 0.8;
     text-decoration: none; }
 
-.btn {
+.btn, .field-wrap input[type=button] {
   color: #fff;
   border-radius: 0;
   font-size: 20px;
@@ -6762,11 +6783,11 @@ h2 {
   padding: 0 25px;
   cursor: pointer;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); }
-  .btn:hover {
+  .btn:hover, .field-wrap input[type=button]:hover {
     color: #fff;
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
     border: 0; }
-  .btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active {
+  .btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
     color: #fff;
     opacity: 0.8;
     border: 0; }
@@ -6794,13 +6815,13 @@ h2 {
     color: #fff;
     background: #156daa; }
 
-.btn-secondary[href] {
+.btn-secondary[href], .field-wrap input[type=button] {
   background: #46aa64;
   color: #fff; }
-  .btn-secondary[href]:hover {
+  .btn-secondary[href]:hover, .field-wrap input[type=button]:hover {
     background: #28623a;
     color: #fff; }
-  .btn-secondary[href]:focus, .btn-secondary[href]:active, .btn-secondary[href]:target, .btn-secondary[href]:not(:disabled):not(.disabled):active {
+  .btn-secondary[href]:focus, .btn-secondary[href]:active, .btn-secondary[href]:target, .btn-secondary[href]:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
     background: #88ce9d;
     color: #fff; }
 
@@ -6842,6 +6863,25 @@ section {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400; }
+  .card.infobox h5 {
+    font-size: 30px;
+    margin: 5px 0 20px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: #46aa64; }
+  .card.infobox ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    .card.infobox ul li {
+      padding: 0 0 0 90px;
+      position: relative;
+      min-height: 20px; }
+      .card.infobox ul li span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 600; }
 
 .card, a.card[href] {
   display: block;
@@ -6879,6 +6919,21 @@ section {
 
 a.card[href]:hover {
   border-bottom-color: #46aa64; }
+
+.nf-form-cont .nf-form-title, .nf-form-cont .nf-form-fields-required {
+  display: none; }
+
+.nf-form-cont h2 {
+  font-size: 34px;
+  line-height: 50px;
+  margin: 0;
+  border-bottom: 1px solid #0a334f;
+  display: block; }
+
+.nf-form-cont .ninja-forms-field {
+  background: #F1F2F2;
+  padding: 10px;
+  border: 1px solid #F1F2F2; }
 
 .lity-close, .lity-close:active {
   top: 30px;
@@ -7073,13 +7128,6 @@ a.card[href]:hover {
   .home .mod-events {
     display: block; } }
 
-.mod-aanbodkaart .block.business {
-  color: #fe9c9d;
-  border: 2px solid #fe9c9d; }
-  .mod-aanbodkaart .block.business.active {
-    background: #fe9c9d;
-    color: #fff; }
-
 .mod-aanbodkaart .row {
   min-height: 20px; }
   .mod-aanbodkaart .row .hbar {
@@ -7102,25 +7150,45 @@ a.card[href]:hover {
   .mod-aanbodkaart .row .center .hbar {
     left: 50%; }
 
+.mod-aanbodkaart .block {
+  opacity: 0.6;
+  transition: 0.3s ease-in-out; }
+  .mod-aanbodkaart .block:hover, .mod-aanbodkaart .block.active, .mod-aanbodkaart .block.active:hover {
+    opacity: 1; }
+
+.mod-aanbodkaart .block.business {
+  color: #ff0000;
+  border: 2px solid #ff0000; }
+  .mod-aanbodkaart .block.business.active {
+    background: #ff0000;
+    color: #fff; }
+
 .mod-aanbodkaart .block.entertainment {
-  color: #64ccf3;
-  border: 2px solid #64ccf3; }
+  color: #00aeef;
+  border: 2px solid #00aeef; }
   .mod-aanbodkaart .block.entertainment.active {
-    background: #64ccf3;
+    background: #00aeef;
     color: #fff; }
 
 .mod-aanbodkaart .block.horeca {
-  color: #fed8b0;
-  border: 2px solid #fed8b0; }
+  color: #ffd100;
+  border: 2px solid #ffd100; }
   .mod-aanbodkaart .block.horeca.active {
-    background: #fed8b0;
+    background: #ffd100;
     color: #fff; }
 
 .mod-aanbodkaart .block.shops {
-  color: #ac83b9;
-  border: 2px solid #ac83b9; }
+  color: #812990;
+  border: 2px solid #812990; }
   .mod-aanbodkaart .block.shops.active {
-    background: #ac83b9;
+    background: #812990;
+    color: #fff; }
+
+.mod-aanbodkaart .block.kunst {
+  color: #38ae00;
+  border: 2px solid #38ae00; }
+  .mod-aanbodkaart .block.kunst.active {
+    background: #38ae00;
     color: #fff; }
 
 .mod-aanbodkaart .top {
@@ -7191,7 +7259,7 @@ a.card[href]:hover {
     top: -43px;
     height: 70px;
     left: 50%;
-    margin-left: -4px;
+    margin-left: -3px;
     transition: 0.3s ease-in-out; }
 
 .mod-aanbodkaart .space {
@@ -7202,48 +7270,59 @@ a.card[href]:hover {
       padding: 0; }
   .mod-aanbodkaart .space .row.active.business .col:after,
   .mod-aanbodkaart .space .row.active.business .top div:after {
-    background: #fe9c9d; }
+    background: #ff0000; }
   .mod-aanbodkaart .space .row.active.entertainment .col:after,
   .mod-aanbodkaart .space .row.active.entertainment .top div:after {
-    background: #64ccf3; }
+    background: #00aeef; }
   .mod-aanbodkaart .space .row.active.horeca .col:after,
   .mod-aanbodkaart .space .row.active.horeca .top div:after {
-    background: #fed8b0; }
+    background: #ffd100; }
   .mod-aanbodkaart .space .row.active.shops .col:after,
   .mod-aanbodkaart .space .row.active.shops .top div:after {
-    background: #ac83b9; }
+    background: #812990; }
+  .mod-aanbodkaart .space .row.active.kunst .col:after,
+  .mod-aanbodkaart .space .row.active.kunst .top div:after {
+    background: #38ae00; }
   .mod-aanbodkaart .space .row.active.links.business .col .bar.links {
-    background: #fe9c9d; }
+    background: #ff0000; }
     .mod-aanbodkaart .space .row.active.links.business .col .bar.links .circle {
-      border-color: #fe9c9d; }
+      border-color: #ff0000; }
   .mod-aanbodkaart .space .row.active.links.entertainment .col .bar.links {
-    background: #64ccf3; }
+    background: #00aeef; }
     .mod-aanbodkaart .space .row.active.links.entertainment .col .bar.links .circle {
-      border-color: #64ccf3; }
+      border-color: #00aeef; }
   .mod-aanbodkaart .space .row.active.links.horeca .col .bar.links {
-    background: #fed8b0; }
+    background: #ffd100; }
     .mod-aanbodkaart .space .row.active.links.horeca .col .bar.links .circle {
-      border-color: #fed8b0; }
+      border-color: #ffd100; }
   .mod-aanbodkaart .space .row.active.links.shops .col .bar.links {
-    background: #ac83b9; }
+    background: #812990; }
     .mod-aanbodkaart .space .row.active.links.shops .col .bar.links .circle {
-      border-color: #ac83b9; }
+      border-color: #812990; }
+  .mod-aanbodkaart .space .row.active.links.kunst .col .bar.links {
+    background: #38ae00; }
+    .mod-aanbodkaart .space .row.active.links.kunst .col .bar.links .circle {
+      border-color: #38ae00; }
   .mod-aanbodkaart .space .row.active.rechts.business .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.business .col .hbar, .mod-aanbodkaart .space .row.active.rechts.business .col .vbar {
-    background: #fe9c9d; }
+    background: #ff0000; }
     .mod-aanbodkaart .space .row.active.rechts.business .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.business .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.business .col .vbar .circle {
-      border-color: #fe9c9d; }
+      border-color: #ff0000; }
   .mod-aanbodkaart .space .row.active.rechts.entertainment .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .hbar, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .vbar {
-    background: #64ccf3; }
+    background: #00aeef; }
     .mod-aanbodkaart .space .row.active.rechts.entertainment .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .vbar .circle {
-      border-color: #64ccf3; }
+      border-color: #00aeef; }
   .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar {
-    background: #fed8b0; }
+    background: #ffd100; }
     .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar .circle {
-      border-color: #fed8b0; }
+      border-color: #ffd100; }
   .mod-aanbodkaart .space .row.active.rechts.shops .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.shops .col .hbar, .mod-aanbodkaart .space .row.active.rechts.shops .col .vbar {
-    background: #ac83b9; }
+    background: #812990; }
     .mod-aanbodkaart .space .row.active.rechts.shops .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.shops .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.shops .col .vbar .circle {
-      border-color: #ac83b9; }
+      border-color: #812990; }
+  .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar {
+    background: #38ae00; }
+    .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar .circle {
+      border-color: #38ae00; }
   .mod-aanbodkaart .space .row .block {
     display: block;
     text-transform: uppercase;
@@ -7279,7 +7358,8 @@ a.card[href]:hover {
       transition: 0.3s ease-in-out; }
     .mod-aanbodkaart .space .row .center.middle:after {
       top: -45px;
-      bottom: 41px; }
+      bottom: 41px;
+      margin-left: -2px; }
   .mod-aanbodkaart .space .row .col .bar {
     position: absolute;
     top: 50%;
@@ -7310,7 +7390,7 @@ a.card[href]:hover {
   .mod-aanbodkaart .space .row .col.right .bar {
     left: 100%;
     margin-left: -12px;
-    right: -43px; }
+    right: -42px; }
 
 .mod-sharethis {
   text-align: center;
@@ -7341,7 +7421,7 @@ a.card[href]:hover {
     margin-bottom: 30px; }
   .mod-eventfilter .box {
     background: #46aa64;
-    padding: 40px 30px;
+    padding: 20px;
     position: relative; }
     .mod-eventfilter .box .row {
       margin-left: -5px;
@@ -7356,7 +7436,7 @@ a.card[href]:hover {
       border: 2px solid #fff;
       border-radius: 0;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: #0a334f;
       position: relative;
       background-color: #fff;
@@ -7373,7 +7453,7 @@ a.card[href]:hover {
           cursor: pointer; }
     .mod-eventfilter .box .mod-filterbar {
       padding-top: 8px;
-      padding-bottom: 0; }
+      padding-bottom: 20px; }
     .mod-eventfilter .box .buttonbar {
       position: absolute;
       bottom: 0;
@@ -7391,7 +7471,11 @@ a.card[href]:hover {
 
 @media (min-width: 768px) {
   .mod-eventfilter {
-    margin-bottom: -30px; } }
+    margin-bottom: -30px; }
+    .mod-eventfilter .box {
+      padding: 40px 30px; }
+    .mod-eventfilter .mod-filterbar {
+      padding-bottom: 0; } }
 
 .mod-eventfilter-agenda {
   background: #46aa64;
@@ -7437,7 +7521,7 @@ a.card[href]:hover {
     padding-bottom: 0; } }
 
 footer {
-  padding: 30px 0 15px;
+  padding: 30px 0 5px;
   background: #0a334f;
   color: #fff;
   font-size: 13px;
@@ -7456,6 +7540,8 @@ footer {
       color: #fff; }
       footer ul li a:hover, footer ul li a[href]:hover {
         color: #46aa64; }
+  footer .footerblock {
+    margin-bottom: 30px; }
   footer .mailchimp-form {
     position: relative; }
     footer .mailchimp-form input[type=email] {
@@ -7610,14 +7696,14 @@ header {
   background-size: cover;
   background-position: center center;
   transition: all 0.3s ease-in-out;
-  background-color: #F8F8F8; }
+  background-color: #F1F2F2; }
 
 .mod-pageheader {
   position: relative;
   transition: 0.2s ease-in-out;
   overflow: hidden;
   text-align: center;
-  min-height: 300px; }
+  min-height: 220px; }
   .mod-pageheader .overlay {
     position: absolute;
     bottom: -1px;
@@ -7643,7 +7729,7 @@ header {
 
 .mod-slider .slide {
   transition: 0.5s ease-in-out;
-  height: 300px;
+  height: 220px;
   background-size: cover;
   background-position: center center;
   color: #fff;
@@ -7661,6 +7747,10 @@ header {
     right: 0;
     height: 10px;
     box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.3); }
+
+@media (min-width: 576px) {
+  .mod-slider .slide {
+    height: 300px; } }
 
 @media (min-width: 768px) {
   .mod-slider .indicators, .mod-slider .carousel-control-prev, .mod-slider .carousel-control-next {
@@ -7733,15 +7823,14 @@ header {
 
 .mod-mobilemenu {
   position: fixed;
-  top: 0;
-  bottom: 0;
+  top: -100%;
+  bottom: 100%;
   right: 0;
   left: 0;
   width: 100%;
-  z-index: -1;
+  z-index: 999;
   opacity: 0;
-  -webkit-transition: right 0.2s ease-in-out;
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.3s ease-in-out, top 0.9s ease-in-out, bottom 1s ease-in-out;
   background: #0a334f;
   overflow-y: scroll;
   /* has to be scroll, not auto */
@@ -7849,25 +7938,26 @@ header {
   transition: all 0.2s ease-in-out; }
 
 body.opensidemenu .mod-mobilemenu {
-  z-index: 999;
   opacity: 1;
-  transition: all 0.3s ease-in-out; }
+  top: 0;
+  bottom: 0;
+  transition: opacity 0.3s ease-in-out, top 0.6s ease-in-out, bottom 0s ease-in-out; }
   body.opensidemenu .mod-mobilemenu .top ul.menu, body.opensidemenu .mod-mobilemenu .top img, body.opensidemenu .mod-mobilemenu .top .third {
     transform: translateY(0);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.6s ease-in-out;
     opacity: 1; }
   body.opensidemenu .mod-mobilemenu .top img {
-    transition-delay: 0.2s; }
+    transition-delay: 0.3s; }
   body.opensidemenu .mod-mobilemenu .top .third {
-    transition-delay: 0.4s; }
+    transition-delay: 0.5s; }
   body.opensidemenu .mod-mobilemenu .bottom .menuextra, body.opensidemenu .mod-mobilemenu .bottom .followus {
     transform: translateY(0);
     transition: all 0.5s ease-in-out;
     opacity: 1; }
   body.opensidemenu .mod-mobilemenu .bottom .menuextra {
-    transition-delay: 0.6s; }
+    transition-delay: 0.7s; }
   body.opensidemenu .mod-mobilemenu .bottom .followus {
-    transition-delay: 0.8s; }
+    transition-delay: 0.9s; }
 
 @media (min-width: 768px) {
   .mod-mobilemenu .top .closemenu {
@@ -7901,6 +7991,8 @@ body.opensidemenu .mod-mobilemenu {
   color: #fff;
   text-align: center;
   padding: 14px 0 8px; }
+  .mod-filterbar .col {
+    min-width: 50px; }
   .mod-filterbar label {
     display: block; }
   .mod-filterbar label > input {

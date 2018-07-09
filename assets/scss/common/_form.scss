@@ -1,0 +1,17 @@
+.nf-form-cont {
+  .nf-form-title, .nf-form-fields-required {
+    display: none;
+  }
+  h2 {
+    font-size: 34px;
+    line-height: 50px;
+    margin: 0;
+    border-bottom: 1px solid $darkblue;
+    display: block;
+  }
+  .ninja-forms-field {
+    background: $lightgrey;
+    padding: 10px;
+    border: 1px solid $lightgrey;
+  }
+}

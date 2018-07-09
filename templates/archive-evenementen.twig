@@ -70,13 +70,15 @@ function load_more_events() {
   </section>
   <section>
     <div class="container">
-      <h1> {{ date_filter_full }} </h1>
+      <h1> 
+        <span class="d-block d-sm-none">{{ date_filter_short }}</span> 
+        <span class="d-none d-sm-block">{{ date_filter_full }}</span> 
+      </h1>
       
-        <div class="mod-agenda">
-          {% include ['partials/archive-evenementen-single.twig'] %}
-        </div>
-        
-        
+      <div class="mod-agenda">
+        {% include ['partials/archive-evenementen-single.twig'] %}
+      </div>
+      
       {% if winkels|length > 0 %}
         <div class="mod-locaties winkels">
           <div class="line">

@@ -27,6 +27,7 @@ $context[ 'time_now' ] = date('H:i');
 
 // Full date
 
+$context[ 'date_filter_short' ] = date('d.m.Y');
 $context[ 'date_filter_full' ] = date('l d F');
 $context[ 'day_now' ]  = date('D');
 $day_filter  = date('D');
@@ -36,6 +37,7 @@ $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
 
 /* Load Evenementen */
+
 if ($posttype == 'evenementen') { 
   
     $context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);
@@ -165,6 +167,7 @@ if ($posttype == 'evenementen') {
 }
 
 /* Load Winkels */
+
 if ($posttype == 'evenementen' || $posttype == 'locaties') {
   $args_winkels = array(
     'post_type'			  => 'locaties',
@@ -176,6 +179,7 @@ if ($posttype == 'evenementen' || $posttype == 'locaties') {
 }
 
 /* Load Horeca */
+
 if ($posttype == 'evenementen' || $posttype == 'horeca') {
   $args_horeca = array(
     'post_type'			  => 'locaties',
@@ -188,6 +192,7 @@ if ($posttype == 'evenementen' || $posttype == 'horeca') {
 }
 
 /* Load Blog */
+
 if ($posttype == 'post') {
   
   $terms = \Timber::get_terms(array('taxonomy' => 'category', 'hide_empty' => true));
@@ -203,7 +208,5 @@ if ($posttype == 'post') {
   
   $context['posts'] = Timber::get_posts($args_posts);
 }
-
-
 
 Timber::render( $templates, $context );

@@ -553,6 +553,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/common\/_form.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/common\/_form.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/common\/_preloader.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -604,6 +617,13 @@
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
+		},
+	"\/assets\/scss\/common\/untitled file": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/scss\/common\/untitled file",
+		"oF": 0
 		},
 	"\/assets\/scss\/main.scss": {
 		"aP": 0,
@@ -12226,6 +12246,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/partials\/aanbodkaart.twig",
+		"oF": 0
+		},
+	"\/templates\/partials\/archive-evenementen-single.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/partials\/archive-evenementen-single.twig",
 		"oF": 0
 		},
 	"\/templates\/partials\/button.twig": {

@@ -14,6 +14,19 @@
           <h1> Aanbod </h1>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-16 offset-md-2">
+          <div class="mod-filterblocks">
+            <div class="row">
+              {% for cat in category %}
+                <div class="col">
+                  <a href="/{{ cat.slug }}" class="block condensed">{{ cat.title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="cards cards-archive">
         <div class="row justify-content-center">
           {% for blok in posts %}  

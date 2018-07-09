@@ -7,7 +7,7 @@
   }
   .slide {
     transition: 0.5s ease-in-out;
-    height: 300px;
+    height: 220px;
     background-size: cover;
     background-position: center center;
     color: #fff;
@@ -27,6 +27,14 @@
       right: 0;
       height: 10px;
       box-shadow: inset 0px 2px 3px rgba(0,0,0,.3);
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .mod-slider {
+    .slide {
+      height: 300px;
     }
   }
 }

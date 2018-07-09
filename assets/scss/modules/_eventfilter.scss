@@ -6,7 +6,7 @@
   }
   .box {
     background: $green;
-    padding: 40px 30px;
+    padding: 20px;
     position: relative;
     .row {
       margin-left: -5px;
@@ -26,7 +26,7 @@
       border: 2px solid #fff;
       border-radius: 0;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: $darkblue;
       position: relative;
       background-color: #fff;
@@ -48,7 +48,7 @@
     }
     .mod-filterbar {
       padding-top: 8px;
-      padding-bottom: 0;
+      padding-bottom: 20px;
     }
     .buttonbar {
       position: absolute;
@@ -72,5 +72,11 @@
 @include media-breakpoint-up(md) {
   .mod-eventfilter {
     margin-bottom: -30px;
+    .box {
+      padding: 40px 30px;
+    }
+    .mod-filterbar {
+      padding-bottom: 0;
+    }
   }
 }
