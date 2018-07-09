@@ -12,7 +12,11 @@
 			<div class="article-body">
 			  <section>
 			    <div class="container">
-			      <h1> {{ post.title }} </h1>
+            <div class="row">
+              <div class="col-md-18 offset-md-1">
+                <h1> {{ post.title }} </h1>
+              </div>
+            </div>
 			      <div class="row">
   			      <div class="offset-md-2 col-md-16">
                 <div class="mod-aanbodkaart">
@@ -25,7 +29,6 @@
                       {% endfor %}
                     </div>
                   </div>
-
                   <div class="space">
                     <div class="startpoint"></div>
                     <div class="row">
@@ -35,18 +38,26 @@
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col left">
+                      </div>
+                      <div class="col center">
+                      </div>
+                      <div class="col right">
+                      </div>
+                    </div>
                     {% for blok in post.get_field('ten_katemarkt') %}  
                       {% include 'partials/aanbodkaart.twig' %}
                     {% endfor %}
                     <div class="row aanbod">
-                      <div class="col">
+                      <div class="col left">
                       </div>
                       <div class="col center">
                         <div class="bar rechts">
                           <div class="circle"></div>
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col right">
                         {% set links = post.get_field('locatie_met_buiteningang') %}
                         {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
                         <a href="{{links.link}}" class="block rechts condensed {{ catlinks }}">         
@@ -55,17 +66,27 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col middle">
+                      <div class="col">
                         <div class="">
                           <span> Entree Tollenstraat </span>
                         </div>
                       </div>
-                      <div class="col middle center">
+                      <div class="col center">
+                        <div class="hbar"></div>
                       </div>
-                      <div class="col middle">
+                      <div class="col">
+                        <div class="hbar"></div>
+                        <div class="vbar"></div>
                       </div>
                     </div>
-
+                    <div class="row">
+                      <div class="col left">
+                      </div>
+                      <div class="col center">
+                      </div>
+                      <div class="col right">
+                      </div>
+                    </div>
                     {% for blok in post.get_field('tollenstraat') %}  
                       {% include 'partials/aanbodkaart.twig' %}
                     {% endfor %}

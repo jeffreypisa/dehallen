@@ -17,8 +17,12 @@ $context['post'] = $post;
 $posttype = $post->post_type;
 $posttype_archive = get_post_type_archive_link( $posttype );
 $context['posttype'] = $posttype;
-$context['posttype_archive'] = $posttype_archive;
 
+if ($posttype == 'post') {
+  $context['posttype_archive'] = '/blog';
+} else {
+  $context['posttype_archive'] = $posttype_archive;
+}
 $currentID = get_the_ID();
 
 /* 'More' */

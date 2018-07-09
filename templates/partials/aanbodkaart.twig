@@ -3,7 +3,7 @@
 {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
 {% set catrechts = rechts.terms('categorie_locaties') | join(' ') | lower %}
 <div class="row aanbod">
-  <div class="col">
+  <div class="col left">
     {% if links %}
       <a href="{{ links.link }}" class="block condensed links {{ catlinks }}">
         {{ links.title }}
@@ -22,7 +22,7 @@
       </div>
     {% endif %}
   </div>
-  <div class="col">
+  <div class="col right">
     {% if rechts %}
       <a href="{{ links.link }}" class="block condensed rechts {{ catrechts }}">
         {{ rechts.title }}

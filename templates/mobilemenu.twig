@@ -14,14 +14,21 @@
         </div>
         <div class="col-md-10 col-lg-6 col-xl-6 offset-xl-1">
           <div class="third">
-            <h3> OPENINGSTIJDEN </h3>
-            {{ options.openingstijden }}
-            <br>
-            <h3> ADRES </h3>
-            {{ options.adres }}
-            <br>
-            <h3> PLAN </h3>
-            {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+            <div class="menublock">
+              {% include "menutaal.twig" with {'menutaal': menutaal.get_items} %}
+            </div>
+            <div class="menublock">
+              <h3> OPENINGSTIJDEN </h3>
+              {{ options.openingstijden }}
+            </div>
+            <div class="menublock">
+              <h3> ADRES </h3>
+              {{ options.adres }}
+            </div>
+            <div class="menublock">
+              <h3> PLAN </h3>
+              {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+            </div>
           </div>
         </div>
       </div>

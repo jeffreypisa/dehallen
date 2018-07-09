@@ -25,6 +25,32 @@ footer {
       }
     }
   }
+  .mailchimp-form {
+    position: relative;
+    input[type=email] {
+      border-radius: 0;
+      border: 0;
+      height: 24px;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px 35px 0 5px;
+    }
+    input[type=submit] {
+      background: $green;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: 0;
+      box-shadow: none;
+      height: 24px;
+      width: 30px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px 5px 0;
+    }
+  }
   .followus {
     a {
       display: block;

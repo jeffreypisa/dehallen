@@ -319,6 +319,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/assets\/images\/facebook-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/images\/facebook-blue.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/assets\/images\/facebook.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -380,6 +390,16 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/assets\/images\/twitter-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/images\/twitter-blue.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"\/assets\/images\/twitter.svg": {
 		"ft": 2097152,
@@ -802,6 +822,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/scss\/modules\/_quote.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/modules\/_sharethis.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_sharethis.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -12095,6 +12128,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/menuextra.twig",
+		"oF": 0
+		},
+	"\/templates\/menutaal.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/menutaal.twig",
 		"oF": 0
 		},
 	"\/templates\/mobilemenu.twig": {

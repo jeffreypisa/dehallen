@@ -35,20 +35,16 @@ $context[ 'day_filter_full' ]  = date('l');
 $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
 
-
-$context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);
-
-$context[ 'cat' ] = Timber::get_terms('categorie');
-
-/* get current category */
-$cat = get_category(get_query_var('categorie'));
-
-$cat_slug = $cat->slug;
-$context['currentcat'] = $cat_slug;
-
-
 /* Load Evenementen */
 if ($posttype == 'evenementen') { 
+  
+    $context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);
+    $context[ 'cat' ] = Timber::get_terms('categorie');
+    
+    /* get current category */
+    $cat = get_category(get_query_var('categorie'));    
+    $cat_slug = $cat->slug;
+    $context['currentcat'] = $cat_slug;
     
     $context['selected_cats'] = array();
     $cats = $context[ 'cat' ];
@@ -154,5 +150,24 @@ if ($posttype == 'evenementen' || $posttype == 'horeca') {
   
   $context['horeca'] = Timber::get_posts($args_horeca);
 }
+
+/* Load Blog */
+if ($posttype == 'post') {
+  
+  $terms = \Timber::get_terms(array('taxonomy' => 'category', 'hide_empty' => true));
+  $context['category'] = $terms;
+  
+  $postcatid = get_queried_object()->term_id;
+    
+  $args_posts = array(
+    'post_type'			  => 'post',
+  	'posts_per_page'  => -1,
+    'cat'             => $postcatid
+  ); 
+  
+  $context['posts'] = Timber::get_posts($args_posts);
+}
+
+
 
 Timber::render( $templates, $context );

@@ -11,6 +11,9 @@
       color: #fff;
     }
   }
+  .row {
+    min-height: 30px;
+  }
   .block.entertainment {
     color: $color2;
     border: 2px solid $color2;
@@ -37,7 +40,7 @@
   }
   .top {
     position: relative;
-    height: 80px;
+    height: 90px;
     border-bottom: 2px solid $grey;
     div {
       display: block;
@@ -103,27 +106,28 @@
       }
     }
     .row {
-      padding: 15px 0;
-      border-left: 2px solid $grey;
-      border-right: 2px solid $grey;
       &.active {
         &.business {
-          .center:after {
+          .center:after,
+          .top div:after {
             background: $color1;
           }
         }
         &.entertainment {
-          .center:after {
+          .center:after,
+          .top div:after {
             background: $color2;
           }
         }
         &.horeca {
-          .center:after {
+          .center:after,
+          .top div:after {
             background: $color3;
           }
         }
         &.shops {
-          .center:after {
+          .center:after,
+          .top div:after {
             background: $color4;
           }
         }
@@ -219,12 +223,19 @@
         padding: 10px;
         font-weight: 600;
         font-size: 15px;
+        margin-bottom: 20px;
         &.links {
           margin-left: 30px;
         }
         &.rechts {
           margin-right: 30px;
         }
+      }
+      .col.left {
+        border-left: 2px solid $grey;
+      }
+      .col.right {
+        border-right: 2px solid $grey;
       }
       .center {
         position: relative;
@@ -233,8 +244,8 @@
           width: 6px;
           background: $grey;
           position: absolute;
-          top: -51px;
-          bottom: 11px;
+          top: -43px;
+          bottom: -2px;
           left: 50%;
           margin-left: -3px;
         }
@@ -242,6 +253,7 @@
           position: absolute;
           top: 50%;
           height: 6px;
+          margin-top: -12px;
           background: $grey;
           .circle {
             border: 6px solid $grey;

@@ -1,8 +1,10 @@
 {% for item in post.get_field('week') %}
   {% if item.the_day == day_filter %}
-    <div class="col-md-10">
+    <div class="col-lg-10">
       <a href="{{ post.link }}" class="tease tease-{{post.post_type}} condensed" id="tease-{{post.ID}}">
-        {{ post.title }} .... TOT {{ item.close }}
+        <span class="title">{{ post.title }}</span> 
+        <span class="time">TOT {{ item.close }}</span>
+        <span class="dots">......................................................................................................................</span>
       </a>
     </div>
   {% endif %}

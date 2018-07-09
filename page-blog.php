@@ -3,12 +3,9 @@
  * Template Name: Blog archive
  */
  
-$templates = array( 'archive-post.twig', 'index.twig' );
-
-$posttype = $post->post_type;
+$templates = array( 'archive.twig', 'index.twig' );
 
 $context = Timber::get_context();
-
 
 $args_blog = array(
     'post_type'         => 'post',
@@ -16,5 +13,10 @@ $args_blog = array(
 );
 
 $context['posts'] = Timber::get_posts($args_blog);
+
+
+$terms = \Timber::get_terms(array('taxonomy' => 'category', 'hide_empty' => true));
+$context['category'] = $terms;
+
 
 Timber::render( $templates, $context );

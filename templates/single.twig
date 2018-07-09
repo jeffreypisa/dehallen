@@ -54,8 +54,26 @@
             {% if posttype == 'locaties' %}
               {% include 'partials/infobox-locaties.twig' %}
             {% endif %}
+            {% if posttype == 'evenementen' %}
+              
+              {% include 'partials/infobox-locaties.twig' %}
+            {% endif %}
           </div>
         </div>
+        {% if posttype == 'post' %}
+          <div class="mod-sharethis">
+            <h4> DEEL DIT {{ categorie | upper }} </h4>
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.link }}">
+              <img width="30" height="30" src="{{ theme.link }}/assets/images/facebook-blue.svg">
+            </a>
+            <a target="_blank" href="https://twitter.com/home?status={{ site.link }}">
+              <img width="30" height="30" src="{{ theme.link }}/assets/images/twitter-blue.svg">
+            </a>
+          </div>
+          <div class="text-center">
+            <a href="{{ categorielink }}" class="btn btn-secondary">Meer {{ categorie }} </a>
+          </div>
+        {% endif %}
 			</div>
 		</section>
 		{% if more|length > 0 %}

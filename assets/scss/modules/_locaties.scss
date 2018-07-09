@@ -42,10 +42,39 @@
     .card {
       background: #ffecd6;
     }
+    .tease {
+      .title, .time {
+        background: #ffecd6;
+      }
+    }
   }
   &.horeca {
     .card {
       background: #f3cfc1;
+    }
+    .tease {
+      .title, .time {
+        background: #f3cfc1;
+      }
+    }
+  }
+  .tease {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .title {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .time {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }
