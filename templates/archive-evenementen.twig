@@ -1,11 +1,39 @@
 {% extends "base.twig" %}
 
+
 {% block content %}
+<script>
+function load_more_events() {
+	jQuery.post( "{{dh_agenda_ajaxurl}}", jQuery( "#searchform" ).serialize(), function( data ) {
+  		
+  		if( jQuery(".mod-agenda").children().length > 1 ) {
+	  		jQuery( '.dh_no_hits' ).remove();  		
+  		}
+  		
+  		// No hits
+  		if( jQuery(".mod-agenda").children().length == 1 ) {
+  			jQuery( ".mod-agenda" ).append(data);
+  			jQuery( '.dh_no_hits' ).first().remove();
+  		} else {
+  		 	jQuery( ".mod-agenda article:last-child" ).after(data);
+		}
+		
+		// Make sure
+		if( jQuery( '.dh_no_hits' ).length > 1 ) {
+			jQuery( '.dh_no_hits' ).first().remove();
+		}
+  		
+  		jQuery( '#searchoffset' ).val( (parseInt(jQuery( '#searchoffset' ).val()) + {{dh_agenda_ajaxoffset}}) );
+  		jQuery( '#dh_load_more_events_button').blur();
+});
+}
+</script>
   <section class="mod-eventfilter-agenda">
     <div class="timenow" style="display:none">{{ time_now }}</div>
     <div class="datenow" style="display:none">{{ date_now }}</div>
     <div class="container">
       <form role="search" method="get" id="searchform" action="{{ site.url }}/agenda">
+      <input type="hidden" name="offset" value="{{dh_agenda_ajaxoffset}}" id="searchoffset" />
         <div class="row">
           <div class="col-8 col-lg-3">
             <input name="date" type="text" class="form-control js-datepicker" placeholder="Datum" value="{{date_sanitized}}">
@@ -43,37 +71,12 @@
   <section>
     <div class="container">
       <h1> {{ date_filter_full }} </h1>
-      {% if evenementen|length > 0 %}
+      
         <div class="mod-agenda">
-          {% for post in evenementen %}
-            {% set catje = post.terms('categorie') | join(' ') | lower %}
-            {% if the_hour != post.begintijd|date("H") %}
-              {% set the_hour = post.begintijd|date("H") %}
-              {% set showmoviebox = 'true' %}
-              <div class="hourblock">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="meta">
-                      <div class="hour">{{ the_hour }}:00 <span></span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-            {% if (catje == 'film') and (showmoviebox == 'true') %}
-              {% include ['partials/moviebox.twig'] %}
-              {% set showmoviebox = 'false' %}
-            {% elseif catje != 'film' %}
-              {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-            {% endif %}
-          {% endfor %}
+          {% include ['partials/archive-evenementen-single.twig'] %}
         </div>
-      {% else %}
-        <div class="mod-agenda">
-          <h3> Geen evenementen</h3>
-          <br>
-        </div>
-      {% endif %}
+        
+        
       {% if winkels|length > 0 %}
         <div class="mod-locaties winkels">
           <div class="line">
@@ -121,7 +124,7 @@
     </div>
     <div class="text-center">
     <br>
-      <a href="#" class="btn btn-secondary"> Later <i class="fas fa-arrow-circle-down"></i></a>
+      <a href="#" id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> Later <i class="fas fa-arrow-circle-down"></i></a>
     </div>
   </section>
 {% endblock %}

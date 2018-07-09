@@ -50,6 +50,20 @@ $context['currentcat'] = $cat_slug;
 /* Load Evenementen */
 if ($posttype == 'evenementen') { 
     
+    define('DH_EVENTS_HOUR_OFFSET', 2);
+    
+    if( isset( $_POST['offset'] ) ) {
+        $offset = intval( $_POST['offset'] );
+        $templates = 'partials/archive-evenementen-single.twig';
+        $_GET['category']   = $_POST['category'];
+        $_GET['date']       = $_POST['date'];
+        $_GET['time']       = $_POST['time'];
+        
+    }
+    
+    $context['dh_agenda_ajaxurl']       = home_url( $_SERVER['REDIRECT_URL'] );
+    $context['dh_agenda_ajaxoffset']    = DH_EVENTS_HOUR_OFFSET;
+    
     $context['selected_cats'] = array();
     $cats = $context[ 'cat' ];
     $context['date_sanitized'] = '';
@@ -94,6 +108,12 @@ if ($posttype == 'evenementen') {
         }
     }
     
+    if( isset( $offset ) ) {
+        $first_slot = strtotime( $date. ' '.$timestart . ' + '.$offset.' hours');
+        $date = date( 'Ymd', $first_slot);
+        $timestart = date( 'H:i:00', $first_slot);
+    }
+    
     $args_evenementen = array(
         'post_type' => 'evenementen',
         'posts_per_page' => - 1,
@@ -114,7 +134,23 @@ if ($posttype == 'evenementen') {
         'orderby' => 'meta_value',
         'order' => 'ASC'
     );
-  
+    
+    // Limit by DH_EVENTS_HOUR_OFFSET hours up front
+    $next_slot = strtotime( $date. ' '.$timestart . ' + '.DH_EVENTS_HOUR_OFFSET.' hours');
+    
+    $args_evenementen['meta_query'][] =
+        array(
+            'key' => 'datum',
+            'compare' => '<=',
+            'value' => date( 'Ymd', $next_slot),
+        );
+    $args_evenementen['meta_query'][] =
+        array(
+            'key' => 'begintijd',
+            'compare' => '<=',
+            'value' => date( 'H:i:00', $next_slot),
+        );
+    
     if( is_array( $cat_ids ) && count( $cat_ids ) > 0 ) {
         $args_evenementen['tax_query'] = array(
             'relation' => 'OR');
