@@ -6,7 +6,7 @@
       var fo = jQuery("footer").height();
       var he = jQuery("header").height();
       var dohi = jQuery(window).height();
-      var minhe = dohi - fo - he - 45;
+      var minhe = dohi - fo - he - 35;
       jQuery("#content").css("min-height", minhe);
     }
 
