@@ -1,7 +1,7 @@
 (function($) {
   $( document ).ready(function() {
 
-    $('a[data-aanbodfilter]').on('click', function() {
+    $('a[data-aanbodfilter]').on('click', function(event) {
       event.preventDefault();
       $('.block').removeClass('active');
       $(this).addClass('active');
