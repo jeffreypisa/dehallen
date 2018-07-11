@@ -72,7 +72,7 @@ function load_more_events() {
     <div class="container">
       <h1> 
         <span class="d-block d-sm-none">{{ date_filter_short }}</span> 
-        <span class="d-none d-sm-block">{{ date_filter_full }}</span> 
+        <span class="d-none d-sm-block">{{ date_filter_full | capitalize }}</span> 
       </h1>
       
       <div class="mod-agenda">
@@ -91,7 +91,7 @@ function load_more_events() {
           </div>
           <div class="card">
             <div class="card-body">
-              <h2> Winkels open op {{ day_filter_full }} </h2>
+              <h2> Winkels open op {{ day_filter_full | lower }} </h2>
               <div class="row">
                 {% for post in winkels %}
                   {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
@@ -113,7 +113,7 @@ function load_more_events() {
           </div>
           <div class="card">
             <div class="card-body">
-              <h2> Horeca open op {{ day_filter_full }} </h2>
+              <h2> Horeca open op {{ day_filter_full | lower }} </h2>
               <div class="row">           
                 {% for post in horeca %}
                   {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}

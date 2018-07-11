@@ -12,7 +12,8 @@
       var targetelement = $( '.space .' + aanbodfilter );
 
       targetelement.addClass('active');
-      targetelement.closest('.row').prevUntil( ".space .startpoint" ).andSelf().addClass('active').addClass(aanbodfilter);
+
+      $('.space .row').addClass('active').addClass(aanbodfilter);
 
       if (targetelement.hasClass('links')) {
         targetelement.closest('.row').addClass('links').addClass(aanbodfilter);

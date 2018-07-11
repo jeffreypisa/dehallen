@@ -6733,10 +6733,12 @@ h2 {
   transition: opacity ease-out 0.5s;
   left: 0;
   top: 0;
-  position: absolute; }
+  position: absolute;
+  z-index: 0; }
 
 .carousel.carousel-fade .carousel-item.active {
-  opacity: 1 !important; }
+  opacity: 1 !important;
+  z-index: 1; }
 
 .carousel.carousel-fade .carousel-item:first-child {
   top: auto;
@@ -6755,12 +6757,18 @@ h2 {
   opacity: 0.5;
   filter: alpha(opacity=50); }
 
-.carousel .carousel-control-prev img,
-.carousel .carousel-control-next img {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  width: 23px;
-  height: 71px; }
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  z-index: 2; }
+  .carousel .carousel-control-prev img,
+  .carousel .carousel-control-next img {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    width: 23px;
+    height: 71px; }
+
+.btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+  opacity: 1; }
 
 .btn-link, a[href] {
   color: #46aa64; }
@@ -6893,7 +6901,11 @@ section {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
   font-weight: 600; }
   .card .card-img-top, a.card[href] .card-img-top {
-    position: relative; }
+    position: relative;
+    padding-bottom: 56%;
+    background-size: cover;
+    background-position: center center;
+    background-color: #d1d3d4; }
     .card .card-img-top .overlay, a.card[href] .card-img-top .overlay {
       position: absolute;
       bottom: -1px;
@@ -6999,21 +7011,25 @@ a.card[href]:hover {
       background: #46aa64; }
       .mod-agenda .tease.special .card .bg {
         display: block; }
-      .mod-agenda .tease.special .card h3 a {
+      .mod-agenda .tease.special .card h3 {
         color: #fff; }
-        .mod-agenda .tease.special .card h3 a:hover {
-          opacity: 0.8; }
     .mod-agenda .tease .card {
       font-size: 20px;
       line-height: 24px;
       border: 0; }
+      .mod-agenda .tease .card:hover {
+        cursor: pointer; }
+        .mod-agenda .tease .card:hover .bg:after {
+          width: 30px; }
       .mod-agenda .tease .card .row {
         margin: 0; }
       .mod-agenda .tease .card .col-md-10 {
         padding: 0; }
       .mod-agenda .tease .card .bg {
         min-height: 234px;
-        display: none; }
+        height: 100%;
+        display: none;
+        position: relative; }
         .mod-agenda .tease .card .bg .bgcover {
           position: absolute;
           top: 0;
@@ -7022,6 +7038,16 @@ a.card[href]:hover {
           bottom: 0;
           background-size: cover;
           background-position: center center; }
+        .mod-agenda .tease .card .bg:after {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          transition: 0.1s ease-in-out;
+          z-index: 3;
+          background: #46aa64; }
       .mod-agenda .tease .card .card-body {
         min-height: 180px;
         padding: 30px; }
@@ -7269,17 +7295,22 @@ a.card[href]:hover {
     .mod-aanbodkaart .space .row .col {
       padding: 0; }
   .mod-aanbodkaart .space .row.active.business .col:after,
-  .mod-aanbodkaart .space .row.active.business .top div:after {
+  .mod-aanbodkaart .space .row.active.business .top div:after,
+  .mod-aanbodkaart .space .row.active.business .bottom:after {
     background: #ff0000; }
   .mod-aanbodkaart .space .row.active.entertainment .col:after,
-  .mod-aanbodkaart .space .row.active.entertainment .top div:after {
+  .mod-aanbodkaart .space .row.active.entertainment .top div:after,
+  .mod-aanbodkaart .space .row.active.entertainment .bottom:after {
     background: #00aeef; }
   .mod-aanbodkaart .space .row.active.horeca .col:after,
-  .mod-aanbodkaart .space .row.active.horeca .top div:after {
+  .mod-aanbodkaart .space .row.active.horeca .top div:after,
+  .mod-aanbodkaart .space .row.active.horeca .bottom:after {
     background: #ffd100; }
   .mod-aanbodkaart .space .row.active.shops .col:after,
-  .mod-aanbodkaart .space .row.active.shops .top div:after {
+  .mod-aanbodkaart .space .row.active.shops .top div:after,
+  .mod-aanbodkaart .space .row.active.shops .bottom:after {
     background: #812990; }
+  .mod-aanbodkaart .space .row.active.kunst .bottom:after,
   .mod-aanbodkaart .space .row.active.kunst .col:after,
   .mod-aanbodkaart .space .row.active.kunst .top div:after {
     background: #38ae00; }
@@ -7359,7 +7390,7 @@ a.card[href]:hover {
     .mod-aanbodkaart .space .row .center.middle:after {
       top: -45px;
       bottom: 41px;
-      margin-left: -2px; }
+      margin-left: -2.5px; }
   .mod-aanbodkaart .space .row .col .bar {
     position: absolute;
     top: 50%;
@@ -7413,6 +7444,26 @@ a.card[href]:hover {
     font-weight: 600;
     font-size: 15px;
     border: 2px solid #d1d3d4; }
+  .mod-filterblocks .row {
+    margin-left: -2px;
+    margin-right: -2px; }
+    .mod-filterblocks .row .col {
+      padding-left: 2px;
+      padding-right: 2px; }
+
+@media (min-width: 992px) {
+  .page-id-273 .mod-filterblocks .row {
+    margin-left: -15px;
+    margin-right: -15px; }
+    .page-id-273 .mod-filterblocks .row .col {
+      padding-left: 15px;
+      padding-right: 15px; }
+  .mod-filterblocks .row {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .mod-filterblocks .row .col {
+      padding-left: 10px;
+      padding-right: 10px; } }
 
 .mod-eventfilter {
   margin-bottom: 30px; }
@@ -7432,7 +7483,7 @@ a.card[href]:hover {
       height: 64px;
       font-size: 30px;
       line-height: 44px;
-      padding: 10px 10px 6px 44px;
+      padding: 10px 10px 4px 44px;
       border: 2px solid #fff;
       border-radius: 0;
       font-weight: bold;
@@ -7583,15 +7634,15 @@ header {
     padding: 0; }
   header .logo {
     position: absolute;
-    top: 12px;
+    top: 22px;
     padding: 0;
     font-size: 0px;
     margin: 0;
     left: 50%;
-    margin-left: -110px; }
+    margin-left: -90px; }
     header .logo a {
       display: block;
-      width: 220px;
+      width: 180px;
       height: auto;
       color: #000; }
       header .logo a img {
@@ -7645,9 +7696,9 @@ header {
       header .btn-menu .lines span:nth-child(1) {
         top: 0px; }
       header .btn-menu .lines span:nth-child(2) {
-        top: 9px; }
+        top: 10px; }
       header .btn-menu .lines span:nth-child(3) {
-        top: 18px; }
+        top: 20px; }
   header .btn-menu:hover span {
     width: 100%;
     background: #0a334f; }
@@ -7666,25 +7717,14 @@ header {
   header {
     height: 140px; }
     header .logo {
-      top: 16px;
-      margin-left: -120px; }
+      top: 20px;
+      margin-left: -105px; }
       header .logo a {
-        width: 240px; }
+        width: 210px; }
     header .btn-menu {
-      height: 44px;
-      width: 60px;
       top: 40px;
-      right: 40px; }
-      header .btn-menu .lines {
-        height: 44px; }
-        header .btn-menu .lines span {
-          height: 6px; }
-        header .btn-menu .lines span:nth-child(1) {
-          top: 0px; }
-        header .btn-menu .lines span:nth-child(2) {
-          top: 18px; }
-        header .btn-menu .lines span:nth-child(3) {
-          top: 36px; } }
+      right: 40px;
+      width: 38px; } }
 
 .mod-pageheader .bg {
   position: absolute;
@@ -7785,13 +7825,16 @@ header {
           opacity: 0.6; }
   .mod-slider .slide {
     height: 400px;
-    padding: 30px; }
+    padding: 30px;
+    position: relative; }
     .mod-slider .slide .content {
       display: block;
       padding-top: 40px; }
       .mod-slider .slide .content h2 {
         font-size: 80px;
-        line-height: 80px; }
+        line-height: 80px;
+        display: inline-block;
+        border-bottom: 6px solid transparent; }
       .mod-slider .slide .content .datetime {
         font-size: 40px;
         line-height: 40px; }
@@ -7802,7 +7845,20 @@ header {
         bottom: 30px;
         left: 0;
         right: 0;
-        font-weight: 600; } }
+        font-weight: 600; }
+    .mod-slider .slide:before {
+      position: absolute;
+      background: #46aa64;
+      bottom: 0;
+      top: auto;
+      left: 0;
+      right: 0;
+      height: 0;
+      content: '';
+      transition: 0.1s ease-in-out;
+      z-index: 4; }
+    .mod-slider .slide:hover:before {
+      height: 6px; } }
 
 @media (min-width: 992px) {
   .mod-slider .slide {
@@ -7986,11 +8042,18 @@ body.opensidemenu .mod-mobilemenu {
 .home .mod-filterbar {
   padding-bottom: 0; }
 
+.archive .mod-filterbar .col {
+  min-width: 40px; }
+
 .mod-filterbar {
   background: #46aa64;
   color: #fff;
   text-align: center;
-  padding: 14px 0 8px; }
+  padding: 14px 0 8px;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out; }
+  .mod-filterbar.active, .mod-filterbar:hover, .mod-filterbar.top {
+    opacity: 1; }
   .mod-filterbar .col {
     min-width: 50px; }
   .mod-filterbar label {

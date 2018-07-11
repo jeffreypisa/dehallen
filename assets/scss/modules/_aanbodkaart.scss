@@ -162,29 +162,34 @@
       &.active {
         &.business {
           .col:after,
-          .top div:after {
+          .top div:after,
+          .bottom:after {
             background: $color1;
           }
         }
         &.entertainment {
           .col:after,
-          .top div:after {
+          .top div:after,
+          .bottom:after {
             background: $color2;
           }
         }
         &.horeca {
           .col:after,
-          .top div:after {
+          .top div:after,
+          .bottom:after {
             background: $color3;
           }
         }
         &.shops {
           .col:after,
-          .top div:after {
+          .top div:after,
+          .bottom:after {
             background: $color4;
           }
         }
         &.kunst {
+          .bottom:after,
           .col:after,
           .top div:after {
             background: $color5;
@@ -340,7 +345,7 @@
           &:after {
             top: -45px;
             bottom: 41px;
-            margin-left: -2px;
+            margin-left: -2.5px;
           }
         }
       }

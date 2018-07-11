@@ -82,12 +82,15 @@
     .slide {
       height: 400px;
       padding: 30px;
+      position: relative;
       .content {
         display: block;
         padding-top: 40px;
         h2 {
           font-size: 80px;
           line-height: 80px;
+          display: inline-block;
+          border-bottom: 6px solid transparent;
         }
         .datetime {
           font-size: 40px;
@@ -101,6 +104,23 @@
           left: 0;
           right: 0;
           font-weight: 600;
+        }
+      }
+      &:before {
+        position: absolute;
+        background: $green;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        height: 0;
+        content: '';
+        transition: 0.1s ease-in-out;
+        z-index: 4;
+      }
+      &:hover {
+        &:before {
+          height: 6px;
         }
       }
     }

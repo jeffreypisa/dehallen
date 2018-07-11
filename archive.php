@@ -23,16 +23,23 @@ $context = Timber::get_context();
 // for 'now' functionality date and time in filter
 
 $context[ 'date_now' ] = date('d/m/Y');
-$context[ 'time_now' ] = date('H:i');
+$context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 
 // Full date
+if(ICL_LANGUAGE_CODE==en){
+  $context[ 'date_filter_full' ] = date('l d F');
+  $context[ 'day_filter_full' ]  = date('l');
+}
+else {
+  setlocale(LC_ALL, 'nl_NL');
+  $context[ 'date_filter_full' ] = strftime('%A %e %B');
+  $context[ 'day_filter_full' ]  = strftime('%A');
+}
 
-$context[ 'date_filter_short' ] = date('d.m.Y');
-$context[ 'date_filter_full' ] = date('l d F');
 $context[ 'day_now' ]  = date('D');
 $day_filter  = date('D');
 $context[ 'day_filter' ]  = strtolower($day_filter);
-$context[ 'day_filter_full' ]  = date('l');
+
 $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
 
@@ -91,7 +98,17 @@ if ($posttype == 'evenementen') {
             $date = str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT );          
             $context['date_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT );
             
-            $context[ 'date_filter_full' ] = date('l d F', strtotime( $date ) );
+            if(ICL_LANGUAGE_CODE==en){
+              $context[ 'date_filter_full' ] = date('l d F', strtotime( $date ) );
+              $context[ 'day_filter_full' ]  = date('l', strtotime( $date ) );
+            }
+            else {
+              setlocale(LC_ALL, 'nl_NL');
+              $context[ 'date_filter_full' ] = strftime('%A %e %B', strtotime( $date ) );
+              $context[ 'day_filter_full' ]  = strftime('%A', strtotime( $date ) );
+            }
+
+            $context[ 'date_filter_short' ] = date('d.m.Y', strtotime( $date ));
         }
     }
     
@@ -173,7 +190,7 @@ if ($posttype == 'evenementen' || $posttype == 'locaties') {
     'post_type'			  => 'locaties',
   	'posts_per_page'  => -1,
     'taxonomy'        => 'categorie_locaties',
-    'term'            => 'Winkels',
+    'term'            => 'Shops',
   ); 
   $context['winkels'] = Timber::get_posts($args_winkels);
 }

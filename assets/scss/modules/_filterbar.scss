@@ -1,11 +1,21 @@
 .home .mod-filterbar {
   padding-bottom: 0;
 }
+.archive .mod-filterbar{
+  .col {
+    min-width: 40px;
+  }
+}
 .mod-filterbar {
   background: $green;
   color: #fff;
   text-align: center;
   padding: 14px 0 8px;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+  &.active, &:hover, &.top {
+    opacity: 1;
+  }
   .col {
     min-width: 50px;
   }

@@ -1,3 +1,6 @@
+.btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+  opacity: 1;
+}
 .btn-link, a[href] {
   color: $green;
   &:hover {

@@ -42,7 +42,11 @@ class StarterSite extends TimberSite {
 		$context['footermenu'] = new TimberMenu('footermenu');
 		$context['menutaal'] = new TimberMenu('menutaal');
 		$context['site'] = $this;
-		return $context;
+    $context['lang'] = strtolower( substr( get_locale(), 0, 2 ));
+    if ( wp_is_mobile() ) {
+    	$context['ismobile'] = 'true';
+    }
+    return $context;
 	}
 
 	function myfoo( $text ) {

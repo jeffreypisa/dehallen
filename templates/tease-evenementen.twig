@@ -7,18 +7,18 @@
       </div>
     </div>
     <div class="col-md-14">
-      <div class="card {{ catje }}">
+      <div onclick="location.href='{{ post.link }}'" class="card {{ catje }}">
         <div class="row">
           <div class="col-md-10">
             {% if post.afbeelding %} 
               <div class="bg">
-                <a href="{{ post.link }}" class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding) }})"> </a>
+                <div class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding) }})"> </div>
               </div>
             {% endif %}
           </div>
           <div class="col-md-10">
             <div class="card-body">
-              <h3> <a href="{{ post.link }}"> {{ post.title }} </a> </h3>
+              <h3> {{ post.title }} </h3>
               {% if post.type_evenement %}
                 <p> {{ post.type_evenement }} </p>
               {% endif %}

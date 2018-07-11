@@ -16,6 +16,39 @@
 		"oAP": "\/404.php",
 		"oF": 0
 		},
+	"\/android-chrome-192x192.png": {
+		"ft": 32768,
+		"iS": 6053,
+		"oA": 0,
+		"oAP": "\/android-chrome-192x192.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/android-chrome-512x512.png": {
+		"ft": 32768,
+		"iS": 6139,
+		"oA": 0,
+		"oAP": "\/android-chrome-512x512.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 5650,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/archive.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -437,6 +470,16 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/scripts\/eqheights-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/scripts\/filterbar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/scripts\/filterbar-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -11898,6 +11941,35 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/browserconfig.xml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/browserconfig.xml",
+		"oF": 0
+		},
+	"\/favicon-16x16.png": {
+		"ft": 32768,
+		"iS": 764,
+		"oA": 0,
+		"oAP": "\/favicon-16x16.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon-32x32.png": {
+		"ft": 32768,
+		"iS": 1124,
+		"oA": 0,
+		"oAP": "\/favicon-32x32.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
@@ -11933,6 +12005,13 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
+	"\/lib\/categoryradio.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/lib\/categoryradio.php",
+		"oF": 0
+		},
 	"\/lib\/cpt.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -11952,6 +12031,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/lib\/includes.php",
+		"oF": 0
+		},
+	"\/lib\/mobiledetect.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/lib\/mobiledetect.php",
 		"oF": 0
 		},
 	"\/lib\/optionspage.php": {
@@ -11974,6 +12060,17 @@
 		"oA": 0,
 		"oAP": "\/lib\/timber.php",
 		"oF": 0
+		},
+	"\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 5057,
+		"oA": 0,
+		"oAP": "\/mstile-150x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"\/page-blog.php": {
 		"cB": 0,
@@ -12019,6 +12116,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/single.php",
+		"oF": 0
+		},
+	"\/site.webmanifest": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/site.webmanifest",
 		"oF": 0
 		},
 	"\/style.css": {
@@ -12443,20 +12547,26 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/filterbar.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
 			"position": 10,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"position": 11,
 			"type": 1
 			}
 		]

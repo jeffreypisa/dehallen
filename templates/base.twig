@@ -35,20 +35,27 @@
 		{% block footer %}
       {% include 'footer.twig' %}
     {% endblock %}
+
 	</body>
   {{ function('wp_footer') }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/l10n/nl.js"></script>
+  
   <script>
     jQuery('input.js-datepicker').flatpickr(
       {
         dateFormat: "d/m/Y",
+        {% if lang == 'nl' %}
+          "locale": "nl"
+        {% endif %}
       }
     ); 
     jQuery('input.js-timepicker').flatpickr(
       {
         enableTime: true,
         noCalendar: true,
+        time_24hr: true,
         dateFormat: "H:i"
       }
     );   

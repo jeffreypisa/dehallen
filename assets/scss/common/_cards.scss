@@ -53,6 +53,10 @@
   font-weight: 600;
   .card-img-top {
     position: relative;
+    padding-bottom: 56%;
+    background-size: cover;
+    background-position: center center;
+    background-color: $grey;
     .overlay {
       position: absolute;
       bottom: -1px;

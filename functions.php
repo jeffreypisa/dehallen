@@ -5,3 +5,4 @@ include 'lib/optionspage.php';
 include 'lib/svg.php';
 include 'lib/cpt.php';
 include 'lib/ctax.php';
+include 'lib/categoryradio.php';

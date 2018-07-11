@@ -75,11 +75,8 @@
         .bg {
           display: block;
         }
-        h3 a {
+        h3 {
           color: #fff;
-          &:hover {
-            opacity: 0.8;
-          }
         }
       }
     }
@@ -87,6 +84,12 @@
       font-size: 20px;
       line-height: 24px;
       border: 0;
+      &:hover {
+        cursor: pointer;
+        .bg:after {
+          width: 30px;
+        }
+      }
       .row {
         margin: 0;
       }
@@ -95,7 +98,9 @@
       }
       .bg {
         min-height: 234px;
+        height: 100%;
         display: none;
+        position: relative;
         .bgcover {
           position: absolute;
           top: 0;
@@ -104,6 +109,17 @@
           bottom: 0;
           background-size: cover;
           background-position: center center;
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          transition: 0.1s ease-in-out;
+          z-index: 3;
+          background: $green;
         }
       }
       .card-body {

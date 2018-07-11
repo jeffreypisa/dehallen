@@ -21,6 +21,19 @@
  * @since    Timber 0.1
  */
 
+
+require_once 'lib/mobiledetect.php';
+$detect = new Mobile_Detect;
+
+if ( is_page(249) && $detect->isMobile()) {
+  
+  $newURL = get_post_type_archive_link( 'locaties' );
+  
+  header('Location: '.$newURL);
+  die();
+}
+    
+
 $context = Timber::get_context();
 
 $post = new TimberPost();
@@ -30,7 +43,7 @@ $context['post'] = $post;
 // for 'now' functionality date and time in filter
 
 $context[ 'date_now' ] = date('d/m/Y');
-$context[ 'time_now' ] = date('H:i');
+$context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 
 /* Load evenementen vandaag */
 

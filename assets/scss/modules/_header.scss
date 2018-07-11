@@ -14,15 +14,15 @@ header {
   }
   .logo {
     position: absolute;
-    top: 12px;
+    top: 22px;
     padding: 0;
     font-size: 0px;
     margin: 0;
     left: 50%;
-    margin-left: -110px;
+    margin-left: -90px;
     a {
       display: block;
-      width: 220px;
+      width: 180px;
       height: auto;
       color: #000;
       img {
@@ -82,10 +82,10 @@ header {
         top: 0px;
       }
       span:nth-child(2) {
-        top: 9px;
+        top: 10px;
       }
       span:nth-child(3) {
-        top: 18px;
+        top: 20px;
       }
     }
   }
@@ -122,35 +122,19 @@ header {
   header {
     height: 140px;
     .logo {
-      top: 16px;
-      margin-left: -120px;
+      top: 20px;
+      margin-left: -105px;
       a {
-        width: 240px;
+        width: 210px;
       }
       img {
         
       }
     }
     .btn-menu {
-      height: 44px;
-      width: 60px;
       top: 40px;
       right: 40px;
-      .lines {
-        height: 44px;
-        span {
-          height: 6px;
-        }
-        span:nth-child(1) {
-          top: 0px;
-        }
-        span:nth-child(2) {
-          top: 18px;
-        }
-        span:nth-child(3) {
-          top: 36px;
-        }
-      }
+      width: 38px;
     }
   }
 }
