@@ -7534,7 +7534,8 @@ a.card[href]:hover {
 .mod-eventfilter-agenda {
   background: #46aa64;
   padding: 13px 0;
-  position: relative; }
+  position: relative;
+  z-index: 9; }
   .mod-eventfilter-agenda .row {
     margin-left: -5px;
     margin-right: -5px; }
