@@ -524,6 +524,16 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/scripts\/sticky-kit.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/scripts\/sticky-kit-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/site-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -12522,51 +12532,57 @@
 			"type": 0
 			},
 		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/footerdown.js",
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/sticky-kit.js",
 			"position": 4,
-			"type": 1
+			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/slick.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/footerdown.js",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/aanbodkaart.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/slick.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/aanbodkaart.js",
 			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/filterbar.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/filterbar.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
 			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
 			"position": 11,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"position": 12,
 			"type": 1
 			}
 		]

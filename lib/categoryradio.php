@@ -6,7 +6,7 @@
  * @return  array
  */
 function wpse_139269_term_radio_checklist( $args ) {
-    if ( ! empty( $args['taxonomy'] ) /* <== Change to your required taxonomy */ ) {
+    if ( ! empty( $args['taxonomy'] && $args['taxonomy'] === 'categorie_locaties') /* <== Change to your required taxonomy */ ) {
         if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) { // Don't override 3rd party walkers.
             if ( ! class_exists( 'WPSE_139269_Walker_Category_Radio_Checklist' ) ) {
                 /**

@@ -3,8 +3,15 @@
 {% block content %}
 	<div class="content-wrapper">
     <div class="mod-greenbar">
-	    <div class="container">
-  	    <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
+	    <div class="container"> 
+	      {% if posttype == 'locaties' %} 
+	        <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk lijst</a>
+          {% if ismobile == 'true' %} {% else %}
+            <a href="{{ site.url }}/aanbodkaart" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk kaart</a>
+          {% endif %}
+	      {% else %}
+  	      <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
+  	    {% endif %}
   	    {% if categorielink %}
   	      <a href="{{ categorielink }}" class="float-right d-none d-md-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
   	    {% endif %}

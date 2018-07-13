@@ -6925,6 +6925,8 @@ section {
     color: #0a334f;
     text-transform: uppercase;
     opacity: 0.5; }
+  .card .type-event, a.card[href] .type-event {
+    margin-top: -10px; }
   .card .icon, a.card[href] .icon {
     width: 20px;
     display: inline-block; }
@@ -7105,7 +7107,8 @@ a.card[href]:hover {
   .mod-greenbar a {
     color: #fff;
     font-weight: 600;
-    padding: 4px 0 1px; }
+    padding: 4px 0 1px;
+    margin-right: 10px; }
 
 .home .mod-events {
   display: none; }
@@ -7531,7 +7534,8 @@ a.card[href]:hover {
 .mod-eventfilter-agenda {
   background: #46aa64;
   padding: 13px 0;
-  position: relative; }
+  position: relative;
+  z-index: 9; }
   .mod-eventfilter-agenda .row {
     margin-left: -5px;
     margin-right: -5px; }
