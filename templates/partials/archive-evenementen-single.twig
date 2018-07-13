@@ -1,6 +1,12 @@
 {% if evenementen|length > 0 %}
   {% for post in evenementen %}
-    {% set catje = post.terms('categorie') | join(' ') | lower %}
+    {% set catje = post.terms('categorie') | first | lower %}
+    {% set catjebron = post.terms('categorie') %}
+    {% for item in catjebron %}
+      {% if item == 'Film' %}
+        {% set catje = 'film' %}
+      {% endif %}
+    {% endfor %}
     {% if the_hour != post.begintijd|date("H") %}
       {% set the_hour = post.begintijd|date("H") %}
       {% set showmoviebox = 'true' %}

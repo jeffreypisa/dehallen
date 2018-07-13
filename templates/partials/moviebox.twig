@@ -11,7 +11,7 @@
           <h2> Naar de film </h2>
           <div class="row">
             {% for post in evenementen %}
-              {% if (post.terms('categorie')|join('') == 'Film') and (the_hour == post.begintijd|date("H")) %}
+              {% if (post.terms('categorie')|first == 'Film') and (the_hour == post.begintijd|date("H")) %}
                 <div class="col-md-10 col-xl-6">
                   {% include ['tease-film.twig'] %}
                 </div>
