@@ -3,19 +3,21 @@
 
 {% block content %}
 <script>
+var dh_load_more_events_repeat = 0;
 function load_more_events() {
 	jQuery.post( "{{dh_agenda_ajaxurl}}", jQuery( "#searchform" ).serialize(), function( data ) {
   		
+  		data = JSON.parse(data);
   		if( jQuery(".mod-agenda").children().length > 1 ) {
 	  		jQuery( '.dh_no_hits' ).remove();  		
   		}
   		
   		// No hits
   		if( jQuery(".mod-agenda").children().length == 1 ) {
-  			jQuery( ".mod-agenda" ).append(data);
+  			jQuery( ".mod-agenda" ).append(data.body);
   			jQuery( '.dh_no_hits' ).first().remove();
   		} else {
-  		 	jQuery( ".mod-agenda article:last-child" ).after(data);
+  		 	jQuery( ".mod-agenda article:last-child" ).after(data.body);
 		}
 		
 		// Make sure
@@ -23,7 +25,7 @@ function load_more_events() {
 			jQuery( '.dh_no_hits' ).first().remove();
 		}
   		
-  		jQuery( '#searchoffset' ).val( (parseInt(jQuery( '#searchoffset' ).val()) + {{dh_agenda_ajaxoffset}}) );
+  		jQuery( '#searchoffset' ).val( (parseInt(jQuery( '#searchoffset' ).val()) + data.offsetvalue) );
   		jQuery( '#dh_load_more_events_button').blur();
 });
 }
