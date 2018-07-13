@@ -8,7 +8,7 @@
       <p>{{ item.telefoon }}</p>
     {% endif %}
     {% if item.email %}
-      <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+      <p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
     {% endif %}
     {% if item.capaciteit or item.grootte or item.faciliteiten or item.horeca %}
       <ul>

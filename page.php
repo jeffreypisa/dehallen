@@ -20,18 +20,6 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
-
-
-require_once 'lib/mobiledetect.php';
-$detect = new Mobile_Detect;
-
-if ( is_page(249) && $detect->isMobile()) {
-  
-  $newURL = get_post_type_archive_link( 'locaties' );
-  
-  header('Location: '.$newURL);
-  die();
-}
     
 
 $context = Timber::get_context();
@@ -47,26 +35,47 @@ $context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 
 /* Load evenementen vandaag */
 
+$today = date('Ymd');
+
 $args_evenementen_vandaag = array(
-  'post_type'			  => 'evenementen',
-  'orderby'         => 'date',
-  'order'           => 'DESC',
-	'posts_per_page'  => 3
+  'post_type' => 'evenementen',
+	'posts_per_page'  => 3,
+	'meta_key' => 'special',
+    'orderby' => 'meta_value',
+    'order' => 'ASC',
+    'meta_query' => array(
+      array(
+          'key' => 'datum',
+          'compare' => '=',
+          'value' => $today
+      )
+  ),
+	'order' => 'ASC',
 );
 
 $context['evenementen_vandaag'] = Timber::get_posts($args_evenementen_vandaag);
 
+
 /* Load evenementen morgen */
 
+$tomorrow = date('Ymd', strtotime('+1 day'));
+
 $args_evenementen_morgen = array(
-  'post_type'			  => 'evenementen',
-  'orderby'         => 'date',
-  'order'           => 'DESC',
+  'post_type' => 'evenementen',
+  'meta_query' => array(
+      array(
+          'key' => 'datum',
+          'compare' => '=',
+          'value' => $tomorrow
+      )
+  ),
+  'orderby'			=> array( 'title' => 'RAND', 'special' => 'ASC' ),
 	'posts_per_page'  => 3
 ); 
 
 $context['evenementen_morgen'] = Timber::get_posts($args_evenementen_morgen);
 
+// Get categories
 
 $context[ 'category' ] = Timber::get_terms(['taxonomy'=>'categorie_locaties']);
 
