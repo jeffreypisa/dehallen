@@ -6783,7 +6783,6 @@ a:hover h1 {
     text-decoration: none; }
   .btn-link:focus, .btn-link:active, .btn-link:target, a[href]:focus, a[href]:active, a[href]:target {
     color: #28623a;
-    opacity: 0.8;
     text-decoration: none; }
 
 .btn, .field-wrap input[type=button] {

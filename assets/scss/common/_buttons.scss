@@ -9,7 +9,6 @@
   }
   &:focus, &:active, &:target {
     color: darken($green, 20%);
-    opacity: 0.8;
     text-decoration: none;
   }
 }
