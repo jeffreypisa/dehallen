@@ -7577,7 +7577,8 @@ a.card[href]:hover {
     padding: 0 8px;
     font-size: 16px;
     margin-bottom: 10px;
-    width: 100%; }
+    width: 100%;
+    float: right; }
 
 @media (min-width: 768px) {
   .mod-eventfilter-agenda {
