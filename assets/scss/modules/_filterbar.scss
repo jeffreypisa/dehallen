@@ -3,7 +3,8 @@
 }
 .archive .mod-filterbar{
   .col {
-    min-width: 40px;
+    min-width: 36px;
+    padding: 0;
   }
 }
 .mod-filterbar {
@@ -74,6 +75,15 @@
           font-size: 15px;
         }
       }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .archive .mod-filterbar{
+    .col {
+      padding: 0 5px;
+      min-width: 50px;
     }
   }
 }

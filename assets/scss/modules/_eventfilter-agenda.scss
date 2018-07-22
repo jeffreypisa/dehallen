@@ -1,6 +1,6 @@
 .mod-eventfilter-agenda {
   background: $green;
-  padding: 13px 0;
+  padding: 5px 0 0;
   position: relative;
   z-index: 9;
   .row {
@@ -44,12 +44,28 @@
     }
   }
   .btn {
+    padding: 0 8px;
+    font-size: 16px;
     margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .mod-eventfilter-agenda {
+    padding: 13px 0;
+    .btn {
+      padding: 0 25px;
+      font-size: 20px;
+    }
   }
 }
 
 @include media-breakpoint-up(lg) {
   .mod-eventfilter-agenda {
     padding-bottom: 0;
+    .btn {
+      width: auto;
+    }
   }
 }

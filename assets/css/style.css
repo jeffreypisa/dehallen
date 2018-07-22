@@ -7538,7 +7538,7 @@ a.card[href]:hover {
 
 .mod-eventfilter-agenda {
   background: #46aa64;
-  padding: 13px 0;
+  padding: 5px 0 0;
   position: relative;
   z-index: 9; }
   .mod-eventfilter-agenda .row {
@@ -7574,11 +7574,23 @@ a.card[href]:hover {
       .mod-eventfilter-agenda input[type=text].js-now:hover, .mod-eventfilter-agenda .form-control.js-now:hover {
         cursor: pointer; }
   .mod-eventfilter-agenda .btn {
-    margin-bottom: 10px; }
+    padding: 0 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%; }
+
+@media (min-width: 768px) {
+  .mod-eventfilter-agenda {
+    padding: 13px 0; }
+    .mod-eventfilter-agenda .btn {
+      padding: 0 25px;
+      font-size: 20px; } }
 
 @media (min-width: 992px) {
   .mod-eventfilter-agenda {
-    padding-bottom: 0; } }
+    padding-bottom: 0; }
+    .mod-eventfilter-agenda .btn {
+      width: auto; } }
 
 footer {
   padding: 30px 0 5px;
@@ -8052,7 +8064,8 @@ body.opensidemenu .mod-mobilemenu {
   padding-bottom: 0; }
 
 .archive .mod-filterbar .col {
-  min-width: 40px; }
+  min-width: 36px;
+  padding: 0; }
 
 .mod-filterbar {
   background: #46aa64;
@@ -8112,6 +8125,11 @@ body.opensidemenu .mod-mobilemenu {
         background: #c8e5d0;
         color: #0a334f;
         font-size: 15px; }
+
+@media (min-width: 768px) {
+  .archive .mod-filterbar .col {
+    padding: 0 5px;
+    min-width: 50px; } }
 
 .mod-locaties {
   margin-bottom: 30px;
