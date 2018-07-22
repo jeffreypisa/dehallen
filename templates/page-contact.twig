@@ -1,0 +1,63 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+      {% if post.afbeelding %}
+        <div class="mod-pageheader">
+          <div class="bg" style="background-image: url({{ post.get_field('afbeelding') }}"></div>
+          <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+        </div>
+      {% else %}
+        <div class="mod-greenbar">
+        </div>
+      {% endif %}
+			<div class="article-body">
+			  <section>
+			    <div class="container">
+			      <h1> {{ post.title }}</h1>
+			      <div class="row">
+			        <div class="col-md-12">
+                {{ post.content }}
+			        </div>
+			      </div>
+			      <br>
+            <div class="row">
+              <div class="col-lg-6">
+                {{ post.get_field('tekstvlak_links') }}
+              </div>
+              <div class="col-lg-6">
+                {{ post.get_field('tekstvlak_midden') }}
+              </div>
+              <div class="col-lg-6">
+                {{ post.get_field('tekstvlak_rechts') }}
+              </div>
+            </div>
+            <br><br><br>
+            <a href="#vragen" data-toggle="collapse" role="button" aria-expanded="false">
+              <h1>{{ post.vragen_titel }} <i class="fas fa-arrow-alt-circle-down"></i></h1>
+            </a>
+            <div class="collapse" id="vragen">
+              <div class="row">
+                <div class="col-md-16 offset-md-2">
+                  {{ post.get_field('vragen_content') }}
+                </div>
+              </div>
+              <br><br><br>
+            </div>
+            <a href="#bewoners" data-toggle="collapse" role="button" aria-expanded="false">
+              <h1>{{ post.bewoners_titel }} <i class="fas fa-arrow-alt-circle-down"></i></h1>
+            </a>
+            <div class="collapse" id="bewoners">
+              <div class="row">
+                <div class="col-md-16 offset-md-2">
+                  {{ post.get_field('bewoner_content') }}            
+                </div>
+              </div>
+            </div>
+			    </div>
+			  </section>
+			</div>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -26,102 +26,35 @@
         {% endif %}
       </ul>
     {% endif %}
-    {% if item.week %}
-      <ul>
-        {% for dag in item.get_field('week') %}
-          {% if dag.the_day == 'mon' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Maandag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Maandag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'tue' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Dinsdag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Dinsdag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'wed' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Woensdag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Woensdag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'thu' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Donderdag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Donderdag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'fri' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Vrijdag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Vrijdag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'sat' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Zaterdag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Zaterdag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-          {% if dag.the_day == 'sun' %} 
-            {% if dag.open %}
-              <li>
-                <span class="condensend">Zondag</span> 
-                 {{ dag.open }} — {{ dag.close }}
-              </li>
-            {% else %}
-              <li>
-                <span class="condensend">Zondag</span> 
-                gesloten
-              </li>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
+    <ul>
+      <li>
+        <span class="condensend">Maandag</span> 
+        {% if item.mon_open %} {{ item.mon_open | date("H:i") }} — {{ item.mon_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Dinsdag</span> 
+        {% if item.tue_open %} {{ item.tue_open | date("H:i")  }} — {{ item.tue_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Woensdag</span> 
+        {% if item.wed_open %} {{ item.wed_open | date("H:i")  }} — {{ item.wed_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Donderdag</span> 
+        {% if item.thu_open %} {{ item.thu_open | date("H:i")  }} — {{ item.thu_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Vrijdag</span> 
+        {% if item.fri_open %} {{ item.fri_open | date("H:i")  }} — {{ item.fri_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Zaterdag</span> 
+        {% if item.sat_open %} {{ item.sat_open | date("H:i")  }} — {{ item.sat_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+      <li>
+        <span class="condensend">Zondag</span> 
+        {% if item.sun_open %} {{ item.sun_open | date("H:i")  }} — {{ item.sun_close | date("H:i")  }} {% else %} gesloten {% endif %}
+      </li>
+    </ul>
   </div>
 </div>

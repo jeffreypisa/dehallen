@@ -6623,6 +6623,12 @@ h2 {
   font-size: 50px;
   margin-bottom: 30px; }
 
+a h1 {
+  color: #0a334f; }
+
+a:hover h1 {
+  color: #46aa64; }
+
 .form-control::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #0a334f;

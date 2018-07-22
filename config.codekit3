@@ -12278,6 +12278,13 @@
 		"oAP": "\/templates\/page-aanbodkaart.twig",
 		"oF": 0
 		},
+	"\/templates\/page-contact.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/page-contact.twig",
+		"oF": 0
+		},
 	"\/templates\/page-frontpage.twig": {
 		"cB": 0,
 		"ft": 8192,

@@ -26,6 +26,16 @@ h2 {
   font-size: 50px;
   margin-bottom: 30px;
 }
+a {
+  h1 {
+    color: $darkblue;
+  }
+  &:hover {
+    h1 {
+      color: $green;
+    }
+  }
+}
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $darkblue;
