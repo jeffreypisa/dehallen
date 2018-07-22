@@ -13,14 +13,17 @@
 
       targetelement.addClass('active');
 
-      $('.space .row').addClass('active').addClass(aanbodfilter);
 
-      if (targetelement.hasClass('links')) {
-        targetelement.closest('.row').addClass('links').addClass(aanbodfilter);
-      }
-      if (targetelement.hasClass('rechts')) {
-        targetelement.closest('.row').addClass('rechts').addClass(aanbodfilter);
-      }
+      $( ".space .row" ).each(function() {
+        $(this).addClass('active').addClass(aanbodfilter);
+        if ($(this).find('.block').is('.links.active')) {
+          $(this).addClass('links');
+        }
+        if ($(this).find('.block').is('.rechts.active')) {
+          $(this).addClass('rechts');
+        }
+      });
+
       if (targetelement.hasClass('detour')) {
         $('.hbar').closest('.row').addClass('rechts');
       }
