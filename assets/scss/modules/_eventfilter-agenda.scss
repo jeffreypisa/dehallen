@@ -44,7 +44,7 @@
     }
   }
   .btn {
-    padding: 0 8px;
+    padding: 0;
     font-size: 16px;
     margin-bottom: 10px;
     width: 100%;
@@ -56,7 +56,6 @@
   .mod-eventfilter-agenda {
     padding: 13px 0;
     .btn {
-      padding: 0 25px;
       font-size: 20px;
     }
   }
@@ -65,8 +64,5 @@
 @include media-breakpoint-up(lg) {
   .mod-eventfilter-agenda {
     padding-bottom: 0;
-    .btn {
-      width: auto;
-    }
   }
 }
