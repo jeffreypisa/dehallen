@@ -256,11 +256,23 @@
                   border-color: $color1;
                 }
               }
+              &.right .bar.links {
+                background: $color1;
+                .circle {
+                  border-color: $color1;
+                }
+              }
             }
           }
           &.entertainment {
             .col {
               .bar.rechts, .hbar, .vbar {
+                background: $color2;
+                .circle {
+                  border-color: $color2;
+                }
+              }
+              &.right .bar.links {
                 background: $color2;
                 .circle {
                   border-color: $color2;
@@ -276,6 +288,12 @@
                   border-color: $color3;
                 }
               }
+              &.right .bar.links {
+                background: $color3;
+                .circle {
+                  border-color: $color3;
+                }
+              }
             }
           }
           &.shops {
@@ -286,11 +304,23 @@
                   border-color: $color4;
                 }
               }
+              &.right .bar.links {
+                background: $color4;
+                .circle {
+                  border-color: $color4;
+                }
+              }
             }
           }
           &.kunst {
             .col {
               .bar.rechts, .hbar, .vbar {
+                background: $color5;
+                .circle {
+                  border-color: $color5;
+                }
+              }
+              &.right .bar.links {
                 background: $color5;
                 .circle {
                   border-color: $color5;

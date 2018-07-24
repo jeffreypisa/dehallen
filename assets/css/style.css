@@ -7355,21 +7355,41 @@ a.card[href]:hover {
     background: #ff0000; }
     .mod-aanbodkaart .space .row.active.rechts.business .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.business .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.business .col .vbar .circle {
       border-color: #ff0000; }
+  .mod-aanbodkaart .space .row.active.rechts.business .col.right .bar.links {
+    background: #ff0000; }
+    .mod-aanbodkaart .space .row.active.rechts.business .col.right .bar.links .circle {
+      border-color: #ff0000; }
   .mod-aanbodkaart .space .row.active.rechts.entertainment .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .hbar, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .vbar {
     background: #00aeef; }
     .mod-aanbodkaart .space .row.active.rechts.entertainment .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.entertainment .col .vbar .circle {
+      border-color: #00aeef; }
+  .mod-aanbodkaart .space .row.active.rechts.entertainment .col.right .bar.links {
+    background: #00aeef; }
+    .mod-aanbodkaart .space .row.active.rechts.entertainment .col.right .bar.links .circle {
       border-color: #00aeef; }
   .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar {
     background: #ffd100; }
     .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar .circle {
       border-color: #ffd100; }
+  .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links {
+    background: #ffd100; }
+    .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links .circle {
+      border-color: #ffd100; }
   .mod-aanbodkaart .space .row.active.rechts.shops .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.shops .col .hbar, .mod-aanbodkaart .space .row.active.rechts.shops .col .vbar {
     background: #812990; }
     .mod-aanbodkaart .space .row.active.rechts.shops .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.shops .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.shops .col .vbar .circle {
       border-color: #812990; }
+  .mod-aanbodkaart .space .row.active.rechts.shops .col.right .bar.links {
+    background: #812990; }
+    .mod-aanbodkaart .space .row.active.rechts.shops .col.right .bar.links .circle {
+      border-color: #812990; }
   .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar {
     background: #38ae00; }
     .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar .circle {
+      border-color: #38ae00; }
+  .mod-aanbodkaart .space .row.active.rechts.kunst .col.right .bar.links {
+    background: #38ae00; }
+    .mod-aanbodkaart .space .row.active.rechts.kunst .col.right .bar.links .circle {
       border-color: #38ae00; }
   .mod-aanbodkaart .space .row .block {
     display: block;

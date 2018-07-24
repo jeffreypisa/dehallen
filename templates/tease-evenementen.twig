@@ -12,7 +12,7 @@
           <div class="col-md-10">
             {% if post.afbeelding %} 
               <div class="bg">
-                <div class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding) }})"> </div>
+                <div class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding)|resize(480) }})"> </div>
               </div>
             {% endif %}
           </div>
