@@ -25,9 +25,8 @@
               <div class="card-wrapper nopb">
                 <a href="{{ blok.link }}" class="card">
                   {% if blok.afbeelding %}
-                    <div class="card-img-top">
+                    <div class="card-img-top" style="background-image:url({{ TimberImage(blok.afbeelding) }})">
                       <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
-                      <img class="img-fluid" src="{{ TimberImage(blok.afbeelding) }}" alt="image">
                     </div>
                   {% endif %}
                   <div class="card-body">
