@@ -14,11 +14,14 @@
     <div class="carousel-inner">
       {% for slide in item.slider %}
         <a href="{{ slide.slide.link }}" class="carousel-item slide {% if loop.first %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
-          <div class="container">
-            <div class="content">
+          <div class="content">
+            <div class="container">
               <div class="row">
                 <div class="col-md-18 offset-md-1">
                   <h2>{{ slide.slide.title }}</h2>
+                  {% if slide.slide.type_evenement %}
+                    <div class="datetime">{{ slide.slide.type_evenement | lower }} </div>
+                  {% endif %}
                   <div class="datetime">
                     {{ slide.slide.datum|date("l d F") }}
                   </div>

@@ -6,7 +6,7 @@
   .row {
     margin-left: -5px;
     margin-right: -5px;
-    .col, .col-4, .col-8, .col-lg-3, .col-lg-10 {
+    .col, .col-4, .col-8, .col-lg-3, .col-lg-10, .col-auto {
       padding: 0 5px;
     }
   }
@@ -38,6 +38,7 @@
     }
     &.js-now {
       background-image: url(../images/now.png);
+      padding-right: 5px;
       &:hover {
         cursor: pointer;
       }

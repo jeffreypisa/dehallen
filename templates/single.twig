@@ -7,7 +7,7 @@
 	      {% if posttype == 'locaties' %} 
 	        <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk lijst</a>
           {% if ismobile == 'true' %} {% else %}
-            <a href="{{ site.url }}/aanbodkaart" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk kaart</a>
+            <a href="{{ site.url }}/aanbodkaart" class="float-right">Bekijk kaart <i class="fas fa-arrow-circle-right"></i></a>
           {% endif %}
 	      {% else %}
   	      <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
@@ -78,9 +78,6 @@
               <img width="30" height="30" src="{{ theme.link }}/assets/images/twitter-blue.svg">
             </a>
           </div>
-          <div class="text-center">
-            <a href="{{ categorielink }}" class="btn btn-secondary">Meer {{ categorie }} </a>
-          </div>
         {% endif %}
 			</div>
 		</section>
@@ -120,8 +117,8 @@
 		{% if more|length > 0 %}
   		<section class="mod-events bgbluebar">
     		<div class="container">
-    		  <h2 class="float-left">Meer {{ categorie }}</h2>
-    		  <a href="{{ categorielink }}" class="btn btn-secondary float-right d-none d-md-block"> <i class="fas fa-arrow-circle-right"></i> Alle {{ categorie }}</a>
+    		  <h2 class="float-left">Meer {{ categorie }} </h2>
+    		  <a href="{{ categorielink }}" class="btn btn-secondary float-right d-none d-md-block"> <i class="fas fa-arrow-circle-right"></i> {% if posttype == 'post' %} Toon alles {% else %} Alle {{ categorie }} {% endif %}</a>
     		  <div class="clearfix"></div>
           <div class="cards js-slick-events">
             {% for blok in more %}  

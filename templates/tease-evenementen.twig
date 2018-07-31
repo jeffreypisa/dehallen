@@ -36,7 +36,7 @@
                 {% endif %}
               </div> 
               {% if post.locatie %}
-                <div class="location">
+                <div class="location condensed">
                   {% set locatie = post.get_field('locatie') %}
                   <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
                 </div>

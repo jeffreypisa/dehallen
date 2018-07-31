@@ -1,4 +1,4 @@
-.btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):not(.disabled):active, body .field-wrap input[type=button]:focus, body .field-wrap input[type=button]:active, body .field-wrap input[type=button]:target, body .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
   opacity: 1;
 }
 .btn-link, a[href] {
@@ -30,7 +30,7 @@
   }
   &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
     color: #fff;
-    opacity: 0.8;
+    opacity: 1;
     border: 0;
   }
 }

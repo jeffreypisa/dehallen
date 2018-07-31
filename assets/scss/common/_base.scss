@@ -4,6 +4,7 @@ body {
   font-size: 20px;
   line-height: 30px;
   color: $darkblue;
+  letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased;
 }
 textarea:focus,
@@ -15,6 +16,7 @@ input:focus,
 h1,h2,h3,h4,h5,h6,h7 {
   font-weight: 600;
   line-height: 1.1;
+  letter-spacing: 1px;
 }
 
 h1 {
@@ -54,6 +56,7 @@ a {
 
 .condensed {
   font-family: 'ITCAvantGardeStd' !important;
+  text-transform: uppercase;
 }
 
 .badge {

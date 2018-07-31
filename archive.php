@@ -37,6 +37,8 @@ else {
 }
 
 $context[ 'day_now' ]  = date('D');
+
+// Voor Ramon: day_filter moet de gekozen dag uit de filter zijn
 $day_filter  = date('D');
 $context[ 'day_filter' ]  = strtolower($day_filter);
 

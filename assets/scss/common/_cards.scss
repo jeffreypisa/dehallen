@@ -47,10 +47,10 @@
   border-radius: 0;
   background: $mediumgrey;
   border: 0;
-  border-bottom: 6px solid $mediumgrey;
   color: $darkblue;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
   font-weight: 600;
+  position: relative;
   .card-img-top {
     position: relative;
     padding-bottom: 56%;
@@ -86,11 +86,24 @@
   .icon {
     width: 20px;
     display: inline-block;
+    text-align: center;
+    margin-right: 5px;
   }
 }
 
 a.card[href] {
-  &:hover {
-    border-bottom-color: $green;
+  padding-bottom: 6px;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.1s ease-in-out;
+    background: $green;
+    height: 6px;
+    width: 0px;
+  }
+  &:hover:after {
+    width: 100%;
   }
 }

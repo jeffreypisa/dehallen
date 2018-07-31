@@ -81,11 +81,12 @@
     }
     .slide {
       height: 400px;
-      padding: 30px;
       position: relative;
       .content {
         display: block;
-        padding-top: 40px;
+        padding: 70px 30px 30px;
+        height: 100%;
+        position: relative;
         h2 {
           font-size: 80px;
           line-height: 80px;
@@ -105,22 +106,32 @@
           right: 0;
           font-weight: 600;
         }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: -1;
+          background: rgba(0,0,0,.2);
+        }
       }
       &:before {
         position: absolute;
         background: $green;
         bottom: 0;
         top: auto;
+        height: 6px;
         left: 0;
-        right: 0;
-        height: 0;
         content: '';
-        transition: 0.1s ease-in-out;
+        transition: width 0.2s ease-in-out;
         z-index: 4;
+        width: 0;
       }
       &:hover {
         &:before {
-          height: 6px;
+          width: 100%;
         }
       }
     }

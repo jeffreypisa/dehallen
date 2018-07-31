@@ -1,4 +1,9 @@
 .nf-form-cont {
+  .label-above .nf-field-element, .label-below .nf-field-element {
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 30px;
+  }
   .nf-form-title, .nf-form-fields-required {
     display: none;
   }
@@ -22,6 +27,8 @@
     }
   }
 }
+
+
 
 .list-checkbox-wrap .nf-field-element li input, .list-radio-wrap .nf-field-element li input {
   margin-top: 0.35em;

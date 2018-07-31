@@ -6604,6 +6604,7 @@ body {
   font-size: 20px;
   line-height: 30px;
   color: #0a334f;
+  letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased; }
 
 textarea:focus,
@@ -6613,7 +6614,8 @@ input:focus,
 
 h1, h2, h3, h4, h5, h6, h7 {
   font-weight: 600;
-  line-height: 1.1; }
+  line-height: 1.1;
+  letter-spacing: 1px; }
 
 h1 {
   font-size: 60px;
@@ -6644,7 +6646,8 @@ a:hover h1 {
   color: #0a334f; }
 
 .condensed {
-  font-family: 'ITCAvantGardeStd' !important; }
+  font-family: 'ITCAvantGardeStd' !important;
+  text-transform: uppercase; }
 
 .badge {
   background: #FDCF42;
@@ -6773,7 +6776,7 @@ a:hover h1 {
     width: 23px;
     height: 71px; }
 
-.btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):not(.disabled):active, body .field-wrap input[type=button]:focus, body .field-wrap input[type=button]:active, body .field-wrap input[type=button]:target, body .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
   opacity: 1; }
 
 .btn-link, a[href] {
@@ -6802,7 +6805,7 @@ a:hover h1 {
     border: 0; }
   .btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
     color: #fff;
-    opacity: 0.8;
+    opacity: 1;
     border: 0; }
 
 .btn-outline-light {
@@ -6901,10 +6904,10 @@ section {
   border-radius: 0;
   background: #e6e7e8;
   border: 0;
-  border-bottom: 6px solid #e6e7e8;
   color: #0a334f;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  font-weight: 600; }
+  font-weight: 600;
+  position: relative; }
   .card .card-img-top, a.card[href] .card-img-top {
     position: relative;
     padding-bottom: 56%;
@@ -6934,10 +6937,28 @@ section {
     margin-top: -10px; }
   .card .icon, a.card[href] .icon {
     width: 20px;
-    display: inline-block; }
+    display: inline-block;
+    text-align: center;
+    margin-right: 5px; }
 
-a.card[href]:hover {
-  border-bottom-color: #46aa64; }
+a.card[href] {
+  padding-bottom: 6px; }
+  a.card[href]:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.1s ease-in-out;
+    background: #46aa64;
+    height: 6px;
+    width: 0px; }
+  a.card[href]:hover:after {
+    width: 100%; }
+
+.nf-form-cont .label-above .nf-field-element, .nf-form-cont .label-below .nf-field-element {
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 30px; }
 
 .nf-form-cont .nf-form-title, .nf-form-cont .nf-form-fields-required {
   display: none; }
@@ -6966,6 +6987,24 @@ a.card[href]:hover {
 .lity-close, .lity-close:active {
   top: 30px;
   right: 30px; }
+
+body .flatpickr-calendar {
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); }
+  body .flatpickr-calendar .flatpickr-day {
+    border-radius: 0; }
+  body .flatpickr-calendar .flatpickr-day.selected, body .flatpickr-calendar .flatpickr-day.startRange, body .flatpickr-calendar .flatpickr-day.endRange, body .flatpickr-calendar .flatpickr-day.selected.inRange, body .flatpickr-calendar .flatpickr-day.startRange.inRange, body .flatpickr-calendar .flatpickr-day.endRange.inRange, body .flatpickr-calendar .flatpickr-day.selected:focus, body .flatpickr-calendar .flatpickr-day.startRange:focus, body .flatpickr-calendar .flatpickr-day.endRange:focus, body .flatpickr-calendar .flatpickr-day.selected:hover, body .flatpickr-calendar .flatpickr-day.startRange:hover, body .flatpickr-calendar .flatpickr-day.endRange:hover, body .flatpickr-calendar .flatpickr-day.selected.prevMonthDay, body .flatpickr-calendar .flatpickr-day.startRange.prevMonthDay, body .flatpickr-calendar .flatpickr-day.endRange.prevMonthDay, body .flatpickr-calendar .flatpickr-day.selected.nextMonthDay, body .flatpickr-calendar .flatpickr-day.startRange.nextMonthDay, body .flatpickr-calendar .flatpickr-day.endRange.nextMonthDay {
+    background: #46aa64;
+    border-color: #46aa64;
+    color: #fff; }
+  body .flatpickr-calendar .flatpickr-months .flatpickr-month,
+  body .flatpickr-calendar .flatpickr-day,
+  body .flatpickr-calendar span.flatpickr-weekday {
+    color: #0a334f; }
+  body .flatpickr-calendar .flatpickr-day.today {
+    color: #0a334f; }
 
 .meta {
   position: absolute;
@@ -7196,7 +7235,7 @@ a.card[href]:hover {
 .mod-aanbodkaart .block {
   opacity: 0.6;
   transition: 0.3s ease-in-out; }
-  .mod-aanbodkaart .block:hover, .mod-aanbodkaart .block.active, .mod-aanbodkaart .block.active:hover {
+  .mod-aanbodkaart .block.opacity1, .mod-aanbodkaart .block:hover, .mod-aanbodkaart .block.active, .mod-aanbodkaart .block.active:hover {
     opacity: 1; }
 
 .mod-aanbodkaart .block.business {
@@ -7205,6 +7244,9 @@ a.card[href]:hover {
   .mod-aanbodkaart .block.business.active {
     background: #ff0000;
     color: #fff; }
+    .mod-aanbodkaart .block.business.active:hover {
+      background: #cc0000;
+      border-color: #cc0000; }
 
 .mod-aanbodkaart .block.entertainment {
   color: #00aeef;
@@ -7212,6 +7254,9 @@ a.card[href]:hover {
   .mod-aanbodkaart .block.entertainment.active {
     background: #00aeef;
     color: #fff; }
+    .mod-aanbodkaart .block.entertainment.active:hover {
+      background: #0089bc;
+      border-color: #0089bc; }
 
 .mod-aanbodkaart .block.horeca {
   color: #ffd100;
@@ -7219,6 +7264,9 @@ a.card[href]:hover {
   .mod-aanbodkaart .block.horeca.active {
     background: #ffd100;
     color: #fff; }
+    .mod-aanbodkaart .block.horeca.active:hover {
+      background: #cca700;
+      border-color: #cca700; }
 
 .mod-aanbodkaart .block.shops {
   color: #812990;
@@ -7226,6 +7274,9 @@ a.card[href]:hover {
   .mod-aanbodkaart .block.shops.active {
     background: #812990;
     color: #fff; }
+    .mod-aanbodkaart .block.shops.active:hover {
+      background: #5d1e68;
+      border-color: #5d1e68; }
 
 .mod-aanbodkaart .block.kunst {
   color: #38ae00;
@@ -7233,6 +7284,9 @@ a.card[href]:hover {
   .mod-aanbodkaart .block.kunst.active {
     background: #38ae00;
     color: #fff; }
+    .mod-aanbodkaart .block.kunst.active:hover {
+      background: #287b00;
+      border-color: #287b00; }
 
 .mod-aanbodkaart .top {
   position: relative;
@@ -7529,7 +7583,7 @@ a.card[href]:hover {
       position: relative;
       background-color: #fff;
       background-size: 30px 30px;
-      background-position: 8px 14px;
+      background-position: 8px 16px;
       background-repeat: no-repeat; }
       .mod-eventfilter .box input[type=text].js-datepicker, .mod-eventfilter .box .js-now.js-datepicker {
         background-image: url(../images/calendar.png); }
@@ -7573,7 +7627,7 @@ a.card[href]:hover {
   .mod-eventfilter-agenda .row {
     margin-left: -5px;
     margin-right: -5px; }
-    .mod-eventfilter-agenda .row .col, .mod-eventfilter-agenda .row .col-4, .mod-eventfilter-agenda .row .col-8, .mod-eventfilter-agenda .row .col-lg-3, .mod-eventfilter-agenda .row .col-lg-10 {
+    .mod-eventfilter-agenda .row .col, .mod-eventfilter-agenda .row .col-4, .mod-eventfilter-agenda .row .col-8, .mod-eventfilter-agenda .row .col-lg-3, .mod-eventfilter-agenda .row .col-lg-10, .mod-eventfilter-agenda .row .col-auto {
       padding: 0 5px; }
   .mod-eventfilter-agenda .mod-filterbar {
     padding-top: 0;
@@ -7599,7 +7653,8 @@ a.card[href]:hover {
     .mod-eventfilter-agenda input[type=text].js-timepicker, .mod-eventfilter-agenda .form-control.js-timepicker {
       background-image: url(../images/time.png); }
     .mod-eventfilter-agenda input[type=text].js-now, .mod-eventfilter-agenda .form-control.js-now {
-      background-image: url(../images/now.png); }
+      background-image: url(../images/now.png);
+      padding-right: 5px; }
       .mod-eventfilter-agenda input[type=text].js-now:hover, .mod-eventfilter-agenda .form-control.js-now:hover {
         cursor: pointer; }
   .mod-eventfilter-agenda .btn {
@@ -7873,11 +7928,12 @@ header {
           opacity: 0.6; }
   .mod-slider .slide {
     height: 400px;
-    padding: 30px;
     position: relative; }
     .mod-slider .slide .content {
       display: block;
-      padding-top: 40px; }
+      padding: 70px 30px 30px;
+      height: 100%;
+      position: relative; }
       .mod-slider .slide .content h2 {
         font-size: 80px;
         line-height: 80px;
@@ -7894,19 +7950,28 @@ header {
         left: 0;
         right: 0;
         font-weight: 600; }
+      .mod-slider .slide .content:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.2); }
     .mod-slider .slide:before {
       position: absolute;
       background: #46aa64;
       bottom: 0;
       top: auto;
+      height: 6px;
       left: 0;
-      right: 0;
-      height: 0;
       content: '';
-      transition: 0.1s ease-in-out;
-      z-index: 4; }
+      transition: width 0.2s ease-in-out;
+      z-index: 4;
+      width: 0; }
     .mod-slider .slide:hover:before {
-      height: 6px; } }
+      width: 100%; } }
 
 @media (min-width: 992px) {
   .mod-slider .slide {
@@ -7981,7 +8046,7 @@ header {
         color: #0a334f; }
         .mod-mobilemenu .top ul a:hover {
           text-decoration: none;
-          color: #156daa; }
+          color: #46aa64; }
     .mod-mobilemenu .top ul.menu, .mod-mobilemenu .top img, .mod-mobilemenu .top .third {
       transition: all 0.5s ease-out;
       opacity: 0;
@@ -8005,11 +8070,22 @@ header {
         transition: all 0.2s ease-in-out;
         margin-bottom: 40px;
         position: relative; }
+        .mod-mobilemenu .top ul.menu li a:after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          height: 4px;
+          width: 0;
+          background: #46aa64;
+          transition: 0.2s ease-in-out; }
         .mod-mobilemenu .top ul.menu li a:hover {
-          text-decoration: none;
-          color: #46aa64; }
+          text-decoration: none; }
+          .mod-mobilemenu .top ul.menu li a:hover:after {
+            width: 100%; }
         .mod-mobilemenu .top ul.menu li a:focus, .mod-mobilemenu .top ul.menu li a:active, .mod-mobilemenu .top ul.menu li a:target {
-          color: #88ce9d; }
+          color: #0a334f;
+          opacity: 1; }
     .mod-mobilemenu .top ul.menu li.current-menu-item a {
       border-bottom: 8px solid #46aa64; }
   .mod-mobilemenu .bottom {
@@ -8233,7 +8309,8 @@ body.opensidemenu .mod-mobilemenu {
         line-height: 35px;
         margin-bottom: 20px; }
       .moviebox .body .film a {
-        color: #0a334f; }
+        color: #0a334f;
+        margin-left: 28px; }
         .moviebox .body .film a:hover {
           text-decoration: none;
           border-bottom: 2px solid #46aa64; }

@@ -524,16 +524,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/assets\/js\/scripts\/sticky-kit.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/scripts\/sticky-kit-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/assets\/js\/site-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -914,6 +904,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/scss\/modules\/_slider.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/plugins\/_flatpickr.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/plugins\/_flatpickr.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -9761,14 +9764,6 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/bower_components\/jQuery\/.bower.json": {
-		"ft": 524288,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/.bower.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/bower_components\/jQuery\/.editorconfig": {
 		"cB": 0,
 		"ft": 8192,
@@ -10063,70 +10058,6 @@
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
-		},
-	"\/bower_components\/jQuery\/dist\/core.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/core.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.min.map": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.min.map",
-		"oF": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.slim.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.slim.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.slim.min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.slim.min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/bower_components\/jQuery\/dist\/jquery.slim.min.map": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/bower_components\/jQuery\/dist\/jquery.slim.min.map",
-		"oF": 0
 		},
 	"\/bower_components\/jQuery\/external\/npo\/npo.js": {
 		"ft": 64,
@@ -12539,57 +12470,51 @@
 			"type": 0
 			},
 		{
-			"followForSyntaxChecking": 0,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/sticky-kit.js",
-			"position": 4,
-			"type": 0
-			},
-		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/footerdown.js",
-			"position": 5,
+			"position": 4,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/slick.js",
-			"position": 6,
+			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/aanbodkaart.js",
-			"position": 7,
+			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
-			"position": 8,
+			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/filterbar.js",
-			"position": 9,
+			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
-			"position": 10,
+			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
-			"position": 11,
+			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
-			"position": 12,
+			"position": 11,
 			"type": 1
 			}
 		]

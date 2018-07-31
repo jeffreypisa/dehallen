@@ -1,11 +1,25 @@
-{% for item in post.get_field('week') %}
-  {% if item.the_day == day_filter %}
-    <div class="col-lg-10">
-      <a href="{{ post.link }}" class="tease tease-{{post.post_type}} condensed" id="tease-{{post.ID}}">
-        <span class="title">{{ post.title }}</span> 
-        <span class="time">TOT {{ item.close }}</span>
-        <span class="dots">......................................................................................................................</span>
-      </a>
-    </div>
-  {% endif %}
-{% endfor %}
+{% if day_filter == "mon" %}
+  {% set close = post.mon_close %}
+{% elseif day_filter == "tue" %}
+  {% set close = post.tue_close %}
+{% elseif day_filter == "wed" %}
+  {% set close = post.wed_close %}
+{% elseif day_filter == "thu" %}
+  {% set close = post.thu_close %}
+{% elseif day_filter == "fri" %}
+  {% set close = post.fri_close %}
+{% elseif day_filter == "sat" %}
+  {% set close = post.sat_close %}
+{% elseif day_filter == "sun" %}
+  {% set close = post.sun_close %}
+{% endif %}
+
+{% if close %}
+  <div class="col-lg-10">
+    <a href="{{ post.link }}" class="tease tease-{{post.post_type}} condensed" id="tease-{{post.ID}}">
+      <span class="title">{{ post.title }}</span> 
+      <span class="time">TOT {{ close | date('H:i') }}</span>
+      <span class="dots">......................................................................................................................</span>
+    </a>
+  </div>
+{% endif %}

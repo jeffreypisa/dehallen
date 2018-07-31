@@ -61,7 +61,7 @@
         color: $darkblue;
         &:hover {
           text-decoration: none;
-          color: lighten($darkblue, 20%);
+          color: $green;
         }
       }
     }
@@ -91,14 +91,27 @@
           transition: all 0.2s ease-in-out;
           margin-bottom: 40px;
           position: relative;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: $green;
+            transition: 0.2s ease-in-out;
+          }
           &:hover {
             text-decoration: none;
-            color: $green;
+            &:after {
+              width: 100%;
+            }
           }
           &:focus,
           &:active,
           &:target {
-            color: lighten($green, 20%);
+            color: $darkblue;
+            opacity: 1;
           }
         }
       }
