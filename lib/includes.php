@@ -128,12 +128,30 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     );
     
     if( $hastime ) {
+            
         $args_evenementen['meta_query'][] =
-        array(
-            'key' => 'begintijd',
-            'compare' => '>=',
-            'value' => $timestart
-        );
+            array (
+                'relation' => 'OR',
+                array(
+                    'key' => 'begintijd',
+                    'compare' => '>=',
+                    'value' => $timestart
+                ),
+                array(
+                    'relation' => 'AND',
+                    array(
+                        'key' => 'begintijd',
+                        'compare' => '<',
+                        'value' => $timestart,
+                    ),
+                    array(
+                        'key' => 'doorlopend_event',
+                        'compare' => '=',
+                        'value' => 1
+                    ),
+                )
+            );
+            
     }
     
     // Limit by DH_EVENTS_HOUR_OFFSET hours up front
@@ -145,12 +163,40 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         'compare' => '<=',
         'value' => date( 'Ymd', $next_slot),
     );
+    
+    /*
     $args_evenementen['meta_query'][] =
     array(
         'key' => 'begintijd',
         'compare' => '<',
         'value' => date( 'H:i:00', $next_slot),
     );
+    */    
+    $args_evenementen['meta_query'][] =
+    array (
+        'relation' => 'OR',
+        array(
+            'key' => 'begintijd',
+            'compare' => '<',
+            'value' => date( 'H:i:00', $next_slot),
+        ),
+        array(
+            'relation' => 'AND',
+            array(
+                'key' => 'eindtijd',
+                'compare' => '>',
+                'value' => date( 'H:i:00', $next_slot),
+            ),
+            
+            array(
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => 1
+            ),            
+        )
+    );
+    
+    
     
     if( is_array( $cat_ids ) && count( $cat_ids ) > 0 ) {
         $args_evenementen['tax_query'] = array(
@@ -166,8 +212,10 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         }
     }
     
-    /*
      print_r($args_evenementen);
+     print_r(new WP_Query( $args_evenementen ));
+     die();
+    /*
      */
     
     $context['evenementen'] = Timber::get_posts($args_evenementen);

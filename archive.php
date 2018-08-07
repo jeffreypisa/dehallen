@@ -60,7 +60,7 @@ if ($posttype == 'evenementen') {
         }
         $context = $agenda_arr['context'];
     } else {
-        $context['evenementen'] = $agenda_arr['context']['evenementen'];
+        $context = $agenda_arr['context'];
     }
 }
 
