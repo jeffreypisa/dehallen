@@ -76,6 +76,7 @@ if ($posttype == 'evenementen' || $posttype == 'locaties') {
   $context['winkels'] = Timber::get_posts($args_winkels);
 }
 
+
 /* Load Horeca */
 
 if ($posttype == 'evenementen' || $posttype == 'horeca') {
