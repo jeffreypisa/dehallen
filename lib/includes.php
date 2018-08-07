@@ -6,8 +6,8 @@ function add_theme_scripts() {
   
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
   
-  
-function archive_agenda( $context, $tries = 0, $override_offset = false ) {
+define('DH_EVENTS_HOUR_OFFSET', 2);
+function archive_agenda( $context, $tries = 0, $override_offset = false, $force_no_xhr = false ) {
     
     $context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);
     $context[ 'cat' ] = Timber::get_terms('categorie');
@@ -16,8 +16,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
     $cat = get_category(get_query_var('categorie'));
     $cat_slug = $cat->slug;
     $context['currentcat'] = $cat_slug;
-    
-    define('DH_EVENTS_HOUR_OFFSET', 2);
     
     $dh_is_ajax = false;
     if( isset( $_POST['offset'] ) ) {
@@ -28,6 +26,9 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
     if( $override_offset ) {
         
         $dh_is_ajax = true;
+        if( $force_no_xhr ) {
+            $dh_is_ajax = false;
+        }
         $offset = $override_offset;
     }
     
@@ -40,7 +41,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
     }
     
     $context['dh_agenda_ajaxurl']       = home_url( $_SERVER['REDIRECT_URL'] );
-    $context['dh_agenda_ajaxoffset']    = DH_EVENTS_HOUR_OFFSET;
+    $context['dh_agenda_ajaxoffset']    = $offset+DH_EVENTS_HOUR_OFFSET; //DH_EVENTS_HOUR_OFFSET;
     
     $context['selected_cats'] = array();
     $cats = $context[ 'cat' ];
@@ -104,7 +105,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
         }
     }
     
-    if( $dh_is_ajax ) {
+    if( $dh_is_ajax || $force_no_xhr ) {
         $first_slot = strtotime( $date. ' '.$timestart . ' + '.$offset.' hours');
         $date = date( 'Ymd', $first_slot);
         $timestart = date( 'H:i:00', $first_slot);
@@ -168,16 +169,27 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
     /*
      print_r($args_evenementen);
      */
+    
     $context['evenementen'] = Timber::get_posts($args_evenementen);
+    //print_r( new WP_Query( $args_evenementen ));
     
     if( $dh_is_ajax ) {
         
         // Recursive
-        if( count( $context['evenementen'] )== 0 && $tries < 4 ) {
+        if( count( $context['evenementen'] )== 0 ) {
             $tries++;
-            $context = archive_agenda( $context, $tries, ($offset+DH_EVENTS_HOUR_OFFSET) );
+            
+            
+            // Untill last hour this day
+            if( date( 'H', $next_slot) < 22 ) {
+                $context = archive_agenda( $context, $tries, ($offset+DH_EVENTS_HOUR_OFFSET) );
+            }
         }
         
+        // Do not cross date
+        if( $_GET['date'] != date('d/m/Y', $next_slot ) ) {
+            $context['evenementen'] = array();
+        }
         $body = Timber::compile( $templates, $context  );
         
         
@@ -185,6 +197,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false ) {
         die();
     }
     
-    return $context;
+    return array(
+        'context' => $context,
+        'next_slot' => $next_slot,
+        'offset' => $offset,
+    )
+    ;
 }
 ?>

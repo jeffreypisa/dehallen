@@ -38,9 +38,7 @@ else {
 
 $context[ 'day_now' ]  = date('D');
 
-// Voor Ramon: day_filter moet de gekozen dag uit de filter zijn
 $day_filter  = date('D');
-$context[ 'day_filter' ]  = strtolower($day_filter);
 
 $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
@@ -48,7 +46,22 @@ $context[ 'hour_filter' ]  = date('H');
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
-    $context = archive_agenda( $context );
+    $agenda_arr = archive_agenda( $context );
+    
+    $offset = intval( $_GET['offset'] );
+    
+    if( count( $agenda_arr['context']['evenementen'] ) == 0 ) {
+        
+        $tries = 0;
+        while( date( 'H', $agenda_arr['next_slot'] ) < 22 ) {
+            $offset = $agenda_arr['offset'];
+            $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
+            $tries++;
+        }
+        $context = $agenda_arr['context'];
+    } else {
+        $context['evenementen'] = $agenda_arr['context']['evenementen'];
+    }
 }
 
 /* Load Winkels */

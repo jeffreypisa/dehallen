@@ -38,42 +38,85 @@ $context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 $today = date('Ymd');
 
 $args_evenementen_vandaag = array(
-  'post_type' => 'evenementen',
-	'posts_per_page'  => 3,
-	'meta_key' => 'special',
-    'orderby' => 'meta_value',
-    'order' => 'ASC',
+    'post_type' => 'evenementen',
+    'posts_per_page'  => 3,
     'meta_query' => array(
-      array(
-          'key' => 'datum',
-          'compare' => '=',
-          'value' => $today
-      )
-  ),
-	'order' => 'ASC',
+        'relation' => 'AND',
+        array(
+            'key'       => 'special',
+            'value'     => 1,
+        ),       
+        array(
+            'key' => 'datum',
+            'compare' => '=',
+            'value' => $today
+        )
+    ),
+    'orderby' => 'rand',
 );
+$context['evenementen_vandaag'] = Timber::get_posts( $args_evenementen_vandaag );
+$vandaag_notspecial_count = 3 - count( $context['evenementen_vandaag'] );
+if( $vandaag_notspecial_count > 0 ) {
+    $args_evenementen_vandaag = array(
+        'post_type' => 'evenementen',
+        'posts_per_page'  => $vandaag_notspecial_count,
+        'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_vandaag'], 'ID'  ) : array() ),
+        'meta_query' => array(
+            array(
+                'key' => 'datum',
+                'compare' => '=',
+                'value' => $today
+            )
+        ),
+        'orderby' => 'rand',
+    );
+}
+$context['evenementen_vandaag'] = array_merge( $context['evenementen_vandaag'], Timber::get_posts( $args_evenementen_vandaag ) );
 
-$context['evenementen_vandaag'] = Timber::get_posts($args_evenementen_vandaag);
-
+/* /Load evenementen vandaag */
 
 /* Load evenementen morgen */
 
 $tomorrow = date('Ymd', strtotime('+1 day'));
 
 $args_evenementen_morgen = array(
-  'post_type' => 'evenementen',
-  'meta_query' => array(
-      array(
-          'key' => 'datum',
-          'compare' => '=',
-          'value' => $tomorrow
-      )
-  ),
-  'orderby'			=> array( 'title' => 'RAND', 'special' => 'ASC' ),
-	'posts_per_page'  => 3
-); 
+    'post_type' => 'evenementen',
+    'posts_per_page'  => 3,
+    'meta_query' => array(
+        'relation' => 'AND',
+        array(
+            'key'       => 'special',
+            'value'     => 1,
+        ),
+        array(
+            'key' => 'datum',
+            'compare' => '=',
+            'value' => $tomorrow
+        )
+    ),
+    'orderby' => 'rand',
+);
+$context['evenementen_morgen'] = Timber::get_posts( $args_evenementen_morgen );
+$morgen_notspecial_count = 3 - count( $context['evenementen_morgen'] );
+if( $morgen_notspecial_count > 0 ) {
+    $args_evenementen_morgen = array(
+        'post_type' => 'evenementen',
+        'posts_per_page'  => $morgen_notspecial_count,
+        'post__not_in'=> (( $morgen_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_morgen'], 'ID'  ) : array() ),
+        'meta_query' => array(
+            array(
+                'key' => 'datum',
+                'compare' => '=',
+                'value' => $tomorrow
+            )
+        ),
+        'orderby' => 'rand',
+    );
+}
+$context['evenementen_morgen'] = array_merge( $context['evenementen_morgen'], Timber::get_posts( $args_evenementen_morgen ) );
 
-$context['evenementen_morgen'] = Timber::get_posts($args_evenementen_morgen);
+/* /Load evenementen morgen */
+
 
 // Get categories
 
