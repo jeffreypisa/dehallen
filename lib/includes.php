@@ -116,7 +116,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         'posts_per_page' => - 1,
         'meta_query' => array(
             'relation' => 'AND',
-            array(
+            'date1' => array(
                 'key' => 'datum',
                 'compare' => '=',
                 'value' => $date
@@ -129,71 +129,29 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     if( $hastime ) {
             
-        $args_evenementen['meta_query'][] =
-            array (
-                'relation' => 'OR',
+        $args_evenementen['meta_query']['hastime1'] =
                 array(
                     'key' => 'begintijd',
                     'compare' => '>=',
                     'value' => $timestart
-                ),
-                array(
-                    'relation' => 'AND',
-                    array(
-                        'key' => 'begintijd',
-                        'compare' => '<',
-                        'value' => $timestart,
-                    ),
-                    array(
-                        'key' => 'doorlopend_event',
-                        'compare' => '=',
-                        'value' => 1
-                    ),
-                )
-            );
-            
+                );           
     }
     
     // Limit by DH_EVENTS_HOUR_OFFSET hours up front
     $next_slot = strtotime( $date. ' '.$timestart . ' + '.DH_EVENTS_HOUR_OFFSET.' hours');
     
-    $args_evenementen['meta_query'][] =
+    $args_evenementen['meta_query']['date2'] =
     array(
         'key' => 'datum',
         'compare' => '<=',
         'value' => date( 'Ymd', $next_slot),
     );
-    
-    /*
-    $args_evenementen['meta_query'][] =
-    array(
-        'key' => 'begintijd',
-        'compare' => '<',
-        'value' => date( 'H:i:00', $next_slot),
-    );
-    */    
-    $args_evenementen['meta_query'][] =
-    array (
-        'relation' => 'OR',
+       
+    $args_evenementen['meta_query']['hastime2'] =
         array(
             'key' => 'begintijd',
             'compare' => '<',
-            'value' => date( 'H:i:00', $next_slot),
-        ),
-        array(
-            'relation' => 'AND',
-            array(
-                'key' => 'eindtijd',
-                'compare' => '>',
-                'value' => date( 'H:i:00', $next_slot),
-            ),
-            
-            array(
-                'key' => 'doorlopend_event',
-                'compare' => '=',
-                'value' => 1
-            ),            
-        )
+            'value' => date( 'H:i:00', $next_slot)
     );
     
     
@@ -212,19 +170,45 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         }
     }
     
-     print_r($args_evenementen);
-     print_r(new WP_Query( $args_evenementen ));
-     die();
-    /*
-     */
+    $args_evenementen_continuous = $args_evenementen;
+    $args_evenementen_continuous['meta_query']['hastime1'] =
+    array(
+        'relation' => 'AND',
+        array(
+            'key' => 'begintijd',
+            'compare' => '<',
+            'value' => $timestart,
+        ),
+        array(
+            'key' => 'doorlopend_event',
+            'compare' => '=',
+            'value' => 1
+        ),
+    );
+    $args_evenementen_continuous['meta_query']['hastime2'] =
+    array(
+        'relation' => 'AND',
+        array(
+            'key' => 'eindtijd',
+            'compare' => '>',
+            'value' => date( 'H:i:00', $next_slot),
+        ),
+        array(
+            'key' => 'doorlopend_event',
+            'compare' => '=',
+            'value' => 1
+        ),
+    );
     
-    $context['evenementen'] = Timber::get_posts($args_evenementen);
+    $events = Timber::get_posts( $args_evenementen );
+    $events_continuous = Timber::get_posts( $args_evenementen_continuous );
+    $context['evenementen'] = array_merge( $events , $events_continuous);
     //print_r( new WP_Query( $args_evenementen ));
     
     if( $dh_is_ajax ) {
         
         // Recursive
-        if( count( $context['evenementen'] )== 0 ) {
+        if( count( $events ) == 0 ) {
             $tries++;
             
             
@@ -248,6 +232,8 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     return array(
         'context' => $context,
         'next_slot' => $next_slot,
+        'count_events_single' => count( $events ),
+        'count_events_continuous' => count( $events_continuous ),
         'offset' => $offset,
     )
     ;
