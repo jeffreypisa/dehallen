@@ -41,6 +41,9 @@ $context[ 'day_now' ]  = date('D');
 // Onderstaand moet dag doorgeven waarop gefilterd wordt
 $context[ 'day_filter' ]  = date('D');
 
+// Onderstaand moet dag doorgeven waarop gefilterd wordt in cijfers 10.08.18
+$context[ 'date_filter_short' ]  = date('D');
+
 $day_filter  = date('D');
 
 $context[ 'hour_now' ]  = date('H');
