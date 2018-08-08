@@ -1,19 +1,57 @@
 {% if item.slider|length > 0 %}
   <div id="slider" class="mod-slider carousel carousel-fade" data-ride="carousel">
     {% if item.slider|length > 1 %}
-    <div class="indicators">
-      <div class="container">
-        <ol class="carousel-indicators">
-          {% for slide in item.slider %}
-            <li data-target="#slider" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %} active {% endif %}"></li>
-          {% endfor %}
-        </ol>
+      <div class="indicators">
+        <div class="container">
+          <ol class="carousel-indicators">
+            {% set slidenr = 0 %}
+            {% for slide in special_today %}
+              <li data-target="#slider" data-slide-to="{{ slidenr }}" class="{% if slidenr == 0 %} active {% endif %}"></li>
+              {% set slidenr = slidenr + 1 %}
+            {% endfor %}
+            {% for slide in item.slider %}
+              <li data-target="#slider" data-slide-to="{{ slidenr }}" class="{% if slidenr == 0 %} active {% endif %}"></li>
+              {% set slidenr = slidenr + 1 %}
+            {% endfor %}
+          </ol>
+        </div>
       </div>
-    </div>
     {% endif %}
     <div class="carousel-inner">
+      {% set slidenr = 0 %}
+      {% for slide in special_today %}
+        <a href="{{ slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.afbeelding) }})">
+          <div class="content">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-18 offset-md-1">
+                  <h2>{{ slide.title }}</h2>
+                  {% if slide.type_evenement %}
+                    <div class="datetime">{{ slide.type_evenement | lower }} </div>
+                  {% endif %}
+                  <div class="datetime">
+                    {{ slide.datum|date("l d F") }}
+                  </div>
+                  <div class="datetime">
+                    {{ slide.begintijd|date("H:s") }}
+                  </div>
+                </div>
+              </div>
+              <div class="locatie condensed">
+                <div class="container">
+                  <div class="location">
+                  {% set locatie = slide.get_field('locatie') %}
+                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% set slidenr = slidenr + 1 %}
+      {% endfor %}
       {% for slide in item.slider %}
-        <a href="{{ slide.slide.link }}" class="carousel-item slide {% if loop.first %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
+        <a href="{{ slide.slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
           <div class="content">
             <div class="container">
               <div class="row">
@@ -41,6 +79,7 @@
             </div>
           </div>
         </a>
+        {% set slidenr = slidenr + 1 %}
       {% endfor %}
     </div>
     <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">

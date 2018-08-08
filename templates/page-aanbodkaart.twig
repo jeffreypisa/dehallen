@@ -3,14 +3,42 @@
 {% block content %}
 	<div class="content-wrapper">
     <div class="mod-greenbar">
-      <div class="container">
+      <div class="container d-none d-md-block">
   	    <a href="/aanbod" class="float-left"><i class="fas fa-arrow-circle-left"></i> Toon als lijst</a>
   	    <div class="clearfix"></div>
       </div>
     </div>
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<div class="article-body">
-			  <section>
+  			<section class="d-block d-md-none">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-18 offset-md-1">
+                <h1> Aanbod </h1>
+                <br>
+              </div>
+            </div>
+            <div class="cards cards-archive">
+              <div class="row justify-content-center">
+                {% for blok in aanbod %}  
+                  <div class="col-md-10 col-lg-6 col-xl-5">
+                    <div class="card-wrapper nopb">
+                      <a href="{{ blok.link }}" class="card">
+                        <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">
+                          <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                        </div>
+                        <div class="card-body">
+                          <h3> {{ blok.title }} </h3>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </section>
+			  <section class="d-none d-md-block">
 			    <div class="container">
             <div class="row">
               <div class="col-md-18 offset-md-1">
