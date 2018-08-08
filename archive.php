@@ -38,6 +38,9 @@ else {
 
 $context[ 'day_now' ]  = date('D');
 
+// Onderstaand moet dag doorgeven waarop gefilterd wordt
+$context[ 'day_filter' ]  = date('D');
+
 $day_filter  = date('D');
 
 $context[ 'hour_now' ]  = date('H');
