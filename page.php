@@ -124,6 +124,37 @@ $context[ 'category' ] = Timber::get_terms(['taxonomy'=>'categorie_locaties']);
 
 $context[ 'cat' ] = Timber::get_terms('categorie');
 
+
+// Get special events today
+
+$args_special_today = array(
+    'post_type' => 'evenementen',
+    'posts_per_page'  => -1,
+    'meta_query' => array(
+        'relation' => 'AND',
+        array(
+            'key'       => 'special',
+            'value'     => 1,
+        ),       
+        array(
+            'key' => 'datum',
+            'compare' => '=',
+            'value' => $today
+        )
+    ),
+    'orderby' => 'rand',
+);
+$context['special_today'] = Timber::get_posts( $args_special_today );
+
+// Load aanbod
+
+$args_aanbod = array(
+    'post_type' => 'locaties',
+    'posts_per_page'  => -1,
+    'orderby' => 'ASC',
+);
+$context['aanbod'] = Timber::get_posts( $args_aanbod );
+
 if ( is_front_page() ) {	
 	Timber::render( array( 'page-frontpage.twig' ), $context );
 } else {
