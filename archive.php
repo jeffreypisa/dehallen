@@ -46,6 +46,15 @@ $context[ 'hour_filter' ]  = date('H');
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
+    
+    // Direct hit NO XHR?
+    if( ! isset( $_GET['offset'] ) && ! isset( $_GET['date'] ) && ! isset( $_GET['time'] ) ) {
+        // Force now
+        $_GET['date'] = date('d/m/Y');
+        $_GET['time'] = date('H:i');
+    }
+    
+    
     $agenda_arr = archive_agenda( $context );
     
     $offset = intval( $_GET['offset'] );

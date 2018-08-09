@@ -203,7 +203,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $events = Timber::get_posts( $args_evenementen );
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
     $context['evenementen'] = array_merge( $events , $events_continuous);
+    
+    /*
+    print_r($args_evenementen);
     //print_r( new WP_Query( $args_evenementen ));
+    */
     
     if( $dh_is_ajax ) {
         
