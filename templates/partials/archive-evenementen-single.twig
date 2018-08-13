@@ -7,8 +7,8 @@
         {% set catje = 'film' %}
       {% endif %}
     {% endfor %}
-    {% if the_hour != post.begintijd|date("H") %}
-      {% set the_hour = post.begintijd|date("H") %}
+    {% if the_hour != post.custom.begintijd|date("H") %}
+      {% set the_hour = post.custom.begintijd|date("H") %}
       {% set showmoviebox = 'true' %}
       <div class="hourblock">
         <div class="row">

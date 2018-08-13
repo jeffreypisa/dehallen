@@ -38,6 +38,12 @@ else {
 
 $context[ 'day_now' ]  = date('D');
 
+// Onderstaand moet dag doorgeven waarop gefilterd wordt
+$context[ 'day_filter' ]  = date('D');
+
+// Onderstaand moet dag doorgeven waarop gefilterd wordt in cijfers 10.08.18
+$context[ 'date_filter_short' ]  = date('D');
+
 $day_filter  = date('D');
 
 $context[ 'hour_now' ]  = date('H');
@@ -46,15 +52,6 @@ $context[ 'hour_filter' ]  = date('H');
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
-    
-    // Direct hit NO XHR?
-    if( ! isset( $_GET['offset'] ) && ! isset( $_GET['date'] ) && ! isset( $_GET['time'] ) ) {
-        // Force now
-        $_GET['date'] = date('d/m/Y');
-        $_GET['time'] = date('H:i');
-    }
-    
-    
     $agenda_arr = archive_agenda( $context );
     
     $offset = intval( $_GET['offset'] );
@@ -71,10 +68,6 @@ if ($posttype == 'evenementen') {
     } else {
         $context = $agenda_arr['context'];
     }
-
-	$timestart = $context['timestart'];
-	// Onderstaand moet dag doorgeven waarop gefilterd wordt
-	$context[ 'day_filter' ]  = date('D', $timestart);
 }
 
 /* Load Winkels */
@@ -88,7 +81,6 @@ if ($posttype == 'evenementen' || $posttype == 'locaties') {
   ); 
   $context['winkels'] = Timber::get_posts($args_winkels);
 }
-
 
 /* Load Horeca */
 

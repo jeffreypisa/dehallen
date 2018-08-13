@@ -48,6 +48,28 @@ add_action( 'parse_request', 'dh_parse_request' );
   			'rewrite'                 => array('slug' => 'agenda'),
   		)
   	);
+
+  	register_post_type( 'evenementen_datetime',
+  	    // CPT Options
+  	    array(
+  	        'labels' => array(
+  	            'name'                  => __( 'Agenda_datetime' ),
+  	            'singular_name'         => __( 'Evenement_datetime' ),
+  	            'all_items'             => __( 'Alle evenementen_datetime' ),
+  	            'add_new_item'          => __( 'Nieuw evenement_datetime toevoegen' ),
+  	            'new_item'              => __( 'Nieuw evenement_datetime' ),
+  	            'add_new'               => __( 'Nieuw evenement_datetime' ),
+  	            'edit_item'             => __( 'Bewerk evenement_datetime' ),
+  	            'update_item'           => __( 'Update evenement_datetime' ),
+  	            'view_item'             => __( 'Bekijk evenement_datetime' ),
+  	            'search_items'          => __( 'Zoek evenement_datetime' ),
+  	        ),
+  	        'menu_icon'               => 'dashicons-calendar',
+  	        'public'                  => true,
+  	        'has_archive'             => true,
+  	        'rewrite'                 => array('slug' => 'agenda_datetime'),
+  	    )
+  	);
   	
   	register_post_type( 'locaties',
   	// CPT Options
