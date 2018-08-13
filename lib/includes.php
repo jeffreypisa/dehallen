@@ -5,8 +5,75 @@ function add_theme_scripts() {
 }
   
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
-  
+
+/**
+ * Migrate from evenementen_datetime to evenementen array
+ * 
+ * @param unknown $events_datetimes
+ * @return array
+ */
+function archive_agenda_list_helper( $events_datetimes ) {
+    
+    if( is_array( $events_datetimes ) && count( $events_datetimes ) > 0 ) {
+        
+        $tmp = wp_list_pluck( $events_datetimes, 'custom' );
+        $events_datetimes = array();
+        foreach( $tmp as $single_datetime ) {
+            
+            $single_id = $single_datetime['evenement'][0];
+            $args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
+            $main_event = Timber::get_posts( $args_event );
+            
+            $events_datetimes[ $single_id ] = $main_event[0];
+            
+            $events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
+        }
+        
+        // Now sort by time ascending
+        $events_datetimes_sorted = array();
+        foreach( $events_datetimes as $single_datetime ) {
+            $events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
+        }
+            
+        $events_datetimes = $events_datetimes_sorted;
+        // Falltrough
+    }
+    
+    return $events_datetimes;
+}
+
 define('DH_EVENTS_HOUR_OFFSET', 2);
+
+function get_args_event_datetime_equals_date( $date ) {
+    
+    $args_evenementen_datetime = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,
+        'meta_query' => array(
+            'relation' => 'AND',
+            'date1' => array(
+                'key' => 'datum',
+                'compare' => '=',
+                'value' => $date
+            ),
+        ),
+        'meta_key' => 'begintijd',
+        'orderby' => 'meta_value',
+        'order' => 'ASC'
+    );
+    
+    return $args_evenementen_datetime;
+}
+
+function get_args_event_datetime_greaterequals_date( $date ) {
+    
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
+    $args_evenementen_datetime['meta_query']['date1']['compare'] = '>=';
+    
+    return $args_evenementen_datetime;
+    
+}
+
 function archive_agenda( $context, $tries = 0, $override_offset = false, $force_no_xhr = false ) {
     
     $context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);
@@ -112,7 +179,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     }
     
     $args_evenementen = array(
-        'post_type' => 'evenementen',
+        'post_type' => 'evenementen_datetime',
         'posts_per_page' => - 1,
         'meta_query' => array(
             'relation' => 'AND',
@@ -155,20 +222,37 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     );
     
     
-    
+    // Shift cats to upper
     if( is_array( $cat_ids ) && count( $cat_ids ) > 0 ) {
-        $args_evenementen['tax_query'] = array(
+        $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids' );
+        $args_event['tax_query'] = array(
             'relation' => 'OR');
         
         foreach( $cat_ids as $cat_id ) {
-            $args_evenementen['tax_query'][] =
+            $args_event['tax_query'][] =
             array(
                 'taxonomy' => 'categorie',
                 'field'    => 'term_id',
                 'terms'    => $cat_ids,
             );
         }
+        
+        $tax_query_results = new WP_Query( $args_event );
+        
+        $search_posts = array();
+        foreach( $tax_query_results->posts as $parent_id ) {
+            $search_posts[] = serialize(array("$parent_id"));
+        }
+        
+        $args_evenementen['meta_query']['categories'] = 
+            array(
+                'key' => 'evenement',
+                'compare' => 'IN',
+                'value' => $search_posts,
+            );
     }
+    
+    
     
     $args_evenementen_continuous = $args_evenementen;
     $args_evenementen_continuous['meta_query']['hastime1'] =
@@ -200,8 +284,14 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         ),
     );
     
+    
+    
     $events = Timber::get_posts( $args_evenementen );
+    $events = archive_agenda_list_helper( $events );   
+    
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
+    $events_continuous = archive_agenda_list_helper( $events_continuous );
+    
     $context['evenementen'] = array_merge( $events , $events_continuous);
     
     /*
@@ -235,7 +325,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     return array(
         'context' => $context,
-	'timestart' => $timestart,
         'next_slot' => $next_slot,
         'count_events_single' => count( $events ),
         'count_events_continuous' => count( $events_continuous ),
