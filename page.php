@@ -66,6 +66,7 @@ array(
 
 $events = Timber::get_posts( $args_evenementen_datetime );
 $context['evenementen_vandaag'] = archive_agenda_list_helper( $events );
+$context['evenementen_vandaag_special'] = $context['evenementen_vandaag'];
 
 $vandaag_notspecial_count = 3 - count( $context['evenementen_vandaag'] );
 if( $vandaag_notspecial_count > 0 ) {
@@ -189,28 +190,13 @@ $context[ 'cat' ] = Timber::get_terms('categorie');
 
 
 // Get special events today
+// Randomize
+shuffle( $context['evenementen_vandaag_special'] );
+$context['special_today'] = $context['evenementen_vandaag_special'];
 
-$args_special_today = array(
-    'post_type' => 'evenementen',
-    'posts_per_page'  => -1,
-    'meta_query' => array(
-        'relation' => 'AND',
-        array(
-            'key'       => 'special',
-            'value'     => 1,
-        ),       
-        array(
-            'key' => 'datum',
-            'compare' => '=',
-            'value' => $today
-        )
-    ),
-    'orderby' => 'rand',
-);
-$context['special_today'] = Timber::get_posts( $args_special_today );
+
 
 // Load aanbod
-
 $args_aanbod = array(
     'post_type' => 'locaties',
     'posts_per_page'  => -1,
