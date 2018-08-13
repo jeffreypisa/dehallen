@@ -34,87 +34,150 @@ $context[ 'date_now' ] = date('d/m/Y');
 $context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 
 /* Load evenementen vandaag */
-
 $today = date('Ymd');
+$date = $today;
 
-$args_evenementen_vandaag = array(
-    'post_type' => 'evenementen',
-    'posts_per_page'  => 3,
-    'meta_query' => array(
-        'relation' => 'AND',
+$args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+
+$args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
+    'meta_query' =>
         array(
-            'key'       => 'special',
-            'value'     => 1,
-        ),       
-        array(
-            'key' => 'datum',
-            'compare' => '=',
-            'value' => $today
+            array(
+                'key'       => 'special',
+                'value'     => 1,
+            )
         )
-    ),
-    'orderby' => 'rand',
 );
-$context['evenementen_vandaag'] = Timber::get_posts( $args_evenementen_vandaag );
+$tax_query_results = new WP_Query( $args_event );
+
+$search_posts = array();
+foreach( $tax_query_results->posts as $parent_id ) {
+    if( $parent_id != $currentID ) {
+        $search_posts[] = serialize(array("$parent_id"));
+    }
+}
+
+$args_evenementen_datetime['meta_query']['parents'] =
+array(
+    'key' => 'evenement',
+    'compare' => 'IN',
+    'value' => $search_posts,
+);
+
+$events = Timber::get_posts( $args_evenementen_datetime );
+$context['evenementen_vandaag'] = archive_agenda_list_helper( $events );
+
 $vandaag_notspecial_count = 3 - count( $context['evenementen_vandaag'] );
 if( $vandaag_notspecial_count > 0 ) {
-    $args_evenementen_vandaag = array(
-        'post_type' => 'evenementen',
-        'posts_per_page'  => $vandaag_notspecial_count,
+    
+    
+    $args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+    
+    $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
         'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_vandaag'], 'ID'  ) : array() ),
-        'meta_query' => array(
-            array(
-                'key' => 'datum',
-                'compare' => '=',
-                'value' => $today
-            )
-        ),
-        'orderby' => 'rand',
     );
+    $tax_query_results = new WP_Query( $args_event );
+    
+    $search_posts = array();
+    foreach( $tax_query_results->posts as $parent_id ) {
+        if( $parent_id != $currentID ) {
+            $search_posts[] = serialize(array("$parent_id"));
+        }
+    }
+    
+    $args_evenementen_datetime['meta_query']['parents'] =
+    array(
+        'key' => 'evenement',
+        'compare' => 'IN',
+        'value' => $search_posts,
+    );
+    
+    $events = Timber::get_posts( $args_evenementen_datetime );
+    // TODO: CUTOFF at 3
+    $context['evenementen_vandaag_addendum'] = archive_agenda_list_helper( $events );
+    
+    
 }
-$context['evenementen_vandaag'] = array_merge( $context['evenementen_vandaag'], Timber::get_posts( $args_evenementen_vandaag ) );
+$context['evenementen_vandaag'] = array_merge( $context['evenementen_vandaag'], $context['evenementen_vandaag_addendum'] );
 
+// Randomize
+shuffle( $context['evenementen_vandaag'] );
+// Cut only first 3
+$context['evenementen_vandaag'] = array_slice( $context['evenementen_vandaag'], 0, 3 );
 /* /Load evenementen vandaag */
 
 /* Load evenementen morgen */
+$tomorrow = date('Ymd', strtotime('+1 day') );
 
-$tomorrow = date('Ymd', strtotime('+1 day'));
+$date = $tomorrow;
 
-$args_evenementen_morgen = array(
-    'post_type' => 'evenementen',
-    'posts_per_page'  => 3,
-    'meta_query' => array(
-        'relation' => 'AND',
+$args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+
+$args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
+    'meta_query' =>
+    array(
         array(
             'key'       => 'special',
             'value'     => 1,
-        ),
-        array(
-            'key' => 'datum',
-            'compare' => '=',
-            'value' => $tomorrow
         )
-    ),
-    'orderby' => 'rand',
+    )
 );
-$context['evenementen_morgen'] = Timber::get_posts( $args_evenementen_morgen );
+$tax_query_results = new WP_Query( $args_event );
+
+$search_posts = array();
+foreach( $tax_query_results->posts as $parent_id ) {
+    if( $parent_id != $currentID ) {
+        $search_posts[] = serialize(array("$parent_id"));
+    }
+}
+
+$args_evenementen_datetime['meta_query']['parents'] =
+array(
+    'key' => 'evenement',
+    'compare' => 'IN',
+    'value' => $search_posts,
+);
+
+$events = Timber::get_posts( $args_evenementen_datetime );
+$context['evenementen_morgen'] = archive_agenda_list_helper( $events );
+
 $morgen_notspecial_count = 3 - count( $context['evenementen_morgen'] );
 if( $morgen_notspecial_count > 0 ) {
-    $args_evenementen_morgen = array(
-        'post_type' => 'evenementen',
-        'posts_per_page'  => $morgen_notspecial_count,
-        'post__not_in'=> (( $morgen_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_morgen'], 'ID'  ) : array() ),
-        'meta_query' => array(
-            array(
-                'key' => 'datum',
-                'compare' => '=',
-                'value' => $tomorrow
-            )
-        ),
-        'orderby' => 'rand',
+    
+    
+    $args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+    
+    $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
+        'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_morgen'], 'ID'  ) : array() ),
     );
+    $tax_query_results = new WP_Query( $args_event );
+    
+    $search_posts = array();
+    foreach( $tax_query_results->posts as $parent_id ) {
+        if( $parent_id != $currentID ) {
+            $search_posts[] = serialize(array("$parent_id"));
+        }
+    }
+    
+    $args_evenementen_datetime['meta_query']['parents'] =
+    array(
+        'key' => 'evenement',
+        'compare' => 'IN',
+        'value' => $search_posts,
+    );
+    
+    $events = Timber::get_posts( $args_evenementen_datetime );
+    // TODO: CUTOFF at 3
+    $context['evenementen_morgen_addendum'] = archive_agenda_list_helper( $events );
+    
+    
 }
-$context['evenementen_morgen'] = array_merge( $context['evenementen_morgen'], Timber::get_posts( $args_evenementen_morgen ) );
+$context['evenementen_morgen'] = array_merge( $context['evenementen_morgen'], $context['evenementen_morgen_addendum'] );
 
+// Randomize
+shuffle( $context['evenementen_morgen'] );
+// Cut only first 3
+$context['evenementen_morgen'] = array_slice( $context['evenementen_morgen'], 0, 3 );
 /* /Load evenementen morgen */
 
 

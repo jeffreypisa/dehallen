@@ -43,6 +43,37 @@ function archive_agenda_list_helper( $events_datetimes ) {
 }
 
 define('DH_EVENTS_HOUR_OFFSET', 2);
+
+function get_args_event_datetime_equals_date( $date ) {
+    
+    $args_evenementen_datetime = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,
+        'meta_query' => array(
+            'relation' => 'AND',
+            'date1' => array(
+                'key' => 'datum',
+                'compare' => '=',
+                'value' => $date
+            ),
+        ),
+        'meta_key' => 'begintijd',
+        'orderby' => 'meta_value',
+        'order' => 'ASC'
+    );
+    
+    return $args_evenementen_datetime;
+}
+
+function get_args_event_datetime_greaterequals_date( $date ) {
+    
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
+    $args_evenementen_datetime['meta_query']['date1']['compare'] = '>=';
+    
+    return $args_evenementen_datetime;
+    
+}
+
 function archive_agenda( $context, $tries = 0, $override_offset = false, $force_no_xhr = false ) {
     
     $context[ 'category' ] = Timber::get_term(['taxonomy'=>'categorie']);

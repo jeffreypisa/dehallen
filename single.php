@@ -62,21 +62,7 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
         $today = date('Ymd');
         $date = $today;
         
-        $args_evenementen = array(
-            'post_type' => 'evenementen_datetime',
-            'posts_per_page' => - 1,
-            'meta_query' => array(
-                'relation' => 'AND',
-                'date1' => array(
-                    'key' => 'datum',
-                    'compare' => '>=',
-                    'value' => $date
-                ),
-            ),
-            'meta_key' => 'begintijd',
-            'orderby' => 'meta_value',
-            'order' => 'ASC'
-        );
+        $args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
         
         $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids' );
         $args_event['tax_query'] = array(
