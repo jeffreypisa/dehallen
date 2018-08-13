@@ -55,8 +55,61 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
     'taxonomy' => $thetax,
     'term' => $categorie
   ); 
-  $context['more'] = Timber::get_posts($args_more);
   
+    $context['more'] = Timber::get_posts($args_more);
+    // Override $context['more']
+    if( $posttype == 'evenementen' ) {     
+        $today = date('Ymd');
+        $date = $today;
+        
+        $args_evenementen = array(
+            'post_type' => 'evenementen_datetime',
+            'posts_per_page' => - 1,
+            'meta_query' => array(
+                'relation' => 'AND',
+                'date1' => array(
+                    'key' => 'datum',
+                    'compare' => '>=',
+                    'value' => $date
+                ),
+            ),
+            'meta_key' => 'begintijd',
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
+        );
+        
+        $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids' );
+        $args_event['tax_query'] = array(
+            'relation' => 'OR');
+        
+        $args_event['tax_query'][] =
+            array(
+                'taxonomy' => 'categorie',
+                'field'    => 'slug',
+                'terms'    => $categorie,
+        );
+        
+        $tax_query_results = new WP_Query( $args_event );
+        
+        $search_posts = array();
+        foreach( $tax_query_results->posts as $parent_id ) {
+            if( $parent_id != $currentID ) {
+                $search_posts[] = serialize(array("$parent_id"));
+            }
+        }
+        
+        $args_evenementen['meta_query']['categories'] =
+        array(
+            'key' => 'evenement',
+            'compare' => 'IN',
+            'value' => $search_posts,
+        );
+        
+        $events = Timber::get_posts( $args_evenementen );
+        $events_more = archive_agenda_list_helper( $events );   
+        
+        $context['more'] = $events_more;
+    }
   
 } 
 

@@ -206,7 +206,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             );
         }
         
-        
         $tax_query_results = new WP_Query( $args_event );
         
         $search_posts = array();
