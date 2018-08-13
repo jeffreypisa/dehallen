@@ -191,20 +191,38 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     );
     
     
-    // TODO: shift to upper
+    // Shift cats to upper
     if( is_array( $cat_ids ) && count( $cat_ids ) > 0 ) {
-        $args_evenementen['tax_query'] = array(
+        $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids' );
+        $args_event['tax_query'] = array(
             'relation' => 'OR');
         
         foreach( $cat_ids as $cat_id ) {
-            $args_evenementen['tax_query'][] =
+            $args_event['tax_query'][] =
             array(
                 'taxonomy' => 'categorie',
                 'field'    => 'term_id',
                 'terms'    => $cat_ids,
             );
         }
+        
+        
+        $tax_query_results = new WP_Query( $args_event );
+        
+        $search_posts = array();
+        foreach( $tax_query_results->posts as $parent_id ) {
+            $search_posts[] = serialize(array("$parent_id"));
+        }
+        
+        $args_evenementen['meta_query']['categories'] = 
+            array(
+                'key' => 'evenement',
+                'compare' => 'IN',
+                'value' => $search_posts,
+            );
     }
+    
+    
     
     $args_evenementen_continuous = $args_evenementen;
     $args_evenementen_continuous['meta_query']['hastime1'] =
