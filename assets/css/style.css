@@ -7571,7 +7571,7 @@ body .flatpickr-calendar {
       margin-right: -5px; }
       .mod-eventfilter .box .row .col-md-4, .mod-eventfilter .box .row .col-md-5, .mod-eventfilter .box .row .col-md-6, .mod-eventfilter .box .row .col-md-7, .mod-eventfilter .box .row .col-md-8 {
         padding: 0 5px; }
-    .mod-eventfilter .box input[type=text], .mod-eventfilter .box .js-now {
+    .mod-eventfilter .box input[type=text], .mod-eventfilter .box input[type=date], .mod-eventfilter .box input[type=time], .mod-eventfilter .box .js-now {
       height: 64px;
       font-size: 30px;
       line-height: 44px;
@@ -7586,13 +7586,13 @@ body .flatpickr-calendar {
       background-size: 30px 30px;
       background-position: 8px 16px;
       background-repeat: no-repeat; }
-      .mod-eventfilter .box input[type=text].js-datepicker, .mod-eventfilter .box .js-now.js-datepicker {
+      .mod-eventfilter .box input[type=text].js-datepicker, .mod-eventfilter .box input[type=date].js-datepicker, .mod-eventfilter .box input[type=time].js-datepicker, .mod-eventfilter .box .js-now.js-datepicker {
         background-image: url(../images/calendar.png); }
-      .mod-eventfilter .box input[type=text].js-timepicker, .mod-eventfilter .box .js-now.js-timepicker {
+      .mod-eventfilter .box input[type=text].js-timepicker, .mod-eventfilter .box input[type=date].js-timepicker, .mod-eventfilter .box input[type=time].js-timepicker, .mod-eventfilter .box .js-now.js-timepicker {
         background-image: url(../images/time.png); }
-      .mod-eventfilter .box input[type=text].js-now, .mod-eventfilter .box .js-now.js-now {
+      .mod-eventfilter .box input[type=text].js-now, .mod-eventfilter .box input[type=date].js-now, .mod-eventfilter .box input[type=time].js-now, .mod-eventfilter .box .js-now.js-now {
         background-image: url(../images/now.png); }
-        .mod-eventfilter .box input[type=text].js-now:hover, .mod-eventfilter .box .js-now.js-now:hover {
+        .mod-eventfilter .box input[type=text].js-now:hover, .mod-eventfilter .box input[type=date].js-now:hover, .mod-eventfilter .box input[type=time].js-now:hover, .mod-eventfilter .box .js-now.js-now:hover {
           cursor: pointer; }
     .mod-eventfilter .box .mod-filterbar {
       padding-top: 8px;
@@ -8080,9 +8080,9 @@ header {
         .mod-mobilemenu .top ul.menu li a:after {
           content: '';
           position: absolute;
-          bottom: -4px;
+          bottom: -8px;
           left: 0;
-          height: 4px;
+          height: 8px;
           width: 0;
           background: #46aa64;
           transition: 0.2s ease-in-out; }

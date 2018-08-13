@@ -94,9 +94,9 @@
           &:after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -8px;
             left: 0;
-            height: 4px;
+            height: 8px;
             width: 0;
             background: $green;
             transition: 0.2s ease-in-out;
