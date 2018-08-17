@@ -153,6 +153,44 @@
 		"oAP": "\/assets\/favicons\/site.webmanifest",
 		"oF": 0
 		},
+	"\/assets\/fonts\/fontawesome\/fa-light-300.eot": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/fontawesome\/fa-light-300.eot",
+		"oF": 0
+		},
+	"\/assets\/fonts\/fontawesome\/fa-light-300.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/fonts\/fontawesome\/fa-light-300.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/assets\/fonts\/fontawesome\/fa-light-300.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/fontawesome\/fa-light-300.ttf",
+		"oF": 0
+		},
+	"\/assets\/fonts\/fontawesome\/fa-light-300.woff": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/fontawesome\/fa-light-300.woff",
+		"oF": 0
+		},
+	"\/assets\/fonts\/fontawesome\/fa-light-300.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/fontawesome\/fa-light-300.woff2",
+		"oF": 0
+		},
 	"\/assets\/fonts\/fonts.css": {
 		"aP": 1,
 		"bl": 0,
@@ -160,6 +198,16 @@
 		"ma": 0,
 		"oA": 0,
 		"oAP": "\/assets\/fonts\/fonts-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/assets\/fonts\/light.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/light-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -674,6 +722,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/modules\/_aanbodfilter.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_aanbodfilter.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/modules\/_aanbodkaart.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -817,6 +878,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/modules\/_klapuit.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_klapuit.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/modules\/_locaties.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -826,6 +900,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/scss\/modules\/_locaties.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/modules\/_menublock.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/modules\/_menublock.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -12209,13 +12296,6 @@
 		"oAP": "\/templates\/page-aanbodkaart.twig",
 		"oF": 0
 		},
-	"\/templates\/page-contact.twig": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/templates\/page-contact.twig",
-		"oF": 0
-		},
 	"\/templates\/page-frontpage.twig": {
 		"cB": 0,
 		"ft": 8192,
@@ -12244,6 +12324,13 @@
 		"oAP": "\/templates\/pagebuilder.twig",
 		"oF": 0
 		},
+	"\/templates\/pagebuilder\/content-3kolom.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/pagebuilder\/content-3kolom.twig",
+		"oF": 0
+		},
 	"\/templates\/pagebuilder\/content.twig": {
 		"cB": 0,
 		"ft": 8192,
@@ -12263,6 +12350,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/pagebuilder\/events.twig",
+		"oF": 0
+		},
+	"\/templates\/pagebuilder\/klapuit.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/pagebuilder\/klapuit.twig",
 		"oF": 0
 		},
 	"\/templates\/pagebuilder\/pageheader.twig": {

@@ -15,6 +15,7 @@ Text Domain: myproject
 @import '../../bower_components/lity/dist/lity.min.css';
 
 @import '../fonts/fonts.css';
+@import '../fonts/light.css';
 
 @import 'common/base';
 @import 'common/single';
@@ -29,7 +30,10 @@ Text Domain: myproject
 
 @import 'modules/agenda';
 @import 'modules/greenbar';
+@import 'modules/klapuit';
+@import 'modules/menublock';
 @import 'modules/events';
+@import 'modules/aanbodfilter';
 @import 'modules/aanbodkaart';
 @import 'modules/sharethis';
 @import 'modules/filterblocks';

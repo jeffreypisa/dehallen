@@ -1,0 +1,18 @@
+<section id="section{{sectionno}}" class="mod-klapuit {% if item.achtergrond_lichtgrijs %}alt {% endif %}">
+  <div class="container">
+    <a href="#vragen{{sectionno}}" data-toggle="collapse" role="button" aria-expanded="false">
+      <div class="row">
+        <div class="col-md-18 offset-md-1">
+          <h1 class="green">{{ item.vraag_titel }} <i class="fal fa-arrow-down"></i></h1>
+        </div>
+      </div>
+    </a>
+    <div class="collapse" id="vragen{{sectionno}}">
+      <div class="row">
+        <div class="col-md-16 offset-md-2">
+          {{ item.vragen_content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

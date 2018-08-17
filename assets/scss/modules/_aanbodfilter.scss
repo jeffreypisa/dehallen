@@ -1,0 +1,43 @@
+.mod-aanbodfilter {
+  margin-bottom: 30px;
+  .block {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid $grey;
+  }
+  .row {
+    margin-left: -2px;
+    margin-right: -2px;
+    .col {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .page-id-273 .mod-aanbodfilter {
+    .row {
+      margin-left: -15px;
+      margin-right: -15px;
+      .col {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+  .mod-aanbodfilter {
+    .row {
+      margin-left: -10px;
+      margin-right: -10px;
+      .col {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

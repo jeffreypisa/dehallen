@@ -23,25 +23,21 @@
         <a href="{{ slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.afbeelding) }})">
           <div class="content">
             <div class="container">
-              <div class="row">
-                <div class="col-md-18 offset-md-1">
-                  <h2>{{ slide.title }}</h2>
-                  {% if slide.type_evenement %}
-                    <div class="datetime">{{ slide.type_evenement | lower }} </div>
-                  {% endif %}
-                  <div class="datetime">
-                    {{ slide.custom.datum|date("l d F") }}
-                  </div>
-                  <div class="datetime">
-                    {{ slide.custom.begintijd|date("H:s") }}
-                  </div>
-                </div>
+              <h2>{{ slide.title }}</h2>
+              {% if slide.type_evenement %}
+                <div class="datetime">{{ slide.type_evenement | lower }} </div>
+              {% endif %}
+              <div class="datetime">
+                {{ slide.custom.datum|date("l d F") }}
+              </div>
+              <div class="datetime">
+                {{ slide.custom.begintijd|date("H:s") }}
               </div>
               <div class="locatie condensed">
                 <div class="container">
                   <div class="location">
                   {% set locatie = slide.get_field('locatie') %}
-                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                  <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
                 </div>
                 </div>
               </div>
@@ -54,19 +50,15 @@
         <a href="{{ slide.slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
           <div class="content">
             <div class="container">
-              <div class="row">
-                <div class="col-md-18 offset-md-1">
-                  <h2>{{ slide.slide.title }}</h2>
-                  {% if slide.slide.type_evenement %}
-                    <div class="datetime">{{ slide.slide.type_evenement | lower }} </div>
-                  {% endif %}
-                  <div class="datetime">
-                    {{ slide.slide.datum|date("l d F") }}
-                  </div>
-                  <div class="datetime">
-                    {{ slide.slide.begintijd|date("H:s") }}
-                  </div>
-                </div>
+              <h2>{{ slide.slide.title }}</h2>
+              {% if slide.slide.type_evenement %}
+                <div class="datetime">{{ slide.slide.type_evenement | lower }} </div>
+              {% endif %}
+              <div class="datetime">
+                {{ slide.slide.datum|date("l d F") }}
+              </div>
+              <div class="datetime">
+                {{ slide.slide.begintijd|date("H:s") }}
               </div>
               <div class="locatie condensed">
                 <div class="container">

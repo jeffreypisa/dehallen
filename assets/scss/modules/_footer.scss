@@ -2,13 +2,14 @@ footer {
   padding: 30px 0 5px;
   background: $darkblue;
   color: #fff;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   h5 {
     font-size: 20px;
     line-height: 24px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    border-bottom: 2px solid $green;
   }
   a {
     color: #fff;
@@ -30,6 +31,7 @@ footer {
   }
   .mailchimp-form {
     position: relative;
+    max-width: 200px;
     input[type=email] {
       border-radius: 0;
       border: 0;
@@ -57,6 +59,7 @@ footer {
   .followus {
     a {
       display: block;
+      float: left
     }
   }
 }

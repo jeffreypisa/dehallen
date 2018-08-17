@@ -8,23 +8,23 @@
       <div class="row">
         <div class="col-md-18 offset-md-1">
           <h1> Blog </h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-16 offset-md-2">
           <div class="mod-filterblocks">
-            <div class="row">
+            <ul>
+              <li class="{% if current_category == '' %} active {% endif %}">
+                <a href="/blog">Toon alles</a>
+              </li>
               {% for cat in category %}
-                <div class="col">
-                  <a href="/{{ cat.slug }}" class="block condensed">{{ cat.title }}</a>
-                </div>
+                <li class="{% if cat.id == current_category %} active {% endif %}">
+                  <a href="/{{ cat.slug }}">{{ cat.title }}</a>
+                </li>
               {% endfor %}
-            </div>
+            </ul>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>
       <div class="cards cards-archive">
-        <div class="row justify-content-center">
+        <div class="row">
           {% for blok in posts %}  
             {% set catje = blok.terms('category') | join(' ') | lower %}
             <div class="col-md-10 col-lg-6 col-xl-5">

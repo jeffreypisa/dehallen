@@ -7,6 +7,9 @@
   {% if item.acf_fc_layout == 'content' %}
 		{% include 'pagebuilder/content.twig' %}
 		
+  {% elseif item.acf_fc_layout == 'content-3kolom' %}
+		{% include 'pagebuilder/content-3kolom.twig' %}
+		
   {% elseif item.acf_fc_layout == 'pageheader' %}
 		{% include 'pagebuilder/pageheader.twig' %}
     
@@ -15,6 +18,9 @@
 
   {% elseif item.acf_fc_layout == 'eventfilter' %}
     {% include 'pagebuilder/eventfilter.twig' %}
+    
+  {% elseif item.acf_fc_layout == 'klapuit' %}
+    {% include 'pagebuilder/klapuit.twig' %}
     
   {% elseif item.acf_fc_layout == 'events' %}
     {% include 'pagebuilder/events.twig' %}

@@ -1,0 +1,28 @@
+<section class="mod-content" style="padding: 10px 0 30px">
+  <div class="container">
+    <div class="row">
+      {% if item.kolom3-50 %}
+        <div class="col-lg-5 offset-lg-1">
+          {{ item.kolom1 }}
+        </div>
+        <div class="col-lg-5">
+          {{ item.kolom2 }}
+        </div>
+        <div class="col-lg-8">
+          {{ item.kolom3 }}
+        </div>
+      {% else %}
+        <div class="col-lg-6">
+          {{ item.kolom1 }}
+        </div>
+        <div class="col-lg-6">
+          {{ item.kolom2 }}
+        </div>
+        <div class="col-lg-8">
+          {{ item.kolom3 }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<div class="clearfix"></div>

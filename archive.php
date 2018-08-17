@@ -103,7 +103,8 @@ if ($posttype == 'post') {
   $context['category'] = $terms;
   
   $postcatid = get_queried_object()->term_id;
-    
+  $context['current_category'] = $postcatid;
+  
   $args_posts = array(
     'post_type'			  => 'post',
   	'posts_per_page'  => -1,
