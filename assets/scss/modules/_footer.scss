@@ -6,9 +6,9 @@ footer {
   line-height: 20px;
   h5 {
     font-size: 20px;
-    line-height: 24px;
+    line-height: 34px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-bottom: 2px solid $green;
   }
   a {
@@ -54,12 +54,6 @@ footer {
       font-size: 12px;
       line-height: 14px;
       padding: 2px 5px 0;
-    }
-  }
-  .followus {
-    a {
-      display: block;
-      float: left
     }
   }
 }

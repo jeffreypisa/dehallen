@@ -34,6 +34,14 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     border: 0;
   }
 }
+.btn.btn-sm {
+  font-size: 16px;
+  height: 36px;
+  line-height: 38px;
+  font-weight: bold;
+  border: 0;
+  padding: 0 15px;
+}
 .btn-outline-light {
   border: 2px solid #fff;
   height: 44px;

@@ -1,5 +1,5 @@
 {% if item.slider|length > 0 %}
-  <div id="slider" class="mod-slider carousel carousel-fade" data-ride="carousel">
+  <div id="slider" class="mod-slider carousel carousel-fade {% if item.narrowcasting %} narrowcasting {% endif %}" data-ride="carousel" data-interval="8000">
     {% if item.slider|length > 1 %}
       <div class="indicators">
         <div class="container">

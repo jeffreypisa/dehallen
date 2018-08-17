@@ -42,11 +42,12 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
   
   foreach($terms as $term){
     $categorie = $term->slug;
-    $categorie_link = $term->url;
+    $context['categorie'] = $categorie;
+    $categorie_link = get_term_link( $term );
+    $context['categorielink'] = $categorie_link;
   }  
   
-  $context['categorie'] = $categorie;
-  $context['categorielink'] = $categorie_link;
+  
   
   $args_more = array(
     'post_type'			  => $posttype,

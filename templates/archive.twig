@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="cards cards-archive">
-        <div class="row">
+        <div class="row justify-content-center">
           {% for blok in posts %}  
             {% set catje = blok.terms('category') | join(' ') | lower %}
             <div class="col-md-10 col-lg-6 col-xl-5">

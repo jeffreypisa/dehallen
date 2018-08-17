@@ -57,7 +57,7 @@ function create_kb2_type() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'categorie' ),
+		'rewrite'           => array( 'slug' => 'locatie_categorie' ),
 	);
 
   register_taxonomy('categorie_locaties', array('locaties'), $args);
