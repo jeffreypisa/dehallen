@@ -1,6 +1,6 @@
 <?php
 $xml = file_get_contents( 'xml.xml');
-if( $_GET['type'] == 'events' ) {
+if( ! isset( $_GET['type'] ) || $_GET['type'] == 'events' ) {
     echo $xml;die();
 }
 
@@ -28,8 +28,8 @@ if( count( $events ) > 0 ) {
                 $out = '<event_parent_guid>'.$event->guid.'</event_parent_guid>';
                 $out .= '<date_start>'.$datetime->date_start.'</date_start>';
                 $out .= '<time_start>'.$datetime->time_start.'</time_start>';
-                $out .= '<date_end>'.$datetime->date_start.'</date_end>';
-                $out .= '<time_end>'.$datetime->date_start.'</time_end>';
+                $out .= '<date_end>'.$datetime->date_end.'</date_end>';
+                $out .= '<time_end>'.$datetime->time_end.'</time_end>';
                 $out .= '<is_allowed_after_start>'.$datetime->is_allowed_after_start.'</is_allowed_after_start>';
                 
                 echo $out;
