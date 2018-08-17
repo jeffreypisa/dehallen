@@ -7177,23 +7177,60 @@ section.mod-klapuit {
   section.mod-klapuit a {
     display: block; }
 
-.menublock {
-  padding: 0 80px; }
-  .menublock .menutaal {
-    position: relative; }
-    .menublock .menutaal:after {
-      top: 50%;
-      left: 0;
-      right: 0;
-      margin-top: -2px;
-      height: 4px;
-      background: #46aa64; }
-    .menublock .menutaal .menu-item a {
-      border: 4px solid #0a334f;
+.mod-mobilemenu .menublock ul.menutaal {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  margin: 0 40px; }
+  .mod-mobilemenu .menublock ul.menutaal:after {
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    margin-top: -3px;
+    z-index: -1;
+    height: 6px;
+    background: #46aa64;
+    position: absolute;
+    content: ''; }
+  .mod-mobilemenu .menublock ul.menutaal li.menu-item {
+    display: inline-block;
+    float: right; }
+    .mod-mobilemenu .menublock ul.menutaal li.menu-item a {
+      border: 6px solid #0a334f;
+      background: transparent;
+      opacity: 0.5;
+      border-radius: 300px;
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      transition: 0.2s ease-in-out; }
+      .mod-mobilemenu .menublock ul.menutaal li.menu-item a span {
+        font-size: 0px; }
+      .mod-mobilemenu .menublock ul.menutaal li.menu-item a:hover {
+        opacity: 1;
+        color: #0a334f; }
+        .mod-mobilemenu .menublock ul.menutaal li.menu-item a:hover span {
+          color: #0a334f; }
+    .mod-mobilemenu .menublock ul.menutaal li.menu-item:first-child {
+      float: left; }
+    .mod-mobilemenu .menublock ul.menutaal li.menu-item.wpml-ls-current-language a {
+      border: 6px solid #0a334f;
       background: #fff;
-      border-radius: 300px; }
-      .menublock .menutaal .menu-item a span {
-        display: none; }
+      opacity: 1; }
+    .mod-mobilemenu .menublock ul.menutaal li.menu-item.wpml-ls-item-nl a span:after {
+      font-size: 26px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 8px;
+      left: -42px;
+      content: "NL"; }
+    .mod-mobilemenu .menublock ul.menutaal li.menu-item.wpml-ls-item-en a span:after {
+      font-size: 26px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 8px;
+      right: -42px;
+      content: "EN"; }
 
 .home .mod-events {
   display: none; }
@@ -8109,13 +8146,6 @@ header {
       transition: all 0.5s ease-out;
       opacity: 0;
       transform: translateY(40px); }
-    .mod-mobilemenu .top ul.menutaal {
-      margin: 0;
-      display: block;
-      font-size: 26px;
-      line-height: 26px;
-      font-weight: bold;
-      text-transform: uppercase; }
     .mod-mobilemenu .top ul.menu li {
       text-align: left; }
       .mod-mobilemenu .top ul.menu li a {

@@ -1,22 +1,75 @@
-.menublock {
-  padding: 0 80px;
-  .menutaal {
+.mod-mobilemenu .menublock {
+  ul.menutaal {
     position: relative;
+    display: inline-block;
+    width: 120px;
+    margin: 0 40px;
     &:after {
       top: 50%;
-      left: 0;
-      right: 0;
-      margin-top: -2px;
-      height: 4px;
+      left: 40px;
+      right: 40px;
+      margin-top: -3px;
+      z-index: -1;
+      height: 6px;
       background: $green;
+      position: absolute;
+      content: '';
     }
-    .menu-item {
+    li.menu-item {
+      display: inline-block;
+      float: right;
       a {
-        border: 4px solid $darkblue;
-        background: #fff;
+        border: 6px solid $darkblue;
+        background: transparent; 
+        opacity: 0.5; 
         border-radius: 300px;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        transition: 0.2s ease-in-out;
         span {
-          display: none;
+          font-size: 0px;
+        }
+        &:hover {
+          opacity: 1;
+          color: $darkblue;
+          span {
+            color: $darkblue;
+          }
+        }
+      }
+      &:first-child {
+        float: left;
+      }
+      &.wpml-ls-current-language {
+        a {
+          border: 6px solid $darkblue;
+          background: #fff;
+          opacity: 1;
+        }
+      }
+      &.wpml-ls-item-nl {
+        a {
+          span:after {
+            font-size: 26px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 8px;
+            left: -42px;
+            content: "NL";
+          }
+        }          
+      }
+      &.wpml-ls-item-en {
+        a {
+          span:after {
+            font-size: 26px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 8px;
+            right: -42px;
+            content: "EN";
+          }
         }
       }
     }
