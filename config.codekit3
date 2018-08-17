@@ -12324,6 +12324,13 @@
 		"oAP": "\/templates\/pagebuilder.twig",
 		"oF": 0
 		},
+	"\/templates\/pagebuilder\/blocks.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/pagebuilder\/blocks.twig",
+		"oF": 0
+		},
 	"\/templates\/pagebuilder\/content-3kolom.twig": {
 		"cB": 0,
 		"ft": 8192,
@@ -12532,6 +12539,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/tease.twig",
+		"oF": 0
+		},
+	"\/views\/password-form.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/views\/password-form.twig",
 		"oF": 0
 		}
 	},

@@ -15,6 +15,9 @@
     
   {% elseif item.acf_fc_layout == 'slider' %}
     {% include 'pagebuilder/slider.twig' %}
+  
+  {% elseif item.acf_fc_layout == 'blocks' %}
+    {% include 'pagebuilder/blocks.twig' %}
 
   {% elseif item.acf_fc_layout == 'eventfilter' %}
     {% include 'pagebuilder/eventfilter.twig' %}

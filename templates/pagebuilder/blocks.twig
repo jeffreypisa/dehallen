@@ -1,0 +1,25 @@
+<section class="mod-blocks {% if item.achtergrond_lichtgrijs %}alt {% endif %}">
+  <div class="container">
+    <div class="row">
+      {% for itemblock in item.blocks %}
+        <div class="col-md-10 col-lg-6 col-xl-5">
+          <div class="card-wrapper nopb">
+            <a href="{{ itemblock.thelink }}" target="_blank" class="card">
+              {% if blok.afbeelding %}
+                <div class="card-img-top" style="background-image: url({{ TimberImage(itemblock.afbeelding)|resize(480) }})">
+                  <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                </div>
+              {% endif %}
+              <div class="card-body">
+                <h3> {{ itemblock.titel }} </h3>
+                {% if itemblock.tekst %}
+                  <p> {{ itemblock.tekst }} </p>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -53,7 +53,7 @@
                     <div class="row">
                       {% for cat in category %}
                         <div class="col">
-                          <a href="#" data-aanbodfal="{{ cat.slug | lower }}" class="block condensed {{ cat.slug | lower }}">{{ cat.title }}</a>
+                          <a href="#" data-aanbodfilter="{{ cat.slug | lower }}" class="block condensed {{ cat.slug | lower }}">{{ cat.title }}</a>
                         </div>
                       {% endfor %}
                     </div>

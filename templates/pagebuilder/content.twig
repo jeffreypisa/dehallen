@@ -1,9 +1,31 @@
 <section class="mod-content {% if item.achtergrond_lichtgrijs %}alt {% endif %}">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 offset-md-1">
-        {{ item.content }}
-      </div>
+      {% if item.locationbox %}
+        <div class="col-md-10 offset-lg-1 col-lg-9 col-xl-12">
+          {{ item.content }}
+        </div>
+        <div class="col-md-10 offset-lg-1 col-lg-8 col-xl-6">
+          <div class="card infobox">
+            <div class="card-body">
+              <h5> {{ item.infotitel }} </h5>
+              {% if item.adres %}
+                <p>{{ item.adres }}</p>
+              {% endif %}
+              {% if item.telefoon %}
+                <p>{{ item.telefoon }}</p>
+              {% endif %}
+              {% if item.email %}
+                <p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="col-md-10 offset-md-1">
+          {{ item.content }}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

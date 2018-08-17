@@ -114,4 +114,36 @@ if ($posttype == 'post') {
   $context['posts'] = Timber::get_posts($args_posts);
 }
 
+/* Load Locatie */
+
+if ($posttype == 'locaties') {
+  
+  $terms = \Timber::get_terms(array('taxonomy' => 'categorie_locaties', 'hide_empty' => true));
+  $context['category'] = $terms;
+  
+  $postcatid = get_queried_object()->term_id;
+  $context['current_category'] = $postcatid;
+  
+  if ( $postcatid ) {
+    $args_posts = array(
+      'post_type'			  => 'locaties',
+    	'posts_per_page'  => -1,
+    	'tax_query' => array( 
+          array( 
+              'taxonomy' => 'categorie_locaties', //or tag or custom taxonomy
+              'field' => 'id', 
+              'terms' => $postcatid
+          ) 
+      )
+    ); 
+  } else {
+    $args_posts = array(
+      'post_type'			  => 'locaties',
+    	'posts_per_page'  => -1,
+    ); 
+  }
+  
+  $context['posts'] = Timber::get_posts($args_posts);
+}
+
 Timber::render( $templates, $context );
