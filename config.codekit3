@@ -552,6 +552,16 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/scripts\/iostouchhoverfix.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/scripts\/iostouchhoverfix-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/scripts\/mobilemenu.js": {
 		"ft": 64,
 		"ma": 0,
@@ -12547,6 +12557,20 @@
 		"oA": 0,
 		"oAP": "\/views\/password-form.twig",
 		"oF": 0
+		},
+	"\/xml.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/xml.php",
+		"oF": 0
+		},
+	"\/xml.xml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/xml.xml",
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -12609,20 +12633,26 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/iostouchhoverfix.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
 			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
 			"position": 11,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/datepicker.js",
+			"position": 12,
 			"type": 1
 			}
 		]

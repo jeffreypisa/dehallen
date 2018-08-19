@@ -37,7 +37,7 @@
           transform: rotate(45deg);
         }
       }
-      &:hover {
+      &:hover, &:active {
         cursor: pointer;
         span {
           background: $green;
@@ -59,7 +59,7 @@
       margin: 0 0 20px;
       a {
         color: $darkblue;
-        &:hover {
+        &:hover, &:active {
           text-decoration: none;
           color: $green;
         }
@@ -93,7 +93,7 @@
             background: $green;
             transition: 0.2s ease-in-out;
           }
-          &:hover {
+          &:hover, &:active {
             text-decoration: none;
             &:after {
               width: 100%;
@@ -131,7 +131,7 @@
           color: #fff;
           font-size: 18px;
           line-height: 26px;
-          &:hover {
+          &:hover, &:active {
             color: $green;
           }
         }

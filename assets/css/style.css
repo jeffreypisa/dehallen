@@ -6842,7 +6842,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     background: black; }
   .btn-primary:focus, .btn-primary:active, .btn-primary:target, .btn-primary:not(:disabled):not(.disabled):active {
     color: #fff;
-    background: #156daa; }
+    background: black; }
 
 .btn-secondary[href], .field-wrap input[type=button] {
   background: #46aa64;
@@ -6851,7 +6851,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     background: #28623a;
     color: #fff; }
   .btn-secondary[href]:focus, .btn-secondary[href]:active, .btn-secondary[href]:target, .btn-secondary[href]:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
-    background: #88ce9d;
+    background: #193e24;
     color: #fff; }
 
 section {
@@ -6968,6 +6968,9 @@ a.card[href] {
   a.card[href]:hover:after {
     width: 100%; }
 
+.form-control {
+  background-clip: border-box; }
+
 .nf-form-cont .label-above .nf-field-element, .nf-form-cont .label-below .nf-field-element {
   font-family: inherit;
   font-size: 20px;
@@ -7046,7 +7049,7 @@ body .flatpickr-calendar {
     .mod-agenda .hourblock:first-child .meta:after {
       top: 0; }
   .mod-agenda .dh_no_hits {
-    margin-top: 100px; }
+    margin: 50px 0; }
   .mod-agenda .meta .hour {
     font-size: 25px;
     font-weight: bold;
@@ -7173,7 +7176,6 @@ body .flatpickr-calendar {
   .mod-greenbar a {
     color: #fff;
     font-weight: 600;
-    min-width: 200px;
     padding: 4px 0 1px;
     margin-right: 10px; }
 
@@ -7266,6 +7268,9 @@ section.mod-klapuit {
         border-radius: 100px;
         height: 26px;
         width: 26px;
+        max-height: 26px;
+        max-width: 26px;
+        display: inline-block;
         background: transparent;
         transition: .2s ease-in-out;
         color: #fff;
@@ -7638,7 +7643,6 @@ section.mod-klapuit {
   .mod-filterblocks ul {
     padding: 0; }
     .mod-filterblocks ul li {
-      float: left;
       display: inline-block;
       margin: 0 30px 20px 0; }
       .mod-filterblocks ul li a {
@@ -7760,16 +7764,17 @@ section.mod-klapuit {
 
 @media (min-width: 768px) {
   .mod-eventfilter-agenda {
-    padding: 13px 0; }
+    padding: 0; }
     .mod-eventfilter-agenda .btn {
       font-size: 20px; } }
 
 @media (min-width: 992px) {
   .mod-eventfilter-agenda {
+    padding: 13px 0;
     padding-bottom: 0; } }
 
 footer {
-  padding: 30px 0 5px;
+  padding: 30px 0 30px;
   background: #0a334f;
   color: #fff;
   font-size: 16px;
@@ -7815,6 +7820,10 @@ footer {
       font-size: 12px;
       line-height: 14px;
       padding: 2px 5px 0; }
+
+@media (min-width: 768px) {
+  footer {
+    padding: 30px 0 5px; } }
 
 body {
   padding-top: 130px; }
@@ -8137,9 +8146,9 @@ header {
           transform: rotate(-45deg); }
         .mod-mobilemenu .top .closemenu span:nth-child(2) {
           transform: rotate(45deg); }
-      .mod-mobilemenu .top .closemenu:hover {
+      .mod-mobilemenu .top .closemenu:hover, .mod-mobilemenu .top .closemenu:active {
         cursor: pointer; }
-        .mod-mobilemenu .top .closemenu:hover span {
+        .mod-mobilemenu .top .closemenu:hover span, .mod-mobilemenu .top .closemenu:active span {
           background: #46aa64; }
     .mod-mobilemenu .top h3 {
       font-size: 26px;
@@ -8154,7 +8163,7 @@ header {
       margin: 0 0 20px; }
       .mod-mobilemenu .top ul a {
         color: #0a334f; }
-        .mod-mobilemenu .top ul a:hover {
+        .mod-mobilemenu .top ul a:hover, .mod-mobilemenu .top ul a:active {
           text-decoration: none;
           color: #46aa64; }
     .mod-mobilemenu .top ul.menu, .mod-mobilemenu .top img, .mod-mobilemenu .top .third {
@@ -8182,9 +8191,9 @@ header {
           width: 0;
           background: #46aa64;
           transition: 0.2s ease-in-out; }
-        .mod-mobilemenu .top ul.menu li a:hover {
+        .mod-mobilemenu .top ul.menu li a:hover, .mod-mobilemenu .top ul.menu li a:active {
           text-decoration: none; }
-          .mod-mobilemenu .top ul.menu li a:hover:after {
+          .mod-mobilemenu .top ul.menu li a:hover:after, .mod-mobilemenu .top ul.menu li a:active:after {
             width: 100%; }
         .mod-mobilemenu .top ul.menu li a:focus, .mod-mobilemenu .top ul.menu li a:active, .mod-mobilemenu .top ul.menu li a:target {
           color: #0a334f;
@@ -8207,7 +8216,7 @@ header {
         color: #fff;
         font-size: 18px;
         line-height: 26px; }
-        .mod-mobilemenu .bottom .menuextra li a:hover {
+        .mod-mobilemenu .bottom .menuextra li a:hover, .mod-mobilemenu .bottom .menuextra li a:active {
           color: #46aa64; }
     .mod-mobilemenu .bottom .followus {
       transition: all 0.5s ease-out;

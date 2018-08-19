@@ -1,4 +1,4 @@
-{% if menutaal %}
+{% if menutaal|length > 1 %}
 	<ul class="menutaal">
   	{% for item in menutaal %}
   		<li class="{{item.classes | join(' ')}} ">

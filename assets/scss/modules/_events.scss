@@ -25,6 +25,9 @@
         border-radius: 100px;
         height: 26px;
         width: 26px;
+        max-height:26px;
+        max-width: 26px;
+        display: inline-block;
         background: transparent;
         transition: .2s ease-in-out;
         color: #fff;

@@ -7,13 +7,13 @@
 	      {% if posttype == 'locaties' %} 
 	        <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk lijst</a>
           {% if ismobile == 'true' %} {% else %}
-            <a href="{{ site.url }}/aanbodkaart" class="float-right">Bekijk kaart <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ site.url }}/aanbodkaart" class="d-none d-md-block float-right">Bekijk kaart <i class="fas fa-arrow-circle-right"></i></a>
           {% endif %}
 	      {% else %}
   	      <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
   	    {% endif %}
   	    {% if categorielink %}
-  	      <a href="{{ categorielink }}" class="float-right d-none d-md-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
+  	      <a href="{{ categorielink }}" class="float-right d-none d-sm-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
   	    {% endif %}
   	    <div class="clearfix"></div>
 	    </div>

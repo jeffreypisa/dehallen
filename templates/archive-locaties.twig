@@ -28,9 +28,9 @@
         </div>
       </div>
       <div class="cards cards-archive">
-        <div class="row justify-content-center">
+        <div class="row">
           {% for blok in posts %}  
-            <div class="col-md-10 col-lg-6 col-xl-5">
+            <div class="col-md-10 col-xl-5">
               <div class="card-wrapper nopb">
                 <a href="{{ blok.link }}" class="card">
                   <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">

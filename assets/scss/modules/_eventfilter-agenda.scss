@@ -55,7 +55,7 @@
 
 @include media-breakpoint-up(md) {
   .mod-eventfilter-agenda {
-    padding: 13px 0;
+    padding: 0;
     .btn {
       font-size: 20px;
     }
@@ -64,6 +64,7 @@
 
 @include media-breakpoint-up(lg) {
   .mod-eventfilter-agenda {
+    padding: 13px 0;
     padding-bottom: 0;
   }
 }

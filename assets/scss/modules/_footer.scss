@@ -1,5 +1,5 @@
 footer {
-  padding: 30px 0 5px;
+  padding: 30px 0 30px;
   background: $darkblue;
   color: #fff;
   font-size: 16px;
@@ -59,6 +59,6 @@ footer {
 }
 @include media-breakpoint-up(md) {
   footer {
-
+    padding: 30px 0 5px;
   }
 }
