@@ -6619,15 +6619,18 @@ h1, h2, h3, h4, h5, h6, h7 {
   letter-spacing: 1px; }
 
 h1 {
-  font-size: 60px;
+  font-size: 46px;
   font-weight: 600; }
   h1.green {
     color: #46aa64; }
     h1.green:hover {
       color: #0a334f; }
 
+.error404 h1 {
+  color: #fff; }
+
 h2 {
-  font-size: 50px;
+  font-size: 36px;
   margin-bottom: 30px; }
 
 a h1 {
