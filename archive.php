@@ -38,11 +38,10 @@ else {
 
 $context[ 'day_now' ]  = date('D');
 
-// Onderstaand moet dag doorgeven waarop gefilterd wordt
+// Onderstaand moet dag doorgeven waarop gefilterd wordt op de volgende manier voor bijvoorbeeld zondag : 'Sun' 
 $context[ 'day_filter' ]  = date('D');
 
-// Onderstaand moet dag doorgeven waarop gefilterd wordt in cijfers 10.08.18
-$context[ 'date_filter_short' ]  = date('D');
+$context[ 'date_filter_short' ]  = date('j.m.y');
 
 $day_filter  = date('D');
 
