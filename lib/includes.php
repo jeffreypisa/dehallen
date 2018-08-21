@@ -380,7 +380,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
 
     return array(
         'context' => $context,
-	'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
+        'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
         'next_slot' => $next_slot,
         'count_events_single' => count( $events ),
         'count_events_continuous' => count( $events_continuous ),
