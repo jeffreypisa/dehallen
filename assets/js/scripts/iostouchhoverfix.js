@@ -1,7 +1,7 @@
 (function($) {
   $(document).ready(function() {
     // tablet "one touch (click)" X "hover" > link redirection
-    $('a').on('touchmove touchend', function(e) {
+    $('a[href]').on('touchmove touchend', function(e) {
     
         // if touchmove>touchend, set the data() for this element to true. then leave touchmove & let touchend fail(data=true) redirection
         if (e.type == 'touchmove') {
