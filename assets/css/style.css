@@ -6639,6 +6639,9 @@ a h1 {
 a:hover h1 {
   color: #46aa64; }
 
+ul {
+  padding-left: 20px; }
+
 .form-control::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #0a334f;
@@ -6929,7 +6932,8 @@ section {
     padding-bottom: 56%;
     background-size: cover;
     background-position: center center;
-    background-color: #d1d3d4; }
+    background-color: #d1d3d4;
+    border-radius: 0; }
     .card .card-img-top .overlay, a.card[href] .card-img-top .overlay {
       position: absolute;
       bottom: -1px;
@@ -7180,7 +7184,9 @@ body .flatpickr-calendar {
     color: #fff;
     font-weight: 600;
     padding: 4px 0 1px;
-    margin-right: 10px; }
+    margin-right: 10px;
+    min-width: 170px;
+    display: inline-block; }
 
 section.mod-klapuit {
   padding: 10px 0;

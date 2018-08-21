@@ -48,7 +48,9 @@ a {
     }
   }
 }
-
+ul {
+  padding-left: 20px;
+}
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $darkblue;
     opacity: 1; /* Firefox */
