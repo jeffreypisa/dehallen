@@ -1,42 +1,39 @@
 {% block html_head_container %}
   {% include 'html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
+    {% block head %}
+    {% endblock %}
+    </head>
 {% endblock %}
-
   <body class="{{body_class}}" data-template="base.twig">
     {% include 'mobilemenu.twig' %}
     
-		<header class="header {% if fn('is_front_page') %} {% else %} on{% endif %}" >
-			{% block header %}
-			  <div class="container">
-  				<div class="logo" role="banner">
-  					<a class="logo-link" href="{{site.url}}" rel="home">
-  					  <img src="{{ options.logo_header }}" alt="logo" width="250" height="250">
-  					</a>
-  				</div>
+        <header class="header {% if fn('is_front_page') %} {% else %} on{% endif %}" >
+            {% block header %}
+              <div class="container">
+                <div class="logo" role="banner">
+                    <a class="logo-link" href="{{site.url}}" rel="home">
+                      <img src="{{ options.logo_header }}" alt="logo" width="250" height="250">
+                    </a>
+                </div>
           <a id="mobilemenubtn" class="btn-menu js-menu">
-      	    <div class="lines">
-        		  <span></span>
+            <div class="lines">
+                  <span></span>
               <span></span>
               <span></span>
-      	    </div>
+            </div>
           </a>
         </div>
-  		{% endblock %}
-		</header>
-
-		<div id="content" role="main" class="content-wrapper">
-			{% block content %}
-				Sorry, no content
-			{% endblock %}
-		</div>
-		{% block footer %}
+        {% endblock %}
+        </header>
+        <div id="content" role="main" class="content-wrapper">
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+        </div>
+        {% block footer %}
       {% include 'footer.twig' %}
     {% endblock %}
-
-	</body>
+    </body>
   {{ function('wp_footer') }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -62,10 +59,11 @@
       }
     );   
     
-	
-		jQuery( document ).ready(function() {
-			jQuery(".js-now").click();    	
-		});
-	    
+    {% if agenda_set_datetime_now %}
+        jQuery( document ).ready(function() {
+            jQuery(".js-now").click();        
+        });
+    {% endif %}
+        
   </script>
 </html>

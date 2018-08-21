@@ -36,17 +36,7 @@ else {
   $context[ 'day_filter_full' ]  = strftime('%A');
 }
 
-$context[ 'day_now' ]  = date('D');
 
-// Onderstaand moet dag doorgeven waarop gefilterd wordt op de volgende manier voor bijvoorbeeld zondag : 'Sun' 
-$context[ 'day_filter' ]  = date('D');
-
-$context[ 'date_filter_short' ]  = date('j.m.y');
-
-$day_filter  = date('D');
-
-$context[ 'hour_now' ]  = date('H');
-$context[ 'hour_filter' ]  = date('H');
 
 /* Load Evenementen */
 
@@ -68,6 +58,25 @@ if ($posttype == 'evenementen') {
         $context = $agenda_arr['context'];
     }
 }
+
+$context['agenda_set_datetime_now'] = false;
+if( !isset( $_GET['date'] ) ) {
+	$context['agenda_set_datetime_now'] = true;
+}
+
+
+$context[ 'day_now' ]  = date('D');
+
+// Onderstaand moet dag doorgeven waarop gefilterd wordt op de volgende manier voor bijvoorbeeld zondag : 'Sun' 
+$context[ 'day_filter' ]  = date('D', isset( $context['date_filter_unixtime'] ) ? $context['date_filter_unixtime'] : time() );
+
+$context[ 'date_filter_short' ]  = date('j.m.y');
+
+$day_filter  = date('D');
+
+$context[ 'hour_now' ]  = date('H');
+$context[ 'hour_filter' ]  = date('H');
+
 
 /* Load Winkels */
 

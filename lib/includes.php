@@ -34,19 +34,19 @@ function mp_pmxi_update_post_meta($pid, $m_key, $m_value) {
 
 add_action('pmxi_saved_post', 'mp_pmxi_saved_post', 10, 1);
 function mp_pmxi_saved_post( $pid ) {
-    global $wpdb;
+	global $wpdb;
     
-    $parent_guid = get_post_meta( $pid, '_parent_guid', true);
-    $_internal_run = get_post_meta( $pid, '_internal_run', true);
-    
-    
-    $sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
+	$parent_guid = get_post_meta( $pid, '_parent_guid', true);
+	$_internal_run = get_post_meta( $pid, '_internal_run', true);
     
     
-    $myrows = $wpdb->get_results( $sql );
-    foreach( $myrows as $row ) {
-        wp_delete_post( $row->post_id );
-    }
+	$sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
+    
+    
+	$myrows = $wpdb->get_results( $sql );
+	foreach( $myrows as $row ) {
+		wp_delete_post( $row->post_id );
+	}
 }
 
 
@@ -64,19 +64,25 @@ function archive_agenda_list_helper( $events_datetimes ) {
         $events_datetimes = array();
         foreach( $tmp as $single_datetime ) {
             
-            $single_id = $single_datetime['evenement'][0];
-            $args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
-            $main_event = Timber::get_posts( $args_event );
+		$single_id = $single_datetime['evenement'][0];
+		$args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
+		$main_event = Timber::get_posts( $args_event );
             
-            $events_datetimes[ $single_id ] = $main_event[0];
+		$events_datetimes[ $single_id ] = $main_event[0];
             
-            $events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
+		if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
+			if( !is_object($events_datetimes[ $single_id ]) ) {
+				$events_datetimes[ $single_id ] = new \stdClass();
+			}
+			$events_datetimes[ $single_id ]->custom = array();
+		}
+		$events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
         }
         
         // Now sort by time ascending
         $events_datetimes_sorted = array();
         foreach( $events_datetimes as $single_datetime ) {
-            $events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
+		$events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
         }
             
         $events_datetimes = $events_datetimes_sorted;
@@ -196,10 +202,13 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             }
             
             $context[ 'date_filter_short' ] = date('d.m.Y', strtotime( $date ));
-            
+            $context[ 'date_filter_unixtime' ] = strtotime( $date ) ;
+
             $hasdate = true;
         }
     }
+
+
     
     $timeday = '00:00:00';
     $timestart = $timeday;
@@ -367,8 +376,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         die();
     }
     
+
+
     return array(
         'context' => $context,
+	'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
         'next_slot' => $next_slot,
         'count_events_single' => count( $events ),
         'count_events_continuous' => count( $events_continuous ),
