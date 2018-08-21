@@ -31,7 +31,7 @@ add_action( 'parse_request', 'dh_parse_request' );
   	// CPT Options
   		array(
   			'labels' => array(
-  				'name'                  => __( 'Agenda' ),
+  				'name'                  => __( 'Evenementen' ),
   				'singular_name'         => __( 'Evenement' ),
       		'all_items'             => __( 'Alle evenementen' ),
       		'add_new_item'          => __( 'Nieuw evenement toevoegen' ),
@@ -53,16 +53,16 @@ add_action( 'parse_request', 'dh_parse_request' );
   	    // CPT Options
   	    array(
   	        'labels' => array(
-  	            'name'                  => __( 'Agenda_datetime' ),
+  	            'name'                  => __( 'Kalender' ),
   	            'singular_name'         => __( 'Evenement_datetime' ),
-  	            'all_items'             => __( 'Alle evenementen_datetime' ),
-  	            'add_new_item'          => __( 'Nieuw evenement_datetime toevoegen' ),
-  	            'new_item'              => __( 'Nieuw evenement_datetime' ),
-  	            'add_new'               => __( 'Nieuw evenement_datetime' ),
-  	            'edit_item'             => __( 'Bewerk evenement_datetime' ),
-  	            'update_item'           => __( 'Update evenement_datetime' ),
-  	            'view_item'             => __( 'Bekijk evenement_datetime' ),
-  	            'search_items'          => __( 'Zoek evenement_datetime' ),
+  	            'all_items'             => __( 'Alle evenementen' ),
+  	            'add_new_item'          => __( 'Nieuw evenement toevoegen' ),
+  	            'new_item'              => __( 'Nieuw evenement' ),
+  	            'add_new'               => __( 'Nieuw evenement' ),
+  	            'edit_item'             => __( 'Bewerk evenement' ),
+  	            'update_item'           => __( 'Update evenement' ),
+  	            'view_item'             => __( 'Bekijk evenement' ),
+  	            'search_items'          => __( 'Zoek evenement' ),
   	        ),
   	        'menu_icon'               => 'dashicons-calendar',
   	        'public'                  => true,
