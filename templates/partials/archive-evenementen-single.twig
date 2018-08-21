@@ -1,4 +1,5 @@
 {% if evenementen|length > 0 %}
+{% set the_hour_shown = false %}
   {% for post in evenementen %}
     {% set catje = post.terms('categorie') | first | lower %}
     {% set catjebron = post.terms('categorie') %}
@@ -14,8 +15,10 @@
         <div class="row">
           <div class="col-md-5">
             <div class="meta">
-            {% if post.custom.doorlopend_event == 0 %}
-              <div class="hour">{{ the_hour }}:00 <span></span></div>
+            
+            {% if post.custom.doorlopend_event == 0 or the_hour_shown == false %}
+              <div class="hour">{% if post.custom.doorlopend_event_timestart %} {{post.custom.doorlopend_event_timestart}}{% else %}{{ the_hour }}{% endif %}:00 <span></span></div>
+              {% set the_hour_shown = true %}
             {% endif %}
             </div>
           </div>

@@ -54,9 +54,10 @@ function mp_pmxi_saved_post( $pid ) {
  * Migrate from evenementen_datetime to evenementen array
  * 
  * @param unknown $events_datetimes
+ * @param $timestart
  * @return array
  */
-function archive_agenda_list_helper( $events_datetimes ) {
+function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     
     if( is_array( $events_datetimes ) && count( $events_datetimes ) > 0 ) {
         
@@ -76,6 +77,13 @@ function archive_agenda_list_helper( $events_datetimes ) {
     			}
     			$events_datetimes[ $single_id ]->custom = array();
     		}
+    		
+    		
+    		if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
+    		    $tmptime = explode( ':', $timestart );
+    		    $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
+    		}
+    		
     		$events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
         }
         
@@ -346,7 +354,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $events = archive_agenda_list_helper( $events );   
     
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
-    $events_continuous = archive_agenda_list_helper( $events_continuous );
+    $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
     
     $context['evenementen'] = array_merge( $events , $events_continuous);
         
