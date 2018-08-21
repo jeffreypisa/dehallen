@@ -20,14 +20,14 @@
                     {% endif %}
                     <div class="date"> 
                       {% if blok.datum %}
-                        <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ blok.datum|date("d F Y") }} <br>
+                        <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} <br>
                       {% endif %}
                       {% if blok.begintijd or blok.eindtijd %}
                         <span class="icon"> <i class="fa fa-clock"></i> </span>
-                        {% if blok.begintijd %} {{ blok.begintijd|date("H:i") }} {% endif %} 
-                        {% if blok.eindtijd %}  
-                          {% if blok.begintijd %} — {% endif %}
-                          {{ blok.eindtijd|date("H:i") }} 
+                        {% if blok.custom.begintijd %} {{ blok.custom.begintijd|date("H:i") }} {% endif %} 
+                        {% if blok.custom.eindtijd %}  
+                          {% if blok.custom.begintijd %} — {% endif %}
+                          {{ blok.custom.eindtijd|date("H:i") }} 
                         {% endif %}
                       {% endif %}
                     </div> 
@@ -54,15 +54,15 @@
                       <p> {{ post.type_evenement }} </p>
                     {% endif %}
                     <div class="date"> 
-                      {% if blok.datum %}
-                        <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ blok.datum|date("d F Y") }} <br>
+                      {% if blok.custom.datum %}
+                        <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} <br>
                       {% endif %}
-                      {% if blok.begintijd or blok.eindtijd %}
+                      {% if blok.custom.begintijd or blok.custom.eindtijd %}
                         <span class="icon"> <i class="fa fa-clock"></i> </span>
-                        {% if blok.begintijd %} {{ blok.begintijd|date("H:i") }} {% endif %} 
-                        {% if blok.eindtijd %}  
-                          {% if blok.begintijd %} — {% endif %}
-                          {{ blok.eindtijd|date("H:i") }} 
+                        {% if blok.custom.begintijd %} {{ blok.custom.begintijd|date("H:i") }} {% endif %} 
+                        {% if blok.custom.eindtijd %}  
+                          {% if blok.custom.begintijd %} — {% endif %}
+                          {{ blok.custom.eindtijd|date("H:i") }} 
                         {% endif %}
                       {% endif %}
                     </div> 

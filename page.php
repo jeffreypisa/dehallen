@@ -94,7 +94,7 @@ if( $vandaag_notspecial_count > 0 ) {
     );
     
     $events = Timber::get_posts( $args_evenementen_datetime );
-    // TODO: CUTOFF at 3
+
     $context['evenementen_vandaag_addendum'] = archive_agenda_list_helper( $events );
     
     
@@ -173,7 +173,7 @@ if( $morgen_notspecial_count > 0 ) {
     );
     
     $events = Timber::get_posts( $args_evenementen_datetime );
-    // TODO: CUTOFF at 3
+
     $context['evenementen_morgen_addendum'] = archive_agenda_list_helper( $events );
     
     
