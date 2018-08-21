@@ -41,6 +41,11 @@ else {
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
+    if( isset( $_GET['planbutton'] ) && isset( $_GET['offset'] ) ) {
+        $_GET['offset'] = 0;
+    }
+    
+    
     $agenda_arr = archive_agenda( $context );
     
     $offset = intval( $_GET['offset'] );
@@ -48,7 +53,7 @@ if ($posttype == 'evenementen') {
     if( count( $agenda_arr['context']['evenementen'] ) == 0 ) {
         
         $tries = 0;
-        while( date( 'H', $agenda_arr['next_slot'] ) < 22 ) {
+        while( date( 'H', $agenda_arr['next_slot'] ) < 22 && count( $agenda_arr['context']['evenementen'] ) == 0  ) {
             $offset = $agenda_arr['offset'];
             $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
             $tries++;
@@ -117,7 +122,7 @@ if ($posttype == 'post') {
     'post_type'			  => 'post',
   	'posts_per_page'  => -1,
     'cat'             => $postcatid
-  ); 
+  );
   
   $context['posts'] = Timber::get_posts($args_posts);
 }
