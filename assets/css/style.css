@@ -7056,7 +7056,12 @@ body .flatpickr-calendar {
     .mod-agenda .hourblock:first-child .meta:after {
       top: 0; }
   .mod-agenda .dh_no_hits {
-    margin: 50px 0; }
+    margin: 70px 0 50px; }
+    .mod-agenda .dh_no_hits h3 {
+      padding-left: 130px; }
+    .mod-agenda .dh_no_hits .meta:after {
+      top: -70px;
+      bottom: -70px; }
   .mod-agenda .meta .hour {
     font-size: 25px;
     font-weight: bold;
@@ -7148,6 +7153,13 @@ body .flatpickr-calendar {
     display: block; }
   .mod-agenda .meta .hour {
     font-size: 32px; }
+  .mod-agenda .dh_no_hits {
+    margin: 70px 0 50px; }
+    .mod-agenda .dh_no_hits h3 {
+      padding-left: 0px; }
+    .mod-agenda .dh_no_hits .meta:after {
+      top: -30px;
+      bottom: -60px; }
   .mod-agenda .tease .card .col-md-10:first-child {
     background: #dbdcdd; }
   .mod-agenda .tease .card .bg {
@@ -8424,11 +8436,19 @@ body.opensidemenu .mod-mobilemenu {
       line-height: 24px;
       font-weight: 600;
       margin-bottom: 30px; }
-      .moviebox .body .film h3 {
+      .moviebox .body .film h3 a {
         color: #46aa64;
         font-size: 30px;
         line-height: 35px;
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        margin-left: 0;
+        position: relative; }
+        .moviebox .body .film h3 a:hover {
+          text-decoration: none;
+          border: 0;
+          color: #46aa64; }
+          .moviebox .body .film h3 a:hover:after {
+            border-bottom: 2px solid #46aa64; }
       .moviebox .body .film a {
         color: #0a334f;
         margin-left: 28px; }

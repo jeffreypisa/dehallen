@@ -32,7 +32,14 @@
     }
   }
   .dh_no_hits {
-    margin: 50px 0;
+    margin: 70px 0 50px;
+    h3 {
+      padding-left: 130px;
+    }
+    .meta:after {
+      top: -70px;
+      bottom: -70px;
+    }
   }
   .meta {
     .hour {
@@ -159,6 +166,16 @@
       }
       .hour {
         font-size: 32px;
+      }
+    }
+    .dh_no_hits {
+      margin: 70px 0 50px;
+      h3 {
+        padding-left: 0px;
+      }
+      .meta:after {
+        top: -30px;
+        bottom: -60px;
       }
     }
     .tease {
