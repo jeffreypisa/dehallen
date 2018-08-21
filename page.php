@@ -37,7 +37,7 @@ $context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
 $today = date('Ymd');
 $date = $today;
 
-$args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+$args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
 
 $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
     'meta_query' =>
@@ -65,6 +65,7 @@ array(
 );
 
 $events = Timber::get_posts( $args_evenementen_datetime );
+
 $context['evenementen_vandaag'] = archive_agenda_list_helper( $events );
 $context['evenementen_vandaag_special'] = $context['evenementen_vandaag'];
 
@@ -72,7 +73,7 @@ $vandaag_notspecial_count = 3 - count( $context['evenementen_vandaag'] );
 if( $vandaag_notspecial_count > 0 ) {
     
     
-    $args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
     
     $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
         'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_vandaag'], 'ID'  ) : array() ),
@@ -117,7 +118,7 @@ $tomorrow = date('Ymd', strtotime('+1 day') );
 
 $date = $tomorrow;
 
-$args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+$args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
 
 $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
     'meta_query' =>
@@ -151,7 +152,7 @@ $morgen_notspecial_count = 3 - count( $context['evenementen_morgen'] );
 if( $morgen_notspecial_count > 0 ) {
     
     
-    $args_evenementen_datetime = get_args_event_datetime_greaterequals_date( $date );
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
     
     $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
         'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_morgen'], 'ID'  ) : array() ),
