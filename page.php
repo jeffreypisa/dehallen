@@ -99,12 +99,17 @@ if( $vandaag_notspecial_count > 0 ) {
     
     
 }
-$context['evenementen_vandaag'] = array_merge( $context['evenementen_vandaag'], $context['evenementen_vandaag_addendum'] );
 
-// Randomize
-shuffle( $context['evenementen_vandaag'] );
-// Cut only first 3
-$context['evenementen_vandaag'] = array_slice( $context['evenementen_vandaag'], 0, 3 );
+if( isset( $context['evenementen_vandaag_addendum'] ) && is_array( $context['evenementen_vandaag_addendum'] ) && count( $context['evenementen_vandaag_addendum'] ) > 0 ) {
+	$context['evenementen_vandaag'] = array_merge( $context['evenementen_vandaag'], $context['evenementen_vandaag_addendum'] );
+}
+
+if( is_array( $context['evenementen_vandaag'] ) && count( $context['evenementen_vandaag'] ) > 0 ) {
+	// Randomize
+	shuffle( $context['evenementen_vandaag'] );
+	// Cut only first 3
+	$context['evenementen_vandaag'] = array_slice( $context['evenementen_vandaag'], 0, 3 );
+}
 /* /Load evenementen vandaag */
 
 /* Load evenementen morgen */
@@ -173,12 +178,16 @@ if( $morgen_notspecial_count > 0 ) {
     
     
 }
-$context['evenementen_morgen'] = array_merge( $context['evenementen_morgen'], $context['evenementen_morgen_addendum'] );
+if( isset( $context['evenementen_morgen_addendum'] ) && is_array( $context['evenementen_morgen_addendum'] ) && count( $context['evenementen_morgen_addendum'] ) > 0 ) {
+	$context['evenementen_morgen'] = array_merge( $context['evenementen_morgen'], $context['evenementen_morgen_addendum'] );
+}
 
-// Randomize
-shuffle( $context['evenementen_morgen'] );
-// Cut only first 3
-$context['evenementen_morgen'] = array_slice( $context['evenementen_morgen'], 0, 3 );
+if( is_array( $context['evenementen_morgen'] ) && count( $context['evenementen_morgen'] ) > 0 ) {
+	// Randomize
+	shuffle( $context['evenementen_morgen'] );
+	// Cut only first 3
+	$context['evenementen_morgen'] = array_slice( $context['evenementen_morgen'], 0, 3 );
+}
 /* /Load evenementen morgen */
 
 
