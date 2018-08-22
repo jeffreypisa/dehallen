@@ -35,18 +35,31 @@ function mp_pmxi_update_post_meta($pid, $m_key, $m_value) {
 add_action('pmxi_saved_post', 'mp_pmxi_saved_post', 10, 1);
 function mp_pmxi_saved_post( $pid ) {
 	global $wpdb;
-    
+
+	// Set ACF image
+	$image_id = get_post_meta( $pid, '_thumbnail_id', true);
+	if( $image_id ) {
+	    update_post_meta( $pid, 'afbeelding', $image_id );
+	}
+	
+	
+	
+	/* 
+	 * Cleanup
+	 */
 	$parent_guid = get_post_meta( $pid, '_parent_guid', true);
 	$_internal_run = get_post_meta( $pid, '_internal_run', true);
     
-    
 	$sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
-    
     
 	$myrows = $wpdb->get_results( $sql );
 	foreach( $myrows as $row ) {
 		wp_delete_post( $row->post_id );
 	}
+	/*
+	 * /Cleanup
+	 */
+	
 }
 
 
