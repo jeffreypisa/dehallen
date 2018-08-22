@@ -4,8 +4,10 @@
  	<guid>film1</guid>
  	<title>Film1</title>
  	<content><![CDATA[some stuff]]></content>
- 	<featured_image_url></featured_image_url>
- 	<category>kids</category>
+ 	<featured_image_url>http://dehallen.krisborgerink.nl/wp-content/uploads/2018/07/mb_16_1718.jpg</featured_image_url>
+ 	<categories_comma_separated>
+ 		kids,kunst
+ 	</categories_comma_separated>
  	<type>foobar</type>
  	
  	<is_special>1</is_special>
@@ -54,8 +56,10 @@
  	<guid>film2</guid>
  	<title>Film2</title>
  	<content><![CDATA[some stuff]]></content>
- 	<featured_image_url></featured_image_url>
- 	<category>kids</category>
+ 	<featured_image_url>http://dehallen.krisborgerink.nl/wp-content/uploads/2018/07/mb_16_1718.jpg</featured_image_url>
+ 	<categories_comma_separated>
+ 		kids,markt
+ 	</categories_comma_separated>
  	<type>foobar</type>
  	
  	<is_special>1</is_special>
