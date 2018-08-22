@@ -18,9 +18,15 @@
   	    <div class="clearfix"></div>
 	    </div>
 	  </div>
-	  {% if post.afbeelding %}
+	  {% if post.afbeelding or post.custom.afbeelding_src %}
       <div class="mod-pageheader">
-        <div class="bg" style="background-image: url({{ post.get_field('afbeelding') }}"></div>
+        <div class="bg" style="background-image: 
+        {% if post.custom.afbeelding_src %}
+			url({{ post.custom.afbeelding_src }}        
+        {% else %}
+	        url({{ post.get_field('afbeelding') }}        
+        {% endif %}
+                "></div>
         <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
       </div>
     {% endif %}
