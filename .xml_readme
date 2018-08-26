@@ -1,0 +1,18 @@
+XML
+
+* voorbeeld XML inhoud: wp-content/themes/dehallen/xml.xml
+
+* voorbeeld aanroep vanuit WP all import ( vergeet de cronjobs niet en kies vooraf een taal + gebruik de aanwezige templates voor het mappen van alle velden )
+voor de Agenda zelf (evenementen/agenda)
+http://dehallen.local/wp-content/themes/dehallen/xml.php?url=http://dehallen.local/wp-content/themes/dehallen/xml.test&type=events
+voor de tijden van de Agendaitems (kalender)
+http://dehallen.local/wp-content/themes/dehallen/xml.php?url=http://dehallen.local/wp-content/themes/dehallen/xml.test&type=event_datetimes
+
+* de guid MOET uniek zijn over de hele tijd en per taal. Dus Jurassic park 5 nederlands zou ik dan jurrasicpark5_NL noemen , engelse variant: jurrasicpark5_EN
+Dat is nodig om de tijden te koppelen en (en dit is belangrijk) eerdere geimporteerde tijden te wissen. Anders blijven ze staan en kun je nooit een tijd echt corrigeren.
+
+* categorieen moet helaas in 1 veld. het moet commagescheiden
+
+* attrib: is_allowed_after_start
+Wat ie doet is het alsnog tonen van een event NA de startijd als je in een block zit die wel NA de startijd is maar nog natuurlijk wel VOOR de eindtijd.
+Dus niet slim voor films en dergelijke om die op 1 te zetten.
