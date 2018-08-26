@@ -1,5 +1,12 @@
 <?php
-$xml = file_get_contents( 'xml.xml');
+
+if( ! isset( $_GET['url'] ) ) {
+	$url = 'xml.xml';
+} else { 
+	$url = htmlspecialchars( $_GET['url'] );
+}
+
+$xml = file_get_contents( $url );
 if( ! isset( $_GET['type'] ) || $_GET['type'] == 'events' ) {
     echo $xml;die();
 }
