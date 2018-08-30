@@ -35,18 +35,31 @@ function mp_pmxi_update_post_meta($pid, $m_key, $m_value) {
 add_action('pmxi_saved_post', 'mp_pmxi_saved_post', 10, 1);
 function mp_pmxi_saved_post( $pid ) {
 	global $wpdb;
-    
+
+	// Set ACF image
+	$image_id = get_post_meta( $pid, '_thumbnail_id', true);
+	if( $image_id ) {
+	    update_post_meta( $pid, 'afbeelding', $image_id );
+	}
+	
+	
+	
+	/* 
+	 * Cleanup
+	 */
 	$parent_guid = get_post_meta( $pid, '_parent_guid', true);
 	$_internal_run = get_post_meta( $pid, '_internal_run', true);
     
-    
 	$sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
-    
     
 	$myrows = $wpdb->get_results( $sql );
 	foreach( $myrows as $row ) {
 		wp_delete_post( $row->post_id );
 	}
+	/*
+	 * /Cleanup
+	 */
+	
 }
 
 
@@ -54,9 +67,10 @@ function mp_pmxi_saved_post( $pid ) {
  * Migrate from evenementen_datetime to evenementen array
  * 
  * @param unknown $events_datetimes
+ * @param $timestart
  * @return array
  */
-function archive_agenda_list_helper( $events_datetimes ) {
+function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     
     if( is_array( $events_datetimes ) && count( $events_datetimes ) > 0 ) {
         
@@ -64,27 +78,36 @@ function archive_agenda_list_helper( $events_datetimes ) {
         $events_datetimes = array();
         foreach( $tmp as $single_datetime ) {
             
-		$single_id = $single_datetime['evenement'][0];
-		$args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
-		$main_event = Timber::get_posts( $args_event );
-            
-		$events_datetimes[ $single_id ] = $main_event[0];
-            
-		if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
-			if( !is_object($events_datetimes[ $single_id ]) ) {
-				$events_datetimes[ $single_id ] = new \stdClass();
-			}
-			$events_datetimes[ $single_id ]->custom = array();
-		}
-		$events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
+    		$single_id = $single_datetime['evenement'][0];
+    		$args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
+    		$main_event = Timber::get_posts( $args_event );
+                
+    		$events_datetimes[ $single_id ] = $main_event[0];
+                
+    		if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
+    			if( !is_object($events_datetimes[ $single_id ]) ) {
+    				$events_datetimes[ $single_id ] = new \stdClass();
+    			}
+    			$events_datetimes[ $single_id ]->custom = array();
+    		}
+    		
+    		
+    		if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
+    		    $tmptime = explode( ':', $timestart );
+    		    $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
+    		}
+    		
+    		$events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
         }
+        
         
         // Now sort by time ascending
         $events_datetimes_sorted = array();
         foreach( $events_datetimes as $single_datetime ) {
-		$events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
+            $events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
         }
             
+        
         $events_datetimes = $events_datetimes_sorted;
         // Falltrough
     }
@@ -157,7 +180,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         
     }
     
-    $context['dh_agenda_ajaxurl']       = home_url( $_SERVER['REDIRECT_URL'] );
+    $context['dh_agenda_ajaxurl']       = home_url( (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : $_SERVER['REQUEST_URI'] );
     $context['dh_agenda_ajaxoffset']    = $offset+DH_EVENTS_HOUR_OFFSET; //DH_EVENTS_HOUR_OFFSET;
     
     $context['selected_cats'] = array();
@@ -231,6 +254,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         $timestart = date( 'H:i:00', $first_slot);
     }
     
+
     $args_evenementen = array(
         'post_type' => 'evenementen_datetime',
         'posts_per_page' => - 1,
@@ -343,10 +367,10 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $events = archive_agenda_list_helper( $events );   
     
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
-    $events_continuous = archive_agenda_list_helper( $events_continuous );
+    $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
     
     $context['evenementen'] = array_merge( $events , $events_continuous);
-    
+        
     /*
     print_r($args_evenementen);
     //print_r( new WP_Query( $args_evenementen ));
@@ -355,7 +379,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     if( $dh_is_ajax ) {
         
         // Recursive
-        if( count( $events ) == 0 ) {
+        if( count( $events ) == 0 && count( $events_continuous ) == 0 ) {
             $tries++;
             
             
@@ -380,7 +404,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
 
     return array(
         'context' => $context,
-	'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
+        'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
         'next_slot' => $next_slot,
         'count_events_single' => count( $events ),
         'count_events_continuous' => count( $events_continuous ),

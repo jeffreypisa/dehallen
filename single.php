@@ -14,6 +14,12 @@ $post = Timber::query_post();
 
 $context['post'] = $post;
 
+$afbeelding = get_field('afbeelding');
+if( is_numeric( $afbeelding ) ) {
+    $context['post']->custom['afbeelding_src'] = wp_get_attachment_url( $afbeelding );
+}
+
+
 $posttype = $post->post_type;
 $posttype_archive = get_post_type_archive_link( $posttype );
 $context['posttype'] = $posttype;
