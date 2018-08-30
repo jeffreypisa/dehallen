@@ -2,7 +2,7 @@
   <div id="slider" class="mod-slider carousel carousel-fade {% if item.narrowcasting %} narrowcasting {% endif %}" data-ride="carousel" data-interval="8000">
     {% if item.slider|length > 1 %}
       <div class="indicators">
-        <div class="container">
+        <div class="container-fluid">
           <ol class="carousel-indicators">
             {% set slidenr = 0 %}
             {% for slide in special_today %}
@@ -22,7 +22,7 @@
       {% for slide in special_today %}
         <a href="{{ slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.afbeelding) }})">
           <div class="content">
-            <div class="container">
+            <div class="container-fluid">
               <h2>{{ slide.title }}</h2>
               {% if slide.type_evenement %}
                 <div class="datetime">{{ slide.type_evenement | lower }} </div>
@@ -34,7 +34,7 @@
                 {{ slide.custom.begintijd|date("H:s") }}
               </div>
               <div class="locatie condensed">
-                <div class="container">
+                <div class="container-fluid">
                   <div class="location">
                   {% set locatie = slide.get_field('locatie') %}
                   <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
@@ -49,7 +49,7 @@
       {% for slide in item.slider %}
         <a href="{{ slide.slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.slide.afbeelding) }})">
           <div class="content">
-            <div class="container">
+            <div class="container-fluid">
               <h2>{{ slide.slide.title }}</h2>
               {% if slide.slide.type_evenement %}
                 <div class="datetime">{{ slide.slide.type_evenement | lower }} </div>
@@ -61,10 +61,10 @@
                 {{ slide.slide.begintijd|date("H:s") }}
               </div>
               <div class="locatie condensed">
-                <div class="container">
+                <div class="container-fluid">
                   <div class="location">
                   {% set locatie = slide.slide.get_field('locatie') %}
-                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                  <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
                 </div>
                 </div>
               </div>

@@ -21,9 +21,7 @@
           text-decoration: none;
           border: 0;
           color: $green;
-          &:after {
-            border-bottom: 2px solid $green;
-          }
+          border-bottom: 2px solid $green;
         }
       }
       a {

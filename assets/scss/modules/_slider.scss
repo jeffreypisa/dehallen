@@ -1,4 +1,11 @@
 .mod-slider {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
   .indicators, .carousel-control-prev, .carousel-control-next {
     display: none;
   }
@@ -73,7 +80,7 @@
       .carousel-indicators {
         position: relative;
         float: right;
-        right: 0;
+        right: 60px;
         bottom: auto;
         left: auto;
         margin: 0;
@@ -98,7 +105,7 @@
       position: relative;
       .content {
         display: block;
-        padding: 70px 30px 30px;
+        padding: 70px 60px 30px;
         height: 100%;
         position: relative;
         h2 {
@@ -116,8 +123,8 @@
           font-size: 25px;
           position: absolute;
           bottom: 30px;
-          left: 0;
-          right: 0;
+          left: 60px;
+          right: 50px;
           font-weight: 600;
         }
         &:after {

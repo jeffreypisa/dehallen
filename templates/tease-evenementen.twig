@@ -24,10 +24,10 @@
               {% endif %}
               <div class="date"> 
                 {% if post.datum %}
-                  <span class="icon"> <i class="fa fa-calendar"></i> </span> {{ post.datum|date("d F Y") }} <br>
+                  <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ post.datum|date("d F Y") }} <br>
                 {% endif %}
                 {% if post.begintijd or post.eindtijd %}
-                  <span class="icon"> <i class="fa fa-clock"></i> </span>
+                  <span class="icon"> <i class="fal fa-clock"></i> </span>
                   {% if post.begintijd %} {{ post.begintijd|date("H:i") }} {% endif %} 
                   {% if post.eindtijd %}  
                     {% if post.begintijd %} — {% endif %}
@@ -38,14 +38,14 @@
               {% if post.locatie %}
                 <div class="location condensed">
                   {% set locatie = post.get_field('locatie') %}
-                  <span class="icon"> <i class="fa fa-map-marker-alt"></i> </span> {{ locatie }}
+                  <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
                 </div>
               {% endif %}
             </div>
             {% if post.gratis %}
               <div class="btn btn-block btn-primary nolink"> Gratis entree </div>
             {% elseif post.ticketlink %}
-              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> Tickets <i class="fas fa-arrow-circle-right"></i> </a>
+              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> Tickets <i class="fal fa-arrow-circle-right"></i> </a>
             {% else %}
               <div class="btn btn-block btn-primary nolink"> Geen tickets </div>
             {% endif %}

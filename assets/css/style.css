@@ -6845,7 +6845,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
   color: #fff; }
   .btn-primary:hover {
     color: #fff;
-    background: black; }
+    background: #061e28; }
   .btn-primary:focus, .btn-primary:active, .btn-primary:target, .btn-primary:not(:disabled):not(.disabled):active {
     color: #fff;
     background: black; }
@@ -6878,6 +6878,17 @@ section {
     height: 280px;
     z-index: -1;
     background: #0a334f; }
+  section.bgbluebar.pagebuilder {
+    margin-top: 40px; }
+    section.bgbluebar.pagebuilder:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      right: 0;
+      z-index: -1;
+      background: #0a334f;
+      height: 200px; }
 
 @media (min-width: 576px) {
   section {
@@ -6993,11 +7004,20 @@ a.card[href] {
   border-bottom: 1px solid #0a334f;
   display: block; }
 
-.nf-form-cont .ninja-forms-field {
+.nf-form-cont .label-description {
+  margin-top: -20px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #9ca7aa; }
+
+.nf-form-cont .hr-wrap hr {
+  border-color: #0a334f; }
+
+.nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn) {
   background: #F1F2F2;
   padding: 10px;
   border: 1px solid #F1F2F2; }
-  .nf-form-cont .ninja-forms-field.datepicker {
+  .nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn).datepicker {
     padding-left: 50px;
     background-image: url(../images/calendar.png);
     background-size: 20px 20px;
@@ -7253,15 +7273,17 @@ section.mod-klapuit {
       text-transform: uppercase;
       position: absolute;
       top: 8px;
-      left: -42px;
-      content: "NL"; }
+      left: -40px;
+      content: "NL";
+      font-weight: 600; }
     .mod-mobilemenu .menublock ul.menutaal li.menu-item.wpml-ls-item-en a span:after {
       font-size: 26px;
       text-transform: uppercase;
       position: absolute;
       top: 8px;
-      right: -42px;
-      content: "EN"; }
+      right: -40px;
+      content: "EN";
+      font-weight: 600; }
 
 .home .mod-events {
   display: none; }
@@ -7481,14 +7503,33 @@ section.mod-klapuit {
     text-align: center;
     line-height: 20px;
     position: relative;
-    padding-top: 30px; }
+    padding-top: 50px; }
+    .mod-aanbodkaart .bottom span :after {
+      content: '';
+      height: 6px;
+      width: 96px;
+      position: absolute;
+      background: #d1d3d4;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -48px;
+      transition: 0.3s ease-in-out; }
+  .mod-aanbodkaart .bottom div {
+    height: 6px;
+    width: 96px;
+    position: absolute;
+    background: #d1d3d4;
+    top: 42px;
+    left: 50%;
+    margin-left: -48px;
+    transition: 0.3s ease-in-out; }
   .mod-aanbodkaart .bottom:after {
     content: '';
     width: 6px;
     background: #d1d3d4;
     position: absolute;
     top: -43px;
-    height: 70px;
+    height: 90px;
     left: 50%;
     margin-left: -3px;
     transition: 0.3s ease-in-out; }
@@ -7501,23 +7542,28 @@ section.mod-klapuit {
       padding: 0; }
   .mod-aanbodkaart .space .row.active.business .col:after,
   .mod-aanbodkaart .space .row.active.business .top div:after,
-  .mod-aanbodkaart .space .row.active.business .bottom:after {
+  .mod-aanbodkaart .space .row.active.business .bottom:after,
+  .mod-aanbodkaart .space .row.active.business .bottom div {
     background: #ff0000; }
   .mod-aanbodkaart .space .row.active.entertainment .col:after,
   .mod-aanbodkaart .space .row.active.entertainment .top div:after,
-  .mod-aanbodkaart .space .row.active.entertainment .bottom:after {
+  .mod-aanbodkaart .space .row.active.entertainment .bottom:after,
+  .mod-aanbodkaart .space .row.active.entertainment .bottom div {
     background: #00aeef; }
   .mod-aanbodkaart .space .row.active.horeca .col:after,
   .mod-aanbodkaart .space .row.active.horeca .top div:after,
-  .mod-aanbodkaart .space .row.active.horeca .bottom:after {
+  .mod-aanbodkaart .space .row.active.horeca .bottom:after,
+  .mod-aanbodkaart .space .row.active.horeca .bottom div {
     background: #ffd100; }
   .mod-aanbodkaart .space .row.active.shops .col:after,
   .mod-aanbodkaart .space .row.active.shops .top div:after,
-  .mod-aanbodkaart .space .row.active.shops .bottom:after {
+  .mod-aanbodkaart .space .row.active.shops .bottom:after,
+  .mod-aanbodkaart .space .row.active.shops .bottom div {
     background: #812990; }
   .mod-aanbodkaart .space .row.active.kunst .bottom:after,
   .mod-aanbodkaart .space .row.active.kunst .col:after,
-  .mod-aanbodkaart .space .row.active.kunst .top div:after {
+  .mod-aanbodkaart .space .row.active.kunst .top div:after,
+  .mod-aanbodkaart .space .row.active.kunst .bottom div {
     background: #38ae00; }
   .mod-aanbodkaart .space .row.active.links.business .col .bar.links {
     background: #ff0000; }
@@ -7596,10 +7642,10 @@ section.mod-klapuit {
     border-left: 2px solid #d1d3d4; }
   .mod-aanbodkaart .space .row .col.right {
     border-right: 2px solid #d1d3d4; }
-  .mod-aanbodkaart .space .row .col.middle:nth-child(0) {
-    border-left: 2px solid transparent; }
-  .mod-aanbodkaart .space .row .col.middle:nth-child(2) {
-    border-right: 2px solid transparent; }
+  .mod-aanbodkaart .space .row .col.middle:nth-child(1) {
+    border-left: 2px solid #fff; }
+  .mod-aanbodkaart .space .row .col.middle:nth-child(3) {
+    border-right: 2px solid #fff; }
   .mod-aanbodkaart .space .row .center {
     position: relative; }
     .mod-aanbodkaart .space .row .center:after {
@@ -7615,7 +7661,7 @@ section.mod-klapuit {
     .mod-aanbodkaart .space .row .center.middle:after {
       top: -45px;
       bottom: 41px;
-      margin-left: -2.5px; }
+      margin-left: -3px; }
   .mod-aanbodkaart .space .row .col .bar {
     position: absolute;
     top: 50%;
@@ -7646,7 +7692,7 @@ section.mod-klapuit {
   .mod-aanbodkaart .space .row .col.right .bar {
     left: 100%;
     margin-left: -12px;
-    right: -42px; }
+    right: -40px; }
 
 .mod-sharethis {
   text-align: center;
@@ -7729,6 +7775,8 @@ section.mod-klapuit {
         border: 0;
         color: #fff;
         min-width: 100%; }
+        .mod-eventfilter .box .buttonbar .btn:hover {
+          background: #061e28; }
 
 @media (min-width: 768px) {
   .mod-eventfilter {
@@ -7988,44 +8036,55 @@ header {
   .mod-pageheader {
     min-height: 480px; } }
 
-.mod-slider .indicators, .mod-slider .carousel-control-prev, .mod-slider .carousel-control-next {
-  display: none; }
-
-.mod-slider .carousel-inner {
-  background: #333; }
-
-.mod-slider .slide {
-  transition: 0.5s ease-in-out;
-  height: 220px;
-  background-size: cover;
-  background-position: center center;
-  color: #fff;
-  position: relative; }
-  .mod-slider .slide .content {
+.mod-slider {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */ }
+  .mod-slider .indicators, .mod-slider .carousel-control-prev, .mod-slider .carousel-control-next {
     display: none; }
-  .mod-slider .slide:hover {
-    color: #fff; }
-  .mod-slider .slide:after {
-    content: '';
-    z-index: 2;
-    position: absolute;
+  .mod-slider .carousel-inner {
+    background: #333; }
+  .mod-slider .slide {
+    transition: 0.5s ease-in-out;
+    height: 220px;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    position: relative; }
+    .mod-slider .slide .content {
+      display: none; }
+    .mod-slider .slide:hover {
+      color: #fff; }
+    .mod-slider .slide:after {
+      content: '';
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.3); }
+  .mod-slider.narrowcasting {
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 10px;
-    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.3); }
-
-.mod-slider.narrowcasting {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999; }
-  .mod-slider.narrowcasting .indicators, .mod-slider.narrowcasting .carousel-control-prev, .mod-slider.narrowcasting .carousel-control-next {
-    display: none !important; }
-  .mod-slider.narrowcasting .slide {
-    height: 100vh !important; }
+    bottom: 0;
+    z-index: 9999; }
+    .mod-slider.narrowcasting .indicators, .mod-slider.narrowcasting .carousel-control-prev, .mod-slider.narrowcasting .carousel-control-next {
+      display: none !important; }
+    .mod-slider.narrowcasting .slide {
+      height: 100vh !important; }
 
 @media (min-width: 576px) {
   .mod-slider .slide {
@@ -8047,7 +8106,7 @@ header {
     .mod-slider .indicators .carousel-indicators {
       position: relative;
       float: right;
-      right: 0;
+      right: 60px;
       bottom: auto;
       left: auto;
       margin: 0; }
@@ -8067,7 +8126,7 @@ header {
     position: relative; }
     .mod-slider .slide .content {
       display: block;
-      padding: 70px 30px 30px;
+      padding: 70px 60px 30px;
       height: 100%;
       position: relative; }
       .mod-slider .slide .content h2 {
@@ -8083,8 +8142,8 @@ header {
         font-size: 25px;
         position: absolute;
         bottom: 30px;
-        left: 0;
-        right: 0;
+        left: 60px;
+        right: 50px;
         font-weight: 600; }
       .mod-slider .slide .content:after {
         content: '';
@@ -8446,9 +8505,8 @@ body.opensidemenu .mod-mobilemenu {
         .moviebox .body .film h3 a:hover {
           text-decoration: none;
           border: 0;
-          color: #46aa64; }
-          .moviebox .body .film h3 a:hover:after {
-            border-bottom: 2px solid #46aa64; }
+          color: #46aa64;
+          border-bottom: 2px solid #46aa64; }
       .moviebox .body .film a {
         color: #0a334f;
         margin-left: 28px; }

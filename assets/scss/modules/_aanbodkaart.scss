@@ -156,7 +156,28 @@
       text-align: center;
       line-height: 20px;
       position: relative;
-      padding-top: 30px;
+      padding-top: 50px;
+      :after {
+        content: '';
+        height: 6px;
+        width: 96px;
+        position: absolute;
+        background: $grey;
+        bottom: -10px;
+        left: 50%;
+        margin-left: -48px;
+        transition: 0.3s ease-in-out;
+      }
+    }
+    div {
+      height: 6px;
+      width: 96px;
+      position: absolute;
+      background: $grey;
+      top: 42px;
+      left: 50%;
+      margin-left: -48px;
+      transition: 0.3s ease-in-out;
     }
     &:after {
       content: '';
@@ -164,7 +185,7 @@
       background: $grey;
       position: absolute;
       top: -43px;
-      height: 70px;
+      height: 90px;
       left: 50%;
       margin-left: -3px;
       transition: 0.3s ease-in-out;
@@ -183,35 +204,40 @@
         &.business {
           .col:after,
           .top div:after,
-          .bottom:after {
+          .bottom:after,
+          .bottom div {
             background: $color1;
           }
         }
         &.entertainment {
           .col:after,
           .top div:after,
-          .bottom:after {
+          .bottom:after,
+          .bottom div {
             background: $color2;
           }
         }
         &.horeca {
           .col:after,
           .top div:after,
-          .bottom:after {
+          .bottom:after,
+          .bottom div {
             background: $color3;
           }
         }
         &.shops {
           .col:after,
           .top div:after,
-          .bottom:after {
+          .bottom:after,
+          .bottom div {
             background: $color4;
           }
         }
         &.kunst {
           .bottom:after,
           .col:after,
-          .top div:after {
+          .top div:after,
+          .bottom div {
             background: $color5;
           }
         }
@@ -372,11 +398,11 @@
       .col.right {
         border-right: 2px solid $grey;
       }
-      .col.middle:nth-child(0) {
-        border-left: 2px solid transparent;
+      .col.middle:nth-child(1) {
+        border-left: 2px solid #fff;
       }
-      .col.middle:nth-child(2) {
-        border-right: 2px solid transparent;
+      .col.middle:nth-child(3) {
+        border-right: 2px solid #fff;
       }
       .center {
         position: relative;
@@ -395,7 +421,7 @@
           &:after {
             top: -45px;
             bottom: 41px;
-            margin-left: -2.5px;
+            margin-left: -3px;
           }
         }
       }
@@ -438,7 +464,7 @@
         .bar {
           left: 100%;
           margin-left: -12px;
-          right: -42px;
+          right: -40px;
         }
       }
     }

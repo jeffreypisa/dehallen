@@ -62,7 +62,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
   color: #fff;
   &:hover {
     color: #fff;
-    background: darken($darkblue, 20%);
+    background: #061e28;
   }
   &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
     color: #fff;

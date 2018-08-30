@@ -12,6 +12,9 @@
 		
   {% elseif item.acf_fc_layout == 'pageheader' %}
 		{% include 'pagebuilder/pageheader.twig' %}
+
+  {% elseif item.acf_fc_layout == 'impressie' %}
+		{% include 'pagebuilder/impressie.twig' %}
     
   {% elseif item.acf_fc_layout == 'slider' %}
     {% include 'pagebuilder/slider.twig' %}

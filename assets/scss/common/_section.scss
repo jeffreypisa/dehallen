@@ -21,6 +21,19 @@ section {
       z-index: -1;
       background: $darkblue;
     }
+    &.pagebuilder {
+      margin-top: 40px;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        right: 0;
+        z-index: -1;
+        background: $darkblue;
+        height: 200px;
+      }
+    }
   }
 }
 

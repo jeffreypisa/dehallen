@@ -385,8 +385,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/calendar.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -456,8 +456,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/now.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -467,8 +467,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/time.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -12367,6 +12367,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/templates\/pagebuilder\/events.twig",
+		"oF": 0
+		},
+	"\/templates\/pagebuilder\/impressie.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/templates\/pagebuilder\/impressie.twig",
 		"oF": 0
 		},
 	"\/templates\/pagebuilder\/klapuit.twig": {

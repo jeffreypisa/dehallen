@@ -13,7 +13,9 @@
   	      <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
   	    {% endif %}
   	    {% if categorielink %}
-  	      <a href="{{ categorielink }}" class="float-right d-none d-sm-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
+  	      {% if posttype == 'locaties' %} {% else %}
+  	        <a href="{{ categorielink }}" class="float-right d-none d-sm-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
+          {% endif %}
   	    {% endif %}
   	    <div class="clearfix"></div>
 	    </div>
@@ -26,7 +28,7 @@
     {% endif %}
 		<section class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<div class="container">
-			  <h1 class="text-center"> {{ post.title }} </h1>
+			  <h1 class="text-center condensed"> {{ post.title }} </h1>
 			  {% if posttype == 'post' %}
           <div class="date small"> 
             {% if post.date %}
@@ -128,7 +130,7 @@
                     <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
                   </div>
                   <div class="card-body">
-                    <h3> {{ blok.title }} </h3>
+                    <h3 class="condensed"> {{ blok.title }} </h3>
                   </div>
                 </a>
               </div>
