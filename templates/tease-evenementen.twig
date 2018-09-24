@@ -23,15 +23,15 @@
                 <p class="type-event"> {{ post.type_evenement }} </p>
               {% endif %}
               <div class="date"> 
-                {% if post.datum %}
-                  <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ post.datum|date("d F Y") }} <br>
+                {% if post.custom.datum %}
+                  <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ post.custom.datum|date("d F Y") }} <br>
                 {% endif %}
-                {% if post.begintijd or post.eindtijd %}
+                {% if post.custom.begintijd or post.custom.eindtijd %}
                   <span class="icon"> <i class="fal fa-clock"></i> </span>
-                  {% if post.begintijd %} {{ post.begintijd|date("H:i") }} {% endif %} 
-                  {% if post.eindtijd %}  
-                    {% if post.begintijd %} — {% endif %}
-                    {{ post.eindtijd|date("H:i") }}
+                  {% if post.custom.begintijd %} {{ post.custom.begintijd|date("H:i") }} {% endif %} 
+                  {% if post.custom.eindtijd %}  
+                    {% if post.custom.begintijd %} — {% endif %}
+                    {{ post.custom.eindtijd|date("H:i") }}
                   {% endif %}
                 {% endif %}
               </div> 
