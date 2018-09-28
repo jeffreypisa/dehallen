@@ -58,7 +58,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -7381,12 +7381,19 @@ section.mod-klapuit {
     width: 6px;
     background: #d1d3d4;
     position: absolute;
-    top: -46px;
+    top: 25px;
     right: -40px;
-    bottom: 50%;
+    bottom: -40px;
     transition: 0.3s ease-in-out; }
+    .mod-aanbodkaart .row .vbar.boven {
+      top: -60px;
+      bottom: 43px; }
   .mod-aanbodkaart .row .center .hbar {
     left: 50%; }
+  .mod-aanbodkaart .row:first-child .col {
+    border-top: 0; }
+    .mod-aanbodkaart .row:first-child .col.center.middle:after {
+      display: none; }
 
 .mod-aanbodkaart .block {
   opacity: 0.6;
@@ -7653,7 +7660,7 @@ section.mod-klapuit {
       width: 6px;
       background: #d1d3d4;
       position: absolute;
-      top: -43px;
+      top: -44px;
       bottom: 43px;
       left: 50%;
       margin-left: -3px;

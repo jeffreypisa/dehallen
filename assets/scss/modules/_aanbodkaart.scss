@@ -15,14 +15,26 @@
       width: 6px;
       background: $grey;
       position: absolute;
-      top: -46px;
+      top: 25px;
       right: -40px;
-      bottom: 50%;
+      bottom: -40px;
       transition: 0.3s ease-in-out;
+      &.boven {
+        top: -60px;
+        bottom: 43px;
+      }
     }
     .center {
       .hbar {
         left: 50%;
+      }
+    }
+    &:first-child {
+      .col {
+        border-top: 0;
+        &.center.middle:after {
+          display: none;
+        }
       }
     }
   }
@@ -411,7 +423,7 @@
           width: 6px;
           background: $grey;
           position: absolute;
-          top: -43px;
+          top: -44px;
           bottom: 43px;
           left: 50%;
           margin-left: -3px;

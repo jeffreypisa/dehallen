@@ -7,6 +7,9 @@
     {% if item.telefoon %}
       <p>{{ item.telefoon }}</p>
     {% endif %}
+    {% if item.website %}
+      <p><a href="{{ item.website }}">{{ item.website }}</a></p>
+    {% endif %}
     {% if item.email %}
       <p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
     {% endif %}

@@ -29,19 +29,21 @@
       </div>
       <div class="cards cards-archive">
         <div class="row">
-          {% for blok in posts %}  
-            <div class="col-md-10 col-xl-5">
-              <div class="card-wrapper nopb">
-                <a href="{{ blok.link }}" class="card">
-                  <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">
-                    <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
-                  </div>
-                  <div class="card-body">
-                    <h3> {{ blok.title }} </h3>
-                  </div>
-                </a>
+          {% for blok in posts %}
+            {% if blok.dontshow %}{% else %}
+              <div class="col-md-10 col-xl-5">
+                <div class="card-wrapper nopb">
+                  <a href="{{ blok.link }}" class="card">
+                    <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">
+                      <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                    </div>
+                    <div class="card-body">
+                      <h3> {{ blok.title }} </h3>
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

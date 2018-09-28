@@ -78,7 +78,7 @@
         </div>
         {% if posttype == 'post' %}
           <div class="mod-sharethis">
-            <h4> DEEL DIT {{ categorie | upper }} </h4>
+            <h4> DEEL DIT {% if categorie == 'interviews' %}INTERVIEW {% else %} {{ categorie | upper }} {% endif %} </h4>
             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.link }}">
               <img width="30" height="30" src="{{ theme.link }}/assets/images/facebook-blue.svg">
             </a>

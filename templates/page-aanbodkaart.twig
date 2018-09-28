@@ -59,12 +59,17 @@
                     </div>
                   </div>
                   <div class="space">
-                    <div class="startpoint"></div>
                     <div class="row">
-                      <div class="col">
-                        <div class="top">
-                          <div> entree <br> Ten Katemarkt </div>
+                      <div class="col middle">
+                      </div>
+                      <div class="col middle center">
+                        <div>
+                          <span> entree Ten Katemarkt </span>
                         </div>
+                        <div class="hbar"></div>
+                      </div>
+                      <div class="col middle">
+                        <div class="hbar"></div>
                       </div>
                     </div>
                     <div class="row">
@@ -78,22 +83,6 @@
                     {% for blok in post.get_field('ten_katemarkt') %}  
                       {% include 'partials/aanbodkaart.twig' %}
                     {% endfor %}
-                    <div class="row aanbod">
-                      <div class="col left">
-                      </div>
-                      <div class="col center">
-                      </div>
-                      <div class="col right">
-                        {% set links = post.get_field('locatie_met_buiteningang') %}
-                        {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
-                        <a href="{{links.link}}" class="block rechts condensed detour {{ catlinks }}">         
-                          {{ links.title }}
-                        </a>
-                        <div class="bar links">
-                          <div class="circle"></div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="row">
                       <div class="col middle">
                       </div>
@@ -105,7 +94,6 @@
                       </div>
                       <div class="col middle">
                         <div class="hbar"></div>
-                        <div class="vbar"></div>
                       </div>
                     </div>
                     <div class="row">
