@@ -5,7 +5,9 @@
     } else {
       $('.mod-filterbar').removeClass('active');
     }
-      
+    
+    $(".mod-eventfilter-agenda").stick_in_parent();
+
     $('.mod-filterbar label').click(function() {
       if( $(this).closest('.mod-filterbar').find('input').is(':checked')) {
         $(this).closest('.mod-filterbar').addClass('active');

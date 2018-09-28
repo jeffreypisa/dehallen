@@ -66,7 +66,8 @@ add_action( 'parse_request', 'dh_parse_request' );
   	        ),
   	        'menu_icon'               => 'dashicons-calendar',
   	        'public'                  => true,
-  	        'has_archive'             => true,
+  	        'has_archive'             => false,
+  	        'publicly_queryable'  => false,
   	        'rewrite'                 => array('slug' => 'agenda_datetime'),
   	    )
   	);
