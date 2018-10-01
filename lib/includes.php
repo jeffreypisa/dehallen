@@ -115,7 +115,7 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     return $events_datetimes;
 }
 
-define('DH_EVENTS_HOUR_OFFSET', 2);
+define('DH_EVENTS_HOUR_OFFSET', 1);
 
 function get_args_event_datetime_equals_date( $date ) {
     
@@ -265,6 +265,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
                 'compare' => '=',
                 'value' => $date
             ),
+            'no_continuous' =>  array( // Make sure
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => '0'
+            ),
         ),
         'meta_key' => 'begintijd',
         'orderby' => 'meta_value',
@@ -272,7 +277,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     );
     
     if( $hastime ) {
-            
         $args_evenementen['meta_query']['hastime1'] =
                 array(
                     'key' => 'begintijd',
@@ -330,14 +334,14 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     }
     
     
-    
     $args_evenementen_continuous = $args_evenementen;
+    unset( $args_evenementen_continuous['meta_query']['no_continuous'] );
     $args_evenementen_continuous['meta_query']['hastime1'] =
     array(
         'relation' => 'AND',
         array(
             'key' => 'begintijd',
-            'compare' => '<',
+            'compare' => '<=',
             'value' => $timestart,
         ),
         array(
@@ -346,13 +350,29 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             'value' => 1
         ),
     );
+    /*
     $args_evenementen_continuous['meta_query']['hastime2'] =
     array(
         'relation' => 'AND',
         array(
             'key' => 'eindtijd',
-            'compare' => '>',
+            'compare' => '<',
             'value' => date( 'H:i:00', $next_slot),
+        ),
+        array(
+            'key' => 'doorlopend_event',
+            'compare' => '=',
+            'value' => 1
+        ),
+    );
+    */
+    $args_evenementen_continuous['meta_query']['hastime3'] =
+    array(
+        'relation' => 'AND',
+        array(
+            'key' => 'eindtijd',
+            'compare' => '>',
+            'value' => $timestart,
         ),
         array(
             'key' => 'doorlopend_event',
@@ -369,12 +389,18 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
     $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
     
-    $context['evenementen'] = array_merge( $events , $events_continuous);
-        
+    
     /*
-    print_r($args_evenementen);
-    //print_r( new WP_Query( $args_evenementen ));
+    print_R($args_evenementen);
+    print_R( new WP_Query( $args_evenementen ) );
+    print_r($events);die();
+    
+    print_R($args_evenementen_continuous);
+    print_R( new WP_Query( $args_evenementen_continuous ) );
+    print_r($events_continuous);die();
     */
+    $context['evenementen'] = array_merge( $events , $events_continuous);
+
     
     if( $dh_is_ajax ) {
         
