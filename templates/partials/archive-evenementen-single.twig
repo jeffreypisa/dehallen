@@ -11,19 +11,18 @@
     {% if the_hour != post.custom.begintijd|date("H") %}
       {% set the_hour = post.custom.begintijd|date("H") %}
       {% set showmoviebox = 'true' %}
+      {% if post.custom.doorlopend_event == 0 or the_hour_shown == false %}
       <div class="hourblock">
         <div class="row">
           <div class="col-md-5">
             <div class="meta">
-            
-            {% if post.custom.doorlopend_event == 0 or the_hour_shown == false %}
               <div class="hour">{% if post.custom.doorlopend_event_timestart %} {{post.custom.doorlopend_event_timestart}}{% else %}{{ the_hour }}{% endif %}:00 <span></span></div>
               {% set the_hour_shown = true %}
-            {% endif %}
             </div>
           </div>
         </div>
       </div>
+      {% endif %}
     {% endif %}
     {% if (catje == 'film') and (showmoviebox == 'true') %}
       {% include ['partials/moviebox.twig'] %}
