@@ -75,6 +75,7 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     if( is_array( $events_datetimes ) && count( $events_datetimes ) > 0 ) {
         
         $tmp = wp_list_pluck( $events_datetimes, 'custom' );
+
         $events_datetimes = array();
         foreach( $tmp as $single_datetime ) {
             
@@ -88,7 +89,7 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     			if( !is_object($events_datetimes[ $single_id ]) ) {
     				$events_datetimes[ $single_id ] = new \stdClass();
     			}
-    			$events_datetimes[ $single_id ]->custom = array();
+    			$events_datetimes[ $single_id ]->custom = array( );
     		}
     		
     		
@@ -106,7 +107,6 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
         foreach( $events_datetimes as $single_datetime ) {
             $events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
         }
-            
         
         $events_datetimes = $events_datetimes_sorted;
         // Falltrough
@@ -276,7 +276,8 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         'order' => 'ASC'
     );
     
-    if( $hastime ) {
+    // offset with AJAX OR Hastime (time) set
+    if( $dh_is_ajax || $hastime ) {
         $args_evenementen['meta_query']['hastime1'] =
                 array(
                     'key' => 'begintijd',
@@ -389,11 +390,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
     $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
     
-    
     /*
     print_R($args_evenementen);
     print_R( new WP_Query( $args_evenementen ) );
     print_r($events);die();
+    
     
     print_R($args_evenementen_continuous);
     print_R( new WP_Query( $args_evenementen_continuous ) );
