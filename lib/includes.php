@@ -337,18 +337,19 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     $args_evenementen_continuous = $args_evenementen;
     unset( $args_evenementen_continuous['meta_query']['no_continuous'] );
+    
     $args_evenementen_continuous['meta_query']['hastime1'] =
     array(
-        'relation' => 'AND',
+        'relation' => 'OR',
         array(
             'key' => 'begintijd',
             'compare' => '<=',
             'value' => $timestart,
         ),
         array(
-            'key' => 'doorlopend_event',
-            'compare' => '=',
-            'value' => 1
+            'key' => 'begintijd',
+            'compare' => '<',
+            'value' => date( 'H:i:00', $next_slot),
         ),
     );
     /*
