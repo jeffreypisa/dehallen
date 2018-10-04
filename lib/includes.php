@@ -260,11 +260,13 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         'posts_per_page' => - 1,
         'meta_query' => array(
             'relation' => 'AND',
+            
             'date1' => array(
-                'key' => 'datum',
-                'compare' => '=',
+                'key' => 'einddatum',
+                'compare' => '>=',
                 'value' => $date
             ),
+            
             'no_continuous' =>  array( // Make sure
                 'key' => 'doorlopend_event',
                 'compare' => '=',
