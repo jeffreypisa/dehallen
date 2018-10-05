@@ -45,7 +45,7 @@
       opacity: 1;
     }
   }
-  .block.business {
+  .block.business, .block.business-en {
     color: $color1;
     border: 2px solid $color1;
     &.active {
@@ -57,7 +57,7 @@
       }
     }
   }
-  .block.entertainment {
+  .block.entertainment, .block.entertainment-en {
     color: $color2;
     border: 2px solid $color2;
     &.active {
@@ -69,7 +69,7 @@
       }
     }
   }
-  .block.horeca {
+  .block.horeca, .block.hospitality {
     color: $color3;
     border: 2px solid $color3;
     &.active {
@@ -81,7 +81,7 @@
       }
     }
   }
-  .block.shops {
+  .block.shops, .block.shops-en {
     color: $color4;
     border: 2px solid $color4;
     &.active {
@@ -93,7 +93,7 @@
       }
     }
   }
-  .block.kunst {
+  .block.kunst, .block.art {
     color: $color5;
     border: 2px solid $color5;
     &.active {
@@ -213,7 +213,7 @@
     }
     .row {
       &.active {
-        &.business {
+        &.business, &.business-en {
           .col:after,
           .top div:after,
           .bottom:after,
@@ -221,7 +221,7 @@
             background: $color1;
           }
         }
-        &.entertainment {
+        &.entertainment, &.entertainment-en {
           .col:after,
           .top div:after,
           .bottom:after,
@@ -229,7 +229,7 @@
             background: $color2;
           }
         }
-        &.horeca {
+        &.horeca, &.hospitality {
           .col:after,
           .top div:after,
           .bottom:after,
@@ -237,7 +237,7 @@
             background: $color3;
           }
         }
-        &.shops {
+        &.shops, &.shops-en {
           .col:after,
           .top div:after,
           .bottom:after,
@@ -245,7 +245,7 @@
             background: $color4;
           }
         }
-        &.kunst {
+        &.kunst, &.art {
           .bottom:after,
           .col:after,
           .top div:after,
@@ -254,7 +254,7 @@
           }
         }
         &.links {
-          &.business {
+          &.business, &.business-en {
             .col {
               .bar.links {
                 background: $color1;
@@ -264,7 +264,7 @@
               }
             }
           }
-          &.entertainment {
+          &.entertainment, &.entertainment-en {
             .col {
               .bar.links {
                 background: $color2;
@@ -274,7 +274,7 @@
               }
             }
           }
-          &.horeca {
+          &.horeca, &.hospitality {
             .col {
               .bar.links {
                 background: $color3;
@@ -284,7 +284,7 @@
               }
             }
           }
-          &.shops {
+          &.shops, &.shops-en {
             .col {
               .bar.links {
                 background: $color4;
@@ -294,7 +294,7 @@
               }
             }
           }
-          &.kunst {
+          &.kunst, &.art {
             .col {
               .bar.links {
                 background: $color5;
@@ -306,7 +306,7 @@
           }
         }
         &.rechts {
-          &.business {
+          &.business, &.business-en {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color1;
@@ -322,7 +322,7 @@
               }
             }
           }
-          &.entertainment {
+          &.entertainment, &.entertainment-en {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color2;
@@ -338,7 +338,7 @@
               }
             }
           }
-          &.horeca {
+          &.horeca, &.hospitality {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color3;
@@ -354,7 +354,7 @@
               }
             }
           }
-          &.shops {
+          &.shops, &.shops-en {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color4;
@@ -370,7 +370,7 @@
               }
             }
           }
-          &.kunst {
+          &.kunst, &.art {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color5;

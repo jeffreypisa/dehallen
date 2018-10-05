@@ -18,15 +18,15 @@
               {% include "menutaal.twig" with {'menutaal': menutaal.get_items} %}
             </div>
             <div class="menublock">
-              <h3> OPENINGSTIJDEN </h3>
+              <h3> {{ options.openingstijden_titel|upper }} </h3>
               {{ options.openingstijden }}
             </div>
             <div class="menublock">
-              <h3> ADRES </h3>
+              <h3> {{ options.adres_titel|upper }} </h3>
               {{ options.adres }}
             </div>
             <div class="menublock">
-              <h3> PLAN </h3>
+              <h3> {{ options.plan_titel|upper }} </h3>
               {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
             </div>
           </div>
@@ -42,12 +42,11 @@
         </div>
         <div class="col-md-6 offset-md-5 col-md-6 offset-md-5">
           <div class="followus">
-            <div class="">Volg ons</div>
+            <div class="">{{ options.volgons_titel|upper }}</div>
             <br>
             <a href="{{options.facebook}}"><i class="fab fa-facebook-f"></i></a>
             <a href="{{options.twitter}}"> <i class="fab fa-twitter"></i> </a>
             <a href="{{options.instagram}}"><i class="fab fa-instagram"></i> </a>
-            <a href="{{options.mail}}"> <i class="fal fa-envelope"></i> </a>
           </div>
         </div>
       </div>

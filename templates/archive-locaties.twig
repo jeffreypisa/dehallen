@@ -3,7 +3,7 @@
 {% block content %}
   <div class="mod-greenbar">
     <div class="container d-none d-md-block">
-	    <a href="/aanbodkaart" class="float-left"><i class="fal fa-arrow-circle-left"></i> Toon als kaart</a>
+	    <a href="{% if currentlanguage == 'en' %}/en{% endif %}/aanbodkaart" class="float-left"><i class="fal fa-arrow-circle-left"></i> {{ options.toon_als_kaart }}</a>
 	    <div class="clearfix"></div>
     </div>
   </div>
@@ -11,11 +11,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-18 offset-md-1">
-          <h1> Aanbod </h1>
+          <h1> In De Hallen </h1>
           <div class="mod-filterblocks">
             <ul>
               <li class="{% if current_category == '' %} active {% endif %}">
-                <a href="/aanbod">Toon alles</a>
+                <a href="/aanbod">{{ options.toon_alle }}s</a>
               </li>
               {% for cat in category %}
                 <li class="{% if cat.id == current_category %} active {% endif %}">
