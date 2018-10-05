@@ -4,7 +4,7 @@
 	<div class="content-wrapper">
     <div class="mod-greenbar">
       <div class="container d-none d-md-block">
-  	    <a href="/aanbod" class="float-left"><i class="fal fa-arrow-circle-left"></i> Toon als lijst</a>
+  	    <a href="{% if currentlanguage == 'en' %}/en{% endif %}/aanbod" class="float-left"><i class="fal fa-arrow-circle-left"></i> {{ options.toon_als_lijst }}</a>
   	    <div class="clearfix"></div>
       </div>
     </div>
@@ -14,7 +14,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-18 offset-md-1">
-                <h1> Aanbod </h1>
+                <h1> In De Hallen </h1>
                 <br>
               </div>
             </div>

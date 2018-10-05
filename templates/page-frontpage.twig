@@ -14,7 +14,7 @@
                       <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
                         <input type="checkbox" name="category[]" value="{{ item.slug }}" onChange="this.form.submit()"/>
                         {% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %}
-                        <div><span class="condensed"> {{ item.slug }} </span></div>
+                        <div><span class="condensed"> {{ item.title }} </span></div>
                       </label>
                     </div>
                   {% endif %}

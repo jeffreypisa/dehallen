@@ -22,7 +22,7 @@
             "key": "field_5b2a207c19d6e",
             "label": "Adres",
             "name": "adres",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -31,11 +31,11 @@
                 "class": "",
                 "id": ""
             },
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "delay": 0
         },
         {
             "key": "field_5b2a20ab19d71",
@@ -367,5 +367,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1538134208
+    "modified": 1538740357
 }

@@ -46,9 +46,12 @@ class StarterSite extends TimberSite {
     if ( wp_is_mobile() ) {
     	$context['ismobile'] = 'true';
     }
+    if(ICL_LANGUAGE_CODE=='en'){
+      $context['currentlanguage'] = 'en';
+    }
     return $context;
 	}
-
+  
 	function myfoo( $text ) {
 		$text .= ' bar!';
 		return $text;

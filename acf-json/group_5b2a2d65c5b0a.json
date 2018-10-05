@@ -1,0 +1,132 @@
+{
+    "key": "group_5b2a2d65c5b0a",
+    "title": "Contenteditor",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "fields": [
+        {
+            "key": "field_5b2a2d6b92e4f",
+            "label": "Content blok",
+            "name": "blok",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5b2a2d709338c": {
+                    "key": "5b2a2d709338c",
+                    "name": "tekst",
+                    "label": "Tekst",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b2a2d8292e50",
+                            "label": "Tekst",
+                            "name": "tekst",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b2a2dc892e51": {
+                    "key": "5b2a2dc892e51",
+                    "name": "uitgelicht_groot",
+                    "label": "Zin uitgelicht (groot)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b2a2df492e53",
+                            "label": "Tekst",
+                            "name": "tekst",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b2a2e3192e54": {
+                    "key": "5b2a2e3192e54",
+                    "name": "uitgelicht_klein",
+                    "label": "Zin uitgelicht (klein)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b2a2e3192e55",
+                            "label": "Tekst",
+                            "name": "tekst",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Nieuw content blok",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "modified": 1538727926
+}

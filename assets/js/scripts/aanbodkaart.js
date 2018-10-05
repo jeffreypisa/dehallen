@@ -22,7 +22,6 @@
 
       targetelement.addClass('active');
 
-
       $( ".space .row" ).each(function() {
         $(this).addClass('active').addClass(aanbodfilter);
         if ($(this).find('.block').is('.links.active')) {
@@ -38,6 +37,5 @@
       }
 
     });
-
   });
 }(jQuery));
