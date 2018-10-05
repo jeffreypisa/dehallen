@@ -208,6 +208,9 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         if( $_GET['date'] == 'tomorrow' ) {
             $_GET['date'] = date('d/m/Y', strtotime( 'tomorrow' ) );
         }
+        if( $_GET['date'] == 'today' ) {
+            $_GET['date'] = date('d/m/Y', strtotime( 'today' ) );
+        }
         
         $tmp = explode( '/', $_GET['date'] );
         if( count( $tmp ) == 3 && intval( $tmp[0] ) > 1 && intval( $tmp[1] ) > 0 && intval( $tmp[2] ) > 0 ) {
