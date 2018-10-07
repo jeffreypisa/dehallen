@@ -30,7 +30,7 @@
       {% if blok.ingang_buiten %}
         {% set links = post.get_field('locatie_met_buiteningang') %}
         {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
-        <a href="{{rechts.link}}" class="block rechts condensed detour {{ catrechts }}">         
+        <a href="{{rechts.link}}" class="block rechts condensed detour {% if blok.route_vanaf == 'boven' %} boven {% elseif blok.route_vanaf == 'onder' %} onder {% endif %} {{ catrechts }}">         
           {{ rechts.title }}
         </a>
         <div class="bar links">

@@ -9,13 +9,13 @@
             <div class="datenow" style="display:none">{{ date_now }}</div>
             <div class="row">
               <div class="col-md-8 offset-md-1">
-                <input name="date" type="text" class="form-control js-datepicker" placeholder="datum" value="">
+                <input name="date" type="text" class="form-control js-datepicker" placeholder="{{ options.datum|lower }}" value="">
               </div>
               <div class="col-md-6">
-                <input name="time" type="text" class="form-control js-timepicker" placeholder="tijd" value="">
+                <input name="time" type="text" class="form-control js-timepicker" placeholder="{{ options.tijd|lower }}" value="">
               </div>
               <div class="col-md-4">
-                <a class="form-control js-now"> nu </a>
+                <a class="form-control js-now"> {{ options.nu|lower }} </a>
               </div>
             </div>
             <div class="mod-filterbar">

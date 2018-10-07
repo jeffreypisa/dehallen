@@ -38,13 +38,13 @@ function load_more_events() {
       <input type="hidden" name="offset" value="{{dh_agenda_ajaxoffset}}" id="searchoffset" />
         <div class="row">
           <div class="col-8 col-lg-3">
-            <input name="date" type="text" class="form-control js-datepicker" placeholder="Datum" value="{{date_sanitized}}">
+            <input name="date" type="text" class="form-control js-datepicker" placeholder="{{ options.datum|lower }}" value="{{date_sanitized}}">
           </div>
           <div class="col-8 col-lg-2">
-            <input name="time" type="text" class="form-control js-timepicker" placeholder="Tijd" value="{{time_sanitized}}">
+            <input name="time" type="text" class="form-control js-timepicker" placeholder="{{ options.tijd|lower }}" value="{{time_sanitized}}">
           </div>
           <div class="col-auto">
-            <a class="form-control js-now"> {{ options.nu }} </a>
+            <a class="form-control js-now"> {{ options.nu|lower }} </a>
           </div>
           <div class="col-16 col-lg-10">
             <div class="mod-filterbar">

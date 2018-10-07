@@ -255,7 +255,7 @@
         }
         &.links {
           &.business, &.business-en {
-            .col {
+            .col.center {
               .bar.links {
                 background: $color1;
                 .circle {
@@ -265,7 +265,7 @@
             }
           }
           &.entertainment, &.entertainment-en {
-            .col {
+            .col.center {
               .bar.links {
                 background: $color2;
                 .circle {
@@ -275,7 +275,7 @@
             }
           }
           &.horeca, &.hospitality {
-            .col {
+            .col.center {
               .bar.links {
                 background: $color3;
                 .circle {
@@ -285,7 +285,7 @@
             }
           }
           &.shops, &.shops-en {
-            .col {
+            .col.center {
               .bar.links {
                 background: $color4;
                 .circle {
@@ -295,7 +295,7 @@
             }
           }
           &.kunst, &.art {
-            .col {
+            .col.center {
               .bar.links {
                 background: $color5;
                 .circle {

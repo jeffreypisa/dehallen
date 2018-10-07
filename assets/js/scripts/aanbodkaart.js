@@ -32,10 +32,14 @@
         }
       });
 
-      if (targetelement.hasClass('detour')) {
-        $('.hbar').closest('.row').addClass('rechts');
+      if (targetelement.is('.detour.boven')) {
+        $('.hbar.boven').closest('.row').addClass('rechts');
       }
-
+      
+      if (targetelement.is('.detour.onder')) {
+        $('.hbar.onder').closest('.row').addClass('rechts');
+      }
+      
     });
   });
 }(jQuery));
