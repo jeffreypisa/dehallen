@@ -36,15 +36,12 @@ else {
   $context[ 'day_filter_full' ]  = strftime('%A');
 }
 
-
-
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
     if( isset( $_GET['planbutton'] ) && isset( $_GET['offset'] ) ) {
         $_GET['offset'] = 0;
     }
-    
     
     $agenda_arr = archive_agenda( $context );
     
@@ -69,19 +66,15 @@ if( !isset( $_GET['date'] ) ) {
 	$context['agenda_set_datetime_now'] = true;
 }
 
-
 $context[ 'day_now' ]  = date('D');
 
 // Onderstaand moet dag doorgeven waarop gefilterd wordt op de volgende manier voor bijvoorbeeld zondag : 'Sun' 
 $context[ 'day_filter' ]  = date('D', isset( $context['date_filter_unixtime'] ) ? $context['date_filter_unixtime'] : time() );
 
-$context[ 'date_filter_short' ]  = date('j.m.y');
-
 $day_filter  = date('D');
 
 $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
-
 
 /* Load Winkels */
 

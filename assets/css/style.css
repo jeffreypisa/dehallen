@@ -7154,6 +7154,14 @@ body .flatpickr-calendar {
       .mod-agenda .tease .card .card-body {
         min-height: 180px;
         padding: 30px; }
+        .mod-agenda .tease .card .card-body .iconitem {
+          position: relative;
+          padding-left: 30px;
+          min-height: 18px; }
+          .mod-agenda .tease .card .card-body .iconitem i {
+            position: absolute;
+            top: 0;
+            left: 0; }
       .mod-agenda .tease .card .btn.btn-primary {
         color: #fff; }
         .mod-agenda .tease .card .btn.btn-primary.nolink:hover {
@@ -7174,11 +7182,11 @@ body .flatpickr-calendar {
   .mod-agenda .meta .hour {
     font-size: 32px; }
   .mod-agenda .dh_no_hits {
-    margin: 70px 0 50px; }
+    margin: 60px 0 50px; }
     .mod-agenda .dh_no_hits h3 {
       padding-left: 0px; }
     .mod-agenda .dh_no_hits .meta:after {
-      top: -30px;
+      top: -15px;
       bottom: -60px; }
   .mod-agenda .tease .card .col-md-10:first-child {
     background: #dbdcdd; }
@@ -7222,7 +7230,8 @@ body .flatpickr-calendar {
 
 section.mod-klapuit {
   padding: 10px 0;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 30px; }
   section.mod-klapuit h1 {
     margin-bottom: 30px; }
   section.mod-klapuit a {
@@ -7318,7 +7327,8 @@ section.mod-klapuit {
         transition: .2s ease-in-out;
         color: #fff;
         text-indent: -1000000px;
-        overflow: hidden; }
+        overflow: hidden;
+        padding: 0; }
       .mod-events .slick-dots li.slick-active button, .mod-events .slick-dots li.slick-active:hover button {
         border-color: #46aa64; }
       .mod-events .slick-dots li:hover {
@@ -7810,13 +7820,13 @@ section.mod-klapuit {
 
 .mod-eventfilter-agenda {
   background: #46aa64;
-  padding: 5px 0 0;
+  padding: 10px 0 0;
   position: relative;
   z-index: 9; }
   .mod-eventfilter-agenda .row {
     margin-left: -5px;
     margin-right: -5px; }
-    .mod-eventfilter-agenda .row .col, .mod-eventfilter-agenda .row .col-4, .mod-eventfilter-agenda .row .col-8, .mod-eventfilter-agenda .row .col-lg-3, .mod-eventfilter-agenda .row .col-lg-10, .mod-eventfilter-agenda .row .col-auto {
+    .mod-eventfilter-agenda .row .col, .mod-eventfilter-agenda .row .col-4, .mod-eventfilter-agenda .row .col-8, .mod-eventfilter-agenda .row .col-10, .mod-eventfilter-agenda .row .col-lg-3, .mod-eventfilter-agenda .row .col-lg-10, .mod-eventfilter-agenda .row .col-auto {
       padding: 0 5px; }
   .mod-eventfilter-agenda .mod-filterbar {
     padding-top: 0;
@@ -7851,7 +7861,8 @@ section.mod-klapuit {
     font-size: 16px;
     margin-bottom: 10px;
     width: 100%;
-    float: right; }
+    float: right;
+    color: #fff; }
 
 @media (min-width: 768px) {
   .mod-eventfilter-agenda {
@@ -8282,7 +8293,7 @@ header {
         line-height: 38px;
         text-transform: uppercase;
         transition: all 0.2s ease-in-out;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         position: relative; }
         .mod-mobilemenu .top ul.menu li a:after {
           content: '';
@@ -8356,7 +8367,9 @@ body.opensidemenu .mod-mobilemenu {
 @media (min-width: 768px) {
   .mod-mobilemenu .top .closemenu {
     top: 40px;
-    right: 40px; } }
+    right: 40px; }
+  .mod-mobilemenu .top ul.menu li a {
+    margin-bottom: 40px; } }
 
 .mod-quote {
   padding-top: 0;
@@ -8481,13 +8494,13 @@ body.opensidemenu .mod-mobilemenu {
         .mod-locaties .card .card-body a:hover {
           color: #46aa64; }
   .mod-locaties.winkels .card {
-    background: #ffecd6; }
+    background: #ECF6EF; }
   .mod-locaties.winkels .tease .title, .mod-locaties.winkels .tease .time {
-    background: #ffecd6; }
+    background: #ECF6EF; }
   .mod-locaties.horeca .card {
-    background: #f3cfc1; }
+    background: #E7EBED; }
   .mod-locaties.horeca .tease .title, .mod-locaties.horeca .tease .time {
-    background: #f3cfc1; }
+    background: #E7EBED; }
   .mod-locaties .tease {
     position: relative;
     display: block;

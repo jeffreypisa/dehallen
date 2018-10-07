@@ -227,14 +227,19 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
                 $context[ 'day_filter_full' ]  = strftime('%A', strtotime( $date ) );
             }
             
-            $context[ 'date_filter_short' ] = date('d.m.Y', strtotime( $date ));
+            
             $context[ 'date_filter_unixtime' ] = strtotime( $date ) ;
 
             $hasdate = true;
         }
     }
-
-
+    
+    if(ICL_LANGUAGE_CODE==en){
+      $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
+    } else {          
+      setlocale(LC_ALL, 'nl_NL');
+      $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
+    }
     
     $timeday = '00:00:00';
     $timestart = $timeday;

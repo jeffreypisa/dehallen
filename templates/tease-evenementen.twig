@@ -23,22 +23,29 @@
                 <p class="type-event"> {{ post.type_evenement }} </p>
               {% endif %}
               <div class="date"> 
-                {% if post.custom.datum %}
-                  <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ post.custom.datum|date("d F Y") }} <br>
-                {% endif %}
-                {% if post.custom.begintijd or post.custom.eindtijd %}
-                  <span class="icon"> <i class="fal fa-clock"></i> </span>
-                  {% if post.custom.begintijd %} {{ post.custom.begintijd|date("H:i") }} {% endif %} 
-                  {% if post.custom.eindtijd %}  
-                    {% if post.custom.begintijd %} — {% endif %}
-                    {{ post.custom.eindtijd|date("H:i") }}
+                <div class="iconitem">
+                  {% if post.custom.datum %}
+                    <i class="fal fa-calendar"></i> {{ post.custom.datum|date("d F Y") }} 
+                    {% if post.custom.einddatum %} t/m {{ post.custom.einddatum|date("d F Y") }} {% endif %} <br>
                   {% endif %}
-                {% endif %}
+                </div>
+                <div class="iconitem">
+                  {% if post.custom.begintijd or post.custom.eindtijd %}
+                    <i class="fal fa-clock"></i>
+                    {% if post.custom.begintijd %} {{ post.custom.begintijd|date("H:i") }} {% endif %} 
+                    {% if post.custom.eindtijd %}  
+                      {% if post.custom.begintijd %} — {% endif %}
+                      {{ post.custom.eindtijd|date("H:i") }}
+                    {% endif %}
+                  {% endif %}
+                </div>
               </div> 
               {% if post.locatie %}
                 <div class="location condensed">
-                  {% set locatie = post.get_field('locatie') %}
-                  <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
+                  <div class="iconitem">
+                    {% set locatie = post.get_field('locatie') %}
+                    <i class="fal fa-map-marker-alt"></i> {{ locatie }}
+                  </div>
                 </div>
               {% endif %}
             </div>

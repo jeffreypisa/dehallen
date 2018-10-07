@@ -81,7 +81,7 @@
           line-height: 38px;
           text-transform: uppercase;
           transition: all 0.2s ease-in-out;
-          margin-bottom: 40px;
+          margin-bottom: 30px;
           position: relative;
           &:after {
             content: '';
@@ -192,6 +192,13 @@ body.opensidemenu {
       .closemenu {
         top: 40px;
         right: 40px;
+      }
+      ul.menu {
+        li {
+          a {
+            margin-bottom: 40px;
+          }
+        }
       }
     }
   }

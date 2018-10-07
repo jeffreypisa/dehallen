@@ -132,6 +132,16 @@
       .card-body {
         min-height: 180px;
         padding: 30px;
+        .iconitem {
+          position: relative;
+          padding-left: 30px;
+          min-height: 18px;
+          i {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
       }
       .btn.btn-primary {
         color: #fff;
@@ -169,12 +179,12 @@
       }
     }
     .dh_no_hits {
-      margin: 70px 0 50px;
+      margin: 60px 0 50px;
       h3 {
         padding-left: 0px;
       }
       .meta:after {
-        top: -30px;
+        top: -15px;
         bottom: -60px;
       }
     }

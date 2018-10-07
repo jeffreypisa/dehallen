@@ -33,7 +33,7 @@ function load_more_events() {
   <section class="mod-eventfilter-agenda">
     <div class="timenow" style="display:none">{{ time_now }}</div>
     <div class="datenow" style="display:none">{{ date_now }}</div>
-    <div class="container">
+    <div class="d-none d-md-block container">
       <form role="search" method="get" id="searchform" action="{{ site.url }}/agenda">
       <input type="hidden" name="offset" value="{{dh_agenda_ajaxoffset}}" id="searchoffset" />
         <div class="row">
@@ -69,11 +69,21 @@ function load_more_events() {
         </div>
       </form>
     </div>
+    <div class="d-md-none container">
+      <div class="row">
+        <div class="col-10">
+          <a href="/" class="btn btn-outline-light"> {{ options.zoeken }} </a>
+        </div>
+        <div class="col-10">
+          <a href="#" class="btn btn-outline-light" onClick="load_more_events(); return false;"> {{ options.later }} </a>
+        </div>
+      </div>
+    </div>
   </section>
   <section>
     <div class="container">
       <h1> 
-        <span class="d-block d-sm-none">{{ date_filter_short }}</span> 
+        <span class="d-block d-sm-none">{{ date_filter_short | upper }}</span> 
         <span class="d-none d-sm-block">{{ date_filter_full | capitalize }}</span> 
       </h1>
       
@@ -81,54 +91,17 @@ function load_more_events() {
         {% include ['partials/archive-evenementen-single.twig'] %}
       </div>
       
-      {% if winkels|length > 0 %}
-        <div class="mod-locaties winkels">
-          <div class="line">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="meta">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h2> Winkels open op {{ day_filter_full | lower }} </h2>
-              <div class="row">
-                {% for post in winkels %}
-                  {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
+      {% if ('shops' in selected_cats) or (selected_cats is empty) %}
+        {% include ['partials/winkels.twig'] %}
       {% endif %}
-      {% if horeca|length > 0 %}
-        <div class="mod-locaties horeca">
-          <div class="line">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="meta">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h2> Horeca open op {{ day_filter_full | lower }} </h2>
-              <div class="row">           
-                {% for post in horeca %}
-                  {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
+      
+      {% if ('horeca' in selected_cats) or (selected_cats is empty) %}
+        {% include ['partials/horeca.twig'] %}
       {% endif %}
     </div>
     <div class="text-center">
     <br>
-      <a href="#" id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> Later <i class="fal fa-arrow-circle-down"></i></a>
+      <a href="#" id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> {{ options.later }} <i class="fal fa-arrow-circle-down"></i></a>
     </div>
   </section>
 {% endblock %}

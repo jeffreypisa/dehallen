@@ -942,6 +942,44 @@
             "maxlength": ""
         },
         {
+            "key": "field_5bb9e86381726",
+            "label": "Datum",
+            "name": "datum",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5bb9e86981727",
+            "label": "Tijd",
+            "name": "tijd",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5bb9d76357d14",
             "label": "Nu",
             "name": "nu",
@@ -961,9 +999,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5bb9d8353ad37",
-            "label": "Datum",
-            "name": "datum",
+            "key": "field_5bb9e78a453e3",
+            "label": "Winkels open op",
+            "name": "winkels_open_op",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -980,9 +1018,66 @@
             "maxlength": ""
         },
         {
-            "key": "field_5bb9d83a3ad38",
-            "label": "Tijd",
-            "name": "tijd",
+            "key": "field_5bb9e79b453e4",
+            "label": "Horeca open op",
+            "name": "horeca_open_op",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5bb9e7ae453e5",
+            "label": "Later",
+            "name": "later",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5bb9f1316a5c7",
+            "label": "Geen evenementen",
+            "name": "geen_evenementen",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5bba0fe339ce4",
+            "label": "Zoeken",
+            "name": "zoeken",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -1016,5 +1111,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1538906178
+    "modified": 1538920427
 }

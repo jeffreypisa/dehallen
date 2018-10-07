@@ -1,5 +1,5 @@
 {% if evenementen|length > 0 %}
-{% set the_hour_shown = false %}
+  {% set the_hour_shown = false %}
   {% for post in evenementen %}
     {% set catje = post.terms('categorie') | first | lower %}
     {% set catjebron = post.terms('categorie') %}
@@ -32,20 +32,23 @@
     {% endif %}
   {% endfor %}
 {% else %}
-  <div class="dh_no_hits">
-    <article>
-      <div class="row">
-        <div class="col-md-5">
-          <div class="meta">
-            <div class="hour">
-              <span> </span>
+  {% if ('shops' in selected_cats) or ('horeca' in selected_cats) %}
+  {% else %}
+    <div class="dh_no_hits">
+      <article>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="meta">
+              <div class="hour">
+                <span> </span>
+              </div>
             </div>
           </div>
+          <div class="col-md-14">
+            <h3 style="margin-top: -10px;">{{ options.geen_evenementen }}</h3>
+          </div>
         </div>
-        <div class="col-md-14">
-          <h3 style="margin-top: -10px;">Geen evenementen</h3>
-        </div>
-      </div>
-    </article>
-  </div>
+      </article>
+    </div>
+  {% endif %}
 {% endif %}
