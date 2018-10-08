@@ -5,6 +5,7 @@
 <script>
 var dh_load_more_events_repeat = 0;
 function load_more_events() {
+	jQuery( '#dh_load_more_events_button').hide();
 	jQuery.post( "{{dh_agenda_ajaxurl}}", jQuery( "#searchform" ).serialize(), function( data ) {
   		
   		data = JSON.parse(data);
@@ -26,6 +27,7 @@ function load_more_events() {
 		}
   		
   		jQuery( '#searchoffset' ).val( (parseInt(jQuery( '#searchoffset' ).val()) + data.offsetvalue) );
+		jQuery( '#dh_load_more_events_button').show();
   		jQuery( '#dh_load_more_events_button').blur();
 });
 }
