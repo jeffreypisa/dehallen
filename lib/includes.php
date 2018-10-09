@@ -119,6 +119,13 @@ define('DH_EVENTS_HOUR_OFFSET', 1);
 
 function get_args_event_datetime_equals_date( $date ) {
     
+    
+    // Limit by DH_EVENTS_HOUR_OFFSET hours up front
+    $next_slot = strtotime( $date. ' + '.DH_EVENTS_HOUR_OFFSET.' hours');
+    
+
+    
+    
     $args_evenementen_datetime = array(
         'post_type' => 'evenementen_datetime',
         'posts_per_page' => - 1,
@@ -126,13 +133,21 @@ function get_args_event_datetime_equals_date( $date ) {
             'relation' => 'AND',
             'date1' => array(
                 'key' => 'datum',
-                'compare' => '=',
+                'compare' => '<=',
                 'value' => $date
             ),
         ),
         'meta_key' => 'begintijd',
         'orderby' => 'meta_value',
         'order' => 'ASC'
+    );
+    
+    
+    $args_evenementen_datetime['meta_query']['date2'] =
+    array(
+        'key' => 'einddatum',
+        'compare' => '>=',
+        'value' => date( 'Ymd', $next_slot),
     );
     
     return $args_evenementen_datetime;
@@ -142,7 +157,7 @@ function get_args_event_datetime_greaterequals_date( $date ) {
     
     $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
     $args_evenementen_datetime['meta_query']['date1']['compare'] = '>=';
-    
+
     return $args_evenementen_datetime;
     
 }
