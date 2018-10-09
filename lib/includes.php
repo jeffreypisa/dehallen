@@ -203,6 +203,10 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     $today = date('Ymd');
     $date = $today;
     
+    if( !isset ( $_GET['date'] ) || !$_GET['date'] ) {
+        $_GET['date'] = 'today';
+    }
+    
     $hasdate = false;
     if( isset( $_GET['date'] ) && $_GET['date'] ) {
         if( $_GET['date'] == 'tomorrow' ) {
