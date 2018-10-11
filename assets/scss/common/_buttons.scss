@@ -12,7 +12,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     text-decoration: none;
   }
 }
-.btn, .field-wrap input[type=button] {
+.btn, .btn[href], .field-wrap input[type=button] {
   color: #fff;
   border-radius: 0;
   font-size: 20px;
@@ -42,10 +42,11 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
   border: 0;
   padding: 0 15px;
 }
-.btn-outline-light {
+.btn-outline-light, .btn-outline-light[href] {
   border: 2px solid #fff;
   height: 44px;
   line-height: 44px;
+  color: #fff;
   &:hover {
     color: $green;
     border: 2px solid #fff;
@@ -57,7 +58,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     background: #fff;
   }
 }
-.btn-primary {
+.btn-primary, .btn-primary[href] {
   background: $darkblue;
   color: #fff;
   &:hover {
@@ -69,7 +70,7 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     background: darken($darkblue, 30%);
   }
 }
-.btn-secondary[href], .field-wrap input[type=button] {
+.btn-secondary, .btn-secondary[href], .field-wrap input[type=button] {
   background: $green;
   color: #fff;
   &:hover {

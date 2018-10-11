@@ -46,6 +46,25 @@
 
 
 
+
+.ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .button {
+  @extend .btn;
+  @extend .btn-secondary[href];
+}
+
+#mc-embedded-subscribe-form {
+  input[type=text], input[type=email],
+  input[type=text]:focus, input[type=email]:focus {
+    @extend .form-control;
+    background: $lightgrey;
+    padding: 10px;
+    border: 1px solid $lightgrey;
+    font-size: 20px;
+    color: #000;
+  }
+}
+
 .list-checkbox-wrap .nf-field-element li input, .list-radio-wrap .nf-field-element li input {
   margin-top: 0.35em;
 }

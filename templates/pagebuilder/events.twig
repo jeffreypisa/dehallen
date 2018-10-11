@@ -19,22 +19,24 @@
                       <p class="type-event"> {{ blok.type_evenement }} </p>
                     {% endif %}
                     <div class="date"> 
-                      {% if blok.datum %}
-                        <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} <br>
+                      {% if blok.custom.datum %}
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} 
+                        {% if (blok.custom.einddatum) and (blok.custom.datum != blok.custom.einddatum) %} {{ options.tm }} <br> {{ blok.custom.einddatum|date("d F Y") }} {% endif %}</div>
                       {% endif %}
                       {% if blok.begintijd or blok.eindtijd %}
-                        <span class="icon"> <i class="fal fa-clock"></i> </span>
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-clock"></i> </span>
                         {% if blok.custom.begintijd %} {{ blok.custom.begintijd|date("H:i") }} {% endif %} 
                         {% if blok.custom.eindtijd %}  
                           {% if blok.custom.begintijd %} — {% endif %}
                           {{ blok.custom.eindtijd|date("H:i") }} 
                         {% endif %}
+                        </div>
                       {% endif %}
                     </div> 
                     {% if blok.locatie %}
                       <div class="location condensed">
                         {% set locatie = blok.get_field('locatie') %}
-                        <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}</div>
                       </div>
                     {% endif %}
                   </div>
@@ -55,21 +57,24 @@
                     {% endif %}
                     <div class="date"> 
                       {% if blok.custom.datum %}
-                        <span class="icon"> <i class="fal fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} <br>
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-calendar"></i> </span> {{ blok.custom.datum|date("d F Y") }} 
+                          {% if (blok.custom.einddatum) and (blok.custom.datum != blok.custom.einddatum) %} {{ options.tm }} <br> {{ blok.custom.einddatum|date("d F Y") }} {% endif %}
+                        </div>
                       {% endif %}
                       {% if blok.custom.begintijd or blok.custom.eindtijd %}
-                        <span class="icon"> <i class="fal fa-clock"></i> </span>
-                        {% if blok.custom.begintijd %} {{ blok.custom.begintijd|date("H:i") }} {% endif %} 
-                        {% if blok.custom.eindtijd %}  
-                          {% if blok.custom.begintijd %} — {% endif %}
-                          {{ blok.custom.eindtijd|date("H:i") }} 
-                        {% endif %}
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-clock"></i> </span>
+                          {% if blok.custom.begintijd %} {{ blok.custom.begintijd|date("H:i") }} {% endif %} 
+                          {% if blok.custom.eindtijd %}  
+                            {% if blok.custom.begintijd %} — {% endif %}
+                            {{ blok.custom.eindtijd|date("H:i") }} 
+                          {% endif %}
+                        </div>
                       {% endif %}
                     </div> 
                     {% if blok.locatie %}
                       <div class="location condensed">
                         {% set locatie = blok.get_field('locatie') %}
-                        <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
+                        <div class="iconitem"><span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}</div>
                       </div>
                     {% endif %}
                   </div>

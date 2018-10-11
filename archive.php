@@ -134,6 +134,8 @@ if ($posttype == 'locaties') {
     $args_posts = array(
       'post_type'			  => 'locaties',
     	'posts_per_page'  => -1,
+      'orderby' => 'title',
+      'order'   => 'DESC',
     	'tax_query' => array( 
           array( 
               'taxonomy' => 'categorie_locaties', //or tag or custom taxonomy
@@ -146,6 +148,8 @@ if ($posttype == 'locaties') {
     $args_posts = array(
       'post_type'			  => 'locaties',
     	'posts_per_page'  => -1,
+      'orderby' => 'title',
+      'order'   => 'ASC',
     ); 
   }
   

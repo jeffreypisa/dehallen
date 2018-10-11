@@ -29,9 +29,9 @@
               {% endif %}
               <div class="datetime">
                 {{ slide.custom.datum|date("l d F") }}
-              </div>
-              <div class="datetime">
-                {{ slide.custom.begintijd|date("H:s") }}
+                {% if (slide.custom.einddatum) and (slide.custom.datum != slide.custom.einddatum) %}
+                  {{ options.tm }} {{ slide.custom.einddatum|date("l d F") }}
+                {% endif %}
               </div>
               <div class="locatie condensed">
                 <div class="container-fluid">
@@ -60,9 +60,9 @@
               {% endif %}
               <div class="datetime">
                 {{ slide.slide.datum|date("l d F") }}
-              </div>
-              <div class="datetime">
-                {{ slide.slide.begintijd|date("H:s") }}
+                {% if (slide.slide.einddatum) and (slide.slide.datum != slide.slide.einddatum) %}
+                  {{ options.tm }} {{ slide.slide.einddatum|date("l d F") }}
+                {% endif %}
               </div>
               <div class="locatie condensed">
                 <div class="container-fluid">

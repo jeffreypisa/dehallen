@@ -237,7 +237,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             $context['date_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT );
             
             if(ICL_LANGUAGE_CODE==en){
-                $context[ 'date_filter_full' ] = date('l d F', strtotime( $date ) );
+                $context[ 'date_filter_full' ] = date('l F jS', strtotime( $date ) );
                 $context[ 'day_filter_full' ]  = date('l', strtotime( $date ) );
             }
             else {

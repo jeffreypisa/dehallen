@@ -1564,7 +1564,8 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control {
+.form-control, #mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form input[type=email],
+#mc-embedded-subscribe-form input[type=text]:focus, #mc-embedded-subscribe-form input[type=email]:focus {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -1577,21 +1578,24 @@ pre {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
-    .form-control {
+    .form-control, #mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form input[type=email],
+    #mc-embedded-subscribe-form input[type=text]:focus, #mc-embedded-subscribe-form input[type=email]:focus {
       transition: none; } }
-  .form-control::-ms-expand {
+  .form-control::-ms-expand, #mc-embedded-subscribe-form input[type=text]::-ms-expand, #mc-embedded-subscribe-form input[type=email]::-ms-expand,
+  #mc-embedded-subscribe-form input:focus[type=text]::-ms-expand, #mc-embedded-subscribe-form input:focus[type=email]::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus {
+  .form-control:focus, #mc-embedded-subscribe-form input:focus[type=text], #mc-embedded-subscribe-form input:focus[type=email] {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
-  .form-control::placeholder {
+  .form-control::placeholder, #mc-embedded-subscribe-form input[type=text]::placeholder, #mc-embedded-subscribe-form input[type=email]::placeholder,
+  #mc-embedded-subscribe-form input:focus[type=text]::placeholder, #mc-embedded-subscribe-form input:focus[type=email]::placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:disabled, .form-control[readonly] {
+  .form-control:disabled, #mc-embedded-subscribe-form input:disabled[type=text], #mc-embedded-subscribe-form input:disabled[type=email], .form-control[readonly], #mc-embedded-subscribe-form input[readonly][type=text], #mc-embedded-subscribe-form input[readonly][type=email] {
     background-color: #e9ecef;
     opacity: 1; }
 
@@ -1637,23 +1641,29 @@ select.form-control:focus::-ms-value {
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
-  .form-control-plaintext.form-control-sm, .input-group-sm > .form-control-plaintext.form-control,
+  .form-control-plaintext.form-control-sm, .input-group-sm > .form-control-plaintext.form-control, #mc-embedded-subscribe-form .input-group-sm > input.form-control-plaintext[type=text], #mc-embedded-subscribe-form .input-group-sm > input.form-control-plaintext[type=email],
   .input-group-sm > .input-group-prepend > .form-control-plaintext.input-group-text,
   .input-group-sm > .input-group-append > .form-control-plaintext.input-group-text,
-  .input-group-sm > .input-group-prepend > .form-control-plaintext.btn,
-  .input-group-sm > .input-group-append > .form-control-plaintext.btn, .form-control-plaintext.form-control-lg, .input-group-lg > .form-control-plaintext.form-control,
+  .input-group-sm > .input-group-prepend > .form-control-plaintext.btn, .input-group-sm > .input-group-prepend > .form-control-plaintext.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .input-group-sm > .input-group-prepend > .form-control-plaintext.button,
+  .input-group-sm > .input-group-append > .form-control-plaintext.btn, .input-group-sm > .input-group-append > .form-control-plaintext.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .input-group-sm > .input-group-append > .form-control-plaintext.button, .form-control-plaintext.form-control-lg, .input-group-lg > .form-control-plaintext.form-control, #mc-embedded-subscribe-form .input-group-lg > input.form-control-plaintext[type=text], #mc-embedded-subscribe-form .input-group-lg > input.form-control-plaintext[type=email],
   .input-group-lg > .input-group-prepend > .form-control-plaintext.input-group-text,
   .input-group-lg > .input-group-append > .form-control-plaintext.input-group-text,
-  .input-group-lg > .input-group-prepend > .form-control-plaintext.btn,
-  .input-group-lg > .input-group-append > .form-control-plaintext.btn {
+  .input-group-lg > .input-group-prepend > .form-control-plaintext.btn, .input-group-lg > .input-group-prepend > .form-control-plaintext.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .input-group-lg > .input-group-prepend > .form-control-plaintext.button,
+  .input-group-lg > .input-group-append > .form-control-plaintext.btn, .input-group-lg > .input-group-append > .form-control-plaintext.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .input-group-lg > .input-group-append > .form-control-plaintext.button {
     padding-right: 0;
     padding-left: 0; }
 
-.form-control-sm, .input-group-sm > .form-control,
+.form-control-sm, .input-group-sm > .form-control, #mc-embedded-subscribe-form .input-group-sm > input[type=text], #mc-embedded-subscribe-form .input-group-sm > input[type=email],
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
-.input-group-sm > .input-group-prepend > .btn,
-.input-group-sm > .input-group-append > .btn {
+.input-group-sm > .input-group-prepend > .btn, .input-group-sm > .input-group-prepend > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group-sm > .input-group-prepend > .button,
+.input-group-sm > .input-group-append > .btn, .input-group-sm > .input-group-append > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group-sm > .input-group-append > .button {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -1662,15 +1672,19 @@ select.form-control:focus::-ms-value {
 select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]),
 .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]),
-.input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]),
-.input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]) {
+.input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-prepend > select.ninja-forms-field.nf-element:not([size]):not([multiple])[type=button],
+#mc-embedded-subscribe-form .input-group-sm > .input-group-prepend > select.button:not([size]):not([multiple]),
+.input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-append > select.ninja-forms-field.nf-element:not([size]):not([multiple])[type=button],
+#mc-embedded-subscribe-form .input-group-sm > .input-group-append > select.button:not([size]):not([multiple]) {
   height: calc(1.8125rem + 2px); }
 
-.form-control-lg, .input-group-lg > .form-control,
+.form-control-lg, .input-group-lg > .form-control, #mc-embedded-subscribe-form .input-group-lg > input[type=text], #mc-embedded-subscribe-form .input-group-lg > input[type=email],
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
-.input-group-lg > .input-group-prepend > .btn,
-.input-group-lg > .input-group-append > .btn {
+.input-group-lg > .input-group-prepend > .btn, .input-group-lg > .input-group-prepend > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group-lg > .input-group-prepend > .button,
+.input-group-lg > .input-group-append > .btn, .input-group-lg > .input-group-append > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group-lg > .input-group-append > .button {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -1679,8 +1693,10 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.for
 select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]),
 .input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),
-.input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]),
-.input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]) {
+.input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]), .input-group-lg > .input-group-prepend > select.ninja-forms-field.nf-element:not([size]):not([multiple])[type=button],
+#mc-embedded-subscribe-form .input-group-lg > .input-group-prepend > select.button:not([size]):not([multiple]),
+.input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]), .input-group-lg > .input-group-append > select.ninja-forms-field.nf-element:not([size]):not([multiple])[type=button],
+#mc-embedded-subscribe-form .input-group-lg > .input-group-append > select.button:not([size]):not([multiple]) {
   height: calc(2.875rem + 2px); }
 
 .form-group {
@@ -1747,18 +1763,24 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   background-color: rgba(70, 170, 100, 0.8);
   border-radius: .2rem; }
 
-.was-validated .form-control:valid, .form-control.is-valid, .was-validated
+.was-validated .form-control:valid, .was-validated #mc-embedded-subscribe-form input:valid[type=text], #mc-embedded-subscribe-form .was-validated input:valid[type=text], .was-validated #mc-embedded-subscribe-form input:valid[type=email], #mc-embedded-subscribe-form .was-validated input:valid[type=email], .form-control.is-valid, #mc-embedded-subscribe-form input.is-valid[type=text], #mc-embedded-subscribe-form input.is-valid[type=email], .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
   border-color: #46aa64; }
-  .was-validated .form-control:valid:focus, .form-control.is-valid:focus, .was-validated
+  .was-validated .form-control:valid:focus, .was-validated #mc-embedded-subscribe-form input:valid:focus[type=text], #mc-embedded-subscribe-form .was-validated input:valid:focus[type=text], .was-validated #mc-embedded-subscribe-form input:valid:focus[type=email], #mc-embedded-subscribe-form .was-validated input:valid:focus[type=email], .form-control.is-valid:focus, #mc-embedded-subscribe-form input.is-valid:focus[type=text], #mc-embedded-subscribe-form input.is-valid:focus[type=email], .was-validated
   .custom-select:valid:focus,
   .custom-select.is-valid:focus {
     border-color: #46aa64;
     box-shadow: 0 0 0 0.2rem rgba(70, 170, 100, 0.25); }
-  .was-validated .form-control:valid ~ .valid-feedback,
-  .was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
-  .form-control.is-valid ~ .valid-tooltip, .was-validated
+  .was-validated .form-control:valid ~ .valid-feedback, .was-validated #mc-embedded-subscribe-form input:valid[type=text] ~ .valid-feedback, #mc-embedded-subscribe-form .was-validated input:valid[type=text] ~ .valid-feedback, .was-validated #mc-embedded-subscribe-form input:valid[type=email] ~ .valid-feedback, #mc-embedded-subscribe-form .was-validated input:valid[type=email] ~ .valid-feedback,
+  .was-validated .form-control:valid ~ .valid-tooltip,
+  .was-validated #mc-embedded-subscribe-form input:valid[type=text] ~ .valid-tooltip,
+  #mc-embedded-subscribe-form .was-validated input:valid[type=text] ~ .valid-tooltip,
+  .was-validated #mc-embedded-subscribe-form input:valid[type=email] ~ .valid-tooltip,
+  #mc-embedded-subscribe-form .was-validated input:valid[type=email] ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, #mc-embedded-subscribe-form input.is-valid[type=text] ~ .valid-feedback, #mc-embedded-subscribe-form input.is-valid[type=email] ~ .valid-feedback,
+  .form-control.is-valid ~ .valid-tooltip,
+  #mc-embedded-subscribe-form input.is-valid[type=text] ~ .valid-tooltip,
+  #mc-embedded-subscribe-form input.is-valid[type=email] ~ .valid-tooltip, .was-validated
   .custom-select:valid ~ .valid-feedback,
   .was-validated
   .custom-select:valid ~ .valid-tooltip,
@@ -1829,18 +1851,24 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   background-color: rgba(191, 42, 42, 0.8);
   border-radius: .2rem; }
 
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
+.was-validated .form-control:invalid, .was-validated #mc-embedded-subscribe-form input:invalid[type=text], #mc-embedded-subscribe-form .was-validated input:invalid[type=text], .was-validated #mc-embedded-subscribe-form input:invalid[type=email], #mc-embedded-subscribe-form .was-validated input:invalid[type=email], .form-control.is-invalid, #mc-embedded-subscribe-form input.is-invalid[type=text], #mc-embedded-subscribe-form input.is-invalid[type=email], .was-validated
 .custom-select:invalid,
 .custom-select.is-invalid {
   border-color: #BF2A2A; }
-  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, .was-validated
+  .was-validated .form-control:invalid:focus, .was-validated #mc-embedded-subscribe-form input:invalid:focus[type=text], #mc-embedded-subscribe-form .was-validated input:invalid:focus[type=text], .was-validated #mc-embedded-subscribe-form input:invalid:focus[type=email], #mc-embedded-subscribe-form .was-validated input:invalid:focus[type=email], .form-control.is-invalid:focus, #mc-embedded-subscribe-form input.is-invalid:focus[type=text], #mc-embedded-subscribe-form input.is-invalid:focus[type=email], .was-validated
   .custom-select:invalid:focus,
   .custom-select.is-invalid:focus {
     border-color: #BF2A2A;
     box-shadow: 0 0 0 0.2rem rgba(191, 42, 42, 0.25); }
-  .was-validated .form-control:invalid ~ .invalid-feedback,
-  .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
-  .form-control.is-invalid ~ .invalid-tooltip, .was-validated
+  .was-validated .form-control:invalid ~ .invalid-feedback, .was-validated #mc-embedded-subscribe-form input:invalid[type=text] ~ .invalid-feedback, #mc-embedded-subscribe-form .was-validated input:invalid[type=text] ~ .invalid-feedback, .was-validated #mc-embedded-subscribe-form input:invalid[type=email] ~ .invalid-feedback, #mc-embedded-subscribe-form .was-validated input:invalid[type=email] ~ .invalid-feedback,
+  .was-validated .form-control:invalid ~ .invalid-tooltip,
+  .was-validated #mc-embedded-subscribe-form input:invalid[type=text] ~ .invalid-tooltip,
+  #mc-embedded-subscribe-form .was-validated input:invalid[type=text] ~ .invalid-tooltip,
+  .was-validated #mc-embedded-subscribe-form input:invalid[type=email] ~ .invalid-tooltip,
+  #mc-embedded-subscribe-form .was-validated input:invalid[type=email] ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, #mc-embedded-subscribe-form input.is-invalid[type=text] ~ .invalid-feedback, #mc-embedded-subscribe-form input.is-invalid[type=email] ~ .invalid-feedback,
+  .form-control.is-invalid ~ .invalid-tooltip,
+  #mc-embedded-subscribe-form input.is-invalid[type=text] ~ .invalid-tooltip,
+  #mc-embedded-subscribe-form input.is-invalid[type=email] ~ .invalid-tooltip, .was-validated
   .custom-select:invalid ~ .invalid-feedback,
   .was-validated
   .custom-select:invalid ~ .invalid-tooltip,
@@ -1908,7 +1936,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
       flex-flow: row wrap;
       align-items: center;
       margin-bottom: 0; }
-    .form-inline .form-control {
+    .form-inline .form-control, .form-inline #mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form .form-inline input[type=text], .form-inline #mc-embedded-subscribe-form input[type=email], #mc-embedded-subscribe-form .form-inline input[type=email] {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -1934,7 +1962,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     .form-inline .custom-control-label {
       margin-bottom: 0; } }
 
-.btn {
+.btn, .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .button {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -1948,22 +1977,36 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
-    .btn {
+    .btn, .ninja-forms-field.nf-element[type=button],
+    #mc-embedded-subscribe-form .button {
       transition: none; } }
-  .btn:hover, .btn:focus {
+  .btn:hover, .ninja-forms-field.nf-element:hover[type=button],
+  #mc-embedded-subscribe-form .button:hover, .btn:focus, .ninja-forms-field.nf-element:focus[type=button],
+  #mc-embedded-subscribe-form .button:focus {
     text-decoration: none; }
-  .btn:focus, .btn.focus {
+  .btn:focus, .ninja-forms-field.nf-element:focus[type=button],
+  #mc-embedded-subscribe-form .button:focus, .btn.focus, .focus.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .focus.button {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
-  .btn.disabled, .btn:disabled {
+  .btn.disabled, .disabled.ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .disabled.button, .btn:disabled, .ninja-forms-field.nf-element:disabled[type=button],
+  #mc-embedded-subscribe-form .button:disabled {
     opacity: 0.65; }
-  .btn:not(:disabled):not(.disabled) {
+  .btn:not(:disabled):not(.disabled), .ninja-forms-field.nf-element:not(:disabled):not(.disabled)[type=button],
+  #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled) {
     cursor: pointer; }
-  .btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
+  .btn:not(:disabled):not(.disabled):active, .ninja-forms-field.nf-element:not(:disabled):not(.disabled):active[type=button],
+  #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active, .ninja-forms-field.nf-element:not(:disabled):not(.disabled).active[type=button],
+  #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled).active {
     background-image: none; }
 
-a.btn.disabled,
-fieldset:disabled a.btn {
+a.btn.disabled, a.disabled.ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form a.disabled.button,
+fieldset:disabled a.btn,
+fieldset:disabled a.ninja-forms-field.nf-element[type=button],
+fieldset:disabled #mc-embedded-subscribe-form a.button,
+#mc-embedded-subscribe-form fieldset:disabled a.button {
   pointer-events: none; }
 
 .btn-primary {
@@ -2351,13 +2394,15 @@ fieldset:disabled a.btn {
     color: #6c757d;
     pointer-events: none; }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group-lg > .button {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem; }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group-sm > .button {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -2573,25 +2618,68 @@ input[type="button"].btn-block {
   position: relative;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn,
-  .btn-group-vertical > .btn {
+  .btn-group > .btn, .btn-group > .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group > .button,
+  .btn-group-vertical > .btn,
+  .btn-group-vertical > .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .button {
     position: relative;
     flex: 0 1 auto; }
-    .btn-group > .btn:hover,
-    .btn-group-vertical > .btn:hover {
+    .btn-group > .btn:hover, .btn-group > .ninja-forms-field.nf-element:hover[type=button],
+    #mc-embedded-subscribe-form .btn-group > .button:hover,
+    .btn-group-vertical > .btn:hover,
+    .btn-group-vertical > .ninja-forms-field.nf-element:hover[type=button],
+    #mc-embedded-subscribe-form .btn-group-vertical > .button:hover {
       z-index: 1; }
-    .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
+    .btn-group > .btn:focus, .btn-group > .ninja-forms-field.nf-element:focus[type=button],
+    #mc-embedded-subscribe-form .btn-group > .button:focus, .btn-group > .btn:active, .btn-group > .ninja-forms-field.nf-element:active[type=button],
+    #mc-embedded-subscribe-form .btn-group > .button:active, .btn-group > .btn.active, .btn-group > .active.ninja-forms-field.nf-element[type=button],
+    #mc-embedded-subscribe-form .btn-group > .active.button,
     .btn-group-vertical > .btn:focus,
+    .btn-group-vertical > .ninja-forms-field.nf-element:focus[type=button],
+    #mc-embedded-subscribe-form .btn-group-vertical > .button:focus,
     .btn-group-vertical > .btn:active,
-    .btn-group-vertical > .btn.active {
+    .btn-group-vertical > .ninja-forms-field.nf-element:active[type=button],
+    #mc-embedded-subscribe-form .btn-group-vertical > .button:active,
+    .btn-group-vertical > .btn.active,
+    .btn-group-vertical > .active.ninja-forms-field.nf-element[type=button],
+    #mc-embedded-subscribe-form .btn-group-vertical > .active.button {
       z-index: 1; }
-  .btn-group .btn + .btn,
+  .btn-group .btn + .btn, .btn-group .ninja-forms-field.nf-element[type=button] + .btn, .btn-group #mc-embedded-subscribe-form .button + .btn, #mc-embedded-subscribe-form .btn-group .button + .btn, .btn-group .btn + .ninja-forms-field.nf-element[type=button], .btn-group .ninja-forms-field.nf-element[type=button] + .ninja-forms-field.nf-element[type=button], .btn-group #mc-embedded-subscribe-form .button + .ninja-forms-field.nf-element[type=button], #mc-embedded-subscribe-form .btn-group .button + .ninja-forms-field.nf-element[type=button],
+  .btn-group #mc-embedded-subscribe-form .btn + .button, #mc-embedded-subscribe-form .btn-group .btn + .button,
+  .btn-group #mc-embedded-subscribe-form .ninja-forms-field.nf-element[type=button] + .button, #mc-embedded-subscribe-form .btn-group .ninja-forms-field.nf-element[type=button] + .button,
+  .btn-group #mc-embedded-subscribe-form .button + .button, #mc-embedded-subscribe-form .btn-group .button + .button,
   .btn-group .btn + .btn-group,
+  .btn-group .ninja-forms-field.nf-element[type=button] + .btn-group,
+  .btn-group #mc-embedded-subscribe-form .button + .btn-group,
+  #mc-embedded-subscribe-form .btn-group .button + .btn-group,
   .btn-group .btn-group + .btn,
+  .btn-group .btn-group + .ninja-forms-field.nf-element[type=button],
+  .btn-group #mc-embedded-subscribe-form .btn-group + .button,
+  #mc-embedded-subscribe-form .btn-group .btn-group + .button,
   .btn-group .btn-group + .btn-group,
   .btn-group-vertical .btn + .btn,
+  .btn-group-vertical .ninja-forms-field.nf-element[type=button] + .btn,
+  .btn-group-vertical #mc-embedded-subscribe-form .button + .btn,
+  #mc-embedded-subscribe-form .btn-group-vertical .button + .btn,
+  .btn-group-vertical .btn + .ninja-forms-field.nf-element[type=button],
+  .btn-group-vertical .ninja-forms-field.nf-element[type=button] + .ninja-forms-field.nf-element[type=button],
+  .btn-group-vertical #mc-embedded-subscribe-form .button + .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical .button + .ninja-forms-field.nf-element[type=button],
+  .btn-group-vertical #mc-embedded-subscribe-form .btn + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical .btn + .button,
+  .btn-group-vertical #mc-embedded-subscribe-form .ninja-forms-field.nf-element[type=button] + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical .ninja-forms-field.nf-element[type=button] + .button,
+  .btn-group-vertical #mc-embedded-subscribe-form .button + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical .button + .button,
   .btn-group-vertical .btn + .btn-group,
+  .btn-group-vertical .ninja-forms-field.nf-element[type=button] + .btn-group,
+  .btn-group-vertical #mc-embedded-subscribe-form .button + .btn-group,
+  #mc-embedded-subscribe-form .btn-group-vertical .button + .btn-group,
   .btn-group-vertical .btn-group + .btn,
+  .btn-group-vertical .btn-group + .ninja-forms-field.nf-element[type=button],
+  .btn-group-vertical #mc-embedded-subscribe-form .btn-group + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical .btn-group + .button,
   .btn-group-vertical .btn-group + .btn-group {
     margin-left: -1px; }
 
@@ -2602,16 +2690,23 @@ input[type="button"].btn-block {
   .btn-toolbar .input-group {
     width: auto; }
 
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child, .btn-group > .ninja-forms-field.nf-element:first-child[type=button],
+#mc-embedded-subscribe-form .btn-group > .button:first-child {
   margin-left: 0; }
 
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
-.btn-group > .btn-group:not(:last-child) > .btn {
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .ninja-forms-field.nf-element:not(:last-child):not(.dropdown-toggle)[type=button],
+#mc-embedded-subscribe-form .btn-group > .button:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-group:not(:last-child) > .btn,
+.btn-group > .btn-group:not(:last-child) > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group > .btn-group:not(:last-child) > .button {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
-.btn-group > .btn:not(:first-child),
-.btn-group > .btn-group:not(:first-child) > .btn {
+.btn-group > .btn:not(:first-child), .btn-group > .ninja-forms-field.nf-element:not(:first-child)[type=button],
+#mc-embedded-subscribe-form .btn-group > .button:not(:first-child),
+.btn-group > .btn-group:not(:first-child) > .btn,
+.btn-group > .btn-group:not(:first-child) > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group > .btn-group:not(:first-child) > .button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
@@ -2625,11 +2720,11 @@ input[type="button"].btn-block {
   .dropleft .dropdown-toggle-split::before {
     margin-right: 0; }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .btn-group-sm > .ninja-forms-field.nf-element[type=button] + .dropdown-toggle-split, #mc-embedded-subscribe-form .btn-group-sm > .button + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem; }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .btn-group-lg > .ninja-forms-field.nf-element[type=button] + .dropdown-toggle-split, #mc-embedded-subscribe-form .btn-group-lg > .button + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem; }
 
@@ -2637,31 +2732,54 @@ input[type="button"].btn-block {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
-  .btn-group-vertical .btn,
+  .btn-group-vertical .btn, .btn-group-vertical .ninja-forms-field.nf-element[type=button],
+  .btn-group-vertical #mc-embedded-subscribe-form .button, #mc-embedded-subscribe-form .btn-group-vertical .button,
   .btn-group-vertical .btn-group {
     width: 100%; }
-  .btn-group-vertical > .btn + .btn,
+  .btn-group-vertical > .btn + .btn, .btn-group-vertical > .ninja-forms-field.nf-element[type=button] + .btn, #mc-embedded-subscribe-form .btn-group-vertical > .button + .btn, .btn-group-vertical > .btn + .ninja-forms-field.nf-element[type=button], .btn-group-vertical > .ninja-forms-field.nf-element[type=button] + .ninja-forms-field.nf-element[type=button], #mc-embedded-subscribe-form .btn-group-vertical > .button + .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .btn + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical > .ninja-forms-field.nf-element[type=button] + .button,
+  #mc-embedded-subscribe-form .btn-group-vertical > .button + .button,
   .btn-group-vertical > .btn + .btn-group,
+  .btn-group-vertical > .ninja-forms-field.nf-element[type=button] + .btn-group,
+  #mc-embedded-subscribe-form .btn-group-vertical > .button + .btn-group,
   .btn-group-vertical > .btn-group + .btn,
+  .btn-group-vertical > .btn-group + .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .btn-group + .button,
   .btn-group-vertical > .btn-group + .btn-group {
     margin-top: -1px;
     margin-left: 0; }
-  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
-  .btn-group-vertical > .btn-group:not(:last-child) > .btn {
+  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .ninja-forms-field.nf-element:not(:last-child):not(.dropdown-toggle)[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .button:not(:last-child):not(.dropdown-toggle),
+  .btn-group-vertical > .btn-group:not(:last-child) > .btn,
+  .btn-group-vertical > .btn-group:not(:last-child) > .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .btn-group:not(:last-child) > .button {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0; }
-  .btn-group-vertical > .btn:not(:first-child),
-  .btn-group-vertical > .btn-group:not(:first-child) > .btn {
+  .btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .ninja-forms-field.nf-element:not(:first-child)[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .button:not(:first-child),
+  .btn-group-vertical > .btn-group:not(:first-child) > .btn,
+  .btn-group-vertical > .btn-group:not(:first-child) > .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .btn-group-vertical > .btn-group:not(:first-child) > .button {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group-toggle > .btn,
-.btn-group-toggle > .btn-group > .btn {
+.btn-group-toggle > .btn, .btn-group-toggle > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group-toggle > .button,
+.btn-group-toggle > .btn-group > .btn,
+.btn-group-toggle > .btn-group > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group-toggle > .btn-group > .button {
   margin-bottom: 0; }
-  .btn-group-toggle > .btn input[type="radio"],
+  .btn-group-toggle > .btn input[type="radio"], .btn-group-toggle > .ninja-forms-field.nf-element[type=button] input[type="radio"], #mc-embedded-subscribe-form .btn-group-toggle > .button input[type="radio"],
   .btn-group-toggle > .btn input[type="checkbox"],
+  .btn-group-toggle > .ninja-forms-field.nf-element[type=button] input[type="checkbox"],
+  #mc-embedded-subscribe-form .btn-group-toggle > .button input[type="checkbox"],
   .btn-group-toggle > .btn-group > .btn input[type="radio"],
-  .btn-group-toggle > .btn-group > .btn input[type="checkbox"] {
+  .btn-group-toggle > .btn-group > .ninja-forms-field.nf-element[type=button] input[type="radio"],
+  #mc-embedded-subscribe-form .btn-group-toggle > .btn-group > .button input[type="radio"],
+  .btn-group-toggle > .btn-group > .btn input[type="checkbox"],
+  .btn-group-toggle > .btn-group > .ninja-forms-field.nf-element[type=button] input[type="checkbox"],
+  #mc-embedded-subscribe-form .btn-group-toggle > .btn-group > .button input[type="checkbox"] {
     position: absolute;
     clip: rect(0, 0, 0, 0);
     pointer-events: none; }
@@ -2672,32 +2790,40 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%; }
-  .input-group > .form-control,
+  .input-group > .form-control, #mc-embedded-subscribe-form .input-group > input[type=text], #mc-embedded-subscribe-form .input-group > input[type=email],
   .input-group > .custom-select,
   .input-group > .custom-file {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0; }
-    .input-group > .form-control:focus,
+    .input-group > .form-control:focus, #mc-embedded-subscribe-form .input-group > input:focus[type=text], #mc-embedded-subscribe-form .input-group > input:focus[type=email],
     .input-group > .custom-select:focus,
     .input-group > .custom-file:focus {
       z-index: 3; }
-    .input-group > .form-control + .form-control,
+    .input-group > .form-control + .form-control, #mc-embedded-subscribe-form .input-group > input[type=text] + .form-control, #mc-embedded-subscribe-form .input-group > input[type=email] + .form-control, #mc-embedded-subscribe-form .input-group > .form-control + input[type=text], #mc-embedded-subscribe-form .input-group > input[type=text] + input[type=text], #mc-embedded-subscribe-form .input-group > input[type=email] + input[type=text], #mc-embedded-subscribe-form .input-group > .form-control + input[type=email], #mc-embedded-subscribe-form .input-group > input[type=text] + input[type=email], #mc-embedded-subscribe-form .input-group > input[type=email] + input[type=email],
     .input-group > .form-control + .custom-select,
+    #mc-embedded-subscribe-form .input-group > input[type=text] + .custom-select,
+    #mc-embedded-subscribe-form .input-group > input[type=email] + .custom-select,
     .input-group > .form-control + .custom-file,
+    #mc-embedded-subscribe-form .input-group > input[type=text] + .custom-file,
+    #mc-embedded-subscribe-form .input-group > input[type=email] + .custom-file,
     .input-group > .custom-select + .form-control,
+    #mc-embedded-subscribe-form .input-group > .custom-select + input[type=text],
+    #mc-embedded-subscribe-form .input-group > .custom-select + input[type=email],
     .input-group > .custom-select + .custom-select,
     .input-group > .custom-select + .custom-file,
     .input-group > .custom-file + .form-control,
+    #mc-embedded-subscribe-form .input-group > .custom-file + input[type=text],
+    #mc-embedded-subscribe-form .input-group > .custom-file + input[type=email],
     .input-group > .custom-file + .custom-select,
     .input-group > .custom-file + .custom-file {
       margin-left: -1px; }
-  .input-group > .form-control:not(:last-child),
+  .input-group > .form-control:not(:last-child), #mc-embedded-subscribe-form .input-group > input:not(:last-child)[type=text], #mc-embedded-subscribe-form .input-group > input:not(:last-child)[type=email],
   .input-group > .custom-select:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0; }
-  .input-group > .form-control:not(:first-child),
+  .input-group > .form-control:not(:first-child), #mc-embedded-subscribe-form .input-group > input:not(:first-child)[type=text], #mc-embedded-subscribe-form .input-group > input:not(:first-child)[type=email],
   .input-group > .custom-select:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
@@ -2715,18 +2841,50 @@ input[type="button"].btn-block {
 .input-group-prepend,
 .input-group-append {
   display: flex; }
-  .input-group-prepend .btn,
-  .input-group-append .btn {
+  .input-group-prepend .btn, .input-group-prepend .ninja-forms-field.nf-element[type=button],
+  .input-group-prepend #mc-embedded-subscribe-form .button, #mc-embedded-subscribe-form .input-group-prepend .button,
+  .input-group-append .btn,
+  .input-group-append .ninja-forms-field.nf-element[type=button],
+  .input-group-append #mc-embedded-subscribe-form .button,
+  #mc-embedded-subscribe-form .input-group-append .button {
     position: relative;
     z-index: 2; }
-  .input-group-prepend .btn + .btn,
+  .input-group-prepend .btn + .btn, .input-group-prepend .ninja-forms-field.nf-element[type=button] + .btn, .input-group-prepend #mc-embedded-subscribe-form .button + .btn, #mc-embedded-subscribe-form .input-group-prepend .button + .btn, .input-group-prepend .btn + .ninja-forms-field.nf-element[type=button], .input-group-prepend .ninja-forms-field.nf-element[type=button] + .ninja-forms-field.nf-element[type=button], .input-group-prepend #mc-embedded-subscribe-form .button + .ninja-forms-field.nf-element[type=button], #mc-embedded-subscribe-form .input-group-prepend .button + .ninja-forms-field.nf-element[type=button],
+  .input-group-prepend #mc-embedded-subscribe-form .btn + .button, #mc-embedded-subscribe-form .input-group-prepend .btn + .button,
+  .input-group-prepend #mc-embedded-subscribe-form .ninja-forms-field.nf-element[type=button] + .button, #mc-embedded-subscribe-form .input-group-prepend .ninja-forms-field.nf-element[type=button] + .button,
+  .input-group-prepend #mc-embedded-subscribe-form .button + .button, #mc-embedded-subscribe-form .input-group-prepend .button + .button,
   .input-group-prepend .btn + .input-group-text,
+  .input-group-prepend .ninja-forms-field.nf-element[type=button] + .input-group-text,
+  .input-group-prepend #mc-embedded-subscribe-form .button + .input-group-text,
+  #mc-embedded-subscribe-form .input-group-prepend .button + .input-group-text,
   .input-group-prepend .input-group-text + .input-group-text,
   .input-group-prepend .input-group-text + .btn,
+  .input-group-prepend .input-group-text + .ninja-forms-field.nf-element[type=button],
+  .input-group-prepend #mc-embedded-subscribe-form .input-group-text + .button,
+  #mc-embedded-subscribe-form .input-group-prepend .input-group-text + .button,
   .input-group-append .btn + .btn,
+  .input-group-append .ninja-forms-field.nf-element[type=button] + .btn,
+  .input-group-append #mc-embedded-subscribe-form .button + .btn,
+  #mc-embedded-subscribe-form .input-group-append .button + .btn,
+  .input-group-append .btn + .ninja-forms-field.nf-element[type=button],
+  .input-group-append .ninja-forms-field.nf-element[type=button] + .ninja-forms-field.nf-element[type=button],
+  .input-group-append #mc-embedded-subscribe-form .button + .ninja-forms-field.nf-element[type=button],
+  #mc-embedded-subscribe-form .input-group-append .button + .ninja-forms-field.nf-element[type=button],
+  .input-group-append #mc-embedded-subscribe-form .btn + .button,
+  #mc-embedded-subscribe-form .input-group-append .btn + .button,
+  .input-group-append #mc-embedded-subscribe-form .ninja-forms-field.nf-element[type=button] + .button,
+  #mc-embedded-subscribe-form .input-group-append .ninja-forms-field.nf-element[type=button] + .button,
+  .input-group-append #mc-embedded-subscribe-form .button + .button,
+  #mc-embedded-subscribe-form .input-group-append .button + .button,
   .input-group-append .btn + .input-group-text,
+  .input-group-append .ninja-forms-field.nf-element[type=button] + .input-group-text,
+  .input-group-append #mc-embedded-subscribe-form .button + .input-group-text,
+  #mc-embedded-subscribe-form .input-group-append .button + .input-group-text,
   .input-group-append .input-group-text + .input-group-text,
-  .input-group-append .input-group-text + .btn {
+  .input-group-append .input-group-text + .btn,
+  .input-group-append .input-group-text + .ninja-forms-field.nf-element[type=button],
+  .input-group-append #mc-embedded-subscribe-form .input-group-text + .button,
+  #mc-embedded-subscribe-form .input-group-append .input-group-text + .button {
     margin-left: -1px; }
 
 .input-group-prepend {
@@ -2753,20 +2911,30 @@ input[type="button"].btn-block {
   .input-group-text input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-prepend > .button,
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
+.input-group > .input-group-append:not(:last-child) > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-append:not(:last-child) > .button,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group > .input-group-append:last-child > .ninja-forms-field.nf-element:not(:last-child):not(.dropdown-toggle)[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-append:last-child > .button:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
-.input-group > .input-group-append > .btn,
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-append > .button,
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
+.input-group > .input-group-prepend:not(:first-child) > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-prepend:not(:first-child) > .button,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+.input-group > .input-group-prepend:first-child > .ninja-forms-field.nf-element:not(:first-child)[type=button],
+#mc-embedded-subscribe-form .input-group > .input-group-prepend:first-child > .button:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
@@ -3651,7 +3819,7 @@ input[type="button"].btn-block {
   .badge:empty {
     display: none; }
 
-.btn .badge {
+.btn .badge, .ninja-forms-field.nf-element[type=button] .badge, #mc-embedded-subscribe-form .button .badge {
   position: relative;
   top: -1px; }
 
@@ -6547,7 +6715,7 @@ a.text-dark:hover, a.text-dark:focus {
   *::after {
     text-shadow: none !important;
     box-shadow: none !important; }
-  a:not(.btn) {
+  a:not(.btn):not(.ninja-forms-field.nf-element[type=button]) {
     text-decoration: underline; }
   abbr[title]::after {
     content: " (" attr(title) ")"; }
@@ -6642,17 +6810,19 @@ a:hover h1 {
 ul {
   padding-left: 20px; }
 
-.form-control::placeholder {
+.form-control::placeholder, #mc-embedded-subscribe-form input[type=text]::placeholder, #mc-embedded-subscribe-form input[type=email]::placeholder,
+#mc-embedded-subscribe-form input:focus[type=text]::placeholder, #mc-embedded-subscribe-form input:focus[type=email]::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #0a334f;
   opacity: 1;
   /* Firefox */ }
 
-.form-control:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, #mc-embedded-subscribe-form input:-ms-input-placeholder[type=text], #mc-embedded-subscribe-form input:-ms-input-placeholder[type=email] {
   /* Internet Explorer 10-11 */
   color: #0a334f; }
 
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder, #mc-embedded-subscribe-form input[type=text]::-ms-input-placeholder, #mc-embedded-subscribe-form input[type=email]::-ms-input-placeholder,
+#mc-embedded-subscribe-form input:focus[type=text]::-ms-input-placeholder, #mc-embedded-subscribe-form input:focus[type=email]::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #0a334f; }
 
@@ -6787,7 +6957,11 @@ ul {
     width: 23px;
     height: 71px; }
 
-body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):not(.disabled):active, body .field-wrap input[type=button]:focus, body .field-wrap input[type=button]:active, body .field-wrap input[type=button]:target, body .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+body .btn:focus, body .ninja-forms-field.nf-element:focus[type=button],
+body #mc-embedded-subscribe-form .button:focus, #mc-embedded-subscribe-form body .button:focus, body .btn:active, body .ninja-forms-field.nf-element:active[type=button],
+body #mc-embedded-subscribe-form .button:active, #mc-embedded-subscribe-form body .button:active, body .btn:target, body .ninja-forms-field.nf-element:target[type=button],
+body #mc-embedded-subscribe-form .button:target, #mc-embedded-subscribe-form body .button:target, body .btn:not(:disabled):not(.disabled):active, body .ninja-forms-field.nf-element:not(:disabled):not(.disabled):active[type=button],
+body #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled):active, #mc-embedded-subscribe-form body .button:not(:disabled):not(.disabled):active, body .field-wrap input[type=button]:focus, body .field-wrap input[type=button]:active, body .field-wrap input[type=button]:target, body .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
   opacity: 1; }
 
 .btn-link, a[href] {
@@ -6799,7 +6973,9 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
     color: #28623a;
     text-decoration: none; }
 
-.btn, .field-wrap input[type=button] {
+.btn, .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .button, .btn[href], .ninja-forms-field.nf-element[href][type=button],
+#mc-embedded-subscribe-form .button[href], .field-wrap input[type=button] {
   color: #fff;
   border-radius: 0;
   font-size: 20px;
@@ -6810,16 +6986,28 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
   padding: 0 25px;
   cursor: pointer;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); }
-  .btn:hover, .field-wrap input[type=button]:hover {
+  .btn:hover, .ninja-forms-field.nf-element:hover[type=button],
+  #mc-embedded-subscribe-form .button:hover, .btn[href]:hover, .ninja-forms-field.nf-element[href]:hover[type=button],
+  #mc-embedded-subscribe-form .button[href]:hover, .field-wrap input[type=button]:hover {
     color: #fff;
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
     border: 0; }
-  .btn:focus, .btn:active, .btn:target, .btn:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+  .btn:focus, .ninja-forms-field.nf-element:focus[type=button],
+  #mc-embedded-subscribe-form .button:focus, .btn:active, .ninja-forms-field.nf-element:active[type=button],
+  #mc-embedded-subscribe-form .button:active, .btn:target, .ninja-forms-field.nf-element:target[type=button],
+  #mc-embedded-subscribe-form .button:target, .btn:not(:disabled):not(.disabled):active, .ninja-forms-field.nf-element:not(:disabled):not(.disabled):active[type=button],
+  #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled):active, .btn[href]:focus, .ninja-forms-field.nf-element[href]:focus[type=button],
+  #mc-embedded-subscribe-form .button[href]:focus, .btn[href]:active, .ninja-forms-field.nf-element[href]:active[type=button],
+  #mc-embedded-subscribe-form .button[href]:active, .btn[href]:target, .ninja-forms-field.nf-element[href]:target[type=button],
+  #mc-embedded-subscribe-form .button[href]:target, .btn[href]:not(:disabled):not(.disabled):active, .ninja-forms-field.nf-element[href]:not(:disabled):not(.disabled):active[type=button],
+  #mc-embedded-subscribe-form .button[href]:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
     color: #fff;
     opacity: 1;
     border: 0; }
 
-.btn.btn-sm, .btn-group-sm > .btn {
+.btn.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-group-sm > .button, .btn-sm.ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .btn-sm.button {
   font-size: 16px;
   height: 36px;
   line-height: 38px;
@@ -6827,36 +7015,43 @@ body .btn:focus, body .btn:active, body .btn:target, body .btn:not(:disabled):no
   border: 0;
   padding: 0 15px; }
 
-.btn-outline-light {
+.btn-outline-light, .btn-outline-light[href] {
   border: 2px solid #fff;
   height: 44px;
-  line-height: 44px; }
-  .btn-outline-light:hover {
+  line-height: 44px;
+  color: #fff; }
+  .btn-outline-light:hover, .btn-outline-light[href]:hover {
     color: #46aa64;
     border: 2px solid #fff;
     background: #fff; }
-  .btn-outline-light:focus, .btn-outline-light:active, .btn-outline-light:target, .btn-outline-light:not(:disabled):not(.disabled):active {
+  .btn-outline-light:focus, .btn-outline-light:active, .btn-outline-light:target, .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light[href]:focus, .btn-outline-light[href]:active, .btn-outline-light[href]:target, .btn-outline-light[href]:not(:disabled):not(.disabled):active {
     color: #46aa64;
     border: 2px solid #fff;
     background: #fff; }
 
-.btn-primary {
+.btn-primary, .btn-primary[href] {
   background: #0a334f;
   color: #fff; }
-  .btn-primary:hover {
+  .btn-primary:hover, .btn-primary[href]:hover {
     color: #fff;
     background: #061e28; }
-  .btn-primary:focus, .btn-primary:active, .btn-primary:target, .btn-primary:not(:disabled):not(.disabled):active {
+  .btn-primary:focus, .btn-primary:active, .btn-primary:target, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary[href]:focus, .btn-primary[href]:active, .btn-primary[href]:target, .btn-primary[href]:not(:disabled):not(.disabled):active {
     color: #fff;
     background: black; }
 
-.btn-secondary[href], .field-wrap input[type=button] {
+.btn-secondary, .btn-secondary[href], .ninja-forms-field.nf-element[type=button],
+#mc-embedded-subscribe-form .button, .field-wrap input[type=button] {
   background: #46aa64;
   color: #fff; }
-  .btn-secondary[href]:hover, .field-wrap input[type=button]:hover {
+  .btn-secondary:hover, .btn-secondary[href]:hover, .ninja-forms-field.nf-element:hover[type=button],
+  #mc-embedded-subscribe-form .button:hover, .field-wrap input[type=button]:hover {
     background: #28623a;
     color: #fff; }
-  .btn-secondary[href]:focus, .btn-secondary[href]:active, .btn-secondary[href]:target, .btn-secondary[href]:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
+  .btn-secondary:focus, .btn-secondary:active, .btn-secondary:target, .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary[href]:focus, .ninja-forms-field.nf-element:focus[type=button],
+  #mc-embedded-subscribe-form .button:focus, .btn-secondary[href]:active, .ninja-forms-field.nf-element:active[type=button],
+  #mc-embedded-subscribe-form .button:active, .btn-secondary[href]:target, .ninja-forms-field.nf-element:target[type=button],
+  #mc-embedded-subscribe-form .button:target, .btn-secondary[href]:not(:disabled):not(.disabled):active, .ninja-forms-field.nf-element:not(:disabled):not(.disabled):active[type=button],
+  #mc-embedded-subscribe-form .button:not(:disabled):not(.disabled):active, .field-wrap input[type=button]:focus, .field-wrap input[type=button]:active, .field-wrap input[type=button]:target, .field-wrap input[type=button]:not(:disabled):not(.disabled):active {
     background: #193e24;
     color: #fff; }
 
@@ -6986,7 +7181,8 @@ a.card[href] {
   a.card[href]:hover:after {
     width: 100%; }
 
-.form-control {
+.form-control, #mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form input[type=email],
+#mc-embedded-subscribe-form input[type=text]:focus, #mc-embedded-subscribe-form input[type=email]:focus {
   background-clip: border-box; }
 
 .nf-form-cont .label-above .nf-field-element, .nf-form-cont .label-below .nf-field-element {
@@ -7013,16 +7209,24 @@ a.card[href] {
 .nf-form-cont .hr-wrap hr {
   border-color: #0a334f; }
 
-.nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn) {
+.nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn):not(.ninja-forms-field.nf-element[type=button]) {
   background: #F1F2F2;
   padding: 10px;
   border: 1px solid #F1F2F2; }
-  .nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn).datepicker {
+  .nf-form-cont .field-wrap:not(.hr-wrap) .ninja-forms-field:not(.btn):not(.ninja-forms-field.nf-element[type=button]).datepicker {
     padding-left: 50px;
     background-image: url(../images/calendar.png);
     background-size: 20px 20px;
     background-position: 15px 15px;
     background-repeat: no-repeat; }
+
+#mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form input[type=email],
+#mc-embedded-subscribe-form input[type=text]:focus, #mc-embedded-subscribe-form input[type=email]:focus {
+  background: #F1F2F2;
+  padding: 10px;
+  border: 1px solid #F1F2F2;
+  font-size: 20px;
+  color: #000; }
 
 .list-checkbox-wrap .nf-field-element li input, .list-radio-wrap .nf-field-element li input {
   margin-top: 0.35em; }
@@ -7162,9 +7366,11 @@ body .flatpickr-calendar {
             position: absolute;
             top: 0;
             left: 0; }
-      .mod-agenda .tease .card .btn.btn-primary {
+      .mod-agenda .tease .card .btn.btn-primary, .mod-agenda .tease .card .btn-primary.ninja-forms-field.nf-element[type=button],
+      .mod-agenda .tease .card #mc-embedded-subscribe-form .btn-primary.button, #mc-embedded-subscribe-form .mod-agenda .tease .card .btn-primary.button {
         color: #fff; }
-        .mod-agenda .tease .card .btn.btn-primary.nolink:hover {
+        .mod-agenda .tease .card .btn.btn-primary.nolink:hover, .mod-agenda .tease .card .btn-primary.nolink.ninja-forms-field.nf-element:hover[type=button],
+        .mod-agenda .tease .card #mc-embedded-subscribe-form .btn-primary.nolink.button:hover, #mc-embedded-subscribe-form .mod-agenda .tease .card .btn-primary.nolink.button:hover {
           background: #0a334f;
           cursor: default; }
 
@@ -7211,7 +7417,8 @@ body .flatpickr-calendar {
   .mod-agenda .tease .card h3 {
     font-size: 30px;
     line-height: 35px; }
-  .mod-agenda .tease .card .btn.btn-primary {
+  .mod-agenda .tease .card .btn.btn-primary, .mod-agenda .tease .card .btn-primary.ninja-forms-field.nf-element[type=button],
+  .mod-agenda .tease .card #mc-embedded-subscribe-form .btn-primary.button, #mc-embedded-subscribe-form .mod-agenda .tease .card .btn-primary.button {
     font-size: 20px; }
   .mod-agenda .tease:after {
     left: 120px; } }
@@ -7340,6 +7547,13 @@ section.mod-klapuit {
     line-height: 20px; }
   .mod-events .card .location {
     margin-top: 10px; }
+  .mod-events .card .iconitem {
+    position: relative;
+    padding-left: 26px; }
+    .mod-events .card .iconitem .icon {
+      position: absolute;
+      top: 0;
+      left: 0; }
 
 @media (min-width: 768px) {
   .home .mod-events {
@@ -7798,7 +8012,8 @@ section.mod-klapuit {
       bottom: 0;
       right: 30px;
       left: 30px; }
-      .mod-eventfilter .box .buttonbar .btn {
+      .mod-eventfilter .box .buttonbar .btn, .mod-eventfilter .box .buttonbar .ninja-forms-field.nf-element[type=button],
+      .mod-eventfilter .box .buttonbar #mc-embedded-subscribe-form .button, #mc-embedded-subscribe-form .mod-eventfilter .box .buttonbar .button {
         font-size: 30px;
         padding: 0 20px;
         line-height: 68px;
@@ -7807,7 +8022,8 @@ section.mod-klapuit {
         border: 0;
         color: #fff;
         min-width: 100%; }
-        .mod-eventfilter .box .buttonbar .btn:hover {
+        .mod-eventfilter .box .buttonbar .btn:hover, .mod-eventfilter .box .buttonbar .ninja-forms-field.nf-element:hover[type=button],
+        .mod-eventfilter .box .buttonbar #mc-embedded-subscribe-form .button:hover, #mc-embedded-subscribe-form .mod-eventfilter .box .buttonbar .button:hover {
           background: #061e28; }
 
 @media (min-width: 768px) {
@@ -7831,7 +8047,7 @@ section.mod-klapuit {
   .mod-eventfilter-agenda .mod-filterbar {
     padding-top: 0;
     padding-bottom: 0; }
-  .mod-eventfilter-agenda input[type=text], .mod-eventfilter-agenda .form-control {
+  .mod-eventfilter-agenda input[type=text], .mod-eventfilter-agenda .form-control, .mod-eventfilter-agenda #mc-embedded-subscribe-form input[type=text], #mc-embedded-subscribe-form .mod-eventfilter-agenda input[type=text], .mod-eventfilter-agenda #mc-embedded-subscribe-form input[type=email], #mc-embedded-subscribe-form .mod-eventfilter-agenda input[type=email] {
     font-size: 18px;
     font-weight: 600;
     color: #0a334f;
@@ -7847,27 +8063,28 @@ section.mod-klapuit {
     background-size: 20px 20px;
     background-position: 4px 12px;
     background-repeat: no-repeat; }
-    .mod-eventfilter-agenda input[type=text].js-datepicker, .mod-eventfilter-agenda .form-control.js-datepicker {
+    .mod-eventfilter-agenda input[type=text].js-datepicker, .mod-eventfilter-agenda .form-control.js-datepicker, .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-datepicker[type=text], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-datepicker[type=text], .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-datepicker[type=email], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-datepicker[type=email] {
       background-image: url(../images/calendar.png); }
-    .mod-eventfilter-agenda input[type=text].js-timepicker, .mod-eventfilter-agenda .form-control.js-timepicker {
+    .mod-eventfilter-agenda input[type=text].js-timepicker, .mod-eventfilter-agenda .form-control.js-timepicker, .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-timepicker[type=text], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-timepicker[type=text], .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-timepicker[type=email], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-timepicker[type=email] {
       background-image: url(../images/time.png); }
-    .mod-eventfilter-agenda input[type=text].js-now, .mod-eventfilter-agenda .form-control.js-now {
+    .mod-eventfilter-agenda input[type=text].js-now, .mod-eventfilter-agenda .form-control.js-now, .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-now[type=text], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-now[type=text], .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-now[type=email], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-now[type=email] {
       background-image: url(../images/now.png);
       padding-right: 5px; }
-      .mod-eventfilter-agenda input[type=text].js-now:hover, .mod-eventfilter-agenda .form-control.js-now:hover {
+      .mod-eventfilter-agenda input[type=text].js-now:hover, .mod-eventfilter-agenda .form-control.js-now:hover, .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-now:hover[type=text], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-now:hover[type=text], .mod-eventfilter-agenda #mc-embedded-subscribe-form input.js-now:hover[type=email], #mc-embedded-subscribe-form .mod-eventfilter-agenda input.js-now:hover[type=email] {
         cursor: pointer; }
-  .mod-eventfilter-agenda .btn {
+  .mod-eventfilter-agenda .btn, .mod-eventfilter-agenda .ninja-forms-field.nf-element[type=button],
+  .mod-eventfilter-agenda #mc-embedded-subscribe-form .button, #mc-embedded-subscribe-form .mod-eventfilter-agenda .button {
     padding: 0;
     font-size: 16px;
     margin-bottom: 10px;
     width: 100%;
-    float: right;
-    color: #fff; }
+    float: right; }
 
 @media (min-width: 768px) {
   .mod-eventfilter-agenda {
     padding: 0; }
-    .mod-eventfilter-agenda .btn {
+    .mod-eventfilter-agenda .btn, .mod-eventfilter-agenda .ninja-forms-field.nf-element[type=button],
+    .mod-eventfilter-agenda #mc-embedded-subscribe-form .button, #mc-embedded-subscribe-form .mod-eventfilter-agenda .button {
       font-size: 20px; } }
 
 @media (min-width: 992px) {

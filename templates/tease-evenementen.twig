@@ -26,7 +26,7 @@
                 <div class="iconitem">
                   {% if post.custom.datum %}
                     <i class="fal fa-calendar"></i> {{ post.custom.datum|date("d F Y") }} 
-                    {% if post.custom.einddatum %} t/m {{ post.custom.einddatum|date("d F Y") }} {% endif %} <br>
+                    {% if (post.custom.einddatum) and (post.custom.datum != post.custom.einddatum) %} {{ options.tm }} <br> {{ post.custom.einddatum|date("d F Y") }} {% endif %} <br>
                   {% endif %}
                 </div>
                 <div class="iconitem">
@@ -50,11 +50,11 @@
               {% endif %}
             </div>
             {% if post.gratis %}
-              <div class="btn btn-block btn-primary nolink"> Gratis entree </div>
+              <div class="btn btn-block btn-primary nolink"> {{ options.gratis_entree }} </div>
             {% elseif post.ticketlink %}
-              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> Tickets <i class="fal fa-arrow-circle-right"></i> </a>
+              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> {{ options.tickets }} <i class="fal fa-arrow-circle-right"></i> </a>
             {% else %}
-              <div class="btn btn-block btn-primary nolink"> Geen tickets </div>
+              <div class="btn btn-block btn-primary nolink"> {{ options.geen_tickets }} </div>
             {% endif %}
           </div>
         </div>

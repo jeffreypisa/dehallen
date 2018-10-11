@@ -47,7 +47,7 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
   $terms = get_the_terms($post->ID, $thetax);
   
   foreach($terms as $term){
-    $categorie = $term->slug;
+    $categorie = $term->name;
     $context['categorie'] = $categorie;
     $categorie_link = get_term_link( $term );
     $context['categorielink'] = $categorie_link;

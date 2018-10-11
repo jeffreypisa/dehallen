@@ -77,7 +77,7 @@ function load_more_events() {
           <a href="/" class="btn btn-outline-light"> {{ options.zoeken }} </a>
         </div>
         <div class="col-10">
-          <a href="#" class="btn btn-outline-light" onClick="load_more_events(); return false;"> {{ options.later }} </a>
+          <button class="btn btn-outline-light" onClick="load_more_events(); return false;"> {{ options.later }} </button>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ function load_more_events() {
     <div class="container">
       <h1> 
         <span class="d-block d-sm-none">{{ date_filter_short | upper }}</span> 
-        <span class="d-none d-sm-block">{{ date_filter_full | capitalize }}</span> 
+        <span class="d-none d-sm-block" style="text-transform: capitalize">{{ date_filter_full }}</span> 
       </h1>
       
       <div class="mod-agenda">
@@ -101,9 +101,9 @@ function load_more_events() {
         {% include ['partials/horeca.twig'] %}
       {% endif %}
     </div>
-    <div class="text-center">
+    <div class="d-none d-md-block text-center">
     <br>
-      <a href="#" id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> {{ options.later }} <i class="fal fa-arrow-circle-down"></i></a>
+      <button id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> {{ options.later }} <i class="fal fa-arrow-circle-down"></i></button>
     </div>
   </section>
 {% endblock %}

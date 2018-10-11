@@ -15,7 +15,7 @@
     	    {% endif %}
     	    {% if categorielink %}
     	      {% if posttype == 'locaties' %} {% else %}
-    	        <a href="{{ categorielink }}" class="float-right d-none d-sm-block">{{ options.meer }} {{ categorie }} <i class="fal fa-arrow-circle-right"></i></a>
+    	        <a href="{{ categorielink }}" class="float-right d-none d-sm-block">{{ options.meer }} {{ categorie|lower }} <i class="fal fa-arrow-circle-right"></i></a>
             {% endif %}
     	    {% endif %}
     	    <div class="clearfix"></div>
@@ -42,7 +42,9 @@
             {% if post.date %}
               <span class="published"> {{ post.date|date("d F Y") }}</span>
             {% endif %}
-            {% if post.author %}
+            {% if post.author == 'De Hallen' %}
+              <span class="by"> {{ post.author }} </span>
+            {% else %}
               <span class="by"> {{ options.door }} {{ post.author }} </span>
             {% endif %}
           </div> 
@@ -80,7 +82,7 @@
         </div>
         {% if posttype == 'post' %}
           <div class="mod-sharethis">
-            <h4> {{ options.deel_dit }} {% if categorie == 'interviews' %}INTERVIEW {% else %} {{ categorie | upper }} {% endif %} </h4>
+            <h4> {{ options.deel_dit }} {% if (categorie|lower == 'interviews') or (categorie|lower == 'interviews-en') %}INTERVIEW {% else %} {{ categorie | upper }} {% endif %} </h4>
             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ post.link }}">
               <img width="30" height="30" src="{{ theme.link }}/assets/images/facebook-blue.svg">
             </a>

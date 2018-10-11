@@ -12,14 +12,15 @@
       <div class="row">
         <div class="col-md-18 offset-md-1">
           <h1> In De Hallen </h1>
-          <div class="mod-filterblocks">
+          <div class="d-md-none"><br></div>
+          <div class="mod-filterblocks d-none d-md-block">
             <ul>
               <li class="{% if current_category == '' %} active {% endif %}">
                 <a href="/aanbod">{{ options.toon_alle }}s</a>
               </li>
               {% for cat in category %}
                 <li class="{% if cat.id == current_category %} active {% endif %}">
-                  <a href="/locatie_categorie/{{ cat.slug }}">{{ cat.title }}</a>
+                  <a href="{% if currentlanguage == 'en' %}/en{% endif %}/locatie_categorie/{{ cat.slug }}">{{ cat.title }}</a>
                 </li>
               {% endfor %}
             </ul>

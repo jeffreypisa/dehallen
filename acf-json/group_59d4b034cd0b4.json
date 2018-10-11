@@ -283,14 +283,14 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5b76b0db965b6": {
-                    "key": "layout_5b76b0db965b6",
+                "layout_5bbf7e4648fd9": {
+                    "key": "layout_5bbf7e4648fd9",
                     "name": "content-3kolom",
-                    "label": "Content met 3 kolommen",
+                    "label": "Content met kolommen",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5b76b0db965b7",
+                            "key": "field_5bbf7e4648fda",
                             "label": "Kolom1",
                             "name": "kolom1",
                             "type": "wysiwyg",
@@ -309,7 +309,7 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_5b76b117965b8",
+                            "key": "field_5bbf7e4648fdb",
                             "label": "Kolom2",
                             "name": "kolom2",
                             "type": "wysiwyg",
@@ -328,13 +328,21 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_5b76b121965b9",
+                            "key": "field_5bbf7e4648fdc",
                             "label": "Kolom3",
                             "name": "kolom3",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5bbf7e6148fde",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -347,9 +355,36 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_5b76b130965ba",
+                            "key": "field_5bbf7e4648fdd",
                             "label": "3e kolom 50% breed",
                             "name": "kolom3-50",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5bbf7e6148fde",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5bbf7e6148fde",
+                            "label": "Verberg 3e kolom",
+                            "name": "verberg_3e_kolom",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -483,7 +518,7 @@
                                     "post_type": [
                                         "evenementen_datetime"
                                     ],
-                                    "taxonomy": [],
+                                    "taxonomy": "",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "return_format": "object",
@@ -651,5 +686,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1538728026
+    "modified": 1539276547
 }

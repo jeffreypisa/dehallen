@@ -210,7 +210,8 @@ $context['special_today'] = $context['evenementen_vandaag_special'];
 $args_aanbod = array(
     'post_type' => 'locaties',
     'posts_per_page'  => -1,
-    'orderby' => 'ASC',
+    'orderby' => 'title',
+    'order'   => 'ASC',
 );
 $context['aanbod'] = Timber::get_posts( $args_aanbod );
 

@@ -1,29 +1,12 @@
 {
     "key": "group_5b2a2b446012c",
     "title": "Zaalhuur",
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "zaalhuur"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_5b2a2b4462cab",
             "label": "Adres",
             "name": "adres",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -32,11 +15,11 @@
                 "class": "",
                 "id": ""
             },
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "delay": 0
         },
         {
             "key": "field_5b2a2b4462cbc",
@@ -212,5 +195,22 @@
             "mime_types": ""
         }
     ],
-    "modified": 1538727926
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "zaalhuur"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1539273815
 }
