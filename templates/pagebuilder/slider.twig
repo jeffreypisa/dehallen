@@ -30,7 +30,7 @@
               <div class="datetime">
                 {{ slide.custom.datum|date("l d F") }}
                 {% if (slide.custom.einddatum) and (slide.custom.datum != slide.custom.einddatum) %}
-                  {{ options.tm }} {{ slide.custom.einddatum|date("l d F") }}
+                  {{ options.tm }} <br> {{ slide.custom.einddatum|date("l d F") }}
                 {% endif %}
               </div>
               <div class="locatie condensed">
@@ -49,8 +49,7 @@
       {% for slide in item.slider %}
       
         {% set evenementdata = TimberPost(slide.slide.custom.evenement|first) %}
-        
-        
+           
         <a href="{{ evenementdata.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(evenementdata.afbeelding) }})">
           <div class="content">
             <div class="container-fluid">
@@ -61,7 +60,7 @@
               <div class="datetime">
                 {{ slide.slide.datum|date("l d F") }}
                 {% if (slide.slide.einddatum) and (slide.slide.datum != slide.slide.einddatum) %}
-                  {{ options.tm }} {{ slide.slide.einddatum|date("l d F") }}
+                  {{ options.tm }} <br> {{ slide.slide.einddatum|date("l d F") }}
                 {% endif %}
               </div>
               <div class="locatie condensed">
