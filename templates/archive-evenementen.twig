@@ -57,7 +57,7 @@ function load_more_events() {
                       <label class="{{ item.slug }} {% if category.slug == item.slug or item.slug in selected_cats|keys %} active {% endif %}">
                         <input type="checkbox" name="category[]" value="{{ item.slug }}" {% if item.slug in selected_cats|keys %} checked="checked" {% endif %} />
                         {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg.twig' %}
-                        <div><span class="condensed"> {{ item.slug }} </span></div>
+                        <div><span class="condensed"> {{ item.title }} </span></div>
                       </label>
                     </div>
                   {% endif %}

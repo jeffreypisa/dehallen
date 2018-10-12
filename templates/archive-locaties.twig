@@ -16,7 +16,7 @@
           <div class="mod-filterblocks d-none d-md-block">
             <ul>
               <li class="{% if current_category == '' %} active {% endif %}">
-                <a href="/aanbod">{{ options.toon_alle }}s</a>
+                <a href="/aanbod">{{ options.toon_alle }}</a>
               </li>
               {% for cat in category %}
                 <li class="{% if cat.id == current_category %} active {% endif %}">

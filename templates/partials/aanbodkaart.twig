@@ -1,7 +1,7 @@
 {% set links = blok.locatie_links %}
 {% set rechts = blok.locatie_rechts %}
-{% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
-{% set catrechts = rechts.terms('categorie_locaties') | join(' ') | lower %}
+{% set catlinks = links.terms('categorie_locaties') | join(' ') | sanitize %}
+{% set catrechts = rechts.terms('categorie_locaties') | join(' ') | sanitize  %}
 <div class="row aanbod">
   <div class="col left">
     {% if links %}
@@ -29,7 +29,7 @@
     {% if rechts %}
       {% if blok.ingang_buiten %}
         {% set links = post.get_field('locatie_met_buiteningang') %}
-        {% set catlinks = links.terms('categorie_locaties') | join(' ') | lower %}
+        {% set catlinks = links.terms('categorie_locaties') | join(' ') | sanitize %}
         <a href="{{rechts.link}}" class="block rechts condensed detour {% if blok.route_vanaf == 'boven' %} boven {% elseif blok.route_vanaf == 'onder' %} onder {% endif %} {{ catrechts }} {{ catrechts }}-en">         
           {{ rechts.title }}
         </a>

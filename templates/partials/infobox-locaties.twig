@@ -33,31 +33,31 @@
       <ul>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Monday {% else %} Maandag {% endif %}</span> 
-          {% if item.mon_open %} {{ item.mon_open | date("H:i") }} — {{ item.mon_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.mon_open %} {{ item.mon_open | date("H:i") }} — {{ item.mon_close | date("H:i")  }} {% else %}{{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Tuesday {% else %} Dinsdag {% endif %}</span> 
-          {% if item.tue_open %} {{ item.tue_open | date("H:i")  }} — {{ item.tue_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.tue_open %} {{ item.tue_open | date("H:i")  }} — {{ item.tue_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Wednesday {% else %} Woensdag {% endif %}</span> 
-          {% if item.wed_open %} {{ item.wed_open | date("H:i")  }} — {{ item.wed_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.wed_open %} {{ item.wed_open | date("H:i")  }} — {{ item.wed_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Thursday {% else %} Donderdag {% endif %}</span> 
-          {% if item.thu_open %} {{ item.thu_open | date("H:i")  }} — {{ item.thu_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.thu_open %} {{ item.thu_open | date("H:i")  }} — {{ item.thu_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Friday {% else %} Vrijdag {% endif %}</span> 
-          {% if item.fri_open %} {{ item.fri_open | date("H:i")  }} — {{ item.fri_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.fri_open %} {{ item.fri_open | date("H:i")  }} — {{ item.fri_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Saturday {% else %} Zaterdag {% endif %}</span> 
-          {% if item.sat_open %} {{ item.sat_open | date("H:i")  }} — {{ item.sat_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.sat_open %} {{ item.sat_open | date("H:i")  }} — {{ item.sat_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
         <li>
           <span class="condensend">{% if currentlanguage == 'en' %} Sunday {% else %} Zondag {% endif %}</span> 
-          {% if item.sun_open %} {{ item.sun_open | date("H:i")  }} — {{ item.sun_close | date("H:i")  }} {% else %} gesloten {% endif %}
+          {% if item.sun_open %} {{ item.sun_open | date("H:i")  }} — {{ item.sun_close | date("H:i")  }} {% else %} {{ options.gesloten }} {% endif %}
         </li>
       </ul>
     {% endif %}

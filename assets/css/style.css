@@ -7441,8 +7441,6 @@ section.mod-klapuit {
   margin-bottom: 30px; }
   section.mod-klapuit h1 {
     margin-bottom: 30px; }
-  section.mod-klapuit a {
-    display: block; }
 
 .mod-mobilemenu .menublock ul.menutaal {
   position: relative;
@@ -7645,13 +7643,13 @@ section.mod-klapuit {
       background: #0089bc;
       border-color: #0089bc; }
 
-.mod-aanbodkaart .block.horeca, .mod-aanbodkaart .block.hospitality {
+.mod-aanbodkaart .block.horeca, .mod-aanbodkaart .block.eat-sleep {
   color: #ffd100;
   border: 2px solid #ffd100; }
-  .mod-aanbodkaart .block.horeca.active, .mod-aanbodkaart .block.hospitality.active {
+  .mod-aanbodkaart .block.horeca.active, .mod-aanbodkaart .block.eat-sleep.active {
     background: #ffd100;
     color: #fff; }
-    .mod-aanbodkaart .block.horeca.active:hover, .mod-aanbodkaart .block.hospitality.active:hover {
+    .mod-aanbodkaart .block.horeca.active:hover, .mod-aanbodkaart .block.eat-sleep.active:hover {
       background: #cca700;
       border-color: #cca700; }
 
@@ -7790,10 +7788,10 @@ section.mod-klapuit {
   .mod-aanbodkaart .space .row.active.horeca .col:after,
   .mod-aanbodkaart .space .row.active.horeca .top div:after,
   .mod-aanbodkaart .space .row.active.horeca .bottom:after,
-  .mod-aanbodkaart .space .row.active.horeca .bottom div, .mod-aanbodkaart .space .row.active.hospitality .col:after,
-  .mod-aanbodkaart .space .row.active.hospitality .top div:after,
-  .mod-aanbodkaart .space .row.active.hospitality .bottom:after,
-  .mod-aanbodkaart .space .row.active.hospitality .bottom div {
+  .mod-aanbodkaart .space .row.active.horeca .bottom div, .mod-aanbodkaart .space .row.active.eat-sleep .col:after,
+  .mod-aanbodkaart .space .row.active.eat-sleep .top div:after,
+  .mod-aanbodkaart .space .row.active.eat-sleep .bottom:after,
+  .mod-aanbodkaart .space .row.active.eat-sleep .bottom div {
     background: #ffd100; }
   .mod-aanbodkaart .space .row.active.shops .col:after,
   .mod-aanbodkaart .space .row.active.shops .top div:after,
@@ -7819,9 +7817,9 @@ section.mod-klapuit {
     background: #00aeef; }
     .mod-aanbodkaart .space .row.active.links.entertainment .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.entertainment-en .col.center .bar.links .circle {
       border-color: #00aeef; }
-  .mod-aanbodkaart .space .row.active.links.horeca .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.hospitality .col.center .bar.links {
+  .mod-aanbodkaart .space .row.active.links.horeca .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.eat-sleep .col.center .bar.links {
     background: #ffd100; }
-    .mod-aanbodkaart .space .row.active.links.horeca .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.hospitality .col.center .bar.links .circle {
+    .mod-aanbodkaart .space .row.active.links.horeca .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.eat-sleep .col.center .bar.links .circle {
       border-color: #ffd100; }
   .mod-aanbodkaart .space .row.active.links.shops .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.shops-en .col.center .bar.links {
     background: #812990; }
@@ -7847,13 +7845,13 @@ section.mod-klapuit {
     background: #00aeef; }
     .mod-aanbodkaart .space .row.active.rechts.entertainment .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.entertainment-en .col.right .bar.links .circle {
       border-color: #00aeef; }
-  .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .hbar, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .vbar {
+  .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .hbar, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .vbar {
     background: #ffd100; }
-    .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar .circle, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.hospitality .col .vbar .circle {
+    .mod-aanbodkaart .space .row.active.rechts.horeca .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.horeca .col .vbar .circle, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col .vbar .circle {
       border-color: #ffd100; }
-  .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links, .mod-aanbodkaart .space .row.active.rechts.hospitality .col.right .bar.links {
+  .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col.right .bar.links {
     background: #ffd100; }
-    .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.hospitality .col.right .bar.links .circle {
+    .mod-aanbodkaart .space .row.active.rechts.horeca .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.eat-sleep .col.right .bar.links .circle {
       border-color: #ffd100; }
   .mod-aanbodkaart .space .row.active.rechts.shops .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.shops .col .hbar, .mod-aanbodkaart .space .row.active.rechts.shops .col .vbar, .mod-aanbodkaart .space .row.active.rechts.shops-en .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.shops-en .col .hbar, .mod-aanbodkaart .space .row.active.rechts.shops-en .col .vbar {
     background: #812990; }

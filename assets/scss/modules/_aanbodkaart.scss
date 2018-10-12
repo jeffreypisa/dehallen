@@ -69,7 +69,7 @@
       }
     }
   }
-  .block.horeca, .block.hospitality {
+  .block.horeca, .block.eat-sleep {
     color: $color3;
     border: 2px solid $color3;
     &.active {
@@ -229,7 +229,7 @@
             background: $color2;
           }
         }
-        &.horeca, &.hospitality {
+        &.horeca, &.eat-sleep {
           .col:after,
           .top div:after,
           .bottom:after,
@@ -274,7 +274,7 @@
               }
             }
           }
-          &.horeca, &.hospitality {
+          &.horeca, &.eat-sleep {
             .col.center {
               .bar.links {
                 background: $color3;
@@ -338,7 +338,7 @@
               }
             }
           }
-          &.horeca, &.hospitality {
+          &.horeca, &.eat-sleep {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color3;
