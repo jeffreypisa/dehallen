@@ -16,7 +16,7 @@
     {% if item.capaciteit or item.grootte or item.faciliteiten or item.horeca %}
       <ul>
         {% if item.capaciteit %}
-          <li><span class="condensend">{{ options.capaciteit }} </span> {{ item.capaciteit }} personen </li>
+          <li><span class="condensend">{{ options.capaciteit }} </span> {{ item.capaciteit }} {{ options.personen }} </li>
         {% endif %}
         {% if item.grootte %}
           <li><span class="condensend">{{ options.grootte }} </span> {{ item.grootte }} m2</li>
