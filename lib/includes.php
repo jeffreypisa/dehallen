@@ -232,7 +232,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         }
         
         $tmp = explode( '/', $_GET['date'] );
-        if( count( $tmp ) == 3 && intval( $tmp[0] ) > 1 && intval( $tmp[1] ) > 0 && intval( $tmp[2] ) > 0 ) {
+        if( count( $tmp ) == 3 && intval( $tmp[0] ) > 0 && intval( $tmp[1] ) > 0 && intval( $tmp[2] ) > 0 ) {
             $date = str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT );
             $context['date_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT );
             
