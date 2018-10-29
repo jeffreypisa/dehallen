@@ -7365,7 +7365,10 @@ body .flatpickr-calendar {
           .mod-agenda .tease .card .card-body .iconitem i {
             position: absolute;
             top: 0;
-            left: 0; }
+            left: 0;
+            display: inline-block;
+            width: 22px;
+            text-align: center; }
       .mod-agenda .tease .card .btn.btn-primary, .mod-agenda .tease .card .btn-primary.ninja-forms-field.nf-element[type=button],
       .mod-agenda .tease .card #mc-embedded-subscribe-form .btn-primary.button, #mc-embedded-subscribe-form .mod-agenda .tease .card .btn-primary.button {
         color: #fff; }
@@ -8751,7 +8754,18 @@ body.opensidemenu .mod-mobilemenu {
         line-height: 35px;
         margin-bottom: 20px;
         margin-left: 0;
-        position: relative; }
+        position: relative;
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        /* Instead use this non-standard one: */
+        word-break: break-word;
+        /* Adds a hyphen where the word breaks, if supported (No Blink) */
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto; }
         .moviebox .body .film h3 a:hover {
           text-decoration: none;
           border: 0;

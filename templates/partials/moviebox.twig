@@ -8,7 +8,7 @@
     <div class="col-md-15">
       <div class="moviebox">
         <div class="body">
-          <h2> Naar de film </h2>
+          <h2> {% if currentlanguage == 'en' %}To the movies{% else %}Naar de film {% endif %} </h2>
           <div class="row">
             {% for post in evenementen %}
               {% if (post.terms('categorie')|first == 'Film') and (the_hour == post.custom.begintijd|date("H")) %}
@@ -20,8 +20,8 @@
           </div>
         </div>
         <div class="buttons">
-          <a href="#" class="location condensed"> <i class="fal fa-map-marker-alt"></i> De filmhallen</a>
-          <a href="https://www.filmhallen.nl/" target="_blank" class="tickets"> Alle films <i class="fal fa-arrow-circle-right"></i> </a>
+          <a href="{% if currentlanguage == 'en' %}/en{% endif %}/aanbod/de-filmhallen/" class="location condensed"> <i class="fal fa-map-marker-alt"></i> De filmhallen</a>
+          <a href="https://www.filmhallen.nl/" target="_blank" class="tickets"> {% if currentlanguage == 'en' %}All movies{% else %}Alle films {% endif %} <i class="fal fa-arrow-circle-right"></i> </a>
         </div>
       </div>
     </div>
