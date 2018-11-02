@@ -15,10 +15,23 @@
   .slide {
     transition: 0.5s ease-in-out;
     height: 220px;
-    background-size: cover;
-    background-position: center center;
     color: #fff;
     position: relative;
+    background: transparent;
+    .bg-container {
+	    max-height: calc(100vh - 300px);
+			min-height: 400px;
+    }
+    .bg {
+	    position: absolute;
+	    z-index: 0;
+	    background-size: cover;
+			background-position: center center;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+    }
     .content {
       display: none;
     }
@@ -41,6 +54,8 @@
     top: 0;
     left: 0;
     right: 0;
+		height: 100vh;
+		max-height: 100vh;
     bottom: 0;
     z-index: 9999;
     .indicators, .carousel-control-prev, .carousel-control-next {
@@ -48,6 +63,8 @@
     }
     .slide {
       height: 100vh !important;
+      height: 100vh;
+			max-height: 100vh;
     }
   }
 }
@@ -101,13 +118,21 @@
       }
     }
     .slide {
-      height: 400px;
+      height: 0;
+      height: 40vw; 
+      max-height: calc(100vh - 280px);
+      min-height: 440px;
       position: relative;
       .content {
         display: block;
         padding: 70px 60px 30px;
         height: 100%;
-        position: relative;
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
         h2 {
           font-size: 50px;
           line-height: 50px;
@@ -162,7 +187,6 @@
 @include media-breakpoint-up(lg) {
   .mod-slider {
     .slide {
-      height: 600px;
       .content {
         h2 {
           font-size: 80px;

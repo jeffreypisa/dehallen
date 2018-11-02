@@ -1,5 +1,5 @@
 {% if item.slider|length > 0 %}
-  <div id="slider" class="mod-slider carousel carousel-fade d-none d-md-block {% if item.narrowcasting %} d-block narrowcasting {% endif %}" data-ride="carousel" data-interval="8000">
+  <div id="slider" class="mod-slider carousel carousel-fade d-none d-md-block {% if item.narrowcasting %} d-block narrowcasting {% endif %}" data-ride="carousel" data-interval="7000">
     {% if item.slider|length > 1 %}
       <div class="indicators">
         <div class="container-fluid">
@@ -20,7 +20,8 @@
     <div class="carousel-inner">
       {% set slidenr = 0 %}
       {% for slide in special_today %}
-        <a href="{{ slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(slide.afbeelding) }})">
+        <a href="{{ slide.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}">
+        	<div class="bg" style="background-image: url({{ TimberImage(slide.afbeelding) }})"> </div>
           <div class="content">
             <div class="container-fluid">
               <h2>{{ slide.title }}</h2>
@@ -50,7 +51,8 @@
       
         {% set evenementdata = TimberPost(slide.slide.custom.evenement|first) %}
            
-        <a href="{{ evenementdata.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}" style="background-image: url({{ TimberImage(evenementdata.afbeelding) }})">
+        <a href="{{ evenementdata.link }}" class="carousel-item slide {% if slidenr == 0 %} active {% endif %}">
+        	<div class="bg" style="background-image: url({{ TimberImage(evenementdata.afbeelding) }})"></div>
           <div class="content">
             <div class="container-fluid">
               <h2>{{ evenementdata.title }} </h2>

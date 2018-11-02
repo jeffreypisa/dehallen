@@ -104,6 +104,7 @@ function load_more_events() {
     <div class="d-none d-md-block text-center">
     <br>
       <button id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> {{ options.later }} <i class="fal fa-arrow-circle-down"></i></button>
+      <a id="tomorrow" href="/agenda?date=tomorrow" class="btn btn-secondary"> {{ options.morgen }} <i class="fal fa-arrow-circle-right"></i></a>
     </div>
   </section>
 {% endblock %}
