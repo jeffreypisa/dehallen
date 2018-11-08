@@ -48,6 +48,16 @@ $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fiel
             )
         )
 );
+$args_event['tax_query'] = array(
+    array(
+        'taxonomy' => 'categorie',
+        'field'    => 'term_id',
+        'terms'    => 4, // 4 =film
+        'operator'    => 'NOT IN',
+    )
+);
+
+
 $tax_query_results = new WP_Query( $args_event );
 
 $search_posts = array();
@@ -78,6 +88,15 @@ if( $vandaag_notspecial_count > 0 ) {
     $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
         'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_vandaag'], 'ID'  ) : array() ),
     );
+    $args_event['tax_query'] = array(
+        array(
+            'taxonomy' => 'categorie',
+            'field'    => 'term_id',
+            'terms'    => 4, // 4 =film
+            'operator'    => 'NOT IN',
+        )
+    );
+    
     $tax_query_results = new WP_Query( $args_event );
     
     $search_posts = array();
@@ -129,6 +148,14 @@ $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fiel
         )
     )
 );
+$args_event['tax_query'] = array(
+    array(
+        'taxonomy' => 'categorie',
+        'field'    => 'term_id',
+        'terms'    => 4, // 4 =film
+        'operator'    => 'NOT IN',
+    )
+);
 $tax_query_results = new WP_Query( $args_event );
 
 $search_posts = array();
@@ -157,6 +184,15 @@ if( $morgen_notspecial_count > 0 ) {
     $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
         'post__not_in'=> (( $vandaag_notspecial_count > 0) ? wp_list_pluck( $context['evenementen_morgen'], 'ID'  ) : array() ),
     );
+    $args_event['tax_query'] = array(
+        array(
+            'taxonomy' => 'categorie',
+            'field'    => 'term_id',
+            'terms'    => 4, // 4 =film
+            'operator'    => 'NOT IN',
+        )
+    );
+    
     $tax_query_results = new WP_Query( $args_event );
     
     $search_posts = array();
