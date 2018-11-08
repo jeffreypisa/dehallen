@@ -439,7 +439,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         if( count( $events ) == 0 && count( $events_continuous ) == 0 ) {
             $tries++;
             
-            
             // Untill last hour this day
             if( date( 'H', $next_slot) < 22 ) {
                 $context = archive_agenda( $context, $tries, ($offset+DH_EVENTS_HOUR_OFFSET) );
@@ -469,4 +468,3 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     )
     ;
 }
-?>

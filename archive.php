@@ -39,6 +39,8 @@ else {
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
+    
+    
     if( isset( $_GET['planbutton'] ) && isset( $_GET['offset'] ) ) {
         $_GET['offset'] = 0;
     }
@@ -59,7 +61,16 @@ if ($posttype == 'evenementen') {
     } else {
         $context = $agenda_arr['context'];
     }
+    
+    $tmp = explode( '/', $context['date_sanitized']);
+    $context['agenda_date_after_viewing_day'] = date('d/m/Y', strtotime( $tmp[2].'-'.$tmp[1].'-'.$tmp[0] . ' +1 day' ) );
+    
 }
+
+
+
+
+
 
 $context['agenda_set_datetime_now'] = false;
 if( !isset( $_GET['date'] ) ) {
