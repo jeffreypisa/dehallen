@@ -6,7 +6,18 @@ body {
   color: $darkblue;
   letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased;
+  &.page-template-page-blanco {
+		padding: 0;
+	}
 }
+
+.capitalizefirstletter {
+	
+}
+.capitalizefirstletter:first-letter {
+    text-transform: uppercase;
+}
+
 textarea:focus,
 input:focus,
 *:focus {

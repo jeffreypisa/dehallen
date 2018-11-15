@@ -93,7 +93,7 @@
       }
     }
   }
-  .block.kunst, .block.art {
+  .block.cultuur, .block.culture {
     color: $color5;
     border: 2px solid $color5;
     &.active {
@@ -245,7 +245,7 @@
             background: $color4;
           }
         }
-        &.kunst, &.art {
+        &.cultuur, &.culture {
           .bottom:after,
           .col:after,
           .top div:after,
@@ -294,7 +294,7 @@
               }
             }
           }
-          &.kunst, &.art {
+          &.cultuur, &.culture {
             .col.center {
               .bar.links {
                 background: $color5;
@@ -370,7 +370,7 @@
               }
             }
           }
-          &.kunst, &.art {
+          &.cultuur, &.culture {
             .col {
               .bar.rechts, .hbar, .vbar {
                 background: $color5;

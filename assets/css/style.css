@@ -6775,6 +6775,11 @@ body {
   color: #0a334f;
   letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased; }
+  body.page-template-page-blanco {
+    padding: 0; }
+
+.capitalizefirstletter:first-letter {
+  text-transform: uppercase; }
 
 textarea:focus,
 input:focus,
@@ -7666,13 +7671,13 @@ section.mod-klapuit {
       background: #5d1e68;
       border-color: #5d1e68; }
 
-.mod-aanbodkaart .block.kunst, .mod-aanbodkaart .block.art {
+.mod-aanbodkaart .block.cultuur, .mod-aanbodkaart .block.culture {
   color: #38ae00;
   border: 2px solid #38ae00; }
-  .mod-aanbodkaart .block.kunst.active, .mod-aanbodkaart .block.art.active {
+  .mod-aanbodkaart .block.cultuur.active, .mod-aanbodkaart .block.culture.active {
     background: #38ae00;
     color: #fff; }
-    .mod-aanbodkaart .block.kunst.active:hover, .mod-aanbodkaart .block.art.active:hover {
+    .mod-aanbodkaart .block.cultuur.active:hover, .mod-aanbodkaart .block.culture.active:hover {
       background: #287b00;
       border-color: #287b00; }
 
@@ -7804,13 +7809,13 @@ section.mod-klapuit {
   .mod-aanbodkaart .space .row.active.shops-en .bottom:after,
   .mod-aanbodkaart .space .row.active.shops-en .bottom div {
     background: #812990; }
-  .mod-aanbodkaart .space .row.active.kunst .bottom:after,
-  .mod-aanbodkaart .space .row.active.kunst .col:after,
-  .mod-aanbodkaart .space .row.active.kunst .top div:after,
-  .mod-aanbodkaart .space .row.active.kunst .bottom div, .mod-aanbodkaart .space .row.active.art .bottom:after,
-  .mod-aanbodkaart .space .row.active.art .col:after,
-  .mod-aanbodkaart .space .row.active.art .top div:after,
-  .mod-aanbodkaart .space .row.active.art .bottom div {
+  .mod-aanbodkaart .space .row.active.cultuur .bottom:after,
+  .mod-aanbodkaart .space .row.active.cultuur .col:after,
+  .mod-aanbodkaart .space .row.active.cultuur .top div:after,
+  .mod-aanbodkaart .space .row.active.cultuur .bottom div, .mod-aanbodkaart .space .row.active.culture .bottom:after,
+  .mod-aanbodkaart .space .row.active.culture .col:after,
+  .mod-aanbodkaart .space .row.active.culture .top div:after,
+  .mod-aanbodkaart .space .row.active.culture .bottom div {
     background: #38ae00; }
   .mod-aanbodkaart .space .row.active.links.business .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.business-en .col.center .bar.links {
     background: #ff0000; }
@@ -7828,9 +7833,9 @@ section.mod-klapuit {
     background: #812990; }
     .mod-aanbodkaart .space .row.active.links.shops .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.shops-en .col.center .bar.links .circle {
       border-color: #812990; }
-  .mod-aanbodkaart .space .row.active.links.kunst .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.art .col.center .bar.links {
+  .mod-aanbodkaart .space .row.active.links.cultuur .col.center .bar.links, .mod-aanbodkaart .space .row.active.links.culture .col.center .bar.links {
     background: #38ae00; }
-    .mod-aanbodkaart .space .row.active.links.kunst .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.art .col.center .bar.links .circle {
+    .mod-aanbodkaart .space .row.active.links.cultuur .col.center .bar.links .circle, .mod-aanbodkaart .space .row.active.links.culture .col.center .bar.links .circle {
       border-color: #38ae00; }
   .mod-aanbodkaart .space .row.active.rechts.business .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.business .col .hbar, .mod-aanbodkaart .space .row.active.rechts.business .col .vbar, .mod-aanbodkaart .space .row.active.rechts.business-en .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.business-en .col .hbar, .mod-aanbodkaart .space .row.active.rechts.business-en .col .vbar {
     background: #ff0000; }
@@ -7864,13 +7869,13 @@ section.mod-klapuit {
     background: #812990; }
     .mod-aanbodkaart .space .row.active.rechts.shops .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.shops-en .col.right .bar.links .circle {
       border-color: #812990; }
-  .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar, .mod-aanbodkaart .space .row.active.rechts.art .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.art .col .hbar, .mod-aanbodkaart .space .row.active.rechts.art .col .vbar {
+  .mod-aanbodkaart .space .row.active.rechts.cultuur .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.cultuur .col .hbar, .mod-aanbodkaart .space .row.active.rechts.cultuur .col .vbar, .mod-aanbodkaart .space .row.active.rechts.culture .col .bar.rechts, .mod-aanbodkaart .space .row.active.rechts.culture .col .hbar, .mod-aanbodkaart .space .row.active.rechts.culture .col .vbar {
     background: #38ae00; }
-    .mod-aanbodkaart .space .row.active.rechts.kunst .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.kunst .col .vbar .circle, .mod-aanbodkaart .space .row.active.rechts.art .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.art .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.art .col .vbar .circle {
+    .mod-aanbodkaart .space .row.active.rechts.cultuur .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.cultuur .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.cultuur .col .vbar .circle, .mod-aanbodkaart .space .row.active.rechts.culture .col .bar.rechts .circle, .mod-aanbodkaart .space .row.active.rechts.culture .col .hbar .circle, .mod-aanbodkaart .space .row.active.rechts.culture .col .vbar .circle {
       border-color: #38ae00; }
-  .mod-aanbodkaart .space .row.active.rechts.kunst .col.right .bar.links, .mod-aanbodkaart .space .row.active.rechts.art .col.right .bar.links {
+  .mod-aanbodkaart .space .row.active.rechts.cultuur .col.right .bar.links, .mod-aanbodkaart .space .row.active.rechts.culture .col.right .bar.links {
     background: #38ae00; }
-    .mod-aanbodkaart .space .row.active.rechts.kunst .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.art .col.right .bar.links .circle {
+    .mod-aanbodkaart .space .row.active.rechts.cultuur .col.right .bar.links .circle, .mod-aanbodkaart .space .row.active.rechts.culture .col.right .bar.links .circle {
       border-color: #38ae00; }
   .mod-aanbodkaart .space .row .block {
     display: block;
@@ -8586,7 +8591,8 @@ body.opensidemenu .mod-mobilemenu {
     transition: all 0.6s ease-in-out;
     opacity: 1; }
   body.opensidemenu .mod-mobilemenu .top img {
-    transition-delay: 0.3s; }
+    transition-delay: 0.3s;
+    margin-bottom: 40px; }
   body.opensidemenu .mod-mobilemenu .top .third {
     transition-delay: 0.5s; }
   body.opensidemenu .mod-mobilemenu .bottom .menuextra, body.opensidemenu .mod-mobilemenu .bottom .followus {

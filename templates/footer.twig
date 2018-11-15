@@ -9,14 +9,14 @@
       </div>
       <div class="col-md-10 col-xl-5">
         <div class="footerblock">
-          <h5> {{ options.adres_titel }} </h5>
-          {{ options.adres }}
+          <h5> <span style="color: #0a334f"> . </span> </h5>
+          {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
         </div>
       </div>
       <div class="col-md-10 col-xl-5">
         <div class="footerblock">
-          <h5> {{ options.plan_titel }} </h5>
-          {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+          <h5> {{ options.adres_titel }} </h5>
+          {{ options.adres }}
         </div>
       </div>
       <div class="col-md-10 col-xl-5">

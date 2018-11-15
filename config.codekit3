@@ -9916,6 +9916,13 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/page-blanco.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/page-blanco.php",
+		"oF": 0
+		},
 	"/page-blog.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -10110,6 +10117,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/templates/page-aanbodkaart.twig",
+		"oF": 0
+		},
+	"/templates/page-blanco.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/page-blanco.twig",
 		"oF": 0
 		},
 	"/templates/page-frontpage.twig": {
