@@ -64,7 +64,6 @@ if ($posttype == 'evenementen') {
         $i = 0;
         while( $i < 3 ) {
             if( ( !isset($_GET['offset']) || intval( $_GET['offset'] ) == 0 ) && count( $agenda_arr['context']['evenementen'] ) > 0 ) {
-                die();
                 // Sanity date check
                 if( date( 'H', $agenda_arr['next_slot'] ) < 22 ) {
                     $agenda_evenementen_bak = $agenda_arr['context']['evenementen'];
