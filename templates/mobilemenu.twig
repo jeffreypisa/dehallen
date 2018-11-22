@@ -20,14 +20,11 @@
             <div class="menublock">
               <h3> {{ options.openingstijden_titel|upper }} </h3>
               {{ options.openingstijden }}
+              {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
             </div>
             <div class="menublock">
               <h3> {{ options.adres_titel|upper }} </h3>
               {{ options.adres }}
-            </div>
-            <div class="menublock">
-              <h3> {{ options.plan_titel|upper }} </h3>
-              {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
             </div>
           </div>
         </div>

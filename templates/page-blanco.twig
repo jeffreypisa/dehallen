@@ -1,0 +1,14 @@
+<html>
+	<head>
+  	{% include 'html-header.twig' %}
+  </head>
+  <body class="{{body_class}}">
+    <div id="content" role="main" class="content-wrapper">
+			<div class="container-fluid">
+				<h1> {{ post.title }}</h1>
+				{{ post.content }}
+	    </div>
+    </div>
+  </body>
+  {{ function('wp_footer') }}
+</html>
