@@ -6775,6 +6775,11 @@ body {
   color: #0a334f;
   letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased; }
+  body.page-template-page-blanco {
+    padding: 0; }
+
+.capitalizefirstletter:first-letter {
+  text-transform: uppercase; }
 
 textarea:focus,
 input:focus,
@@ -8591,7 +8596,8 @@ body.opensidemenu .mod-mobilemenu {
     transition: all 0.6s ease-in-out;
     opacity: 1; }
   body.opensidemenu .mod-mobilemenu .top img {
-    transition-delay: 0.3s; }
+    transition-delay: 0.3s;
+    margin-bottom: 40px; }
   body.opensidemenu .mod-mobilemenu .top .third {
     transition-delay: 0.5s; }
   body.opensidemenu .mod-mobilemenu .bottom .menuextra, body.opensidemenu .mod-mobilemenu .bottom .followus {

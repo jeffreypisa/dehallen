@@ -3,17 +3,17 @@
     min-height: 20px;
     .hbar {
       height: 6px;
-      background: $grey;
+      background: lighten($green, 30%);
       position: absolute;
       top: 50%;
       left: 0;
       right: -40px;
-      margin-top: -3px;
+      margin-top: -4px;
       transition: 0.3s ease-in-out;
     }
     .vbar {
       width: 6px;
-      background: $grey;
+      background: lighten($green, 30%);
       position: absolute;
       top: 25px;
       right: -40px;
@@ -21,7 +21,7 @@
       transition: 0.3s ease-in-out;
       &.boven {
         top: -60px;
-        bottom: 43px;
+        bottom: calc(50% + 10px)
       }
     }
     .center {
@@ -46,73 +46,73 @@
     }
   }
   .block.business, .block.business-en {
-    color: $color1;
-    border: 2px solid $color1;
+    background: $green;
+    color: #fff;
     &.active {
-      background: $color1;
+      background: $darkblue;
       color: #fff;
       &:hover {
-        background: darken($color1, 10%);
-        border-color: darken($color1, 10%);
+        background: darken($darkblue, 10%);
+        border-color: darken($darkblue, 10%);
       }
     }
   }
   .block.entertainment, .block.entertainment-en {
-    color: $color2;
-    border: 2px solid $color2;
+    background: $green;
+    color: #fff;
     &.active {
-      background: $color2;
+      background: $darkblue;
       color: #fff;
       &:hover {
-        background: darken($color2, 10%);
-        border-color: darken($color2, 10%);
+        background: darken($darkblue, 10%);
+        border-color: darken($darkblue, 10%);
       }
     }
   }
   .block.horeca, .block.eat-sleep {
-    color: $color3;
-    border: 2px solid $color3;
+    background: $green;
+    color: #fff;
     &.active {
-      background: $color3;
+      background: $darkblue;
       color: #fff;
       &:hover {
-        background: darken($color3, 10%);
-        border-color: darken($color3, 10%);
+        background: darken($darkblue, 10%);
+        border-color: darken($darkblue, 10%);
       }
     }
   }
   .block.shops, .block.shops-en {
-    color: $color4;
-    border: 2px solid $color4;
+    background: $green;
+    color: #fff;
     &.active {
-      background: $color4;
+      background: $darkblue;
       color: #fff;
       &:hover {
-        background: darken($color4, 10%);
-        border-color: darken($color4, 10%);
+        background: darken($darkblue, 10%);
+        border-color: darken($darkblue, 10%);
       }
     }
   }
   .block.cultuur, .block.culture {
-    color: $color5;
-    border: 2px solid $color5;
+    background: $green;
+    color: #fff;
     &.active {
-      background: $color5;
+      background: $darkblue;
       color: #fff;
       &:hover {
-        background: darken($color5, 10%);
-        border-color: darken($color5, 10%);
+        background: darken($darkblue, 10%);
+        border-color: darken($darkblue, 10%);
       }
     }
   }
   .top {
     position: relative;
     height: 90px;
-    border-bottom: 2px solid $grey;
+    border-bottom: 2px solid lighten($green, 30%);
     div {
       display: block;
       font-size: 16px;
-      color: $grey;
+      color: lighten($green, 30%);
       text-align: center;
       line-height: 20px;
       position: relative;
@@ -121,7 +121,7 @@
         height: 6px;
         width: 96px;
         position: absolute;
-        background: $grey;
+        background: lighten($green, 30%);
         bottom: -10px;
         left: 50%;
         margin-left: -48px;
@@ -131,7 +131,7 @@
     &:after {
       content: '';
       width: 5px;
-      background: $grey;
+      background: lighten($green, 30%);
       position: absolute;
       top: 50px;
       bottom: -36px;
@@ -142,13 +142,10 @@
   }
   .middle {
     min-height: 80px;
-    border-top: 2px solid $grey;
-    border-bottom: 2px solid $grey;
     span {
       display: block;
       width: 180px;
       font-size: 16px;
-      color: #d1d3d4;
       text-align: right;
       line-height: 20px;
       position: absolute;
@@ -160,21 +157,19 @@
   }
   .bottom {
     height: 60px;
-    border-top: 2px solid $grey;
     span {
       display: block;
       font-size: 16px;
-      color: #d1d3d4;
       text-align: center;
       line-height: 20px;
       position: relative;
-      padding-top: 50px;
+      padding-top: 60px;
       :after {
         content: '';
         height: 6px;
         width: 96px;
         position: absolute;
-        background: $grey;
+        background: lighten($green, 30%);
         bottom: -10px;
         left: 50%;
         margin-left: -48px;
@@ -185,7 +180,7 @@
       height: 6px;
       width: 96px;
       position: absolute;
-      background: $grey;
+      background: lighten($green, 30%);
       top: 42px;
       left: 50%;
       margin-left: -48px;
@@ -194,7 +189,7 @@
     &:after {
       content: '';
       width: 6px;
-      background: $grey;
+      background: lighten($green, 30%);
       position: absolute;
       top: -43px;
       height: 90px;
@@ -205,8 +200,14 @@
   }
   .space {
     margin-bottom: 30px;
+    .row:not(.aanbod) + .row {
+    	background: #e7ebee;
+    }
     .row {
       margin: 0;
+      &.aanbod {
+      	background: #e7ebee;
+      }
       .col {
         padding: 0;
       }
@@ -218,7 +219,7 @@
           .top div:after,
           .bottom:after,
           .bottom div {
-            background: $color1;
+            background: $green;
           }
         }
         &.entertainment, &.entertainment-en {
@@ -226,7 +227,7 @@
           .top div:after,
           .bottom:after,
           .bottom div {
-            background: $color2;
+            background: $green;
           }
         }
         &.horeca, &.eat-sleep {
@@ -234,7 +235,7 @@
           .top div:after,
           .bottom:after,
           .bottom div {
-            background: $color3;
+            background: $green;
           }
         }
         &.shops, &.shops-en {
@@ -242,7 +243,7 @@
           .top div:after,
           .bottom:after,
           .bottom div {
-            background: $color4;
+            background: $green;
           }
         }
         &.cultuur, &.culture {
@@ -250,16 +251,17 @@
           .col:after,
           .top div:after,
           .bottom div {
-            background: $color5;
+            background: $green;
           }
         }
         &.links {
           &.business, &.business-en {
             .col.center {
               .bar.links {
-                background: $color1;
+                background: $green;
                 .circle {
-                  border-color: $color1;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -267,9 +269,10 @@
           &.entertainment, &.entertainment-en {
             .col.center {
               .bar.links {
-                background: $color2;
+                background: $green;
                 .circle {
-                  border-color: $color2;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -277,9 +280,10 @@
           &.horeca, &.eat-sleep {
             .col.center {
               .bar.links {
-                background: $color3;
+                background: $green;
                 .circle {
-                  border-color: $color3;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -287,9 +291,10 @@
           &.shops, &.shops-en {
             .col.center {
               .bar.links {
-                background: $color4;
+                background: $green;
                 .circle {
-                  border-color: $color4;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -297,9 +302,10 @@
           &.cultuur, &.culture {
             .col.center {
               .bar.links {
-                background: $color5;
+                background: $green;
                 .circle {
-                  border-color: $color5;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -309,15 +315,17 @@
           &.business, &.business-en {
             .col {
               .bar.rechts, .hbar, .vbar {
-                background: $color1;
+                background: $green;
                 .circle {
-                  border-color: $color1;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
               &.right .bar.links {
-                background: $color1;
+                background: $green;
                 .circle {
-                  border-color: $color1;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -325,15 +333,17 @@
           &.entertainment, &.entertainment-en {
             .col {
               .bar.rechts, .hbar, .vbar {
-                background: $color2;
+                background: $green;
                 .circle {
-                  border-color: $color2;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
               &.right .bar.links {
-                background: $color2;
+                background: $green;
                 .circle {
-                  border-color: $color2;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -341,15 +351,17 @@
           &.horeca, &.eat-sleep {
             .col {
               .bar.rechts, .hbar, .vbar {
-                background: $color3;
+                background: $green;
                 .circle {
-                  border-color: $color3;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
               &.right .bar.links {
-                background: $color3;
+                background: $green;
                 .circle {
-                  border-color: $color3;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -357,15 +369,17 @@
           &.shops, &.shops-en {
             .col {
               .bar.rechts, .hbar, .vbar {
-                background: $color4;
+                background: $green;
                 .circle {
-                  border-color: $color4;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
               &.right .bar.links {
-                background: $color4;
+                background: $green;
                 .circle {
-                  border-color: $color4;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -373,15 +387,17 @@
           &.cultuur, &.culture {
             .col {
               .bar.rechts, .hbar, .vbar {
-                background: $color5;
+                background: $green;
                 .circle {
-                  border-color: $color5;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
               &.right .bar.links {
-                background: $color5;
+                background: $green;
                 .circle {
-                  border-color: $color5;
+                  border-color: $darkblue;
+                  background: #fff;
                 }
               }
             }
@@ -404,24 +420,13 @@
           margin-right: 20px;
         }
       }
-      .col.left {
-        border-left: 2px solid $grey;
-      }
-      .col.right {
-        border-right: 2px solid $grey;
-      }
-      .col.middle:nth-child(1) {
-        border-left: 2px solid #fff;
-      }
-      .col.middle:nth-child(3) {
-        border-right: 2px solid #fff;
-      }
+      
       .center {
         position: relative;
         &:after {
           content: '';
           width: 6px;
-          background: $grey;
+          background: lighten($green, 30%);
           position: absolute;
           top: -44px;
           bottom: 43px;
@@ -443,17 +448,17 @@
           top: 50%;
           height: 6px;
           margin-top: -12px;
-          background: $grey;
+          background: lighten($green, 30%);
           transition: 0.3s ease-in-out;
           .circle {
-            border: 6px solid $grey;
+            border: 6px solid lighten($green, 30%);
             border-radius: 100px;
             height: 26px;
             width: 26px;
             position: absolute;
             top: 50%;
             margin-top: -13px;
-            background: #fff;
+            background: #e6eaed;
             transition: 0.3s ease-in-out;
           }
           &.links {
