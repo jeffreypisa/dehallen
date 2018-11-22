@@ -80,6 +80,14 @@
             {% endif %} 
           </div>
         </div>
+        {% if posttype == 'evenementen' %} 
+        	<div class="data">
+        		ALLE DATA
+	        	<div class="row">
+	        		
+	        	</div>
+        	</div>
+        {% endif %}
         {% if posttype == 'post' %}
           <div class="mod-sharethis">
             <h4> {{ options.deel_dit }} {% if (categorie|lower == 'interviews') or (categorie|lower == 'interviews-en') %}INTERVIEW {% else %} {{ categorie | upper }} {% endif %} </h4>

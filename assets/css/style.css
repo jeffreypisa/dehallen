@@ -8089,7 +8089,9 @@ section.mod-klapuit {
     font-size: 16px;
     margin-bottom: 10px;
     width: 100%;
-    float: right; }
+    float: right;
+    height: 46px;
+    line-height: 50px; }
 
 @media (min-width: 768px) {
   .mod-eventfilter-agenda {
@@ -8774,7 +8776,11 @@ body.opensidemenu .mod-mobilemenu {
       font-size: 20px;
       line-height: 24px;
       font-weight: 600;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      border-bottom: 1px solid #aaa;
+      padding-bottom: 30px; }
+      .moviebox .body .film:last-child {
+        border-bottom: 0; }
       .moviebox .body .film h3 a {
         color: #46aa64;
         font-size: 30px;
@@ -8799,8 +8805,7 @@ body.opensidemenu .mod-mobilemenu {
           color: #46aa64;
           border-bottom: 2px solid #46aa64; }
       .moviebox .body .film a {
-        color: #0a334f;
-        margin-left: 28px; }
+        color: #0a334f; }
         .moviebox .body .film a:hover {
           text-decoration: none;
           border-bottom: 2px solid #46aa64; }

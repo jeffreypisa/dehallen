@@ -27,6 +27,7 @@
                         <label class="{{ item.slug }} {% if category.slug == item.slug %} active {% endif %}">
                           <input type="checkbox" name="category[]" value="{{ item.slug }}" />
                           {% include theme.url ~ '/templates/partials/svg/' ~ item.slug | lower ~ '.svg.twig' %}
+                          <div><span class="condensed"> {{ item.title }} </span></div>
                         </label>
                       </div>
                     {% endif %}
@@ -37,7 +38,7 @@
             <div class="buttonbar">
               <div class="row">
                 <div class="offset-md-15 col-md-4">
-                  <input type="submit" class="btn btn-primary" value="Plan">
+                  <input type="submit" class="btn btn-primary" value="{{ options.plan_bezoek }}">
                 </div>
               </div>
             </div>
