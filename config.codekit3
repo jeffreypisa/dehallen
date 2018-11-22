@@ -10280,11 +10280,18 @@
 		"oAP": "/templates/partials/socialmedia.twig",
 		"oF": 0
 		},
-	"/templates/partials/svg/art.svg.twig": {
+	"/templates/partials/svg/culture.svg.twig": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "/templates/partials/svg/art.svg.twig",
+		"oAP": "/templates/partials/svg/culture.svg.twig",
+		"oF": 0
+		},
+	"/templates/partials/svg/cultuur.svg.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/partials/svg/cultuur.svg.twig",
 		"oF": 0
 		},
 	"/templates/partials/svg/eat-sleep.svg.twig": {
@@ -10320,13 +10327,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/templates/partials/svg/kids.svg.twig",
-		"oF": 0
-		},
-	"/templates/partials/svg/kunst.svg.twig": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/templates/partials/svg/kunst.svg.twig",
 		"oF": 0
 		},
 	"/templates/partials/svg/market.svg.twig": {
