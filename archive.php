@@ -21,9 +21,11 @@ $posttype = $post->post_type;
 $context = Timber::get_context();
 
 // for 'now' functionality date and time in filter
-
+setlocale(LC_TIME, 'NL_nl');
 $context[ 'date_now' ] = date('d/m/Y');
-$context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
+date_default_timezone_set('Europe/Amsterdam');
+$context[ 'time_now' ] =  date('H:i', strtotime("now Europe/Amsterdam") );
+
 
 // Full date
 if(ICL_LANGUAGE_CODE==en){
