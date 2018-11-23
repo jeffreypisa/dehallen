@@ -31,7 +31,11 @@ $context['post'] = $post;
 // for 'now' functionality date and time in filter
 
 $context[ 'date_now' ] = date('d/m/Y');
-$context[ 'time_now' ] = date('H:i', strtotime('+2 hours'));
+// for 'now' functionality date and time in filter
+setlocale(LC_TIME, 'NL_nl');
+$context[ 'date_now' ] = date('d/m/Y');
+date_default_timezone_set('Europe/Amsterdam');
+$context[ 'time_now' ] =  date('H:i', strtotime("now Europe/Amsterdam") );
 
 /* Load evenementen vandaag */
 $today = date('Ymd');
