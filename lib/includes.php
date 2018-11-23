@@ -470,3 +470,31 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     )
     ;
 }
+
+
+if( have_rows('Sectie', 82) ) {
+    while ( have_rows('Sectie', 82) ) {
+        the_row();
+        
+        if( get_row_layout() == 'slider' ) {
+            echo 'tes';
+            if( has_sub_field('slider', 82)) {
+                $meta = get_metadata( 'post', 82 );
+                
+                $regex = '/(_)*Sectie_([0-9])+[_]slider[_]([0-9])+_slide/';
+                
+                $fields = array();
+                foreach ( $meta as $key => $val ) {
+                    if( preg_match_all( $regex, $key) ) {
+                        $fields[$key] = $val;
+                    }
+                }
+                // $amount = $meta['Sectie_0_slider'];
+                
+                print_r($fields);
+                
+            }
+        }
+    }
+}
+die();
