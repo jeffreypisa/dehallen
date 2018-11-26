@@ -8776,11 +8776,29 @@ body.opensidemenu .mod-mobilemenu {
       font-size: 20px;
       line-height: 24px;
       font-weight: 600;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       border-bottom: 1px solid #aaa;
-      padding-bottom: 30px; }
+      padding-bottom: 20px;
+      position: relative;
+      display: block; }
+      .moviebox .body .film:after {
+        position: absolute;
+        bottom: -1px;
+        left: -30px;
+        right: -30px;
+        border-bottom: 1px solid #ccc;
+        content: ''; }
+      .moviebox .body .film:before {
+        position: absolute;
+        top: -20px;
+        left: -30px;
+        right: -30px;
+        border-bottom: 1px solid #ccc;
+        content: ''; }
       .moviebox .body .film:last-child {
         border-bottom: 0; }
+      .moviebox .body .film i {
+        width: 30px; }
       .moviebox .body .film h3 a {
         color: #46aa64;
         font-size: 30px;
@@ -8834,6 +8852,8 @@ body.opensidemenu .mod-mobilemenu {
 @media (min-width: 768px) {
   .moviebox {
     margin-right: 0; }
+    .moviebox .body .film:after, .moviebox .body .film:before {
+      display: none; }
     .moviebox .buttons .location {
       width: calc(100% - 200px); }
     .moviebox .buttons .tickets {
