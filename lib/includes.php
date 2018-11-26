@@ -471,30 +471,72 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     ;
 }
 
+if ( false === ( $void = get_transient( 'mp_remove_home_old_slider' ) ) ) {
+    mp_remove_home_old_slider();
+    set_transient( 'mp_remove_home_old_slider', time(), 12 * HOUR_IN_SECONDS );
+}
 
-if( have_rows('Sectie', 82) ) {
-    while ( have_rows('Sectie', 82) ) {
-        the_row();
+
+function mp_remove_home_old_slider() {
+    $homepages = array( 82, 275 ); // Homepage ids, 82 = NL, 275 = EN
+    
+    foreach( $homepages as $homepageid ) {
         
-        if( get_row_layout() == 'slider' ) {
-            echo 'tes';
-            if( has_sub_field('slider', 82)) {
-                $meta = get_metadata( 'post', 82 );
-                
-                $regex = '/(_)*Sectie_([0-9])+[_]slider[_]([0-9])+_slide/';
-                
-                $fields = array();
-                foreach ( $meta as $key => $val ) {
-                    if( preg_match_all( $regex, $key) ) {
-                        $fields[$key] = $val;
+        if( have_rows('Sectie', $homepageid) ) {
+            while ( have_rows('Sectie', $homepageid) ) {
+                the_row();
+                if( get_row_layout() == 'slider' ) {
+                    if( has_sub_field('slider', $homepageid)) {
+                        $meta = get_metadata( 'post', $homepageid );
+                        
+                        $regex = '/(_)*Sectie_([0])+[_]slider[_]([0-9])+_slide/';
+                        
+                        $fields = array();
+                        foreach ( $meta as $key => $val ) {
+                            if( preg_match_all( $regex, $key) ) {
+                                $fields[$key] = $val;
+                            }
+                        }
+        
+                        $newfields = array();
+                        
+                        $today = date('Ymd');
+                        foreach( $fields as $field => $valarr ) {
+                            
+                            if( strpos( $field, 'Sectie') === 0 ) {
+                                
+                                $post = $valarr[0];
+                                $einddatum = get_post_meta( $post, 'einddatum', true);
+                                if( $einddatum > $today ) { // In the future?
+                                    $newfields[] = $post;
+                                }
+                            } else {
+                                $fieldkey = $valarr[0]; // Internal key , its the same for all fields
+                            }
+                        }
+                        
+                        // Remove all prev meta
+                        foreach( $fields as $key => $void ) {
+                            delete_post_meta( $homepageid, $key);
+                        }
+                        
+                        // Add new meta
+                        if( count( $newfields ) > 0 ) {
+                            $i = 0;
+                            foreach( $newfields as $field ) {
+                                add_post_meta( $homepageid, 'Sectie_0_slider_'.$i. '_slide', $field );
+                                add_post_meta( $homepageid, '_Sectie_0_slider_'.$i. '_slide', $fieldkey ); // Internal key
+                                $i++;
+                            }
+                        }
+                        
+                        // Update counter
+                        update_post_meta( $homepageid, 'Sectie_0_slider', $i );
                     }
                 }
-                // $amount = $meta['Sectie_0_slider'];
-                
-                print_r($fields);
-                
             }
         }
     }
 }
-die();
+
+
