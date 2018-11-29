@@ -487,7 +487,7 @@ function mp_get_all_dates_for_event( $event_id, $only_future_and_today = true ) 
         
         $event_datetime_posts[$post] = get_metadata( 'post', $post );
         if( $only_future_and_today ) {
-            if( $event_datetime_posts[$post]['datum'][0] < $today ) {
+            if( $event_datetime_posts[$post]['datum'][0] < $today && $event_datetime_posts[$post]['einddatum'][0] >= $today ) {
                unset( $event_datetime_posts[$post] );
             }
         }
