@@ -480,18 +480,19 @@ function mp_get_all_dates_for_event( $event_id, $only_future_and_today = true ) 
     
     $myrows = $wpdb->get_results( $sql );
     
-    $today = date('YMD');
+    $today = date('Ymd');
     $event_datetime_posts = array();
     foreach( $myrows as $row ) {
         $post = $row->post_id;
+        
         $event_datetime_posts[$post] = get_metadata( 'post', $post );
         if( $only_future_and_today ) {
             if( $event_datetime_posts[$post]['datum'][0] < $today ) {
-                unset( $event_datetime_posts[$post] );
+               unset( $event_datetime_posts[$post] );
             }
         }
     }
-
+    
     return $event_datetime_posts;
 }
 
