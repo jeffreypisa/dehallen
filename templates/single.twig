@@ -83,11 +83,12 @@
         {% if posttype == 'evenementen' %} 
         	<div class="data">
 	        	<div class="row">
-	        	
-	        		
-	        		{% for data in alldates %}
-	        			{{ data.datum }}
-	        		{% endfor %}
+	        	jkh
+						{% for date_id, data in alldates %}
+						khjg
+                {{ data.datum.0 }}
+                {{ data.evenement.0 }}
+            {% endfor %}
 	        	</div>
         	</div>
         {% endif %}
