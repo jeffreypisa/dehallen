@@ -85,8 +85,8 @@
 	        	<div class="row">
 	        	
 	        		
-	        		{% for data in alldates %}
-	        			{{ data.datum }}
+	        		{% for postid, data in alldates %}
+	        			{{ data.datum.0 }}
 	        		{% endfor %}
 	        	</div>
         	</div>
