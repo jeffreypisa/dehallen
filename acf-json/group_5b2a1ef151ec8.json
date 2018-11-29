@@ -18,6 +18,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
+    "modified": 1543507366,
     "fields": [
         {
             "key": "field_5b4870f8d229e",
@@ -138,6 +139,5 @@
             "default_value": "",
             "placeholder": ""
         }
-    ],
-    "modified": 1538727926
+    ]
 }
