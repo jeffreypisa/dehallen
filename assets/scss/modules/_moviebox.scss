@@ -105,7 +105,8 @@
     .body {
 	    .film {
 				&:after, &:before {
-					display: none;
+					left: 0;
+					right: 0;
 				}		    
 	    }
 		}

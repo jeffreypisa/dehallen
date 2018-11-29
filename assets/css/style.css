@@ -8853,7 +8853,8 @@ body.opensidemenu .mod-mobilemenu {
   .moviebox {
     margin-right: 0; }
     .moviebox .body .film:after, .moviebox .body .film:before {
-      display: none; }
+      left: 0;
+      right: 0; }
     .moviebox .buttons .location {
       width: calc(100% - 200px); }
     .moviebox .buttons .tickets {
