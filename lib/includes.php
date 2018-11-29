@@ -471,16 +471,28 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     ;
 }
 
-
-function mp_home_slider_post_object_result_add_date( $title, $post, $field, $post_id ) {
-    if( $post->ID ) {
-
-        $date = get_field( 'datum', $post->ID);
-        $dateunix = strtotime( get_field( 'datum', $post->ID) );
-        if( $date && $dateunix ) {
-            return date( 'd-M-Y' ,  $dateunix) .  ': '. $title;
+function mp_get_all_dates_for_event( $event_id, $only_future_and_today = true ) {
+    global $wpdb;
+    
+    // Serialized ..
+    // a:1:{i:0;s:4:"1086";}
+    $sql = $wpdb->prepare( 'SELECT post_id FROM '.$wpdb->postmeta. ' WHERE meta_key = %s AND meta_value = ', 'evenement' ). '\'a:1:{i:0;s:'.strlen($event_id).':"'.$event_id.'";}\'';
+    
+    $myrows = $wpdb->get_results( $sql );
+    
+    $today = date('Ymd');
+    $event_datetime_posts = array();
+    foreach( $myrows as $row ) {
+        $post = $row->post_id;
+        
+        $event_datetime_posts[$post] = get_metadata( 'post', $post );
+        if( $only_future_and_today ) {
+            if( !( $event_datetime_posts[$post]['datum'][0] <= $today && $event_datetime_posts[$post]['einddatum'][0] >= $today ) ) {
+               unset( $event_datetime_posts[$post] );
+            }
         }
     }
-    return $title;
+    
+    return $event_datetime_posts;
 }
-add_filter('acf/fields/post_object/result/key=field_5b2cfe6e8b795', 'mp_home_slider_post_object_result_add_date', 10, 4);
+
