@@ -37,6 +37,22 @@
       line-height: 40px;
     }
   }
+  .thisdate {
+	  color: $green;
+		margin-bottom: 40px;
+		margin-top: 0px;
+	  span {
+		  display: inline-block;
+		  margin: 5px 20px;
+	  }
+  }
+  .alldata {
+	  color: $green;
+	  .data {
+		  border-top: 1px solid $grey;
+		  padding-top: 10px;
+	  }
+  }
   .btn-zaalhuur {
     margin-top: -20px;
     margin-bottom: 60px;
@@ -45,6 +61,10 @@
 
 @include media-breakpoint-up(md) {
   .single {
+	  .thisdate {
+			margin-bottom: 70px;
+			margin-top: -40px;
+	  }
     .date {
       margin-top: -30px;
     }
