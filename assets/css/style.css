@@ -8786,7 +8786,6 @@ body.opensidemenu .mod-mobilemenu {
         bottom: -1px;
         left: -30px;
         right: -30px;
-        border-bottom: 1px solid #ccc;
         content: ''; }
       .moviebox .body .film:before {
         position: absolute;
