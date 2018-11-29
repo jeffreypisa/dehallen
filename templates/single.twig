@@ -82,9 +82,12 @@
         </div>
         {% if posttype == 'evenementen' %} 
         	<div class="data">
-        		ALLE DATA
 	        	<div class="row">
+	        	
 	        		
+	        		{% for data in alldates %}
+	        			{{ data.datum }}
+	        		{% endfor %}
 	        	</div>
         	</div>
         {% endif %}
