@@ -6900,11 +6900,28 @@ ul {
   font-size: 25px;
   line-height: 40px; }
 
+.single .thisdate {
+  color: #46aa64;
+  margin-bottom: 40px;
+  margin-top: 0px; }
+  .single .thisdate span {
+    display: inline-block;
+    margin: 5px 20px; }
+
+.single .alldata {
+  color: #46aa64; }
+  .single .alldata .data {
+    border-top: 1px solid #d1d3d4;
+    padding-top: 10px; }
+
 .single .btn-zaalhuur {
   margin-top: -20px;
   margin-bottom: 60px; }
 
 @media (min-width: 768px) {
+  .single .thisdate {
+    margin-bottom: 70px;
+    margin-top: -40px; }
   .single .date {
     margin-top: -30px; }
   .single .btn-zaalhuur {

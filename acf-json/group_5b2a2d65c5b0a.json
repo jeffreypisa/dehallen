@@ -20,6 +20,7 @@
     ],
     "active": 1,
     "description": "",
+    "modified": 1543507366,
     "fields": [
         {
             "key": "field_5b2a2d6b92e4f",
@@ -127,6 +128,5 @@
             "min": "",
             "max": ""
         }
-    ],
-    "modified": 1538727926
+    ]
 }
