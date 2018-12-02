@@ -119,13 +119,18 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
 
 define('DH_EVENTS_HOUR_OFFSET', 1);
 
-function get_args_event_datetime_equals_date( $date ) {
+function get_args_event_datetime_equals_date( $date, $exact = false ) {
     
     
     // Limit by DH_EVENTS_HOUR_OFFSET hours up front
     $next_slot = strtotime( $date. ' + '.DH_EVENTS_HOUR_OFFSET.' hours');
     
-
+    $operator_start = '=';
+    $operator_end = '=';
+    if( !$exact ) {
+        $operator_start = '<=';
+        $operator_end = '>=';
+    }
     
     
     $args_evenementen_datetime = array(
@@ -135,7 +140,7 @@ function get_args_event_datetime_equals_date( $date ) {
             'relation' => 'AND',
             'date1' => array(
                 'key' => 'datum',
-                'compare' => '<=',
+                'compare' => $operator_start,
                 'value' => $date
             ),
         ),
@@ -148,7 +153,7 @@ function get_args_event_datetime_equals_date( $date ) {
     $args_evenementen_datetime['meta_query']['date2'] =
     array(
         'key' => 'einddatum',
-        'compare' => '>=',
+        'compare' => $operator_end,
         'value' => date( 'Ymd', $next_slot),
     );
     
@@ -484,3 +489,87 @@ function mp_home_slider_post_object_result_add_date( $title, $post, $field, $pos
     return $title;
 }
 add_filter('acf/fields/post_object/result/key=field_5b2cfe6e8b795', 'mp_home_slider_post_object_result_add_date', 10, 4);
+
+
+/**
+ * Narrowcasting, all fields and ALL movies of today. But NO duplicate movies
+*/
+function narrowcasting_today() {
+    $film_excludes = array();
+    $slides = array();
+    if( have_rows('Sectie') ) {
+        while ( have_rows('Sectie') ) {
+            the_row();
+            if( get_row_layout() == 'slider' ) {
+                while ( have_rows('slider') ) {
+                    the_row();
+                    $tmp = get_sub_field('slide');
+                    //  $post_id = $tmp->ID;
+                    $tmp = get_field( 'evenement', $tmp->ID );
+                    $post_id = $tmp[0];
+                    
+                    // The actual event, NOT the datetime
+                    if( $post_id ) {
+                        $cats = wp_get_post_terms( $post_id, array( 'categorie' ) );
+                        $is_film = false;
+                        if( is_array( $cats ) && count( $cats ) > 0 ) {
+                            foreach( $cats as $cat ) {
+                                if( $cat->slug == 'film' ) {
+                                    $is_film = true;
+                                    $film_excludes[] = $post_id;
+                                }
+                            }
+                        }
+                        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => $is_film, 'source' => 'narrow_settings', );
+                    }
+                }
+            }
+        }
+    }
+    
+    // Get all movies today, excluding the ones already in list
+    $today = date('Ymd');
+    $date = $today;
+    
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date, true );
+    
+    $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
+        'post__not_in' => $film_excludes,
+    );
+    $args_event['tax_query'] = array(
+        array(
+            'taxonomy' => 'categorie',
+            'field'    => 'term_id',
+            'terms'    => 4, // 4 =film
+            'operator'    => 'IN',
+        )
+    );
+    
+    $search_posts = array();
+    if( is_array( $tax_query_results->posts ) && count( $tax_query_results->posts ) > 0 ) {
+        foreach( $tax_query_results->posts as $parent_id ) {
+            if( $parent_id != $currentID ) {
+                $search_posts[] = serialize(array("$parent_id"));
+            }
+        }
+    }
+    
+    $args_evenementen_datetime['meta_query']['parents'] =
+    array(
+        'key' => 'evenement',
+        'compare' => 'IN',
+        'value' => $search_posts,
+    );
+    
+    $events = Timber::get_posts( $args_evenementen_datetime );
+    
+    foreach( $events as $filmdatetime ) {
+        $post_id = $filmdatetime->custom['evenement'][0];
+        
+        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => true, 'source' => 'narrow_query_today', );
+    }
+    return $slides;
+}
+/**
+ * /Narrowcasting, all fields and ALL movies of today. But NO duplicate movies
+ */
