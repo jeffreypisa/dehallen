@@ -163,9 +163,11 @@ $args_event['tax_query'] = array(
 $tax_query_results = new WP_Query( $args_event );
 
 $search_posts = array();
-foreach( $tax_query_results->posts as $parent_id ) {
-    if( $parent_id != $currentID ) {
-        $search_posts[] = serialize(array("$parent_id"));
+if( is_array( $tax_query_results->posts ) && count( $tax_query_results->posts ) > 0 ) {
+    foreach( $tax_query_results->posts as $parent_id ) {
+        if( $parent_id != $currentID ) {
+            $search_posts[] = serialize(array("$parent_id"));
+        }
     }
 }
 
@@ -200,9 +202,11 @@ if( $morgen_notspecial_count > 0 ) {
     $tax_query_results = new WP_Query( $args_event );
     
     $search_posts = array();
-    foreach( $tax_query_results->posts as $parent_id ) {
-        if( $parent_id != $currentID ) {
-            $search_posts[] = serialize(array("$parent_id"));
+    if( is_array( $tax_query_results->posts ) && count( $tax_query_results->posts ) > 0 ) {
+        foreach( $tax_query_results->posts as $parent_id ) {
+            if( $parent_id != $currentID ) {
+                $search_posts[] = serialize(array("$parent_id"));
+            }
         }
     }
     
