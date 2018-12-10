@@ -500,7 +500,7 @@ function narrowcasting_today() {
     if( have_rows('Sectie') ) {
         while ( have_rows('Sectie') ) {
             the_row();
-            if( get_row_layout() == 'slider' ) {
+            if( get_row_layout() == 'narrowcaster' ) {
                 while ( have_rows('slider') ) {
                     the_row();
                     $tmp = get_sub_field('slide');
