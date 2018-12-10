@@ -107,7 +107,54 @@ if ($posttype == 'locaties' || $posttype == 'post' || $posttype == 'evenementen'
 } 
 
 if ($posttype == 'evenementen') {
-  $context['locatie'] = get_field('locatie');
+    $context['locatie'] = get_field('locatie');
+    
+    $all_dates = mp_get_all_dates_for_event( $post->ID );
+    
+    $context['alldates'] = $all_dates;
+    /*
+Array
+(
+    [1877] => Array
+        (
+            [datum] => Array
+                (
+                    [0] => 20190219
+                )
+            [begintijd] => Array
+                (
+                    [0] => 20:00:00
+                )
+            [eindtijd] => Array
+                (
+                    [0] => 23:00:00
+                )
+
+            [_eindtijd] => Array
+                (
+                    [0] => field_5b2a1f2ce33dc
+                )
+
+            [doorlopend_event] => Array
+                (
+                    [0] => 0
+                )
+            [_internal_run] => Array
+                (
+                    [0] => 1540821799
+                )
+
+            [evenement] => Array
+                (
+                    [0] => a:1:{i:0;s:4:"1086";}
+                )
+            [einddatum] => Array
+                (
+                    [0] => 20190219
+                )
+        )
+)
+     */
 }
 
 if ( post_password_required( $post->ID ) ) {

@@ -83,7 +83,7 @@
             "name": "datum",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -100,7 +100,7 @@
             "name": "einddatum",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -163,5 +163,5 @@
             "ui_off_text": ""
         }
     ],
-    "modified": 1538727926
+    "modified": 1543507274
 }
