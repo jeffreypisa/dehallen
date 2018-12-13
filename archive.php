@@ -47,17 +47,37 @@ if ($posttype == 'evenementen') {
         $_GET['offset'] = 0;
     }
     
+    $offset = (isset($_GET['offset']) ) ? intval( $_GET['offset'] ) : 0;
+    
     $agenda_arr = archive_agenda( $context );
-    
-    $offset = intval( $_GET['offset'] );
-    
+        
     if( count( $agenda_arr['context']['evenementen'] ) == 0 ) {
         
         $tries = 0;
-        while( date( 'H', $agenda_arr['next_slot'] ) < 22 && count( $agenda_arr['context']['evenementen'] ) == 0  ) {
+        
+        while( date( 'H', $agenda_arr['next_slot'] ) < 22 && count( $agenda_arr['context']['evenementen'] ) == 0 ) {
             $offset = $agenda_arr['offset'];
             $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
+            
             $tries++;
+        }
+        
+        // Repeat 4 times only for non-AJAX
+        $i = 0;
+        while( $i < 3 ) {
+            if( ( !isset($_GET['offset']) || intval( $_GET['offset'] ) == 0 ) && count( $agenda_arr['context']['evenementen'] ) > 0 ) {
+                // Sanity date check
+                if( false && date( 'H', $agenda_arr['next_slot'] ) < 22 ) {
+                    $agenda_evenementen_bak = $agenda_arr['context']['evenementen'];
+                    
+                    $offset = $agenda_arr['offset'];
+                    $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
+                    $tries++;
+                    
+                    $agenda_arr['context']['evenementen'] = array_merge( $agenda_evenementen_bak, $agenda_arr['context']['evenementen'] );
+                }
+            }
+            $i++;
         }
         $context = $agenda_arr['context'];
     } else {
