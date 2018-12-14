@@ -492,13 +492,21 @@ function mp_get_all_dates_for_event( $event_id, $only_future_and_today = true ) 
         
         $event_datetime_posts[$post] = get_metadata( 'post', $post );
         if( $only_future_and_today ) {
-            if( !( $event_datetime_posts[$post]['datum'][0] <= $today && $event_datetime_posts[$post]['einddatum'][0] >= $today ) ) {
+            if( !( $event_datetime_posts[$post]['einddatum'][0] >= $today ) ) {
                 unset( $event_datetime_posts[$post] );
             }
         }
     }
+  
+    // Sort on date (start)
+    usort($event_datetime_posts, 'sortbydatestart');
     
     return $event_datetime_posts;
+}
+
+
+function sortbydatestart($a, $b) {
+    return strcmp($a['datum'][0], $b['datum'][0]);
 }
 
 function mp_home_slider_post_object_result_add_date( $title, $post, $field, $post_id ) {
