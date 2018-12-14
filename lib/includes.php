@@ -536,9 +536,11 @@ function narrowcasting_today() {
                 while ( have_rows('slider') ) {
                     the_row();
                     $tmp = get_sub_field('slide');
-                    //  $post_id = $tmp->ID;
-                    $tmp = get_field( 'evenement', $tmp->ID );
-                    $post_id = $tmp[0];
+                    
+                    $event_datetimemeta = get_metadata( 'post', $tmp->ID  );
+                    $post_id = maybe_unserialize( $event_datetimemeta['evenement'][0] );
+                    $post_id = $post_id[0];
+                    
                     
                     // The actual event, NOT the datetime
                     if( $post_id ) {
@@ -552,7 +554,10 @@ function narrowcasting_today() {
                                 }
                             }
                         }
-                        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => $is_film, 'source' => 'narrow_settings', );
+                        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => $is_film, 'source' => 'narrow_settings', 
+                            'datum' => $event_datetimemeta['datum'][0],
+                            'einddatum' => $event_datetimemeta['einddatum'][0],
+                        );
                     }
                 }
             }
@@ -599,8 +604,12 @@ function narrowcasting_today() {
     foreach( $events as $filmdatetime ) {
         $post_id = $filmdatetime->custom['evenement'][0];
         
-        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => true, 'source' => 'narrow_query_today', );
+        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => true, 'source' => 'narrow_query_today', 
+            'datum' => $today,
+            'einddatum' => $today,
+        );
     }
+        
     return $slides;
 }
 /**
