@@ -55,7 +55,7 @@ if ($posttype == 'evenementen') {
         
         $tries = 0;
         
-        while( date( 'H', $agenda_arr['next_slot'] ) < 22 && count( $agenda_arr['context']['evenementen'] ) == 0 ) {
+        while( date( 'H', $agenda_arr['next_slot'] ) < 7 && count( $agenda_arr['context']['evenementen'] ) == 0 ) {
             $offset = $agenda_arr['offset'];
             $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
             
@@ -67,7 +67,7 @@ if ($posttype == 'evenementen') {
         while( $i < 3 ) {
             if( ( !isset($_GET['offset']) || intval( $_GET['offset'] ) == 0 ) && count( $agenda_arr['context']['evenementen'] ) > 0 ) {
                 // Sanity date check
-                if( false && date( 'H', $agenda_arr['next_slot'] ) < 22 ) {
+                if( false && date( 'H', $agenda_arr['next_slot'] ) < 7 ) {
                     $agenda_evenementen_bak = $agenda_arr['context']['evenementen'];
                     
                     $offset = $agenda_arr['offset'];
