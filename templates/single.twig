@@ -48,11 +48,17 @@
 			        		</span>
 	      					<span>
 										<i class="fal fa-clock"></i>
-			        			{{ data.begintijd.0|date("H:i") }} {% if data.eindtijd.0 %} {{ options.tm }} {{ data.eindtijd.0|date("H:i") }} {% endif %}
+			        			{{ data.begintijd.0|date("H:i") }} 
+							{% if data.eindtijd.0 %} 
+								{{ options.tm }} {{ data.eindtijd.0|date("H:i") }} 
+							{% endif %}
 			        		</span>
 	    						<span>
 	    							<i class="fal fa-calendar"></i> 
-	    							{{ data.datum.0|date("l d F") }} {% if data.doorlopend_event.0 %} t/m {{ data.einddatum.0|date("l d F") }} {% endif %}
+	    							{{ data.datum.0|date("l d F") }} 
+							{% if data.doorlopend_event.0 and data.datum.0 != data.einddatum.0 %} 
+								t/m {{ data.einddatum.0|date("l d F") }} 
+							{% endif %}
 	    						</span>
 	    						{% if post.ticketlink %}
 	      						<span>
