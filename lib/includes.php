@@ -512,8 +512,14 @@ function sortbydatestart($a, $b) {
 function mp_home_slider_post_object_result_add_date( $title, $post, $field, $post_id ) {
     if( $post->ID ) {
         
-        $date = get_field( 'datum', $post->ID);
-        $dateunix = strtotime( get_field( 'datum', $post->ID) );
+        $date = get_post_meta( $post->ID, 'datum', true );
+
+	$year = substr( $date, 0, 4 );
+	$month = substr( $date, 4, 2 );
+	$day = substr( $date, 6, 2 );
+
+        $dateunix = strtotime( $year. '-'.$month. '-'.$day );
+
         if( $date && $dateunix ) {
             return date( 'd-M-Y' ,  $dateunix) .  ': '. $title;
         }
