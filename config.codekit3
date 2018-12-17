@@ -9930,6 +9930,13 @@
 		"oAP": "/page-blog.php",
 		"oF": 0
 		},
+	"/page-narrowcasting.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/page-narrowcasting.php",
+		"oF": 0
+		},
 	"/page.php": {
 		"cB": 0,
 		"ft": 8192,
