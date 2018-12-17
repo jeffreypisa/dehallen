@@ -20,7 +20,7 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543507275,
+    "modified": 1545054355,
     "fields": [
         {
             "key": "field_59d4b03817782",
@@ -564,6 +564,59 @@
                             "ui": 0,
                             "ui_on_text": "",
                             "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5c000eb34e052": {
+                    "key": "layout_5c000eb34e052",
+                    "name": "narrowcaster",
+                    "label": "Narrowcaster",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5c000eb34e053",
+                            "label": "Slider",
+                            "name": "slider",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5c000eb34e054",
+                                    "label": "Slide",
+                                    "name": "slide",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "evenementen_datetime"
+                                    ],
+                                    "taxonomy": "",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "return_format": "object",
+                                    "ui": 1
+                                }
+                            ]
                         }
                     ],
                     "min": "",
