@@ -18,6 +18,9 @@
     
   {% elseif item.acf_fc_layout == 'slider' %}
     {% include 'pagebuilder/slider.twig' %}
+   
+  {% elseif item.acf_fc_layout == 'narrowcaster' %}
+    {% include 'pagebuilder/narrowcaster.twig' %}
   
   {% elseif item.acf_fc_layout == 'blocks' %}
     {% include 'pagebuilder/blocks.twig' %}

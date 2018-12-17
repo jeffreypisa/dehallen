@@ -10154,13 +10154,6 @@
 		"oAP": "/templates/page.twig",
 		"oF": 0
 		},
-	"/templates/pagebuilder.twig": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/templates/pagebuilder.twig",
-		"oF": 0
-		},
 	"/templates/pagebuilder/blocks.twig": {
 		"cB": 0,
 		"ft": 8192,
