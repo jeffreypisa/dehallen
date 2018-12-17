@@ -29,9 +29,9 @@
                 <div class="datetime">{{ evenementdata.type_evenement | lower }} </div>
               {% endif %}
               <div class="datetime">
-                {{ slide.slide.datum|date("l d F") }}
-                {% if (slide.slide.einddatum) and (slide.slide.datum != slide.slide.einddatum) %}
-                  {{ options.tm }} <br> {{ slide.slide.einddatum|date("l d F") }}
+                {{ evenementdata.datum|date("l d F") }}
+                {% if (evenementdata.einddatum) and (evenementdata.datum != evenementdata.einddatum) %}
+                  {{ options.tm }} <br> {{ evenementdata.einddatum|date("l d F") }}
                 {% endif %}
               </div>
               <div class="locatie condensed">
