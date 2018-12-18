@@ -527,6 +527,7 @@ function mp_home_slider_post_object_result_add_date( $title, $post, $field, $pos
     return $title;
 }
 add_filter('acf/fields/post_object/result/key=field_5b2cfe6e8b795', 'mp_home_slider_post_object_result_add_date', 10, 4);
+add_filter('acf/fields/post_object/result/key=field_5c000eb34e054', 'mp_home_slider_post_object_result_add_date', 10, 4);
 
 
 /**
