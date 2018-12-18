@@ -625,14 +625,14 @@ function narrowcasting_today() {
 
 
 
-
-
+/**
+ * Remove old sliders
+ */
 if ( false === ( $void = get_transient( 'mp_remove_home_old_slider' ) ) ) {
     mp_remove_home_old_slider();
+    mp_remove_narrowcaster_old_slider();
     set_transient( 'mp_remove_home_old_slider', time(), 12 * HOUR_IN_SECONDS );
 }
-
-
 function mp_remove_home_old_slider() {
     $homepages = array( 82, 275 ); // Homepage ids, 82 = NL, 275 = EN
     
@@ -655,7 +655,7 @@ function mp_remove_home_old_slider() {
                         }
                         
                         $newfields = array();
-                        
+
                         $today = date('Ymd');
                         foreach( $fields as $field => $valarr ) {
                             
@@ -694,3 +694,68 @@ function mp_remove_home_old_slider() {
         }
     }
 }
+function mp_remove_narrowcaster_old_slider() {
+    $narrowcaster = array( 511 ); // Narrowcaster ids, 511 = NL, xxx = EN
+    
+    foreach( $narrowcaster as $narrowcasterpageid ) {
+        
+        if( have_rows('Sectie', $narrowcasterpageid) ) {
+            while ( have_rows('Sectie', $narrowcasterpageid) ) {
+                the_row();
+                if( get_row_layout() == 'slider' ) {
+                    if( has_sub_field('slider', $narrowcasterpageid)) {
+                        $meta = get_metadata( 'post', $narrowcasterpageid );
+                        
+                        $regex = '/(_)*Sectie_([0])+[_]slider[_]([0-9])+_slide/';
+                        
+                        $fields = array();
+                        foreach ( $meta as $key => $val ) {
+                            if( preg_match_all( $regex, $key) ) {
+                                $fields[$key] = $val;
+                            }
+                        }
+
+                        $newfields = array();
+                        
+                        $today = date('Ymd');
+                        foreach( $fields as $field => $valarr ) {
+                            
+                            if( strpos( $field, 'Sectie') === 0 ) {
+                                
+                                $post = $valarr[0];
+                                $einddatum = get_post_meta( $post, 'einddatum', true);
+                                echo "$einddatum > $today";
+                                if( $einddatum > $today ) { // In the future?
+                                    $newfields[] = $post;
+                                }
+                            } else {
+                                $fieldkey = $valarr[0]; // Internal key , its the same for all fields
+                            }
+                        }
+                        
+                        // Remove all prev meta
+                        foreach( $fields as $key => $void ) {
+                            delete_post_meta( $narrowcasterpageid, $key);
+                        }
+                        
+                        // Add new meta
+                        if( count( $newfields ) > 0 ) {
+                            $i = 0;
+                            foreach( $newfields as $field ) {
+                                add_post_meta( $narrowcasterpageid, 'Sectie_0_slider_'.$i. '_slide', $field );
+                                add_post_meta( $narrowcasterpageid, '_Sectie_0_slider_'.$i. '_slide', $fieldkey ); // Internal key
+                                $i++;
+                            }
+                        }
+                        
+                        // Update counter
+                        update_post_meta( $narrowcasterpageid, 'Sectie_0_slider', $i );
+                    }
+                }
+            }
+        }
+    }
+}
+/**
+ * /Remove old sliders
+ */
