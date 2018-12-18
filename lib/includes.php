@@ -85,22 +85,27 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
             $args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
             $main_event = Timber::get_posts( $args_event );
             
-            $events_datetimes[ $single_id ] = $main_event[0];
+           
             
-            if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
-                if( !is_object($events_datetimes[ $single_id ]) ) {
-                    $events_datetimes[ $single_id ] = new \stdClass();
+            if( is_array( $main_event) && count( $main_event ) == 1 ) {
+            
+                $events_datetimes[ $single_id ] = $main_event[0];
+                
+                if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
+                    if( !is_object($events_datetimes[ $single_id ]) ) {
+                        $events_datetimes[ $single_id ] = new \stdClass();
+                    }
+                    $events_datetimes[ $single_id ]->custom = array( );
                 }
-                $events_datetimes[ $single_id ]->custom = array( );
+                
+                
+                if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
+                    $tmptime = explode( ':', $timestart );
+                    $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
+                }
+                
+                $events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
             }
-            
-            
-            if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
-                $tmptime = explode( ':', $timestart );
-                $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
-            }
-            
-            $events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
         }
         
         
@@ -438,7 +443,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
      print_r($events_continuous);die();
      */
     $context['evenementen'] = array_merge( $events , $events_continuous);
-    
+    if( false && count( $events_continuous ) && count( $events ) ) {
+        print_r( $events );
+        print_r( $events_continuous );
+        die();
+    }
     
     if( $dh_is_ajax ) {
         
