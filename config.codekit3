@@ -9930,6 +9930,13 @@
 		"oAP": "/page-blog.php",
 		"oF": 0
 		},
+	"/page-narrowcasting.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/page-narrowcasting.php",
+		"oF": 0
+		},
 	"/page.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -10201,6 +10208,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/templates/pagebuilder/klapuit.twig",
+		"oF": 0
+		},
+	"/templates/pagebuilder/narrowcaster.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/pagebuilder/narrowcaster.twig",
 		"oF": 0
 		},
 	"/templates/pagebuilder/pageheader.twig": {

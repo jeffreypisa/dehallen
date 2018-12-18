@@ -6900,11 +6900,28 @@ ul {
   font-size: 25px;
   line-height: 40px; }
 
+.single .thisdate {
+  color: #46aa64;
+  margin-bottom: 40px;
+  margin-top: 0px; }
+  .single .thisdate span {
+    display: inline-block;
+    margin: 5px 20px; }
+
+.single .alldata {
+  color: #46aa64; }
+  .single .alldata .data {
+    border-top: 1px solid #d1d3d4;
+    padding-top: 10px; }
+
 .single .btn-zaalhuur {
   margin-top: -20px;
   margin-bottom: 60px; }
 
 @media (min-width: 768px) {
+  .single .thisdate {
+    margin-bottom: 70px;
+    margin-top: -40px; }
   .single .date {
     margin-top: -30px; }
   .single .btn-zaalhuur {
@@ -8769,18 +8786,35 @@ body.opensidemenu .mod-mobilemenu {
   margin-left: -25px;
   margin-right: -25px; }
   .moviebox .body {
-    padding: 40px 30px;
+    padding: 40px 30px 0;
     background: #e6e7e8; }
     .moviebox .body .film {
       color: #0a334f;
       font-size: 20px;
       line-height: 24px;
       font-weight: 600;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       border-bottom: 1px solid #aaa;
-      padding-bottom: 30px; }
+      padding-bottom: 20px;
+      position: relative;
+      display: block; }
+      .moviebox .body .film:after {
+        position: absolute;
+        bottom: -1px;
+        left: -30px;
+        right: -30px;
+        content: ''; }
+      .moviebox .body .film:before {
+        position: absolute;
+        top: -20px;
+        left: -30px;
+        right: -30px;
+        border-bottom: 1px solid #ccc;
+        content: ''; }
       .moviebox .body .film:last-child {
         border-bottom: 0; }
+      .moviebox .body .film i {
+        width: 30px; }
       .moviebox .body .film h3 a {
         color: #46aa64;
         font-size: 30px;
@@ -8834,6 +8868,9 @@ body.opensidemenu .mod-mobilemenu {
 @media (min-width: 768px) {
   .moviebox {
     margin-right: 0; }
+    .moviebox .body .film:after, .moviebox .body .film:before {
+      left: 0;
+      right: 0; }
     .moviebox .buttons .location {
       width: calc(100% - 200px); }
     .moviebox .buttons .tickets {

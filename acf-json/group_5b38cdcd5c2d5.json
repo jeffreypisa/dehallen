@@ -56,6 +56,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
+    "modified": 1545054354,
     "fields": [
         {
             "key": "field_5b38cdd2c91b8",
@@ -81,6 +82,5 @@
             "max_size": "",
             "mime_types": ""
         }
-    ],
-    "modified": 1538727926
+    ]
 }

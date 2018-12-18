@@ -37,6 +37,41 @@
 		<section class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<div class="container">
 			  <h1 class="text-center {% if posttype == 'locaties' %} condensed {% endif %}"> {{ post.title }} </h1>
+			  {% if posttype == 'evenementen' %}
+			  	<div class="thisdate text-center">
+						{% for postid, data in alldates %}
+							{% if loop.first %}
+	      				<div class="data">
+	      					<span class="condensed">
+										<i class="fal fa-map-marker-alt"></i>
+										{{ locatie.post_title|upper }}
+			        		</span>
+	      					<span>
+										<i class="fal fa-clock"></i>
+			        			{{ data.begintijd.0|date("H:i") }} 
+							{% if data.eindtijd.0 %} 
+								{{ options.tm }} {{ data.eindtijd.0|date("H:i") }} 
+							{% endif %}
+			        		</span>
+	    						<span>
+	    							<i class="fal fa-calendar"></i> 
+	    							{{ data.datum.0|date("l d F") }} 
+							{% if data.doorlopend_event.0 and data.datum.0 != data.einddatum.0 %} 
+								t/m {{ data.einddatum.0|date("l d F") }} 
+							{% endif %}
+	    						</span>
+	    						{% if post.ticketlink %}
+	      						<span>
+	    								<i class="fal fa-ticket-alt"></i>
+	    								<a href="{{ post.ticketlink }}"> Tickets </a> 
+										</span>
+	    						{% endif %}
+	      				</div>
+	      			{% endif %}
+        		{% endfor %}
+        		<div class="clearfix"></div>
+			  	</div>
+				{% endif %}
 			  {% if posttype == 'post' %}
           <div class="date small"> 
             {% if post.date %}
@@ -49,7 +84,8 @@
             {% endif %}
           </div> 
         {% else %}
-  			  {% if post.date or post.begintijd or post.eindtijd %}
+  				{% if post.date or post.begintijd or post.eindtijd %}
+  			  	<div class="clearfix"></div>
             <div class="date"> 
               {% if post.datum %}
                 {{ post.datum|date("d M Y") }} <br>
@@ -80,13 +116,61 @@
             {% endif %} 
           </div>
         </div>
-        {% if posttype == 'evenementen' %} 
-        	<div class="data">
-        		ALLE DATA
+        {% if (posttype == 'evenementen') and (alldates|length > 1)  %}
+        	<div class="row">
+	          <div class="col-md-10 offset-lg-1 col-lg-9 col-xl-12">
+		        	<div class="data">
+		        		<br>
+		        		ALLE DATA 
+		        		<br> <br>
+	        		</div>
+						</div>
+					</div>
+					<div class="alldata">
+						<div class="clearfix"></div>
 	        	<div class="row">
-	        		
+	        		{% for postid, data in alldates %}
+	        			<div class="col-md-10 col-xl-5">
+	        				<div class="data">
+										<div class="row">
+		        					<div class="col-auto" style="width: 20px;">
+		        						<i class="fal fa-map-marker-alt"></i>
+		        					</div>
+		        					<div class="col">
+												<span class="condensed">{{ locatie.post_title|upper }}</span>
+		        					</div>
+		        				</div>
+		        				<div class="row">
+		        					<div class="col-auto" style="width: 20px;">
+		        						<i class="fal fa-calendar"></i>
+		        					</div>
+		        					<div class="col">
+												{{ data.datum.0|date("l d F") }} {% if data.doorlopend_event.0 %} {{ options.tm }} {{ data.einddatum.0|date("l d F") }} {% endif %}
+		        					</div>
+		        				</div>
+		        				<div class="row">
+		        					<div class="col-auto" style="width: 20px;">
+												<i class="fal fa-clock"></i>
+		        					</div>
+		        					<div class="col">
+					        			{{ data.begintijd.0|date("H:i") }} {% if data.eindtijd.0 %} - {{ data.eindtijd.0|date("H:i") }} {% endif %}
+		        					</div>
+		        				</div>
+		        				{% if post.ticketlink %}
+			        				<div class="row">
+			        					<div class="col-auto" style="width: 20px;">
+													<i class="fal fa-ticket-alt"></i>
+			        					</div>
+			        					<div class="col">
+						        			<a href="{{ post.ticketlink }}"> Tickets </a> 
+			        					</div>
+			        				</div>
+			        			{% endif %}
+	        				</div>
+	        			</div>
+	        		{% endfor %}
 	        	</div>
-        	</div>
+	        </div>
         {% endif %}
         {% if posttype == 'post' %}
           <div class="mod-sharethis">

@@ -1,11 +1,11 @@
 <?php
 function add_theme_scripts() {
-	if (!is_page_template('page-blanco.php')) { 
-    wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css');
-    wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.1, true);
-  }
+    if (!is_page_template('page-blanco.php')) {
+        wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css');
+        wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.1, true);
+    }
 }
-  
+
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 
@@ -36,38 +36,38 @@ function mp_pmxi_update_post_meta($pid, $m_key, $m_value) {
 
 add_action('pmxi_saved_post', 'mp_pmxi_saved_post', 10, 1);
 function mp_pmxi_saved_post( $pid ) {
-	global $wpdb;
-
-	// Set ACF image
-	$image_id = get_post_meta( $pid, '_thumbnail_id', true);
-	if( $image_id ) {
-	    update_post_meta( $pid, 'afbeelding', $image_id );
-	}
-	
-	
-	
-	/* 
-	 * Cleanup
-	 */
-	$parent_guid = get_post_meta( $pid, '_parent_guid', true);
-	$_internal_run = get_post_meta( $pid, '_internal_run', true);
+    global $wpdb;
     
-	$sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
+    // Set ACF image
+    $image_id = get_post_meta( $pid, '_thumbnail_id', true);
+    if( $image_id ) {
+        update_post_meta( $pid, 'afbeelding', $image_id );
+    }
     
-	$myrows = $wpdb->get_results( $sql );
-	foreach( $myrows as $row ) {
-		wp_delete_post( $row->post_id );
-	}
-	/*
-	 * /Cleanup
-	 */
-	
+    
+    
+    /*
+     * Cleanup
+     */
+    $parent_guid = get_post_meta( $pid, '_parent_guid', true);
+    $_internal_run = get_post_meta( $pid, '_internal_run', true);
+    
+    $sql = $wpdb->prepare( "SELECT guid_link.post_id FROM (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` = %s AND meta_key = '_parent_guid') AS guid_link JOIN (SELECT post_id FROM `".$wpdb->postmeta."` WHERE `meta_value` < %d AND meta_key = '_internal_run') AS time_link ON guid_link.post_id = time_link.post_id", $parent_guid, $_internal_run );
+    
+    $myrows = $wpdb->get_results( $sql );
+    foreach( $myrows as $row ) {
+        wp_delete_post( $row->post_id );
+    }
+    /*
+     * /Cleanup
+     */
+    
 }
 
 
 /**
  * Migrate from evenementen_datetime to evenementen array
- * 
+ *
  * @param unknown $events_datetimes
  * @param $timestart
  * @return array
@@ -77,30 +77,30 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
     if( is_array( $events_datetimes ) && count( $events_datetimes ) > 0 ) {
         
         $tmp = wp_list_pluck( $events_datetimes, 'custom' );
-
+        
         $events_datetimes = array();
         foreach( $tmp as $single_datetime ) {
             
-    		$single_id = $single_datetime['evenement'][0];
-    		$args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
-    		$main_event = Timber::get_posts( $args_event );
-                
-    		$events_datetimes[ $single_id ] = $main_event[0];
-                
-    		if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
-    			if( !is_object($events_datetimes[ $single_id ]) ) {
-    				$events_datetimes[ $single_id ] = new \stdClass();
-    			}
-    			$events_datetimes[ $single_id ]->custom = array( );
-    		}
-    		
-    		
-    		if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
-    		    $tmptime = explode( ':', $timestart );
-    		    $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
-    		}
-    		
-    		$events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
+            $single_id = $single_datetime['evenement'][0];
+            $args_event = array( 'post_type' => 'evenementen', 'post__in' =>  array( $single_id  ) );
+            $main_event = Timber::get_posts( $args_event );
+            
+            $events_datetimes[ $single_id ] = $main_event[0];
+            
+            if( !is_object($events_datetimes[ $single_id ]) || !property_exists($events_datetimes[ $single_id ], 'custom') ) {
+                if( !is_object($events_datetimes[ $single_id ]) ) {
+                    $events_datetimes[ $single_id ] = new \stdClass();
+                }
+                $events_datetimes[ $single_id ]->custom = array( );
+            }
+            
+            
+            if( isset( $single_datetime['doorlopend_event'] ) && $single_datetime['doorlopend_event'] ) {
+                $tmptime = explode( ':', $timestart );
+                $single_datetime['doorlopend_event_timestart'] = $tmptime[0];
+            }
+            
+            $events_datetimes[ $single_id ]->custom = array_merge( $events_datetimes[ $single_id ]->custom, $single_datetime );
         }
         
         
@@ -119,13 +119,18 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
 
 define('DH_EVENTS_HOUR_OFFSET', 1);
 
-function get_args_event_datetime_equals_date( $date ) {
+function get_args_event_datetime_equals_date( $date, $exact = false ) {
     
     
     // Limit by DH_EVENTS_HOUR_OFFSET hours up front
     $next_slot = strtotime( $date. ' + '.DH_EVENTS_HOUR_OFFSET.' hours');
     
-
+    $operator_start = '=';
+    $operator_end = '=';
+    if( !$exact ) {
+        $operator_start = '<=';
+        $operator_end = '>=';
+    }
     
     
     $args_evenementen_datetime = array(
@@ -135,7 +140,7 @@ function get_args_event_datetime_equals_date( $date ) {
             'relation' => 'AND',
             'date1' => array(
                 'key' => 'datum',
-                'compare' => '<=',
+                'compare' => $operator_start,
                 'value' => $date
             ),
         ),
@@ -148,7 +153,7 @@ function get_args_event_datetime_equals_date( $date ) {
     $args_evenementen_datetime['meta_query']['date2'] =
     array(
         'key' => 'einddatum',
-        'compare' => '>=',
+        'compare' => $operator_end,
         'value' => date( 'Ymd', $next_slot),
     );
     
@@ -159,7 +164,7 @@ function get_args_event_datetime_greaterequals_date( $date ) {
     
     $args_evenementen_datetime = get_args_event_datetime_equals_date( $date );
     $args_evenementen_datetime['meta_query']['date1']['compare'] = '>=';
-
+    
     return $args_evenementen_datetime;
     
 }
@@ -250,16 +255,16 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             
             
             $context[ 'date_filter_unixtime' ] = strtotime( $date ) ;
-
+            
             $hasdate = true;
         }
     }
     
     if(ICL_LANGUAGE_CODE==en){
-      $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
-    } else {          
-      setlocale(LC_ALL, 'nl_NL');
-      $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
+        $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
+    } else {
+        setlocale(LC_ALL, 'nl_NL');
+        $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
     }
     
     $timeday = '00:00:00';
@@ -283,7 +288,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         $timestart = date( 'H:i:00', $first_slot);
     }
     
-
+    
     $args_evenementen = array(
         'post_type' => 'evenementen_datetime',
         'posts_per_page' => - 1,
@@ -310,11 +315,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     // offset with AJAX OR Hastime (time) set
     if( $dh_is_ajax || $hastime ) {
         $args_evenementen['meta_query']['hastime1'] =
-                array(
-                    'key' => 'begintijd',
-                    'compare' => '>=',
-                    'value' => $timestart
-                );           
+        array(
+            'key' => 'begintijd',
+            'compare' => '>=',
+            'value' => $timestart
+        );
     }
     
     // Limit by DH_EVENTS_HOUR_OFFSET hours up front
@@ -326,12 +331,12 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         'compare' => '<=',
         'value' => date( 'Ymd', $next_slot),
     );
-       
+    
     $args_evenementen['meta_query']['hastime2'] =
-        array(
-            'key' => 'begintijd',
-            'compare' => '<',
-            'value' => date( 'H:i:00', $next_slot)
+    array(
+        'key' => 'begintijd',
+        'compare' => '<',
+        'value' => date( 'H:i:00', $next_slot)
     );
     
     
@@ -357,12 +362,12 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             $search_posts[] = serialize(array("$parent_id"));
         }
         
-        $args_evenementen['meta_query']['categories'] = 
-            array(
-                'key' => 'evenement',
-                'compare' => 'IN',
-                'value' => $search_posts,
-            );
+        $args_evenementen['meta_query']['categories'] =
+        array(
+            'key' => 'evenement',
+            'compare' => 'IN',
+            'value' => $search_posts,
+        );
     }
     
     
@@ -384,21 +389,21 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         ),
     );
     /*
-    $args_evenementen_continuous['meta_query']['hastime2'] =
-    array(
-        'relation' => 'AND',
-        array(
-            'key' => 'eindtijd',
-            'compare' => '<',
-            'value' => date( 'H:i:00', $next_slot),
-        ),
-        array(
-            'key' => 'doorlopend_event',
-            'compare' => '=',
-            'value' => 1
-        ),
-    );
-    */
+     $args_evenementen_continuous['meta_query']['hastime2'] =
+     array(
+     'relation' => 'AND',
+     array(
+     'key' => 'eindtijd',
+     'compare' => '<',
+     'value' => date( 'H:i:00', $next_slot),
+     ),
+     array(
+     'key' => 'doorlopend_event',
+     'compare' => '=',
+     'value' => 1
+     ),
+     );
+     */
     $args_evenementen_continuous['meta_query']['hastime3'] =
     array(
         'relation' => 'AND',
@@ -417,23 +422,23 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     
     $events = Timber::get_posts( $args_evenementen );
-    $events = archive_agenda_list_helper( $events );   
+    $events = archive_agenda_list_helper( $events );
     
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
     $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
     
     /*
-    print_R($args_evenementen);
-    print_R( new WP_Query( $args_evenementen ) );
-    print_r($events);die();
-    
-    
-    print_R($args_evenementen_continuous);
-    print_R( new WP_Query( $args_evenementen_continuous ) );
-    print_r($events_continuous);die();
-    */
+     print_R($args_evenementen);
+     print_R( new WP_Query( $args_evenementen ) );
+     print_r($events);die();
+     
+     
+     print_R($args_evenementen_continuous);
+     print_R( new WP_Query( $args_evenementen_continuous ) );
+     print_r($events_continuous);die();
+     */
     $context['evenementen'] = array_merge( $events , $events_continuous);
-
+    
     
     if( $dh_is_ajax ) {
         
@@ -442,7 +447,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             $tries++;
             
             // Untill last hour this day
-            if( date( 'H', $next_slot) < 22 ) {
+            if( date( 'H', $next_slot) < 9 ) {
                 $context = archive_agenda( $context, $tries, ($offset+DH_EVENTS_HOUR_OFFSET) );
             }
         }
@@ -458,8 +463,8 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         die();
     }
     
-
-
+    
+    
     return array(
         'context' => $context,
         'date_filter_unixtime' => $context[ 'date_filter_unixtime' ],
@@ -470,6 +475,157 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     )
     ;
 }
+
+function mp_get_all_dates_for_event( $event_id, $only_future_and_today = true ) {
+    global $wpdb;
+    
+    // Serialized ..
+    // a:1:{i:0;s:4:"1086";}
+    $sql = $wpdb->prepare( 'SELECT post_id FROM '.$wpdb->postmeta. ' WHERE meta_key = %s AND meta_value = ', 'evenement' ). '\'a:1:{i:0;s:'.strlen($event_id).':"'.$event_id.'";}\'';
+    
+    $myrows = $wpdb->get_results( $sql );
+    
+    $today = date('Ymd');
+    $event_datetime_posts = array();
+    foreach( $myrows as $row ) {
+        $post = $row->post_id;
+        
+        $event_datetime_posts[$post] = get_metadata( 'post', $post );
+        if( $only_future_and_today ) {
+            if( !( $event_datetime_posts[$post]['einddatum'][0] >= $today ) ) {
+                unset( $event_datetime_posts[$post] );
+            }
+        }
+    }
+    
+    // Sort on date (start)
+    usort($event_datetime_posts, 'sortbydatestart');
+    
+    return $event_datetime_posts;
+}
+
+
+function sortbydatestart($a, $b) {
+    return strcmp($a['datum'][0], $b['datum'][0]);
+}
+
+function mp_home_slider_post_object_result_add_date( $title, $post, $field, $post_id ) {
+    if( $post->ID ) {
+        
+        $date = get_post_meta( $post->ID, 'datum', true );
+        
+        $year = substr( $date, 0, 4 );
+        $month = substr( $date, 4, 2 );
+        $day = substr( $date, 6, 2 );
+        
+        $dateunix = strtotime( $year. '-'.$month. '-'.$day );
+        
+        if( $date && $dateunix ) {
+            return date( 'd-M-Y' ,  $dateunix) .  ': '. $title;
+        }
+    }
+    return $title;
+}
+add_filter('acf/fields/post_object/result/key=field_5b2cfe6e8b795', 'mp_home_slider_post_object_result_add_date', 10, 4);
+add_filter('acf/fields/post_object/result/key=field_5c000eb34e054', 'mp_home_slider_post_object_result_add_date', 10, 4);
+
+
+/**
+ * Narrowcasting, all fields and ALL movies of today. But NO duplicate movies
+ */
+function narrowcasting_today() {
+    $film_excludes = array();
+    $slides = array();
+    if( have_rows('Sectie') ) {
+        while ( have_rows('Sectie') ) {
+            the_row();
+            if( get_row_layout() == 'narrowcaster' ) {
+                while ( have_rows('slider') ) {
+                    the_row();
+                    $tmp = get_sub_field('slide');
+                    
+                    $event_datetimemeta = get_metadata( 'post', $tmp->ID  );
+                    $post_id = maybe_unserialize( $event_datetimemeta['evenement'][0] );
+                    $post_id = $post_id[0];
+                    
+                    
+                    // The actual event, NOT the datetime
+                    if( $post_id ) {
+                        $cats = wp_get_post_terms( $post_id, array( 'categorie' ) );
+                        $is_film = false;
+                        if( is_array( $cats ) && count( $cats ) > 0 ) {
+                            foreach( $cats as $cat ) {
+                                if( $cat->slug == 'film' ) {
+                                    $is_film = true;
+                                    $film_excludes[] = $post_id;
+                                }
+                            }
+                        }
+                        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => $is_film, 'source' => 'narrow_settings',
+                            'datum' => $event_datetimemeta['datum'][0],
+                            'einddatum' => $event_datetimemeta['einddatum'][0],
+                        );
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    // Get all movies today, excluding the ones already in list
+    $today = date('Ymd');
+    $date = $today;
+    
+    $args_evenementen_datetime = get_args_event_datetime_equals_date( $date, true );
+    
+    $args_event = array( 'post_type' => 'evenementen', 'posts_per_page' => -1, 'fields' => 'ids',
+        'post__not_in' => $film_excludes,
+    );
+    $args_event['tax_query'] = array(
+        array(
+            'taxonomy' => 'categorie',
+            'field'    => 'term_id',
+            'terms'    => 4, // 4 =film
+            'operator'    => 'IN',
+        )
+    );
+    
+    $search_posts = array();
+    if( is_array( $tax_query_results->posts ) && count( $tax_query_results->posts ) > 0 ) {
+        foreach( $tax_query_results->posts as $parent_id ) {
+            if( $parent_id != $currentID ) {
+                $search_posts[] = serialize(array("$parent_id"));
+            }
+        }
+    }
+    
+    $args_evenementen_datetime['meta_query']['parents'] =
+    array(
+        'key' => 'evenement',
+        'compare' => 'IN',
+        'value' => $search_posts,
+    );
+    
+    $events = Timber::get_posts( $args_evenementen_datetime );
+    
+    foreach( $events as $filmdatetime ) {
+        $post_id = $filmdatetime->custom['evenement'][0];
+        
+        $slides[$post_id] = array( 'id' => $post_id, 'is_film' => true, 'source' => 'narrow_query_today',
+            'datum' => $today,
+            'einddatum' => $today,
+        );
+    }
+    
+    return $slides;
+}
+/**
+ * /Narrowcasting, all fields and ALL movies of today. But NO duplicate movies
+ */
+
+
+
+
 
 if ( false === ( $void = get_transient( 'mp_remove_home_old_slider' ) ) ) {
     mp_remove_home_old_slider();
@@ -497,7 +653,7 @@ function mp_remove_home_old_slider() {
                                 $fields[$key] = $val;
                             }
                         }
-        
+                        
                         $newfields = array();
                         
                         $today = date('Ymd');
@@ -538,5 +694,3 @@ function mp_remove_home_old_slider() {
         }
     }
 }
-
-
