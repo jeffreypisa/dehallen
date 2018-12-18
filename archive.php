@@ -67,7 +67,7 @@ if ($posttype == 'evenementen') {
         while( $i < 3 ) {
             if( ( !isset($_GET['offset']) || intval( $_GET['offset'] ) == 0 ) && count( $agenda_arr['context']['evenementen'] ) > 0 ) {
                 // Sanity date check
-                if( false && date( 'H', $agenda_arr['next_slot'] ) < 9 ) {
+                if( date( 'H', $agenda_arr['next_slot'] ) < 9 ) {
                     $agenda_evenementen_bak = $agenda_arr['context']['evenementen'];
                     
                     $offset = $agenda_arr['offset'];
