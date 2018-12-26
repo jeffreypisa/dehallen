@@ -112,7 +112,9 @@ function archive_agenda_list_helper( $events_datetimes, $timestart = false ) {
         // Now sort by time ascending
         $events_datetimes_sorted = array();
         foreach( $events_datetimes as $single_datetime ) {
-            $events_datetimes_sorted[$single_datetime->custom['begintijd'].$single_datetime->ID] = $single_datetime;
+            $date_ID = ( isset( $single_datetime->custom['doorlopend_event'] ) && $single_datetime->custom['doorlopend_event'] ) ? $single_datetime->custom['doorlopend_event_timestart'] : $single_datetime->custom['begintijd'];
+            $date_ID_key = $date_ID . $single_datetime->ID;
+            $events_datetimes_sorted[$date_ID_key] = $single_datetime;
         }
         
         $events_datetimes = $events_datetimes_sorted;
@@ -431,6 +433,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     $events_continuous = Timber::get_posts( $args_evenementen_continuous );
     $events_continuous = archive_agenda_list_helper( $events_continuous, $timestart );
+    
     
     /*
      print_R($args_evenementen);
