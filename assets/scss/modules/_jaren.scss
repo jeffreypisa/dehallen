@@ -3,6 +3,7 @@
 	padding: 0;
 	z-index: 100;
 	position: relative;
+	box-shadow: 0px 2px 1px rgba(0,0,0,.15);
 	&:after {
 		position: absolute;
 		left: -100%;
@@ -19,6 +20,7 @@
 		color: $darkblue;
 		font-size: 12px;
 		padding: 10px 0;
+		font-weight: 600;
 		&.active {
 			background: transparent !important;
 			color: $green !important;

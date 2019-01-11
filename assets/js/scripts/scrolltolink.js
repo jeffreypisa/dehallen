@@ -1,12 +1,6 @@
 (function($) {
   $( document ).ready(function() {   
-	  // Scroll to link
-		$('a[href^="#"].js-scrollto').click(function(){
-	    $('html, body').animate({
-		    scrollTop: $( $.attr(this, 'href') ).offset().top - 40
-		  }, 800);
-		  return false;
-		});
+
 		
 		$('.collapse').on('shown.bs.collapse', function () {
 	    var $panel = $(this).find('.card');
@@ -14,5 +8,13 @@
 	        scrollTop: $panel.offset().top - 40
 	    }, 500); 
 		}); 
+		
+		// Scroll to link
+		$('a[href^="#"].js-scrollto').click(function(e){
+	    var jump = $(this).attr('href');
+	    var new_position = $(jump).offset();
+	    $('html, body').stop().animate({ scrollTop: new_position.top - 40}, 800);
+	    e.preventDefault();
+		});
   });
 }(jQuery));

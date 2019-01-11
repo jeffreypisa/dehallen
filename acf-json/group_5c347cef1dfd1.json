@@ -38,6 +38,40 @@
             "new_lines": ""
         },
         {
+            "key": "field_5c38b6fec4562",
+            "label": "CTA knop titel",
+            "name": "cta_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c38b6e3c4561",
+            "label": "CTA knop link",
+            "name": "cta_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        },
+        {
             "key": "field_5c34b860485f5",
             "label": "Jaartal",
             "name": "jaartal",
@@ -728,5 +762,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1547215020
+    "modified": 1547220979
 }
