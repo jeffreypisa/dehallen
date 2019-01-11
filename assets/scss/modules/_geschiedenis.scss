@@ -1,0 +1,299 @@
+.mod-geschiedenis {
+	.mod-pageheader {
+		&.mh {
+			min-height: 300px;
+		}
+	}
+	h1 {
+		margin: 30px 0;
+	}
+	.leadtext {
+		color: $green;
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 28px;
+	}
+	.jaartallen {
+		position: relative;
+		img {
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.tease-jaar {
+			position: relative;
+			.jaarlineblok {
+				position: relative;	
+				padding: 40px 0;
+				h2 {
+					margin: 0;
+					line-height: 50px;
+				}
+				.jaar {
+					padding-left: 0px;
+					div {
+						border: 5px solid $darkblue;
+						width: 30px;
+						background: #fff;
+						height: 30px;
+						border-radius: 100px;
+						float: left;
+						margin-right: 20px;
+					}
+				}
+				.jaarcontent {
+					padding-left: 57px;
+					h4 {
+						padding-top: 4px;
+					}
+				}
+				&.first {
+					.line {
+						.container {
+							span:after {
+								top: 50px
+							}
+						}
+					}
+				}
+			}
+			&.uitklap {
+				.jaar {
+					div {
+						border: 6px solid $darkblue;
+						width: 40px;
+						height: 40px;
+					}
+				}
+				.jaarlineblok:after {
+					height: 20px;
+					content: '';
+					bottom: 0;
+					left: 0;
+					background: $darkblue;
+					right: 0;
+					position: absolute;
+					content: '';
+					z-index: -2;
+				}
+			}
+			&.geenuitklap {
+				.jaar {
+					div {
+						margin-left: 5px;
+					}
+				}
+				h3 {
+					line-height: 32px;
+				}
+				.line {
+					position: absolute;
+				  top: 0;
+				  left: 0;
+				  right: 0;
+				  bottom: 0;
+				  z-index: -1;
+				}
+			}
+			.line {
+				display: block;
+				.container {
+				  position: absolute;
+				  top: 0;
+				  left: 0;
+				  right: 0;
+				  bottom: 0;
+				  z-index: -1;
+				  span {
+					  left: -32px;
+				  }
+				}
+				span {
+					position: absolute;
+				  top: 0;
+				  left: 0;
+				  bottom: 0;
+				  width: 80px;
+					&:after {
+				    content: '';
+				    position: absolute;
+				    z-index: 0;
+				    right: 0;
+				    top: 0;
+				    bottom: 0px;
+				    width: 6px;
+				    background: $green;
+				  }
+				}
+			}
+			.mod-pageheader {
+				color: #fff;
+				.bg.gradient {
+					&:after {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						content: '';
+						z-index: 1;
+						/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0a3250+0,0a3250+100&0+0,0.65+100 */
+						background: -moz-linear-gradient(top, rgba(10,50,80,0) 0%, rgba(10,50,80,0.65) 100%); /* FF3.6-15 */
+						background: -webkit-linear-gradient(top, rgba(10,50,80,0) 0%,rgba(10,50,80,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+						background: linear-gradient(to bottom, rgba(10,50,80,0) 0%,rgba(10,50,80,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000a3250', endColorstr='#a60a3250',GradientType=0 ); /* IE6-9 */
+					}
+				}
+				h4 {
+					color: $green;
+				}
+				h2 {
+					margin-bottom: 30px;
+				}
+				.btnholder {
+					position: absolute;
+					bottom: 20px;
+					left: 0;
+					right: 0;
+					a {
+						color: #fff;
+						transition: 0.2s ease-in;
+						span {
+							display: inline-block;
+							margin-bottom: 4px;
+						}
+						i {
+							font-size: 30px;
+						}
+						&:hover {
+							color: $green;
+						}
+						&[aria-expanded="true"] {
+							i {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+			.card {
+				overflow: hidden;
+				font-weight: 400;
+				.mod-pageheader {
+					.bg {
+						z-index: 1;
+					}
+				}
+				.card-body {
+					padding-top: 30px;
+					padding-left: 40px;
+				}
+				.line {
+					 span {
+						 width: 23px;
+					 }
+				}
+				.mod-slider {
+					margin: 0 -30px 0 -45px;
+					.indicators {
+				    bottom: -40px;
+					}
+					.carousel-indicators {
+						position: relative;
+				    right: auto;
+				    bottom: auto;
+				    left: auto;
+				    margin: 0;
+				    float: none;
+					}
+					.carousel-control-prev,
+					.carousel-control-next {
+						display: block;
+						img {
+							margin: 0;
+							height: 40px;
+						}
+					}
+					.carousel-control-next {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.mod-geschiedenis {
+		.leadtext {
+			font-size: 35px;
+			line-height: 40px;
+		}
+		.jaartallen {
+			.tease-jaar {
+				.line {
+					.container {
+						span {
+							left: 25px;
+						}
+					}
+				}
+				.jaarlineblok {
+					h2 {
+					}
+					.jaar {
+						padding-left: 57px;
+					}
+					.jaarcontent {
+						padding: 0;
+					}
+				}
+				&.geenuitklap {
+					.jaar {
+						div {
+						}
+					}
+				}
+				.card {
+					.line {
+						 span {
+							 width: 80px;
+						 }
+					}
+					.mod-slider {
+						.carousel-control-prev {
+							left: -60px;
+						}
+						.carousel-control-next {
+							right: -60px;
+						}
+						.carousel-control-prev,
+						.carousel-control-next {
+							img {
+								height: 72px;
+							}
+						}
+						&:after {
+							content: '';
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							background: #333;
+							position: absolute;
+						}
+						&:before {
+							content: '';
+							top: 50%;
+							margin-top: -50px;
+							left: -100%;
+							right: -100%;
+							background: $darkblue;
+							height: 100px;
+							position: absolute;
+						}
+					}
+				}
+			}
+		}
+	}
+}

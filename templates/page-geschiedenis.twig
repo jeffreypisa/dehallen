@@ -1,0 +1,224 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<div class="mod-geschiedenis">
+			<nav id="jarenmenu" class="mod-jaren navbar js-stickinparent">
+				<div style="width: 100%">
+					<ul class="row no-gutters nav nav-pills">
+						{% for item in post.get_field('jaartal') %}
+					    <li class="nav-item col text-center">
+					      <a class="nav-link js-scrollto" href="#j{{ item.jaar }}">{{ item.jaar }}</a>
+					    </li>
+						{% endfor %}
+					</ul>
+					<div class="clearfix"></div>
+					<div style="position: relative">
+						<div class="progressbar js-jarenprogress"></div>
+					</div>
+				</div>
+			</nav>
+			<div class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+				{% if post.afbeelding %}
+		      <div class="mod-pageheader mh">
+			      {% if post.afbeeldingtype == 'video' %}
+					    <video poster="{{ post.get_field('ph_achtergrond') }}" id="bgvideo" class="videobg" muted loop autoplay>
+					      <source src="{{ post.get_field('mp4') }}" type="video/mp4">
+					      <source src="{{ post.get_field('webm') }}" type="video/webm">
+					      <source src="{{ post.get_field('ogg') }}" type="video/ogg">
+					    </video>
+					  {% else %}
+			        <div class="bg" style="background-image: 
+				        {% if post.custom.afbeelding_src %}
+							url({{ post.custom.afbeelding_src }}        
+				        {% else %}
+					        url({{ post.get_field('afbeelding') }}        
+				        {% endif %}
+				                ">
+				      </div>
+					  {% endif %}
+
+		        <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+		      </div>
+		    {% endif %}
+	      <div class="container">
+	      	<div class="row">
+	      		<div class="col-md-14 offset-md-3 col-lg-14 offset-lg-3">
+	      		<br>
+			      	<h1 class="text-center"> {{ post.title }} </h1>
+			      	<h3 class="leadtext text-center">{{ post.lead }}</h3>
+	      		</div>
+	      	</div>
+	      </div>
+      	{% if post.jaartal %}
+      		{% set sectionno = '0' %}
+      		<div class="jaartallen">
+		      	{% for item in post.get_field('jaartal') %}
+		      		{% set sectionno = sectionno + '1' %}
+		      		{% set blokno = '0' %}
+		      		{% if item.acf_fc_layout == 'jaartal_uitklap' %}
+			      		<article id="j{{ item.jaar }}" class="tease tease-jaar uitklap">
+			      			<div class="jaarlineblok {% if sectionno == '1' %} first {% endif %}">
+				      			<div class="line">
+									  	<div class="container">
+									  		<span> </span>
+									  	</div>
+									  </div>
+									  <div class="container">
+									  	<div class="jaar">
+									  		<div></div>
+												<h2> {{ item.jaar }} </h2>
+									  	</div>
+									  </div>
+								  </div>
+									<div class="mod-pageheader d-flex align-items-center">
+						        <div class="bg gradient" style="background-image: url({{ item.afbeelding }}"></div>
+						        <div class="container">
+							        <h2> {{ item.titel }} </h2>
+									    <h4> {{ item.subtitel }} </h4>
+									    <div class="btnholder">
+										    <a data-toggle="collapse" href="#collapse{{ sectionno }}" role="button" aria-expanded="false" aria-controls="collapse">
+										    	<span> lees meer </span> <br>
+											    <i class="fal fa-arrow-circle-down"></i>
+											  </a>	
+										  </div>					        
+  									</div>
+						      </div>
+						      {% if item.blokken %}
+							      <div class="collapse" id="collapse{{ sectionno }}">							    
+								      <div class="container">
+								      	<div class="card">
+									      	<div class="line">
+												  	<span> </span>
+												  </div>
+									      	{% for item in item.blokken %}
+									      		{% set blokno = '0' %}
+									      		{% if item.acf_fc_layout == 'content_met_fotos' %}
+											      	<div class="card-body">
+																<div class="row">
+																	<div class="col-lg-6 d-none d-lg-block">
+																		{% for p in item.afbeeldingen %}
+													        		{% set attachment = TimberPost(p.id) %}
+														        	<img src="{{TimberImage(p.id).get_src|resize(600)}})">
+																	  {% endfor %}
+																	</div>
+												      		<div class="col-lg-12 offset-lg-1">
+												      			<h3> {{ item.titel }} </h3>
+												      			{{ item.content1 }}
+																		<div class="d-lg-none">
+																			{% for p in item.afbeeldingen %}
+														        		{% set attachment = TimberPost(p.id) %}
+															        	<img src="{{TimberImage(p.id).get_src|resize(600)}})">
+																		  {% endfor %}
+																		</div>
+												      			{{ item.content2 }}
+												      		</div>
+												      	</div>
+											      	</div>
+											      {% elseif item.acf_fc_layout == 'content' %}
+											      	<div class="card-body">
+												      	<div class="row">
+												      		<div class="col-lg-14 offset-lg-4">
+												      			<h3> {{ item.titel }} </h3>
+												      			{{ item.content }}
+												      		</div>
+												      	</div>
+											      	</div>
+											      {% elseif item.acf_fc_layout == 'slider' %}
+															{% if item.afbeeldingen|length > 0 %}
+																{% set blokno = blokno + '1' %}
+												      	<div class="card-body">
+												      		<div class="row">
+												      			<div class="col-lg-14 offset-lg-4">
+																		  <div id="slider{{sectionno}}{{blokno}}" class="mod-slider carousel carousel-fade" data-ride="carousel" data-interval="7000">
+																		    {% if item.afbeeldingen|length > 1 %}
+																		      <div class="indicators">
+																		        <div class="container-fluid">
+																		          <ol class="carousel-indicators">
+																		            {% set slidenr = 0 %}
+																		            {% for p in item.afbeeldingen %}
+																		              <li data-target="#slider{{sectionno}}{{blokno}}" data-slide-to="{{ slidenr }}" class="{% if slidenr == 0 %} active {% endif %}"></li>
+																		              {% set slidenr = slidenr + 1 %}
+																		            {% endfor %}
+																		          </ol>
+																		        </div>
+																		      </div>
+																		    {% endif %}
+																		    <div class="carousel-inner">
+																		      {% for p in item.afbeeldingen %}
+																        		{% set attachment = TimberPost(p.id) %}
+																	        	<div class="carousel-item h-100{% if loop.first %} active {% endif %}">
+																						  <div class="card-img-top {% if item.afbeeldingvierkant %} {% else %} h-100 {% endif %}" style="background-image: url({{TimberImage(p.id).get_src|resize(800)}})"> </div>
+																	        	</div>
+																				  {% endfor %}
+																		    </div>
+																		    <a class="carousel-control-prev d-flex items-align-center" href="#slider{{sectionno}}{{blokno}}" role="button" data-slide="prev">
+																		      <img src="{{ theme.link ~ '/assets/images/chevron.svg' }}" alt="left">
+																		      <span class="sr-only">Vorige</span>
+																		    </a>
+																		    <a class="carousel-control-next d-flex items-align-center" href="#slider{{sectionno}}{{blokno}}" role="button" data-slide="next">
+																		      <img src="{{ theme.link ~ '/assets/images/chevron.svg' }}" alt="right">
+																		      <span class="sr-only">Volgende</span>
+																		    </a>
+																		  </div>
+														      	</div>
+														      </div>
+														      <br>
+														    </div>
+											      	{% endif %}
+											      {% elseif item.acf_fc_layout == 'afbeelding' %}
+															<div class="mod-pageheader mh">
+												        <div class="bg" style="background-image: url({{ item.afbeelding }}"></div>
+												      </div>
+											      {% elseif item.acf_fc_layout == 'quote' %}
+											      	<div class="card-body">
+												      	<div class="row">
+												      		<div class="col-lg-10 offset-lg-6">
+												      			<h3 class="quote text-center" style="font-weight: 400; line-height: 1.4; margin-bottom: 0;"><i>{{ item.quote }}</i></h3>
+												      			<div class="text-center"><span>- {{ item.naam }} </span></div>
+												      			<br>
+												      		</div>
+												      	</div>
+											      	</div>
+											      {% endif %}
+											    {% endfor %}
+								      	</div>
+								      </div>
+								    </div>
+						      {% endif %}
+			      		</article>
+			      	{% elseif item.acf_fc_layout == 'jaartal_zonder_uitklap' %}
+								<article id="j{{ item.jaar }}" class="tease tease-jaar geenuitklap">
+									<div class="jaarlineblok">
+				      			<div class="line">
+									  	<div class="container">
+									  		<span> </span>
+									  	</div>
+									  </div>
+									  <div class="container">
+										  <div class="row">
+										    <div class="col-lg-5">
+											    <div class="jaar">
+											    	<div> </div>
+											    	<h3> {{ item.jaar }} </h3>
+											    </div>
+										    </div>
+										    <div class="offset-lg-0 col-lg-10">
+										    	<div class="jaarcontent">
+										      	<h4> {{ item.titel }}</h4> 
+										      	<br>
+										      	{{ item.content }}
+									      	</div>
+										    </div>
+										  </div>
+									  </div>
+								  </div>
+			      		</article>				      	
+			      	{% endif %}
+		      	{% endfor %}
+      		</div>
+      	{% endif %}
+			</div>
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

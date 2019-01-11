@@ -7,6 +7,7 @@ include 'lib/svg.php';
 include 'lib/cpt.php';
 include 'lib/ctax.php';
 include 'lib/categoryradio.php';
+include 'lib/videoembed.php';
 
 if ( is_page(249) && wp_is_mobile() ) {
   
