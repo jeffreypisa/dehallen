@@ -72,7 +72,7 @@
 									  </div>
 								  </div>
 									<div class="mod-pageheader d-flex align-items-center">
-						        <div class="bg gradient" style="background-image: url({{ item.afbeelding }}"></div>
+						        <div class="bg gradient" style="background-image: url({{ TimberImage(item.afbeelding).src }}"></div>
 						        <div class="container">
 							        <h2> {{ item.titel }} </h2>
 									    <h4> {{ item.subtitel }} </h4>
@@ -98,7 +98,10 @@
 																	<div class="col-lg-6 d-none d-lg-block">
 																		{% for p in item.afbeeldingen %}
 													        		{% set attachment = TimberPost(p.id) %}
-														        	<img src="{{TimberImage(p.id).src|resize(600)}})">
+													        		<div style="position: relative">
+															        	<img src="{{TimberImage(p.id).src|resize(600)}})">
+															        	<div class="caption" style="bottom: 30px; ">{{ TimberImage(p.id).caption }}</div>
+														        	</div>
 																	  {% endfor %}
 																	</div>
 												      		<div class="col-lg-12 offset-lg-1">
@@ -147,7 +150,9 @@
 																		      {% for p in item.afbeeldingen %}
 																        		{% set attachment = TimberPost(p.id) %}
 																	        	<div class="carousel-item h-100{% if loop.first %} active {% endif %}">
-																						  <div class="card-img-top {% if item.afbeeldingvierkant %} {% else %} h-100 {% endif %}" style="background-image: url({{TimberImage(p.id).src|resize(800)}})"> </div>
+																						  <div class="card-img-top {% if item.afbeeldingvierkant %} {% else %} h-100 {% endif %}" style="background-image: url({{TimberImage(p.id).src|resize(800)}})">
+																								<div class="caption">{{ TimberImage(p.id).caption }}</div>
+																						  </div>
 																	        	</div>
 																				  {% endfor %}
 																		    </div>
