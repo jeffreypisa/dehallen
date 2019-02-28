@@ -731,6 +731,11 @@
                 "param": "page_template",
                 "operator": "!=",
                 "value": "page-geschiedenis.php"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "page-rondleidingen.php"
             }
         ]
     ],
@@ -744,5 +749,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1546950526
+    "modified": 1551188780
 }

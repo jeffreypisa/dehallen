@@ -1,0 +1,87 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% set sectionno = '0' %}
+	{% set blokno = '0' %}
+	<div class="content-wrapper">
+		<div class="mod-rondleiding">
+			<div class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+	      <div class="mod-pageheader mh">
+		      {% if post.afbeeldingtype == 'video' %}
+				    <video poster="{{ post.get_field('ph_achtergrond') }}" id="bgvideo" class="videobg" muted loop autoplay>
+				      <source src="{{ post.get_field('mp4') }}" type="video/mp4">
+				      <source src="{{ post.get_field('webm') }}" type="video/webm">
+				      <source src="{{ post.get_field('ogg') }}" type="video/ogg">
+				    </video>
+				  {% else %}
+		        <div class="bg" style="background-image: {% if post.custom.afbeelding_src %} url({{ post.custom.afbeelding_src }}        
+			        {% else %}
+				        url({{ post.get_field('afbeelding') }}        
+			        {% endif %} ">
+			      </div>
+				  {% endif %}
+	        <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+	      </div>
+
+	      <div class="container">
+	      	<div class="row">
+	      		<div class="col-md-14 offset-md-3 col-lg-14 offset-lg-3">
+	      			<br>
+			      	<h1 class="text-center"> {{ post.title }} </h1>
+			      	<h3 class="leadtext text-center">{{ post.lead }}</h3>
+			      	<br>
+	      		</div>
+	      	</div>
+	      	
+	      	{% if post.rondleiding %}
+	      		<div class="row">
+		      		{% for item in post.get_field('rondleiding') %}
+		      			<div class="col-lg-6 {% if loop.first %} offset-lg-1 {% endif %}">
+		      				<a href="#rondleiding{{loop.index}}" class="js-scrollto card">
+					      		<div class="card-img-top" style="background-image: url({{ item.afbeelding }});" class="image">
+					      			<img class="overlay" src="{{ theme.link }}/assets/images/house.svg" alt="image">
+					      		</div>
+					      		<div class="card-body">
+								    	<h3> {{ item.titel }} </h3>
+					      		</div>
+				      		</a>
+				      		<br>
+			      		</div>
+							{% endfor %}
+						</div>
+						<br>
+	      		{% for item in post.get_field('rondleiding') %}
+	      			<div id="rondleiding{{loop.index}}">
+			      		<img src="{{ item.afbeelding }}" class="image">
+			      		<div class="row">
+			      			<div class="col-md-14 offset-md-3">
+			      				<br>
+						      	<h1 class="text-center" style="margin-bottom: 10px;"> {{ item.titel }} </h1>
+			      			</div>
+			      		</div>
+			      		<div class="row">
+			      			<div class="col-md-12 offset-md-4">
+						      	<h3 class="leadtext text-center">{{ item.subtitel }}</h3>
+						      	<br>
+						      	{{ item.toelichting }}
+						      	<br>
+						      	{% if item.cta_link %}
+							      	<div class="text-center">
+												<a href="{{ item.cta_link }}" class="btn btn-primary"> {{ item.cta_titel }} </a>
+									    </div>
+							      	<br>
+							      	<br>
+						      	{% endif %}
+			      			</div>
+			      		</div>
+			      	</div>
+						{% endfor %}
+	      	{% endif %}
+	      	
+	      </div>
+	      
+			</div>
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

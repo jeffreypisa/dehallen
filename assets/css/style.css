@@ -8520,6 +8520,27 @@ header {
   .followus a:hover {
     color: #46aa64; }
 
+.mod-rondleiding .mod-pageheader.mh {
+  min-height: 300px; }
+
+.mod-rondleiding h1 {
+  margin: 30px 0; }
+
+.mod-rondleiding .leadtext {
+  color: #46aa64;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px; }
+
+.mod-rondleiding .image {
+  width: 100%;
+  height: autol; }
+
+@media (min-width: 992px) {
+  .mod-rondleiding .leadtext {
+    font-size: 35px;
+    line-height: 40px; } }
+
 .mod-mobilemenu {
   position: fixed;
   top: -100%;

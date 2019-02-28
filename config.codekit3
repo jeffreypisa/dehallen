@@ -103,6 +103,14 @@
 		"oO": 0,
 		"oS": 1
 		},
+	"/acf-json/group_5c75389becccf.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5c75389becccf-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"/android-chrome-192x192.png": {
 		"ft": 32768,
 		"iS": 6053,
@@ -1131,6 +1139,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/assets/scss/modules/_quote.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/modules/_rondleiding.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/assets/scss/modules/_rondleiding.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -10028,6 +10049,13 @@
 		"oAP": "/page-narrowcasting.php",
 		"oF": 0
 		},
+	"/page-rondleidingen.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/page-rondleidingen.php",
+		"oF": 0
+		},
 	"/page.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -10243,6 +10271,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/templates/page-plugin.twig",
+		"oF": 0
+		},
+	"/templates/page-rondleidingen.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/page-rondleidingen.twig",
 		"oF": 0
 		},
 	"/templates/page.twig": {

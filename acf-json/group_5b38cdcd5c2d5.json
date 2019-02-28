@@ -1,32 +1,6 @@
 {
     "key": "group_5b38cdcd5c2d5",
     "title": "Afbeelding",
-    "fields": [
-        {
-            "key": "field_5b38cdd2c91b8",
-            "label": "Afbeelding",
-            "name": "afbeelding",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": 1600,
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        }
-    ],
     "location": [
         [
             {
@@ -87,5 +61,31 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1546950840
+    "modified": 1551185645,
+    "fields": [
+        {
+            "key": "field_5b38cdd2c91b8",
+            "label": "Afbeelding",
+            "name": "afbeelding",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 1600,
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ]
 }

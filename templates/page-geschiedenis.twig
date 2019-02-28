@@ -1,6 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
+	{% set sectionno = '0' %}
+	{% set blokno = '0' %}
 	<div class="content-wrapper">
 		<div class="mod-geschiedenis">
 			<nav id="jarenmenu" class="mod-jaren navbar js-stickinparent">
@@ -50,11 +53,9 @@
 	      	</div>
 	      </div>
       	{% if post.jaartal %}
-      		{% set sectionno = '0' %}
       		<div class="jaartallen">
 		      	{% for item in post.get_field('jaartal') %}
 		      		{% set sectionno = sectionno + '1' %}
-		      		{% set blokno = '0' %}
 		      		{% if item.acf_fc_layout == 'jaartal_uitklap' %}
 			      		<article id="j{{ item.jaar }}" class="tease tease-jaar uitklap">
 			      			<div class="jaarlineblok {% if sectionno == '1' %} first {% endif %}">
@@ -91,14 +92,13 @@
 												  	<span> </span>
 												  </div>
 									      	{% for item in item.blokken %}
-									      		{% set blokno = '0' %}
 									      		{% if item.acf_fc_layout == 'content_met_fotos' %}
 											      	<div class="card-body">
 																<div class="row">
 																	<div class="col-lg-6 d-none d-lg-block">
 																		{% for p in item.afbeeldingen %}
 													        		{% set attachment = TimberPost(p.id) %}
-														        	<img src="{{TimberImage(p.id).get_src|resize(600)}})">
+														        	<img src="{{TimberImage(p.id).src|resize(600)}})">
 																	  {% endfor %}
 																	</div>
 												      		<div class="col-lg-12 offset-lg-1">
@@ -107,7 +107,7 @@
 																		<div class="d-lg-none">
 																			{% for p in item.afbeeldingen %}
 														        		{% set attachment = TimberPost(p.id) %}
-															        	<img src="{{TimberImage(p.id).get_src|resize(600)}})">
+															        	<img src="{{TimberImage(p.id).src|resize(600)}})">
 																		  {% endfor %}
 																		</div>
 												      			{{ item.content2 }}
@@ -123,9 +123,9 @@
 												      		</div>
 												      	</div>
 											      	</div>
-											      {% elseif item.acf_fc_layout == 'slider' %}
+											      {% elseif item.acf_fc_layout == 'slider' %}	
+											      	{% set blokno = blokno + '1' %}
 															{% if item.afbeeldingen|length > 0 %}
-																{% set blokno = blokno + '1' %}
 												      	<div class="card-body">
 												      		<div class="row">
 												      			<div class="col-lg-14 offset-lg-4">
@@ -147,7 +147,7 @@
 																		      {% for p in item.afbeeldingen %}
 																        		{% set attachment = TimberPost(p.id) %}
 																	        	<div class="carousel-item h-100{% if loop.first %} active {% endif %}">
-																						  <div class="card-img-top {% if item.afbeeldingvierkant %} {% else %} h-100 {% endif %}" style="background-image: url({{TimberImage(p.id).get_src|resize(800)}})"> </div>
+																						  <div class="card-img-top {% if item.afbeeldingvierkant %} {% else %} h-100 {% endif %}" style="background-image: url({{TimberImage(p.id).src|resize(800)}})"> </div>
 																	        	</div>
 																				  {% endfor %}
 																		    </div>
