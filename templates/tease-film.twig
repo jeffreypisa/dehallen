@@ -1,6 +1,6 @@
 <div class="film">
-  <h3> <a href="{{ post.custom.ticketlink }}"> {{ post.title }} </a></h3>
-  <i class="fal fa-clock"></i>{{ post.custom.begintijd|date("H:i") }}
+  <h3> <a href="{{ event.post.custom.ticketlink }}"> {{ event.post.title }} </a></h3>
+  <i class="fal fa-clock"></i>{{ event.custom.begintijd|date("H:i") }}
   <div class="clearfix"></div>
-  <i class="fal fa-ticket-alt"></i><a href="{{ post.custom.ticketlink }}">Tickets</a>
+  <i class="fal fa-ticket-alt"></i><a href="{{ event.post.custom.ticketlink }}">Tickets</a>
 </div>

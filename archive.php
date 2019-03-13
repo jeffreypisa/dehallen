@@ -28,7 +28,7 @@ $context[ 'time_now' ] =  date('H:i', strtotime("now Europe/Amsterdam") );
 
 
 // Full date
-if(ICL_LANGUAGE_CODE==en){
+if(ICL_LANGUAGE_CODE == "en"){
   $context[ 'date_filter_full' ] = date('l d F');
   $context[ 'day_filter_full' ]  = date('l');
 }
@@ -38,56 +38,43 @@ else {
   $context[ 'day_filter_full' ]  = strftime('%A');
 }
 
+
+
 /* Load Evenementen */
 
 if ($posttype == 'evenementen') { 
-    
-    
-    if( isset( $_GET['planbutton'] ) && isset( $_GET['offset'] ) ) {
-        $_GET['offset'] = 0;
-    }
-    
-    $offset = (isset($_GET['offset']) ) ? intval( $_GET['offset'] ) : 0;
-    
-    $agenda_arr = archive_agenda( $context );
-        
-    if( count( $agenda_arr['context']['evenementen'] ) == 0 ) {
-        
-        $tries = 0;
-        
-        while( date( 'H', $agenda_arr['next_slot'] ) < 12 && count( $agenda_arr['context']['evenementen'] ) == 0 ) {
-            $offset = $agenda_arr['offset'];
-            $agenda_arr = archive_agenda( $agenda_arr['context'], $tries, ($offset+DH_EVENTS_HOUR_OFFSET), true );
-            
-            $tries++;
-        }
-        
-        // Repeat 4 times only for non-AJAX
-        $i = 0;
-        while( $i < 3 ) {
-            if( ( !isset($_GET['offset']) || intval( $_GET['offset'] ) == 0 )  ) {
-                // Sanity date check
 
-                if( date( 'H', $agenda_arr['next_slot'] ) < 12 ) {
-                    $agenda_evenementen_bak = $agenda_arr['context']['evenementen'];
-                    
-                    $offset = $agenda_arr['offset'];
-                    $agenda_arr = archive_agenda( $agenda_arr['context'], null, ($offset+DH_EVENTS_HOUR_OFFSET), true );
-                    
-                    $agenda_arr['context']['evenementen'] = array_merge( $agenda_evenementen_bak, $agenda_arr['context']['evenementen'] );
-                }
-            }
-            $i++;
-        }
-              
-        $context = $agenda_arr['context'];
-    } else {
-        $context = $agenda_arr['context'];
-    }
-    
-    $tmp = explode( '/', $context['date_sanitized']);
-    $context['agenda_date_after_viewing_day'] = date('d/m/Y', strtotime( $tmp[2].'-'.$tmp[1].'-'.$tmp[0] . ' +1 day' ) );
-    
+
+	// set defaults if parameters are not passed
+	if(empty($_GET['date'])) $_GET['date'] = date('d/m/Y'); 
+	if(empty($_GET['time'])) $_GET['time'] = date('H:i'); 
+	if(empty($_GET['category'])) $_GET['category'] = [];
+	if(!empty($_POST['time'])) $_GET['time'] = $_POST['time'];
+	
+	// get continuous events for the date
+	$continuous_events = getContinuousEventsForDate($_GET['date']);
+	// get all events posts
+	$events_posts = getAllEventsPost(); 
+	// get all events for the day (we will show from the current hour on from twig)
+	$events_day = getEventsForDay($_GET['date']);
+	// link the post to each event for displaying data from twig
+	$events_day = linkEventsWithPosts($events_day, $events_posts, $_GET['category']);
+	// separate events per starting hour
+	$events_day = organizeEventsPerHours($events_day);
+
+	//print_r($events_day);
+	//die();
+	
+	// save variables to $context for rendering
+	$context[ 'cat' ] = Timber::get_terms('categorie');
+	$context['current_date'] = $_GET['date'];
+	$context['current_time'] = $_GET['time'];
+	$context['current_hour'] = getHourFromTime($_GET['time']);
+	$context['continuous_events'] = $continuous_events;
+	$context['date_filter_full'] = humanDateTranslated($_GET['date']);
+	$context['events_day'] = $events_day;
+	$context['selected_cats'] = $_GET['category'];
+
 }
 
 
@@ -109,6 +96,9 @@ $day_filter  = date('D');
 
 $context[ 'hour_now' ]  = date('H');
 $context[ 'hour_filter' ]  = date('H');
+
+
+
 
 /* Load Winkels */
 
@@ -133,6 +123,19 @@ if ($posttype == 'evenementen' || $posttype == 'horeca') {
   ); 
   
   $context['horeca'] = Timber::get_posts($args_horeca);
+}
+
+/* Load Cultuur */
+
+if ($posttype == 'evenementen' || $posttype == 'cultuur') {
+  $args_cultuur = array(
+    'post_type'			  => 'locaties',
+  	'posts_per_page'  => -1,
+    'taxonomy'        => 'categorie_locaties',
+    'term'            => 'Cultuur',
+  ); 
+  
+  $context['cultuur'] = Timber::get_posts($args_cultuur);
 }
 
 /* Load Blog */
@@ -189,5 +192,4 @@ if ($posttype == 'locaties') {
   
   $context['posts'] = Timber::get_posts($args_posts);
 }
-
 Timber::render( $templates, $context );

@@ -1,0 +1,20 @@
+<div class="mod-locaties overig">
+  <div class="line">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h2> {{ options.overig_open_op }} {{ day_filter_full | lower }} </h2>
+      <div class="row">           
+        {% for post in overig %}
+          {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

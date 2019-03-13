@@ -1,0 +1,39 @@
+{{ event.post.thelink }}
+<a href="{{ event.post.thelink }}" target="_blank" class="card">
+	<div class="agenda-continuous-event">
+		<div class="agenda-continuous-event-image" style="background-image: url({{ TimberImage(event.post.afbeelding)|resize(480) }})"></div>
+		<div class="agenda-continuous-event-content">
+			<h3> {{ event.post.title }} </h3>
+            <div class="agenda-continuous-event-meta">
+
+				<div class="date"> 
+	                <div class="iconitem">
+		                  {% if event.custom.datum %}
+		                    <i class="fal fa-calendar"></i> {{ event.custom.datum|date("d F Y") }} 
+		                    {% if (event.custom.einddatum) and (event.custom.datum != event.custom.einddatum) %} {{ options.tm }} {{ event.custom.einddatum|date("d F Y") }} {% endif %}
+		                  {% endif %}
+	                </div>
+	                <div class="iconitem">
+		                  {% if event.custom.begintijd or event.custom.eindtijd %}
+		                    <i class="fal fa-clock"></i>
+		                    {% if event.custom.begintijd %} {{ event.custom.begintijd|date("H:i") }} {% endif %} 
+		                    {% if event.custom.eindtijd %}  
+		                      {% if event.custom.begintijd %} — {% endif %}
+		                      {{ event.custom.eindtijd|date("H:i") }}
+		                    {% endif %}
+		                  {% endif %}
+	                </div>
+              	</div> 
+
+            	{% if event.post.locatie %}
+	                <div class="location condensed">
+	                  <div class="iconitem">
+	                    {% set locatie = event.post.get_field('locatie') %}
+	                    <i class="fal fa-map-marker-alt"></i> {{ locatie }}
+	                  </div>
+	                </div>
+	             {% endif %}
+            </div>
+		</div>
+	</div>
+</a>

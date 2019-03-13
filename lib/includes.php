@@ -1,18 +1,22 @@
 <?php
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL && ~E_NOTICE);
+
 function add_theme_scripts() {
     if (!is_page_template('page-blanco.php')) {
         wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css');
         wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'script-nomin', get_template_directory_uri() . '/assets/js/site.js', array ( 'jquery' ), 1.1, true);
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 
-
-
-
 add_action('pmxi_update_post_meta', 'mp_pmxi_update_post_meta', 10, 3);
+
 function mp_pmxi_update_post_meta($pid, $m_key, $m_value) {
     global $wpdb;
     if ( $m_key == 'evenement' && $m_value == 'will_be_auto_imported') {
@@ -188,12 +192,11 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
     
     $dh_is_ajax = false;
     if( isset( $_POST['offset'] ) ) {
-        
         $dh_is_ajax = true;
         $offset = intval( $_POST['offset'] );
     }
+
     if( $override_offset ) {
-        
         $dh_is_ajax = true;
         if( $force_no_xhr ) {
             $dh_is_ajax = false;
@@ -206,7 +209,6 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         $_GET['category']   = $_POST['category'];
         $_GET['date']       = $_POST['date'];
         $_GET['time']       = $_POST['time'];
-        
     }
     
     $context['dh_agenda_ajaxurl']       = home_url( (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : $_SERVER['REQUEST_URI'] );
@@ -250,7 +252,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             $date = str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT );
             $context['date_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).'/'.str_pad( intval( $tmp[2] ), 2, '0', STR_PAD_LEFT );
             
-            if(ICL_LANGUAGE_CODE==en){
+            if(ICL_LANGUAGE_CODE=="en"){
                 $context[ 'date_filter_full' ] = date('l F jS', strtotime( $date ) );
                 $context[ 'day_filter_full' ]  = date('l', strtotime( $date ) );
             }
@@ -267,27 +269,38 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
         }
     }
     
-    if(ICL_LANGUAGE_CODE==en){
+    if(ICL_LANGUAGE_CODE=="en"){
         $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
     } else {
         setlocale(LC_ALL, 'nl_NL');
         $context[ 'date_filter_short' ] = strftime('%d %h %y', strtotime( $date ) );
     }
     
-    $timeday = '00:00:00';
-    $timestart = $timeday;
+    
+    $timestart = '00:00:00';
     $hastime = false;
+    
+    if(!isset($_GET['time'])){
+    	// TODO: the agenda should show events further than the current hour, myabe for the
+    	// next 2 hours
+    	// if not time is passed, use curren time
+    	$_GET['time'] = date('H:00');
+    }
+
+    // if time has been passed as parameter, set $timeastart and $hastime to
+    // query posts for this time
     if( isset( $_GET['time'] ) && $_GET['time'] ) {
         $tmp = explode( ':', $_GET['time'] );
         if( count( $tmp ) == 2 && (intval( $tmp[0] ) > 1 || $tmp[0] == '00') && (intval( $tmp[1] ) > 1 || $tmp[1] == '00') ) {
             // Discard minutes
             // $timestart = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).':'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT ).':00';
-            $timestart = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).':00:00';
+            $timestart = str_pad( 14, 2, '0', STR_PAD_LEFT ).':00:00';
             
             $context['time_sanitized'] = str_pad( intval( $tmp[0] ), 2, '0', STR_PAD_LEFT ).':'.str_pad( intval( $tmp[1] ), 2, '0', STR_PAD_LEFT );
             $hastime = true;
         }
     }
+
     
     if( $dh_is_ajax || $force_no_xhr ) {
         $first_slot = strtotime( $date. ' '.$timestart . ' + '.$offset.' hours');
@@ -376,8 +389,7 @@ function archive_agenda( $context, $tries = 0, $override_offset = false, $force_
             'value' => $search_posts,
         );
     }
-    
-    
+
     $args_evenementen_continuous = $args_evenementen;
     unset( $args_evenementen_continuous['meta_query']['no_continuous'] );
     
@@ -540,6 +552,30 @@ function mp_home_slider_post_object_result_add_date( $title, $post, $field, $pos
 }
 add_filter('acf/fields/post_object/result/key=field_5b2cfe6e8b795', 'mp_home_slider_post_object_result_add_date', 10, 4);
 add_filter('acf/fields/post_object/result/key=field_5c000eb34e054', 'mp_home_slider_post_object_result_add_date', 10, 4);
+
+function mp_cal_relationship_result_slug( $title, $post, $field, $post_id  ) {
+    
+    if( $post->ID ) {
+        
+        return $title. ' ( '. str_replace( get_option( 'siteurl' ), '', get_permalink( $post ) ). ' )';
+        
+        
+        $date = get_post_meta( $post->ID, 'datum', true );
+        
+        $year = substr( $date, 0, 4 );
+        $month = substr( $date, 4, 2 );
+        $day = substr( $date, 6, 2 );
+        
+        $dateunix = strtotime( $year. '-'.$month. '-'.$day );
+        
+        if( $date && $dateunix ) {
+            return date( 'd-M-Y' ,  $dateunix) .  ': '. $title;
+        }
+    }
+    return $title;
+}
+add_filter('acf/fields/relationship/result/key=field_5b702d884eb7f', 'mp_cal_relationship_result_slug', 10, 4);
+
 
 
 /**
@@ -771,3 +807,290 @@ function mp_remove_narrowcaster_old_slider() {
 /**
  * /Remove old sliders
  */
+
+
+function getContinuousEventsForDate($date){
+	$date = humanDateToQueryDate($date); // format date
+
+	$query = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,     
+        'meta_query' => array(
+        	'relation' => 'AND',
+            'date_begin' =>  array( // where starting date >= $date
+                'key' => 'datum',
+                'compare' => '<=',
+                'value' => $date
+            ),
+            'date_end' =>  array( // where ending date <= $date
+                'key' => 'einddatum',
+                'compare' => '>=',
+                'value' => $date
+            ),
+            'continuous' =>  array( // where continuous = true
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => '1'
+            ),
+        ),
+        'orderby' => 'meta_value', // order by starting time
+        'meta_key' => 'begintijd',
+        'order' => 'ASC'
+    );
+	$events = Timber::get_posts($query);
+	foreach($events as &$event){
+		$query = array('post_type' => 'evenementen', 'post__in' =>  [$event->evenement[0]]);
+		$event->post= Timber::get_posts($query)[0];	
+	}
+	return $events;
+}
+
+function getHourFromTime($time){
+	return intval(substr($time, 0, 2));
+}
+
+
+function getAllEventsPost(){
+	$query = array(
+        'post_type' => 'evenementen',
+        'posts_per_page' => - 1,     
+    );
+	$posts = Timber::get_posts($query);
+	$result = [];
+	foreach($posts as $post){
+		$result[$post->id] = $post;
+	}
+	return $result;
+}
+
+
+function getEventsForDay($date){
+	$date = humanDateToQueryDate($date); // format date
+	$query = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,     
+        'meta_query' => array(
+        	'relation' => 'AND',
+        	// dates 
+            'date_start' =>  array( // where starting date >= $date
+                'key' => 'datum',
+                'compare' => '<=',
+                'value' => $date
+            ),
+            'date_end' =>  array( // where ending date <= $date
+                'key' => 'einddatum',
+                'compare' => '>=',
+                'value' => $date
+            ),
+
+            'continuous' =>  array( // where continuous = false
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => '0'
+            ),
+        ),
+        'orderby' => 'meta_value', // order by starting time
+        'meta_key' => 'begintijd',
+        'order' => 'ASC'
+    );
+	return Timber::get_posts($query);
+}
+
+
+function organizeEventsPerHours($events_day){
+	$result = [];
+	foreach($events_day as $event){
+		$hour_start = intval(substr($event->custom['begintijd'], 0, 2));
+		$hour_end = intval(substr($event->custom['eindtijd'], 0, 2));
+		if($event->post->terms('categorie')[0] == 'Film'){
+			$result[$hour_start][] = $event;
+		}else{	
+			for($i = $hour_start; $i <= $hour_end; $i++){
+				$result[$i][] = $event;
+			}
+		}
+	}
+	return $result;
+}
+
+
+function getEventsForDateAndTime($date, $hour){
+	$date = humanDateToQueryDate($date); // format date
+
+	$query = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,     
+        'meta_query' => array(
+        	'relation' => 'AND',
+        	// dates 
+            'date_start' =>  array( // where starting date >= $date
+                'key' => 'datum',
+                'compare' => '<=',
+                'value' => $date
+            ),
+            'date_end' =>  array( // where ending date <= $date
+                'key' => 'einddatum',
+                'compare' => '>=',
+                'value' => $date
+            ),
+            
+            // events starting this hour
+            // OR
+            // events starting before and not finished
+
+            // time
+            'starting_time' =>  array( 
+                'key' => 'begintijd',
+                'compare' => '<=',
+                'value' => $hour . '00:00',
+            ),
+            'ending_time' =>  array( // where time = $time
+                'key' => 'eindtijd',
+                'compare' => '>=',
+                'value' => $hour . '00:00',
+            ),
+
+            'continuous' =>  array( // where continuous = false
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => '0'
+            ),
+        ),
+        'orderby' => 'meta_value', // order by starting time
+        'meta_key' => 'begintijd',
+        'order' => 'ASC'
+    );
+	$events = Timber::get_posts($query);
+
+	return $events;
+}
+
+// convert date from dd/mm/yyyy to timestamp
+function humanDateToTimestamp($date){
+	return strtotime(str_replace('/', '-', $date));
+}
+
+// convert date from dd/mm/yyyy to yyyymmdd
+function humanDateToQueryDate($date){
+	return date('Ymd', humanDateToTimestamp($date));
+}
+
+// converts date from dd/mm/yyyy to Wednesday 6 March
+function humanDateTranslated($date){
+	$timestamp = humanDateToTimestamp($date);
+	if(ICL_LANGUAGE_CODE == "en"){
+  		return date('l d F', $timestamp);
+	}
+	setlocale(LC_ALL, 'nl_NL');
+	return strftime('%A %e %B', $timestamp);
+}
+
+// converts date from dd/mm/yyyy to Wednesday
+function humanDayTranslated(){
+	$timestamp = humanDateToTimestamp($date);
+	if(ICL_LANGUAGE_CODE == "en"){
+  		return date('l', $timestamp);
+	}else{
+		setlocale(LC_ALL, 'nl_NL');
+  		return strftime('%A', $timestamp);
+	}
+}
+
+function filterOutEventsPreviouslyAdded($events_per_hour, $events){
+	$filtered = [];
+	foreach($events as $event){
+		$add = true;
+		foreach($events_per_hour as $hour => $added_events){
+			foreach($added_events as $added_event){
+				if($added_event->id == $event->id) $add = false;
+			}
+		}
+		if($add) array_push($filtered, $event);
+	}
+	return $filtered;
+}
+
+function linkEventsWithPosts($events_day, $events_posts, $filter_categories){
+	$result = [];
+	foreach($events_day as $event){
+		$event_with_post = $event;
+		$post = $events_posts[$event->evenement[0]];
+		$event_with_post->post = $post;
+		
+		if(empty($filter_categories)){
+			$result[] = $event_with_post;
+		}else{
+			$post_categories_slugs = [];
+			foreach($post->terms('categorie') as $cat){
+				$post_categories_slugs[] = $cat->slug;
+			}
+			$cats_matched = array_intersect($post_categories_slugs, $filter_categories);
+			if(count($cats_matched) > 0){
+				$result[] = $event_with_post;
+			}
+		}
+		
+	}
+	return $result;
+}
+
+
+function getEventPostsForCategory($category){
+	 $query = array(
+     	'post_type' => 'evenementen',
+    	'posts_per_page'  => -1,
+    	'tax_query' => array( 
+          	array( 
+              'taxonomy' => 'categorie', //or tag or custom taxonomy
+              'field' => 'slug', 
+              'terms' => $category
+          	) 
+      	)
+    );
+    return Timber::get_posts($query); 
+}
+
+function getEventsFromRange($start_date, $end_date){
+	$start_date = humanDateToQueryDate($start_date); // format date
+	$end_date = humanDateToQueryDate($end_date); // format date
+	
+	$query = array(
+        'post_type' => 'evenementen_datetime',
+        'posts_per_page' => - 1,     
+        'meta_query' => array(
+        	'relation' => 'AND',
+        	// dates 
+            'date_start' =>  array( // where starting date >= $date
+                'key' => 'datum',
+                'compare' => '>=',
+                'value' => $start_date
+            ),
+            'date_end' =>  array( // where ending date <= $date
+                'key' => 'einddatum',
+                'compare' => '<=',
+                'value' => $end_date
+            ),
+            /*
+            'continuous' =>  array( // where continuous = false
+                'key' => 'doorlopend_event',
+                'compare' => '=',
+                'value' => '0'
+            ),
+            */
+        ),
+
+        'orderby' => 'meta_value', // order by starting date
+        'meta_key' => 'datum',
+        'type' => 'DATE',
+        'order' => 'ASC'
+    );
+    return Timber::get_posts($query); 
+}
+
+function getPostById($id){
+	 $query = array(
+     	'post_type' => 'evenementen',
+    	'post__in' =>  [$id]
+    );
+    return Timber::get_posts($query); 
+}

@@ -1,37 +1,17 @@
 {% extends "base.twig" %}
 
 
+
 {% block content %}
-<script>
-var dh_load_more_events_repeat = 0;
-function load_more_events() {
-	jQuery( '#dh_load_more_events_button').hide();
-	jQuery.post( "{{dh_agenda_ajaxurl}}", jQuery( "#searchform" ).serialize(), function( data ) {
-  		
-  		data = JSON.parse(data);
-  		if( jQuery(".mod-agenda").children().length > 1 ) {
-	  		jQuery( '.dh_no_hits' ).remove();  		
-  		}
-  		
-  		// No hits
-  		if( jQuery(".mod-agenda").children().length == 1 ) {
-  			jQuery( ".mod-agenda" ).append(data.body);
-  			jQuery( '.dh_no_hits' ).first().remove();
-  		} else {
-  		 	jQuery( ".mod-agenda article:last-child" ).after(data.body);
-		}
-		
-		// Make sure
-		if( jQuery( '.dh_no_hits' ).length > 1 ) {
-			jQuery( '.dh_no_hits' ).first().remove();
-		}
-  		
-  		jQuery( '#searchoffset' ).val( (parseInt(jQuery( '#searchoffset' ).val()) + data.offsetvalue) );
-		jQuery( '#dh_load_more_events_button').show();
-  		jQuery( '#dh_load_more_events_button').blur();
-});
-}
-</script>
+
+	<script>
+		jQuery(document).ready(function() {
+			if(jQuery('#hour-{{ current_hour }}').length > 0){
+				jQuery("html, body").animate({ scrollTop: jQuery('#hour-{{ current_hour }}').offset().top - 120 }, 800);
+			}
+		});
+	</script>
+
   <section class="mod-eventfilter-agenda">
     <div class="timenow" style="display:none">{{ time_now }}</div>
     <div class="datenow" style="display:none">{{ date_now }}</div>
@@ -40,10 +20,10 @@ function load_more_events() {
       <input type="hidden" name="offset" value="{{dh_agenda_ajaxoffset}}" id="searchoffset" />
         <div class="row">
           <div class="col-8 col-lg-3">
-            <input name="date" type="text" class="form-control js-datepicker" placeholder="{{ options.datum|lower }}" value="{{date_sanitized}}">
+            <input name="date" type="text" class="form-control js-datepicker" placeholder="{{ options.datum|lower }}" value="{{current_date}}">
           </div>
           <div class="col-8 col-lg-2">
-            <input name="time" type="text" class="form-control js-timepicker" placeholder="{{ options.tijd|lower }}" value="{{time_sanitized}}">
+            <input name="time" type="text" class="form-control js-timepicker" placeholder="{{ options.tijd|lower }}" value="{{current_time}}">
           </div>
           <div class="col-auto">
             <a class="form-control js-now"> {{ options.nu|lower }} </a>
@@ -54,11 +34,11 @@ function load_more_events() {
                 {% for item in cat %}
                   {% if item.get_posts|length > 0 %}
                     <div class="col">
-                      <label class="{{ item.slug }} {% if category.slug == item.slug or item.slug in selected_cats|keys %} active {% endif %}">
-                        <input type="checkbox" name="category[]" value="{{ item.slug }}" {% if item.slug in selected_cats|keys %} checked="checked" {% endif %} />
-                        {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg.twig' %}
-                        <div><span class="condensed"> {{ item.title }} </span></div>
-                      </label>
+	                      <label class="{{ item.slug }} {% if category.slug == item.slug or item.slug in selected_cats|keys %} active {% endif %}">
+		                        <input type="checkbox" name="category[]" value="{{ item.slug }}" {% if item.slug in selected_cats %} checked="checked" {% endif %} />
+		                        {% include theme.url ~ '/templates/partials/svg/' ~ item.slug ~ '.svg.twig' %}
+		                        <div><span class="condensed"> {{ item.title }} </span></div>
+	                      </label>
                     </div>
                   {% endif %}
                 {% endfor %}
@@ -82,12 +62,26 @@ function load_more_events() {
       </div>
     </div>
   </section>
+
+
+
   <section>
-    <div class="container">
+    <div class="container" style="margin-bottom: 10px">
+      
       <h1> 
         <span class="d-block d-sm-none">{{ date_filter_short | upper }}</span> 
         <span class="d-none d-sm-block capitalizefirstletter">{{ date_filter_full }}</span> 
       </h1>
+
+	  <!-- show continuous events -->
+	  {% if continuous_events|length > 0 %}
+	  		<div class="agenda-continuous-events">
+	  			{% for event in continuous_events %}
+	  				{% include ['partials/continuous-evenementen.twig'] %}
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
+	  {% endif %}
       
       <div class="mod-agenda">
         {% include ['partials/archive-evenementen-single.twig'] %}
@@ -100,11 +94,12 @@ function load_more_events() {
       {% if ('horeca' in selected_cats) or (selected_cats is empty) %}
         {% include ['partials/horeca.twig'] %}
       {% endif %}
+
+	{% if ('cultuur' in selected_cats) or (selected_cats is empty) %}
+        {% include ['partials/cultuur.twig'] %}
+      {% endif %}
+
     </div>
-    <div class="d-none d-md-block text-center">
-    <br>
-      <button id="dh_load_more_events_button" onClick="load_more_events(); return false;" class="btn btn-secondary"> {{ options.later }} <i class="fal fa-arrow-circle-down"></i></button>
-      <a id="tomorrow" href="/agenda?date={{agenda_date_after_viewing_day}}" class="btn btn-secondary"> {{ options.morgen }} <i class="fal fa-arrow-circle-right"></i></a>
-    </div>
+    
   </section>
 {% endblock %}

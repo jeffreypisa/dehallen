@@ -58,6 +58,16 @@
       }
     }
   }
+  &.cultuur {
+    .card {
+      background: #e7e4e4;
+    }
+    .tease {
+      .title, .time {
+        background: #e7e4e4;
+      }
+    }
+  }
   .tease {
     position: relative;
     display: block;

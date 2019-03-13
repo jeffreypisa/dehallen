@@ -1,64 +1,37 @@
-{% if evenementen|length > 0 %}
-  {% set the_hour_shown = false %}
-  {% for post in evenementen %}
-    {% set catje = post.terms('categorie') | first | lower %}
-    {% set catjebron = post.terms('categorie') %}
-    {% for item in catjebron %}
-      {% if item == 'Film' %}
-        {% set catje = 'film' %}
-      {% endif %}
-    {% endfor %}
+{% if events_day|length > 0 %}
+
+	
+	{% for hour in 9..24 %}
+	  	
+	      <div class="hourblock {% if continuous_events|length > 0 %} with-continuous {% endif %}" id="hour-{{ hour }}">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="meta">
+				  			<div class="hour">{{ hour }}:00 <span></span></div>
+						</div>
+					</div>
+				</div>
+	      </div>
+
+	    {% set events = events_day[hour] %}
+		{% set films = [] %}
+
+		{% for event in events %}
+			{% if 'Film' in event.post.terms('categorie') %}
+				{% set films = films|merge([event]) %}
+			{% else %}
+				{% set catje = event.post.terms('categorie')|first|lower %}
+				{% include ['tease-'~event.post.post_type~'.twig', 'tease.twig'] %}
+			{% endif %}
+		{% endfor %}
+
+
+  		{% if films|length > 0 %}
+			{% include ['partials/moviebox.twig'] %}
+  		{% endif %}
     
-    {% set the_hour_prev = the_hour %}
     
-    {% if the_hour != post.custom.begintijd|date("H") or ( post.custom.doorlopend_event_timestart and the_hour != post.custom.doorlopend_event_timestart ) %}
-      {% set showmoviebox = 'true' %}
-      
-      {% if post.custom.doorlopend_event_timestart %}
-      	{% set the_hour = post.custom.doorlopend_event_timestart %}
-      {% else %}
-	      {% set the_hour = post.custom.begintijd|date("H") %}
-      {% endif %}
-      
-      
-      {% if post.custom.doorlopend_event == 0 or the_hour_shown == false or the_hour_prev != the_hour %}
-      <div class="hourblock">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="meta">
-              <div class="hour">{{ the_hour }}:00 <span></span></div>
-              {% set the_hour_shown = true %}
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-    {% endif %}
-    {% if (catje == 'film') and (showmoviebox == 'true') %}
-      {% include ['partials/moviebox.twig'] %}
-      {% set showmoviebox = 'false' %}
-    {% elseif catje != 'film' %}
-      {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-    {% endif %}
+
   {% endfor %}
-{% else %}
-  {% if ('shops' in selected_cats) or ('horeca' in selected_cats) %}
-  {% else %}
-    <div class="dh_no_hits">
-      <article>
-        <div class="row">
-          <div class="col-md-5">
-            <div class="meta">
-              <div class="hour">
-                <span> </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-14">
-            <h3 style="margin-top: -10px;">{{ options.geen_evenementen }}</h3>
-          </div>
-        </div>
-      </article>
-    </div>
-  {% endif %}
+
 {% endif %}

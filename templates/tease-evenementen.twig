@@ -1,4 +1,4 @@
-<article class="tease tease-{{post.post_type}} {% if post.special %} special {% endif %}" id="tease-{{post.ID}}">
+<article class="tease tease-{{event.post.post_type}} {% if event.post.special %} special {% endif %}" id="tease-{{event.post.ID}}">
   <div class="row">
     <div class="col-md-5">
       <div class="meta">
@@ -7,52 +7,52 @@
       </div>
     </div>
     <div class="col-md-14">
-      <div onclick="location.href='{{ post.link }}'" class="card {{ catje }}">
+      <div onclick="location.href='{{ event.post.link }}'" class="card {{ catje }}">
         <div class="row">
           <div class="col-md-10">
-            {% if post.afbeelding %} 
+            {% if event.post.afbeelding %} 
               <div class="bg">
-                <div class="bgcover" style="background-image: url({{ TimberImage(post.afbeelding)|resize(480) }})"> </div>
+                <div class="bgcover" style="background-image: url({{ TimberImage(event.post.afbeelding)|resize(480) }})"> </div>
               </div>
             {% endif %}
           </div>
           <div class="col-md-10">
             <div class="card-body">
-              <h3> {{ post.title }} </h3>
-              {% if post.type_evenement %}
-                <p class="type-event"> {{ post.type_evenement }} </p>
+              <h3> {{ event.post.title }} </h3>
+              {% if event.post.type_evenement %}
+                <p class="type-event"> {{ event.post.type_evenement }} </p>
               {% endif %}
               <div class="date"> 
                 <div class="iconitem">
-                  {% if post.custom.datum %}
-                    <i class="fal fa-calendar"></i> {{ post.custom.datum|date("d F Y") }} 
-                    {% if (post.custom.einddatum) and (post.custom.datum != post.custom.einddatum) %} {{ options.tm }} <br> {{ post.custom.einddatum|date("d F Y") }} {% endif %} <br>
+                  {% if event.custom.datum %}
+                    <i class="fal fa-calendar"></i> {{ event.custom.datum|date("d F Y") }} 
+                    {% if (event.custom.einddatum) and (event.custom.datum != event.custom.einddatum) %} {{ options.tm }} <br> {{ event.custom.einddatum|date("d F Y") }} {% endif %} <br>
                   {% endif %}
                 </div>
                 <div class="iconitem">
-                  {% if post.custom.begintijd or post.custom.eindtijd %}
+                  {% if event.custom.begintijd or event.custom.eindtijd %}
                     <i class="fal fa-clock"></i>
-                    {% if post.custom.begintijd %} {{ post.custom.begintijd|date("H:i") }} {% endif %} 
-                    {% if post.custom.eindtijd %}  
-                      {% if post.custom.begintijd %} — {% endif %}
-                      {{ post.custom.eindtijd|date("H:i") }}
+                    {% if event.custom.begintijd %} {{ event.custom.begintijd|date("H:i") }} {% endif %} 
+                    {% if event.custom.eindtijd %}  
+                      {% if event.custom.begintijd %} — {% endif %}
+                      {{ event.custom.eindtijd|date("H:i") }}
                     {% endif %}
                   {% endif %}
                 </div>
               </div> 
-              {% if post.locatie %}
+              {% if event.post.locatie %}
                 <div class="location condensed">
                   <div class="iconitem">
-                    {% set locatie = post.get_field('locatie') %}
+                    {% set locatie = event.post.get_field('locatie') %}
                     <i class="fal fa-map-marker-alt"></i> {{ locatie }}
                   </div>
                 </div>
               {% endif %}
             </div>
-            {% if post.gratis %}
+            {% if event.post.gratis %}
               <div class="btn btn-block btn-primary nolink"> {{ options.gratis_entree }} </div>
-            {% elseif post.ticketlink %}
-              <a href="{{ post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> {{ options.tickets }} <i class="fal fa-arrow-circle-right"></i> </a>
+            {% elseif event.post.ticketlink %}
+              <a href="{{ event.post.ticketlink }}" target="_blank" class="btn btn-block btn-primary"> {{ options.tickets }} <i class="fal fa-arrow-circle-right"></i> </a>
             {% else %}
               <div class="btn btn-block btn-primary nolink"> {{ options.geen_tickets }} </div>
             {% endif %}

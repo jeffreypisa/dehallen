@@ -1,0 +1,30 @@
+.page-events{
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-bottom: 50px;
+}
+
+.page-event{
+	width: calc(33% - 20px);
+	float: left;
+	height: 400px;
+	margin: 10px;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.page-event .location{
+	margin-top: 10px;
+}
+
+@media only screen and (max-width: 990px){
+	.page-event{
+		width: calc(50% - 20px);
+	}	
+}
+
+@media only screen and (max-width: 400px){
+	.page-event{
+		width: calc(100% - 20px);
+	}	
+}

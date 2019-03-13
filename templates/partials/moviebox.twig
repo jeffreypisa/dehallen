@@ -10,11 +10,11 @@
         <div class="body">
           <h2> {% if currentlanguage == 'en' %}To the movies{% else %}Naar de film {% endif %} </h2>
           <div class="row">
-            {% for post in evenementen %}
-              {% if (post.terms('categorie')|first == 'Film') and (the_hour == post.custom.begintijd|date("H")) %}
-                <div class="col-md-10">
-                  {% include ['tease-film.twig'] %}
-                </div>
+            {% for event in films %}
+              {% if (event.post.terms('categorie')|first == 'Film') and (hour == event.custom.begintijd|date("H")) %}
+                	<div class="col-md-10">
+                  		{% include ['tease-film.twig'] %}
+                	</div>
               {% endif %}
             {% endfor %}
           </div>
