@@ -52,7 +52,7 @@ if ($posttype == 'evenementen') {
 	if(!empty($_POST['time'])) $_GET['time'] = $_POST['time'];
 	
 	// get continuous events for the date
-	$continuous_events = getContinuousEventsForDate($_GET['date']);
+	$continuous_events = getContinuousEventsForDate($_GET['date'], $_GET['category']);
 	// get all events posts
 	$events_posts = getAllEventsPost(); 
 	// get all events for the day (we will show from the current hour on from twig)
