@@ -23,25 +23,22 @@
         <div class="carousel-item slide {% if slidenr == 0 %} active {% endif %}">
         	<div class="bg" style="background-image: url({{ TimberImage(evenementdata.afbeelding) }})"></div>
           <div class="content">
+          	<img class="house" src="{{ theme.link }}/assets/images/house-white.svg" alt="image">
             <div class="container-fluid">
-              <h2>{{ evenementdata.title }} </h2>
-              {% if evenementdata.type_evenement %}
-                <div class="datetime">{{ evenementdata.type_evenement | lower }} </div>
-              {% endif %}
-              <div class="datetime">
-                {{ slide.datum|date("l d F") }}
-                {% if (slide.einddatum) and (slide.datum != slide.einddatum) %}
-                  {{ options.tm }} <br> {{ slide.einddatum|date("l d F") }}
-                {% endif %}
-              </div>
-              <div class="locatie condensed">
-                <div class="container-fluid">
-                  <div class="location">
-                  {% set locatie = evenementdata.get_field('locatie') %}
-                  <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
-                </div>
-                </div>
-              </div>
+              <h2>{% if evenementdata.type_evenement %} {{ evenementdata.type_evenement | capitalize }}: {% endif %}{{ evenementdata.title }} </h2>
+              <div class="data">
+      					<span class="condensed">
+									{% set locatie = evenementdata.get_field('locatie') %}
+	                <span class="icon"> <i class="fal fa-map-marker-alt"></i> </span> {{ locatie }}
+		        		</span>
+		        		
+								{% if (slide.einddatum) and (slide.datum != slide.einddatum) %}
+	    						<span>
+	    							<i class="fal fa-calendar"></i> 
+	    							{{ slide.datum|date("l d F") }} {{ options.tm }} {{ slide.einddatum|date("l d F") }}
+								  </span>
+							  {% endif %}
+    					</div>
             </div>
           </div>
         </div>

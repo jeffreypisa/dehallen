@@ -1117,6 +1117,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"/assets/scss/modules/_page.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/assets/scss/modules/_page.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"/assets/scss/modules/_pageheader.scss": {
 		"aP": 0,
 		"bl": 0,
