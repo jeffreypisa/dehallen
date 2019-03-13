@@ -37,6 +37,17 @@
 
 {% else %}
 	{% if continuous_events|length == 0 %}
-		<h3 style="margin-bottom: 70px">Geen evenementen</h3>
+		<div class="row" style="margin-bottom: 120px">
+          	<div class="col-md-5">
+            	<div class="meta meta-empty">
+              		<div class="hour">
+                		<span> </span>
+              		</div>
+            	</div>
+          	</div>
+          	<div class="col-md-14">
+          		<h3 style="margin-top: -10px;">Geen evenementen</h3>
+          	</div>
+        </div>
 	{% endif %}
 {% endif %}

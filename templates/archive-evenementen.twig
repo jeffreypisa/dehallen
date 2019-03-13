@@ -93,8 +93,12 @@
         {% include ['partials/horeca.twig'] %}
       {% endif %}
 
-	{% if ('cultuur' in selected_cats) or (selected_cats is empty) %}
+	  {% if ('cultuur' in selected_cats) or (selected_cats is empty) %}
         {% include ['partials/cultuur.twig'] %}
+      {% endif %}
+
+      {% if selected_cats is not empty and ('cultuur' not in selected_cats) and ('horeca' not in selected_cats) and ('shops' not in selected_cats) %}
+			<div style="margin-top: 100px"></div>
       {% endif %}
 
     </div>

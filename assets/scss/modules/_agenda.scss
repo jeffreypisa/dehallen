@@ -17,6 +17,21 @@
   }
 }
 
+
+
+.tease:last-of-type .meta:before,
+.meta-empty:before {
+	content: '';
+	border: 6px solid #0a334f;
+    border-radius: 100px;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    background: #0a334f;
+    bottom: -70px;
+    right: 24px;    
+}
+
 .mod-agenda {
   position: relative;
   .hourblock {
@@ -253,7 +268,7 @@
 	width: calc(50% - 10px);
 	float: left;
 	position: relative;
-	height: 150px;
+	height: 160px;
 	display: block;
 	padding-left: 155px;
 	padding-top: 15px;
