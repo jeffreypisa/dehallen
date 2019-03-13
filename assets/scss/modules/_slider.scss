@@ -65,6 +65,47 @@
       height: 100vh !important;
       height: 100vh;
 			max-height: 100vh;
+			color: $darkblue;
+			.content {
+			  display: block;
+				padding: 50px 60px 50px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: auto;
+				height: auto;
+				z-index: 3;
+				background: #fff;
+				text-align: center;
+				h2 {
+					font-size: 66px !important;
+					margin: 0;
+				}
+				.data {
+					color: $green;
+					font-size: 24px;
+					>span {
+						margin: 0 10px;
+					}
+				}
+				.house {
+					position: absolute;
+					top: -68px;
+					left: 50%;
+					margin-left: -85px;
+					width: 170px;
+					height: auto;
+					z-index: 1;
+					opacity: 1;
+				}
+				&:after {
+					display: none;
+				}
+				.datetime, .locatie {
+					color: $green;
+				}
+		  }
     }
   }
 }

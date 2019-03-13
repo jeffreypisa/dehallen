@@ -9,6 +9,27 @@
 	],
 "creatorBuild": "28905",
 "files": {
+	"/.phpintel/473ae8999304080b3ea3a990cd510b91": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/.phpintel/473ae8999304080b3ea3a990cd510b91",
+		"oF": 0
+		},
+	"/.phpintel/740a215ed1f295df4a509b48a8ee4602": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/.phpintel/740a215ed1f295df4a509b48a8ee4602",
+		"oF": 0
+		},
+	"/.phpintel/index": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/.phpintel/index",
+		"oF": 0
+		},
 	"/.xml_readme": {
 		"cB": 0,
 		"ft": 8192,
@@ -587,12 +608,32 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/assets/js/jquery-ui.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/js/jquery-ui.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"/assets/js/scripts/aanbodkaart.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "/assets/js/scripts/aanbodkaart-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"/assets/js/scripts/clamp.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/js/scripts/clamp.min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -909,6 +950,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"/assets/scss/modules/_agenda_continuous_events.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/assets/scss/modules/_agenda_continuous_events.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"/assets/scss/modules/_eventfilter-agenda.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1113,6 +1167,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/assets/scss/modules/_moviebox.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/modules/_page.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/assets/scss/modules/_page.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -10399,6 +10466,20 @@
 		"oAP": "/templates/partials/contenteditor.twig",
 		"oF": 0
 		},
+	"/templates/partials/continuous-evenementen.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/partials/continuous-evenementen.twig",
+		"oF": 0
+		},
+	"/templates/partials/cultuur.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/partials/cultuur.twig",
+		"oF": 0
+		},
 	"/templates/partials/horeca.twig": {
 		"cB": 0,
 		"ft": 8192,
@@ -10418,6 +10499,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/templates/partials/moviebox.twig",
+		"oF": 0
+		},
+	"/templates/partials/overig.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/templates/partials/overig.twig",
 		"oF": 0
 		},
 	"/templates/partials/socialmedia.twig": {
