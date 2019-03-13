@@ -9304,3 +9304,56 @@ body.opensidemenu .mod-mobilemenu {
     background: #0a334f;
     height: 100px;
     position: absolute; } }
+
+.agenda-continuous-events {
+  margin-bottom: 100px; }
+
+.agenda-continuous-events a {
+  width: calc(50% - 10px);
+  float: left;
+  position: relative;
+  height: 150px;
+  display: block;
+  padding-left: 155px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  background-color: #e2e3e4;
+  margin-bottom: 25px; }
+
+.agenda-continuous-events a:nth-child(odd) {
+  margin-right: 20px;
+  clear: both; }
+
+@media only screen and (max-width: 1200px) {
+  .agenda-continuous-events a {
+    width: 100%; }
+  .agenda-continuous-events a:nth-child(odd) {
+    margin-right: 0; } }
+
+@media only screen and (max-width: 500px) {
+  .agenda-continuous-events a {
+    height: 180px; } }
+
+.agenda-continuous-event h3 {
+  font-size: 20px !important;
+  margin-bottom: 10px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical; }
+
+.agenda-continuous-event-meta {
+  font-size: 16px;
+  line-height: 25px; }
+
+.agenda-continuous-event-image {
+  width: 140px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center center; }
