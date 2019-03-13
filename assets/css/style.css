@@ -7309,7 +7309,7 @@ body .flatpickr-calendar {
     width: 6px;
     background: #46aa64; }
 
-<<<<<<< HEAD
+
 .tease:last-of-type .meta:before,
 .meta-empty:before {
 	content: '';
@@ -7322,7 +7322,6 @@ body .flatpickr-calendar {
     bottom: -70px;
     right: 24px;    
 }
-
 
 .agenda-continuous-events{
 	margin-bottom: 100px;
@@ -7362,10 +7361,6 @@ body .flatpickr-calendar {
 	}
 }
 
-.agenda-continuous-event{
-	
-}
-
 .agenda-continuous-event h3{
 	font-size: 20px!important;
 	margin-bottom: 10px!important;
@@ -7392,8 +7387,6 @@ body .flatpickr-calendar {
 	background-position: center center;
 }
 
-=======
->>>>>>> 746340921dfc118053a2a6d39e8684d957bf09b2
 .mod-agenda {
   position: relative; }
   .mod-agenda .hourblock {
