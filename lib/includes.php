@@ -7,6 +7,7 @@
 function add_theme_scripts() {
     if (!is_page_template('page-blanco.php')) {
         wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css');
+        wp_enqueue_script( 'clamp-js', get_template_directory_uri() . '/assets/js/scripts/clamp.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'script-nomin', get_template_directory_uri() . '/assets/js/site.js', array ( 'jquery' ), 1.1, true);
     }
@@ -809,7 +810,7 @@ function mp_remove_narrowcaster_old_slider() {
  */
 
 
-function getContinuousEventsForDate($date){
+function getContinuousEventsForDate($date, $filter_categories){
 	$date = humanDateToQueryDate($date); // format date
 
 	$query = array(
@@ -837,12 +838,32 @@ function getContinuousEventsForDate($date){
         'meta_key' => 'begintijd',
         'order' => 'ASC'
     );
+
 	$events = Timber::get_posts($query);
-	foreach($events as &$event){
+
+	$result = [];
+
+	foreach($events as $event){
 		$query = array('post_type' => 'evenementen', 'post__in' =>  [$event->evenement[0]]);
-		$event->post= Timber::get_posts($query)[0];	
+		$post = Timber::get_posts($query)[0];
+		$event_with_post = $event;
+		$event_with_post->post = $post;	
+
+		if(empty($filter_categories)){
+			$result[] = $event_with_post;
+		}else{
+			$post_categories_slugs = [];
+			foreach($post->terms('categorie') as $cat){
+				$post_categories_slugs[] = $cat->slug;
+			}
+			$cats_matched = array_intersect($post_categories_slugs, $filter_categories);
+			if(count($cats_matched) > 0){
+				$result[] = $event_with_post;
+			}
+		}
 	}
-	return $events;
+
+	return $result;
 }
 
 function getHourFromTime($time){
@@ -906,7 +927,10 @@ function organizeEventsPerHours($events_day){
 			$result[$hour_start][] = $event;
 		}else{	
 			for($i = $hour_start; $i <= $hour_end; $i++){
-				$result[$i][] = $event;
+				// dont add the event to the hour if its finishing at exactly that hour
+				if($i != $hour_end || substr($event->custom['eindtijd'], -2) != '00'){
+					$result[$i][] = $event;	
+				}
 			}
 		}
 	}

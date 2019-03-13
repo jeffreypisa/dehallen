@@ -2,8 +2,10 @@
 
 	
 	{% for hour in 9..24 %}
+
+		{% if events_day[hour] %}
 	  	
-	      <div class="hourblock {% if continuous_events|length > 0 %} with-continuous {% endif %}" id="hour-{{ hour }}">
+	    	<div class="hourblock {% if continuous_events|length > 0 %} with-continuous {% endif %}" id="hour-{{ hour }}">
 				<div class="row">
 					<div class="col-md-5">
 						<div class="meta">
@@ -11,27 +13,30 @@
 						</div>
 					</div>
 				</div>
-	      </div>
+	      	</div>
 
-	    {% set events = events_day[hour] %}
-		{% set films = [] %}
+		    {% set events = events_day[hour] %}
+			{% set films = [] %}
 
-		{% for event in events %}
-			{% if 'Film' in event.post.terms('categorie') %}
-				{% set films = films|merge([event]) %}
-			{% else %}
-				{% set catje = event.post.terms('categorie')|first|lower %}
-				{% include ['tease-'~event.post.post_type~'.twig', 'tease.twig'] %}
-			{% endif %}
-		{% endfor %}
+			{% for event in events %}
+				{% if 'Film' in event.post.terms('categorie') %}
+					{% set films = films|merge([event]) %}
+				{% else %}
+					{% set catje = event.post.terms('categorie')|first|lower %}
+					{% include ['tease-'~event.post.post_type~'.twig', 'tease.twig'] %}
+				{% endif %}
+			{% endfor %}
 
-
-  		{% if films|length > 0 %}
-			{% include ['partials/moviebox.twig'] %}
-  		{% endif %}
-    
-    
+	  		{% if films|length > 0 %}
+				{% include ['partials/moviebox.twig'] %}
+	  		{% endif %}
+	    
+		{% endif %}
 
   {% endfor %}
 
+{% else %}
+	{% if continuous_events|length == 0 %}
+		<h3 style="margin-bottom: 70px">Geen evenementen</h3>
+	{% endif %}
 {% endif %}

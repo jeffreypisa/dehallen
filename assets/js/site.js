@@ -5,6 +5,11 @@ jQuery(document).ready(function($) {
 	$(window).resize(function() {
 		reescaleElements();
 	});
+	// adjust clampped lines
+	$('.clamp-2').each(function(){
+		$clamp($(this)[0], {clamp: 2});	
+	})
+	
 });
 
 function reescaleElements(){
