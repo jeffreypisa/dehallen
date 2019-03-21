@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 });
 
 function reescaleElements(){
-	if(jQuery('.agenda-continuous-events').length > 0){
+	if(jQuery('.agenda-continuous-events').length > 0 && jQuery('.hour:first-child').length > 0){
 		var top = jQuery('.agenda-continuous-events .card:first-child').offset().top;
 		var hourtop = jQuery('.hour:first-child').offset().top;
 		var diff = hourtop - top;
