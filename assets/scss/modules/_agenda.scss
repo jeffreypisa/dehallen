@@ -294,14 +294,17 @@
 	}
 }
 
-@media only screen and (max-width: 500px){
-	.agenda-continuous-events a{
-		height: 180px;
-	}
-}
 
-.agenda-continuous-event{
-	
+@media only screen and (max-width: 530px) {
+    .agenda-continuous-event-image {
+        width: 100%;
+        height: 140px;
+    }
+    .agenda-continuous-events a{
+        padding-left: 15px;
+        padding-top: 150px;
+        height: 280px;
+    }
 }
 
 .agenda-continuous-event h3{
