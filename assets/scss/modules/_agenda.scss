@@ -278,6 +278,8 @@
 	margin-bottom: 25px;
 }
 
+
+
 .agenda-continuous-events a:nth-child(odd){
 	margin-right: 20px;
 	clear: both;
@@ -314,6 +316,12 @@
 .agenda-continuous-event-meta{
 	font-size: 16px;
 	line-height: 25px;
+}
+
+.agenda-continuous-event-meta .iconitem i{
+    width: 20px;
+    text-align: center;
+    margin-left: -2px;
 }
 
 .agenda-continuous-event-image{

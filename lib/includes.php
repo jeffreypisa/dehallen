@@ -6,7 +6,7 @@
 
 function add_theme_scripts() {
     if (!is_page_template('page-blanco.php')) {
-        wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css');
+        wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css', array(), '4.10.0');
         wp_enqueue_script( 'clamp-js', get_template_directory_uri() . '/assets/js/scripts/clamp.min.js', array ( 'jquery' ), 1.2, true);
         wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.2, true);
         wp_enqueue_script( 'script-nomin', get_template_directory_uri() . '/assets/js/site.js', array ( 'jquery' ), 1.2, true);

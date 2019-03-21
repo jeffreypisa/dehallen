@@ -7585,6 +7585,12 @@ body .flatpickr-calendar {
   font-size: 16px;
   line-height: 25px; }
 
+.agenda-continuous-event-meta .iconitem i{
+    width: 20px;
+    text-align: center;
+    margin-left: -2px;
+}
+
 .agenda-continuous-event-image {
   width: 140px;
   height: 100%;
