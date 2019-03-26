@@ -1,3 +1,20 @@
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0a334f;
+  color: #fff;
+  font-size: 11px;
+  padding: 0 10px;
+  opacity: 0;
+  transition: 0.2s ease-in;
+  text-align: right; }
+
+.card-img-top:hover .caption {
+  opacity: 1; }
+
+
 .mod-slider {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
