@@ -67,23 +67,26 @@
 									  <div class="container">
 									  	<div class="jaar">
 									  		<div></div>
-												<h2> {{ item.jaar }} </h2>
+											<h2> {{ item.jaar }} </h2>
 									  	</div>
 									  </div>
 								  </div>
-									<div class="mod-pageheader d-flex align-items-center">
-						        <div class="bg gradient" style="background-image: url({{ TimberImage(item.afbeelding).src }}"></div>
-						        <div class="container">
-							        <h2> {{ item.titel }} </h2>
-									    <h4> {{ item.subtitel }} </h4>
-									    <div class="btnholder">
-										    <button data-toggle="collapse" data-target="#collapse{{ sectionno }}" role="button" aria-expanded="false" aria-controls="collapse">
-										    	<span> lees meer </span> <br>
-											    <i class="fal fa-arrow-circle-down"></i>
-											  </button>	
-										  </div>					        
-  									</div>
-						      </div>
+									<div class="mod-pageheader d-flex align-items-center with-credits">
+                                        <div class="credits-box">
+                                            {{ item.afbeelding['caption'] }}
+                                        </div>
+                                        <div class="bg gradient" style="background-image: url({{ TimberImage(item.afbeelding).src }}"></div>
+                                        <div class="container">
+                                            <h2> {{ item.titel }} </h2>
+                                                <h4> {{ item.subtitel }} </h4>
+                                                <div class="btnholder">
+                                                    <button data-toggle="collapse" data-target="#collapse{{ sectionno }}" role="button" aria-expanded="false" aria-controls="collapse">
+                                                        <span> lees meer </span> <br>
+                                                        <i class="fal fa-arrow-circle-down"></i>
+                                                    </button>	
+                                                </div>					        
+                                            </div>
+                                    </div>
 						      {% if item.blokken %}
 							      <div class="collapse" id="collapse{{ sectionno }}">							    
 								      <div class="container">

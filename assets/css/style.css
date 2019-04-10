@@ -9395,3 +9395,25 @@ body.opensidemenu .mod-mobilemenu {
   background-color: #ccc;
   background-size: cover;
   background-position: center center; }
+
+.credits-box{
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.2s;
+}
+
+.with-credits h2, .with-credits h4{
+    transition: all 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+.with-credits:hover h2, .with-credits:hover h4{
+    transform: scale(1.2);
+}
+
+.with-credits:hover .credits-box{
+    opacity: 1;
+}
+

@@ -10,7 +10,7 @@
       $("a").removeClass('opacity1');
     });
 
-    $('a[data-aanbodfilter]').on('click', function(event) {
+    $('a[data-aanbodfilter]').on('hover', function(event) {
       event.preventDefault();
       $('.block').removeClass('active');
       $(this).addClass('active');

@@ -10,4 +10,5 @@ $post = new TimberPost();
 	
 $context['post'] = $post;
 
+
 Timber::render( array( 'page-geschiedenis.twig' ), $context );
