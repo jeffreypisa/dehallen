@@ -9363,6 +9363,7 @@ body.opensidemenu .mod-mobilemenu {
     transition: all 0.7s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.2s;
 }
 
+
 .with-credits h2, .with-credits h4{
     transition: all 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000);
 }
@@ -9370,6 +9371,16 @@ body.opensidemenu .mod-mobilemenu {
 .with-credits:hover h2, .with-credits:hover h4{
     transform: scale(1.2);
 }
+
+
+.mod-pageheader.with-credits{
+    cursor: pointer !important;
+}
+
+.with-credits:hover button{
+    color: #46aa64 !important;
+}
+
 
 .with-credits:hover .credits-box{
     opacity: 1;

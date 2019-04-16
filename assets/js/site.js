@@ -8,7 +8,14 @@ jQuery(document).ready(function($) {
 	// adjust clampped lines
 	$('.clamp-2').each(function(){
 		$clamp($(this)[0], {clamp: 2});	
-	})
+    });
+    
+
+    $('.mod-pageheader.with-credits').on('click', function(e){
+        e.preventDefault();
+        $($(this).find('button').data('target')).collapse('toggle');
+    });
+
 	
 });
 
