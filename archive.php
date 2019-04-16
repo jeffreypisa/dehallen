@@ -27,16 +27,14 @@ date_default_timezone_set('Europe/Amsterdam');
 $context[ 'time_now' ] =  date('H:i', strtotime("now Europe/Amsterdam") );
 
 
-// Full date
-if(ICL_LANGUAGE_CODE == "en"){
-  $context[ 'date_filter_full' ] = date('l d F');
-  $context[ 'day_filter_full' ]  = date('l');
-}
-else {
-  setlocale(LC_ALL, 'nl_NL');
-  $context[ 'date_filter_full' ] = strftime('%A %e %B');
-  $context[ 'day_filter_full' ]  = strftime('%A');
-}
+// set defaults if parameters are not passed
+if(empty($_GET['date'])) $_GET['date'] = date('d/m/Y'); 
+if(empty($_GET['time'])) $_GET['time'] = date('H:i'); 
+if(empty($_GET['category'])) $_GET['category'] = [];
+if(!empty($_POST['time'])) $_GET['time'] = $_POST['time'];
+
+$context['date_filter_full'] = humanDateTranslated($_GET['date']);
+$context['day_filter_full']  = humanDayTranslated($_GET['date']);
 
 
 
@@ -45,12 +43,6 @@ else {
 if ($posttype == 'evenementen') { 
 
 
-	// set defaults if parameters are not passed
-	if(empty($_GET['date'])) $_GET['date'] = date('d/m/Y'); 
-	if(empty($_GET['time'])) $_GET['time'] = date('H:i'); 
-	if(empty($_GET['category'])) $_GET['category'] = [];
-	if(!empty($_POST['time'])) $_GET['time'] = $_POST['time'];
-	
 	// get continuous events for the date
 	$continuous_events = getContinuousEventsForDate($_GET['date'], $_GET['category']);
 	// get all events posts
@@ -71,7 +63,6 @@ if ($posttype == 'evenementen') {
 	$context['current_time'] = $_GET['time'];
 	$context['current_hour'] = getHourFromTime($_GET['time']);
 	$context['continuous_events'] = $continuous_events;
-	$context['date_filter_full'] = humanDateTranslated($_GET['date']);
 	$context['events_day'] = $events_day;
 	$context['selected_cats'] = $_GET['category'];
 
@@ -79,6 +70,7 @@ if ($posttype == 'evenementen') {
 
 
 
+  
 
 
 

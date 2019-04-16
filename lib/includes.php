@@ -1010,7 +1010,7 @@ function humanDateTranslated($date){
 }
 
 // converts date from dd/mm/yyyy to Wednesday
-function humanDayTranslated(){
+function humanDayTranslated($date){
 	$timestamp = humanDateToTimestamp($date);
 	if(ICL_LANGUAGE_CODE == "en"){
   		return date('l', $timestamp);

@@ -110,7 +110,7 @@ if ($posttype == 'evenementen') {
     $context['locatie'] = get_field('locatie');
     
     $all_dates = mp_get_all_dates_for_event( $post->ID );
-        
+    
     $context['alldates'] = $all_dates;
     /*
 Array

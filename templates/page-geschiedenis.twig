@@ -103,7 +103,7 @@
 													        		{% set attachment = TimberPost(p.id) %}
 													        		<div class="captionwrapper" style="position: relative">
 															        	<img src="{{TimberImage(p.id).src|resize(600)}})">
-															        	<div class="caption" style="bottom: 30px; ">{{ TimberImage(p.id).caption }}</div>
+															        	<div class="caption" style="bottom: 30px;">{{ TimberImage(p.id).caption }}</div>
 														        	</div>
 																	  {% endfor %}
 																	</div>
@@ -174,9 +174,11 @@
 														    </div>
 											      	{% endif %}
 											      {% elseif item.acf_fc_layout == 'afbeelding' %}
-															<div class="mod-pageheader mh">
-												        <div class="bg" style="background-image: url({{ item.afbeelding }}"></div>
-												      </div>
+                                                        <div class="mod-pageheader mh">
+                                                            <div class="captionwrapper bg" style="background-image: url({{ item.afbeelding['url'] }}">
+                                                                <div class="caption">{{ item.afbeelding['caption'] }}</div>
+                                                            </div>
+                                                        </div>
 											      {% elseif item.acf_fc_layout == 'quote' %}
 											      	<div class="card-body">
 												      	<div class="row">

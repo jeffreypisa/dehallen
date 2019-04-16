@@ -1037,9 +1037,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5c88d248a68b2",
-            "label": "Overig open op",
-            "name": "overig_open_op",
+            "key": "field_5c938ae314573",
+            "label": "Cultuur open op",
+            "name": "cultuur_open_op",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -1056,9 +1056,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5c88d264a68b3",
-            "label": "Cultuur open op",
-            "name": "cultuur_open_op",
+            "key": "field_5c938ad614572",
+            "label": "Overig open op",
+            "name": "overig_open_op",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -1301,5 +1301,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1552470664
+    "modified": 1553173237
 }

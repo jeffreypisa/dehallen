@@ -1,26 +1,6 @@
 {
     "key": "group_5c347cef1dfd1",
     "title": "Geschiedenis",
-    "location": [
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "page-geschiedenis.php"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content"
-    ],
-    "active": 1,
-    "description": "",
-    "modified": 1551185646,
     "fields": [
         {
             "key": "field_5c389cbb7f43c",
@@ -197,7 +177,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "array",
                             "preview_size": "thumbnail",
                             "library": "all",
                             "min_width": "",
@@ -432,7 +412,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "url",
+                                            "return_format": "array",
                                             "preview_size": "thumbnail",
                                             "library": "all",
                                             "min_width": "",
@@ -638,7 +618,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -751,7 +731,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -762,5 +742,25 @@
             "max_size": "",
             "mime_types": ""
         }
-    ]
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-geschiedenis.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1555426751
 }

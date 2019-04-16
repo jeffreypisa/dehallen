@@ -27,3 +27,16 @@
 		}
 	}
 }
+
+.rondleidingen-title{
+    /* min 35px or based on viewport width */
+    font-size:calc(35px + 1vw);
+}
+
+.rondleidingen-image-big{
+    background-size: cover;
+    background-position: center center;
+    height: 40vw;
+    min-height: 300px;
+    max-height: calc(100vh - 280px);
+}
