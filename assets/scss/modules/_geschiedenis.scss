@@ -183,6 +183,9 @@
 						i {
 							font-size: 30px;
 						}
+						&:hover {
+							color: $green;
+						}
 						&[aria-expanded="true"] {
 							i {
 								transform: rotate(180deg);
@@ -312,14 +315,4 @@
 			}
 		}
 	}
-}
-
-
-
-.mod-pageheader.with-credits{
-    cursor: pointer !important;
-}
-
-.with-credits:hover button{
-    color: #46aa64 !important;
 }

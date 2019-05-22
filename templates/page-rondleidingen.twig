@@ -63,7 +63,7 @@
                                     <div class="col-md-14 offset-md-3">
                                         <br>
                                         <h1 class="text-center rondleidingen-title" style="margin-bottom: 10px;">
-                                            {{ item.titel }}
+                                            {{ item.titel|replace({'- ': ''}) }}
                                         </h1>
                                     </div>
                                 </div>

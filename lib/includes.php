@@ -7,9 +7,9 @@
 function add_theme_scripts() {
     if (!is_page_template('page-blanco.php')) {
         wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/style.css', array(), '4.12.0');
-        wp_enqueue_script( 'clamp-js', get_template_directory_uri() . '/assets/js/scripts/clamp.min.js', array ( 'jquery' ), 1.3, true);
-        wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.3, true);
-        wp_enqueue_script( 'script-nomin', get_template_directory_uri() . '/assets/js/site.js', array ( 'jquery' ), 1.3, true);
+        wp_enqueue_script( 'clamp-js', get_template_directory_uri() . '/assets/js/scripts/clamp.min.js', array ( 'jquery' ), 1.5, true);
+        wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/site-min.js', array ( 'jquery' ), 1.5, true);
+        wp_enqueue_script( 'script-nomin', get_template_directory_uri() . '/assets/js/site.js', array ( 'jquery' ), 1.5, true);
     }
 }
 
@@ -613,6 +613,8 @@ function narrowcasting_today() {
                         $slides[$post_id] = array( 'id' => $post_id, 'is_film' => $is_film, 'source' => 'narrow_settings',
                             'datum' => $event_datetimemeta['datum'][0],
                             'einddatum' => $event_datetimemeta['einddatum'][0],
+                            'begintijd' => $event_datetimemeta['begintijd'][0],
+                            'eindtijd' => $event_datetimemeta['eindtijd'][0],
                         );
                     }
                 }
@@ -663,6 +665,8 @@ function narrowcasting_today() {
         $slides[$post_id] = array( 'id' => $post_id, 'is_film' => true, 'source' => 'narrow_query_today',
             'datum' => $today,
             'einddatum' => $today,
+            'begintijd' => $filmdatetime->custom['begintijd'],
+            'eindtijd' => $filmdatetime->custom['eindtijd'],
         );
     }
     
@@ -923,7 +927,7 @@ function organizeEventsPerHours($events_day){
 	foreach($events_day as $event){
 		$hour_start = intval(substr($event->custom['begintijd'], 0, 2));
 		$hour_end = intval(substr($event->custom['eindtijd'], 0, 2));
-		if($event->post->terms('categorie')[0] == 'Film'){
+		if($event->post && $event->post->terms('categorie')[0] == 'Film'){
 			$result[$hour_start][] = $event;
 		}else{	
 			for($i = $hour_start; $i <= $hour_end; $i++){

@@ -16,6 +16,15 @@ jQuery(document).ready(function($) {
         $($(this).find('button').data('target')).collapse('toggle');
     });
 
+
+    $("a[href='#to-form']").on('click', function(e){
+        console.log('scroll to form');
+        e.preventDefault();
+        console.log($(document).height());
+        //window.scrollTo(0, $(".nf-form-layout").offset().top);
+        $("html, body").animate({ scrollTop: $(".nf-form-layout").offset().top }, 1000);
+    })
+
 	
 });
 
